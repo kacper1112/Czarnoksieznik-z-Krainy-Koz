@@ -2,14 +2,14 @@ package gra;
 
 public abstract class Gracz {
     //Ekwipunek ekwipunek;
-    private double maksymalnePunktyZycia;
-    private double obecnePunktyZycia;
-    private double sila;
-    private double inteligencja;
-    private int poziom;
-    private double punktyDoswiadczenia;
-    private int postepFabularny;
-    private double pieniadze;
+    double maksymalnePunktyZycia;
+    double obecnePunktyZycia;
+    double sila;
+    double inteligencja;
+    int poziom;
+    double punktyDoswiadczenia;
+    int postepFabularny;
+    double pieniadze;
 
     public Gracz() {
         maksymalnePunktyZycia = 100;
@@ -38,14 +38,40 @@ public abstract class Gracz {
        }
     }
 
-    void otrzymajObrazenia(double wartosc) {
-        // jakis skomplikowany wzorek
-        double obrazenia = wartosc * 0.5;
-    }
+    double obliczWplywAtrybutowPrzedmiotowNaOtrzymanePrzezWojownikaObrazenia() {return 0;}
 
     void aktualizujPostepFabularny(int etap) {
         postepFabularny = etap;
     }
 
+//    void uzyjPrzedmiotu(Pozywienie pozywienie) {
+//
+//    }
+//
+//    void uzyjPrzedmiotu(Fabularny fabularny) {
+//
+//    }
+}
 
+class Wojownik extends Gracz {
+    void otrzymajObrazenia(double wartosc) {
+        // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
+
+
+
+        double obrazenia = (1 - sila / 100) * wartosc;
+        zmniejszPunktyZycia(obrazenia);
+    }
+}
+
+class Mag extends Gracz {
+    void otrzymajObrazenia(double wartosc) {
+
+    }
+}
+
+class Kaplan extends Gracz {
+    void otrzymajObrazenia(double wartosc) {
+
+    }
 }
