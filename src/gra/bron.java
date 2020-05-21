@@ -3,8 +3,8 @@ package gra;
 public interface bron {
     double zadajObrazenia();
 
-    // dla bronii fizycznej mocniejszy atak z szansa wypadniecia miecza z reki
-    // dla bronii magicznej mozliwosc podwojnego ataku, szansa na zadziałanie czaru
-    // przeciwko graczowi
+    // dla bronii fizycznej mocniejszy atak, w przypadku niepowodzenia 0 obrazenia
+    // dla bronii magicznej mozliwosc podwojnego ataku, w przypadku niepowodzenia
+    // leczy przeciwnika zamiast ranic
     double zadajObrazeniaSpecjalne();
 }
