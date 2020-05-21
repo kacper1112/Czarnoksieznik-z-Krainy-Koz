@@ -134,7 +134,7 @@ public abstract class Gracz {
         this.ekwipunek.wlozPozywienie(pozywienie);
     }
 
-    public void wlozPrzedmiotFabularnyDoEkwipunku(PrzedmiotyFabularne przedmiotFabularny) {
+    public void wlozPrzedmiotFabularnyDoEkwipunku(PrzedmiotFabularny przedmiotFabularny) {
         this.ekwipunek.wlozFabularne(przedmiotFabularny);
     }
 
