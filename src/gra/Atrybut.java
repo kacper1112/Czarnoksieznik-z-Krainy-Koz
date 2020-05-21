@@ -13,6 +13,15 @@ public class Atrybut {
         szansaNaNatychmiastoweZabicie = 0;
     }
 
+    Atrybut(int szansa) {
+        bonusDoSily = 0;
+        bonusDoInteligencji = 0;
+        szansaNaKrytyczne = 0;
+        szansaNaNatychmiastoweZabicie = 0;
+
+        losujAtrybuty(szansa);
+    }
+
     void losujAtrybuty(int szansa) {
 
         // szansa okresla liczbe losowan na wystapienie bonusu
