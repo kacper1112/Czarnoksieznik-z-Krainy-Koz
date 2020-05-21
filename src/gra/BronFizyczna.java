@@ -5,17 +5,17 @@ public class BronFizyczna extends Przedmiot implements bron {
     // ostrosc okresla jaki % obrazen bazowych zadajemy, zakres 0-100
     int ostrosc;
     double obrazeniaBazowe;
-    double uderzenieKrytyczne;
+    double mocUderzeniaKrytycznego;
 
     public BronFizyczna(String nazwa,
                         String opis,
                         double wartosc,
                         int szansaAtrybutu,
                         double obrazeniaBazowe,
-                        double uderzenieKrytyczne) {
+                        double mocUderzeniaKrytycznego) {
         super(nazwa, opis, wartosc, szansaAtrybutu);
         this.obrazeniaBazowe = obrazeniaBazowe;
-        this.uderzenieKrytyczne = uderzenieKrytyczne;
+        this.mocUderzeniaKrytycznego = mocUderzeniaKrytycznego;
         ostrosc = 100;
     }
 
@@ -25,7 +25,7 @@ public class BronFizyczna extends Przedmiot implements bron {
         boolean czyKrytyczne = (Math.random() < atrybut.getSzansaNaKrytyczne());
 
         if(czyKrytyczne) {
-            obrazenia *= uderzenieKrytyczne;
+            obrazenia *= mocUderzeniaKrytycznego;
             System.out.println("Uderzenie krytyczne!");
         }
         return obrazenia;
@@ -43,6 +43,4 @@ public class BronFizyczna extends Przedmiot implements bron {
         // mocne uderzenie jest o 60% mocniejsze od zwyklego
         return zadajObrazenia() * 1.6;
     }
-
-
 }
