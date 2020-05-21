@@ -51,27 +51,11 @@ public abstract class Gracz {
 //    void uzyjPrzedmiotu(Fabularny fabularny) {
 //
 //    }
+
 }
 
-class Wojownik extends Gracz {
-    void otrzymajObrazenia(double wartosc) {
-        // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
 
 
 
-        double obrazenia = (1 - sila / 100) * wartosc;
-        zmniejszPunktyZycia(obrazenia);
-    }
-}
 
-class Mag extends Gracz {
-    void otrzymajObrazenia(double wartosc) {
 
-    }
-}
-
-class Kaplan extends Gracz {
-    void otrzymajObrazenia(double wartosc) {
-
-    }
-}
