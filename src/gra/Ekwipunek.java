@@ -6,51 +6,60 @@ import java.util.List;
 public class Ekwipunek {
     private List<? super PrzedmiotyFabularne> ekwipunekFabularne;
     private List<? super Pozywienie> ekwipunekPozywienie;
-    private List<Bron> ekwipunekBron;
+    private List<? super Przedmiot> ekwipunekBron;
     //private List<Przedmiot> ekwipunekPozostale; CZY TO JEST POTRZEBNE????
-    private Bron wyekwipowanaBron;
+    private Przedmiot wyekwipowanaBron;
 
     public Ekwipunek() {
         ekwipunekFabularne = new ArrayList<>();
         ekwipunekPozywienie = new ArrayList<>();
         ekwipunekBron = new ArrayList<>();
-        wyekwipowanaBron = new Bron();
+    }
+
+    public void wlozFabularne(PrzedmiotyFabularne pf){
+        ekwipunekFabularne.add(pf);
+    }
+
+    public void wlozPozywienie(Pozywienie pozywienie){
+        ekwipunekPozywienie.add(pozywienie);
+    }
+
+    public void wlozBron(Przedmiot p){
+        ekwipunekBron.add(p);
+    }
+
+    public Przedmiot wyciagnijBron(int indeks){
+        return (Przedmiot) ekwipunekBron.get(indeks);
+    }
+
+    public PrzedmiotyFabularne wyciagnijFabularne(int indeks){
+        return (PrzedmiotyFabularne) ekwipunekFabularne.get(indeks);
+    }
+
+    public Pozywienie wyciagnijPozywienie(int indeks){
+        return (Pozywienie) ekwipunekPozywienie.get(indeks);
     }
 
     public void zmienWyekwipowanaBron(int indeksBroni){
-        wyekwipowanaBron = ekwipunekBron.get(indeksBroni);
+        wyekwipowanaBron = (Przedmiot) ekwipunekBron.get(indeksBroni);
     }
+
+    //GETERY I SETTERY (CZESC DO WYWALENIA POZNIEJ)
 
     public List<? super PrzedmiotyFabularne> getEkwipunekFabularne() {
         return ekwipunekFabularne;
-    }
-
-    public void setEkwipunekFabularne(List<? super PrzedmiotyFabularne> ekwipunekFabularne) {
-        this.ekwipunekFabularne = ekwipunekFabularne;
     }
 
     public List<? super Pozywienie> getEkwipunekPozywienie() {
         return ekwipunekPozywienie;
     }
 
-    public void setEkwipunekPozywienie(List<? super Pozywienie> ekwipunekPozywienie) {
-        this.ekwipunekPozywienie = ekwipunekPozywienie;
-    }
-
-    public List<Bron> getEkwipunekBron() {
+    public List<? super Przedmiot> getEkwipunekBron() {
         return ekwipunekBron;
     }
 
-    public void setEkwipunekBron(List<Bron> ekwipunekBron) {
-        this.ekwipunekBron = ekwipunekBron;
-    }
-
-    public Bron getWyekwipowanaBron() {
+    public Przedmiot getWyekwipowanaBron() {
         return wyekwipowanaBron;
-    }
-
-    public void setWyekwipowanaBron(Bron wyekwipowanaBron) {
-        this.wyekwipowanaBron = wyekwipowanaBron;
     }
 
     @Override

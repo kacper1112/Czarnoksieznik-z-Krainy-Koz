@@ -2,7 +2,7 @@ package gra;
 
 public abstract class Gracz {
     // pola klasy Gracza
-    //Ekwipunek ekwipunek;
+    Ekwipunek ekwipunek;
     double maksymalnePunktyZycia;
     double obecnePunktyZycia;
     double sila;
@@ -120,8 +120,34 @@ public abstract class Gracz {
         }
     }
 
-    double zadajObrazenia() {
 
+    // wkladanie przedmiotow do ekwipunku
+    public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
+        this.ekwipunek.wlozBron(bronFizyczna);
+    }
+
+    public void wlozBronMagicznaDoEwkipunku(BronMagiczna bronMagiczna) {
+        this.ekwipunek.wlozBron(bronMagiczna);
+    }
+
+    public void wlozPozywienieDoEkwipunku(Pozywienie pozywienie) {
+        this.ekwipunek.wlozPozywienie(pozywienie);
+    }
+
+    public void wlozPrzedmiotFabularnyDoEkwipunku(PrzedmiotyFabularne przedmiotFabularny) {
+        this.ekwipunek.wlozFabularne(przedmiotFabularny);
+    }
+
+    // dodac uzywanie pozywienia
+
+    public String toString() {
+        return "Masz obecnie " +
+                obecnePunktyZycia +" punktow zycia, " +
+                sila + " sily, "+
+                inteligencja +" inteligencji. Posiadasz " +
+                poziom + " poziom oraz " +
+                punktyDoswiadczenia + " punktow zycia. Masz " +
+                pieniadze + " zlotych monet.";
     }
 
     double obliczWplywAtrybutowPrzedmiotowNaOtrzymanePrzezWojownikaObrazenia() {return 0;}
