@@ -120,6 +120,8 @@ public abstract class Gracz {
         }
     }
 
+    public abstract double zadajObrazenia();
+    public abstract void otrzymajObrazenia(double wartosc);
 
     // wkladanie przedmiotow do ekwipunku
     public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
@@ -139,6 +141,9 @@ public abstract class Gracz {
     }
 
     // dodac uzywanie pozywienia
+    public void uzyjPozywienia(int index) {
+
+    }
 
     public String toString() {
         return "Masz obecnie " +
