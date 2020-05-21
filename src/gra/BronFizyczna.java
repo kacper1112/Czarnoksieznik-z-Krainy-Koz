@@ -2,8 +2,8 @@ package gra;
 
 public class BronFizyczna extends Przedmiot implements bron {
 
-    // ostrosc okresla jaki % obrazen bazowych zadajemy, zakres 0-1
-    double ostrosc;
+    // ostrosc okresla jaki % obrazen bazowych zadajemy, zakres 0-100
+    int ostrosc;
     double obrazeniaBazowe;
     double uderzenieKrytyczne;
 
@@ -16,17 +16,32 @@ public class BronFizyczna extends Przedmiot implements bron {
         super(nazwa, opis, wartosc, szansaAtrybutu);
         this.obrazeniaBazowe = obrazeniaBazowe;
         this.uderzenieKrytyczne = uderzenieKrytyczne;
+        ostrosc = 100;
     }
 
     @Override
     public double zadajObrazenia() {
+        double obrazenia = obrazeniaBazowe * ostrosc / 100;
+        boolean czyKrytyczne = (Math.random() < atrybut.getSzansaNaKrytyczne());
 
-        return 0;
+        if(czyKrytyczne) {
+            obrazenia *= uderzenieKrytyczne;
+            System.out.println("Uderzenie krytyczne!");
+        }
+        return obrazenia;
     }
 
     @Override
     public double zadajObrazeniaSpecjalne() {
-        return 0;
+        // 60% szans na powodzenie uderzenia
+        boolean czyUdaneUderzenie = (Math.random() < 0.6);
+
+        if(!czyUdaneUderzenie) {
+            return 0;
+        }
+
+        // mocne uderzenie jest o 60% mocniejsze od zwyklego
+        return zadajObrazenia() * 1.6;
     }
 
 
