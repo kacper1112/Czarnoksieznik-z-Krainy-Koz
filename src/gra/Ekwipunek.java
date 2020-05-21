@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ekwipunek {
-    private List<? super PrzedmiotyFabularne> ekwipunekFabularne;
+    private List<? super PrzedmiotFabularny> ekwipunekFabularne;
     private List<? super Pozywienie> ekwipunekPozywienie;
     private List<? super Przedmiot> ekwipunekBron;
     //private List<Przedmiot> ekwipunekPozostale; CZY TO JEST POTRZEBNE????
@@ -16,7 +16,7 @@ public class Ekwipunek {
         ekwipunekBron = new ArrayList<>();
     }
 
-    public void wlozFabularne(PrzedmiotyFabularne pf){
+    public void wlozFabularne(PrzedmiotFabularny pf){
         ekwipunekFabularne.add(pf);
     }
 
@@ -32,8 +32,8 @@ public class Ekwipunek {
         return (Przedmiot) ekwipunekBron.get(indeks);
     }
 
-    public PrzedmiotyFabularne wyciagnijFabularne(int indeks){
-        return (PrzedmiotyFabularne) ekwipunekFabularne.get(indeks);
+    public PrzedmiotFabularny wyciagnijFabularne(int indeks){
+        return (PrzedmiotFabularny) ekwipunekFabularne.get(indeks);
     }
 
     public Pozywienie wyciagnijPozywienie(int indeks){
@@ -46,7 +46,7 @@ public class Ekwipunek {
 
     //GETERY I SETTERY (CZESC DO WYWALENIA POZNIEJ)
 
-    public List<? super PrzedmiotyFabularne> getEkwipunekFabularne() {
+    public List<? super PrzedmiotFabularny> getEkwipunekFabularne() {
         return ekwipunekFabularne;
     }
 

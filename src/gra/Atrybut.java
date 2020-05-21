@@ -1,10 +1,10 @@
 package gra;
 
 public class Atrybut {
-    double bonusDoSily;
-    double bonusDoInteligencji;
-    double szansaNaKrytyczne;
-    double szansaNaNatychmiastoweZabicie;
+    private double bonusDoSily;
+    private double bonusDoInteligencji;
+    private double szansaNaKrytyczne;
+    private double szansaNaNatychmiastoweZabicie;
 
     Atrybut() {
         bonusDoSily = 0;
@@ -35,5 +35,21 @@ public class Atrybut {
 
         // maksymalnie 5% szans na natychmiastowe zabicie
         szansaNaNatychmiastoweZabicie = Math.random() / 20;
+    }
+
+    double getBonusDoSily() {
+        return bonusDoSily;
+    }
+
+    double getBonusDoInteligencji() {
+        return bonusDoInteligencji;
+    }
+
+    double getSzansaNaKrytyczne() {
+        return szansaNaKrytyczne;
+    }
+
+    double getSzansaNaNatychmiastoweZabicie() {
+        return szansaNaNatychmiastoweZabicie;
     }
 }

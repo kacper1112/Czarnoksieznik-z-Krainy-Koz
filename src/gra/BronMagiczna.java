@@ -1,6 +1,9 @@
 package gra;
 
-public class BronMagiczna implements bron {
+public class BronMagiczna extends Przedmiot implements bron {
+
+
+
 
     @Override
     public double zadajObrazenia() {
