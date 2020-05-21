@@ -22,11 +22,22 @@ public class Ekwipunek {
 
     public void wlozPozywienie(Pozywienie pozywienie){
         ekwipunekPozywienie.add(pozywienie);
-
     }
 
     public void wlozBron(Przedmiot p){
         ekwipunekBron.add(p);
+    }
+
+    public Przedmiot wyciagnijBron(int indeks){
+        return (Przedmiot) ekwipunekBron.get(indeks);
+    }
+
+    public PrzedmiotyFabularne wyciagnijFabularne(int indeks){
+        return (PrzedmiotyFabularne) ekwipunekFabularne.get(indeks);
+    }
+
+    public Pozywienie wyciagnijPozywienie(int indeks){
+        return (Pozywienie) ekwipunekPozywienie.get(indeks);
     }
 
     public void zmienWyekwipowanaBron(int indeksBroni){
@@ -39,16 +50,16 @@ public class Ekwipunek {
         return ekwipunekFabularne;
     }
 
-    public void setEkwipunekFabularne(List<? super PrzedmiotyFabularne> ekwipunekFabularne) {
-        this.ekwipunekFabularne = ekwipunekFabularne;
-    }
-
     public List<? super Pozywienie> getEkwipunekPozywienie() {
         return ekwipunekPozywienie;
     }
 
-    public void setEkwipunekPozywienie(List<? super Pozywienie> ekwipunekPozywienie) {
-        this.ekwipunekPozywienie = ekwipunekPozywienie;
+    public List<? super Przedmiot> getEkwipunekBron() {
+        return ekwipunekBron;
+    }
+
+    public Przedmiot getWyekwipowanaBron() {
+        return wyekwipowanaBron;
     }
 
     @Override
