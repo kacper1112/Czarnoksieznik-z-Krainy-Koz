@@ -3,6 +3,7 @@ package gra;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Handlarz extends NPC {
     public int pieniadze;
@@ -62,12 +63,13 @@ public class Handlarz extends NPC {
                 rand.nextDouble()*100
         ));
 
-
-                pairIndex = rand.nextInt(pozywienieTMP.size());
+        pairIndex = rand.nextInt(pozywienieTMP.size());
         ekwipunek.wlozPozywienie(new PrzedmiotPozywienie(
                 pozywienieTMP.get(pairIndex).getPierwszy(),
                 pozywienieTMP.get(pairIndex).getDrugi(),
-
+                rand.nextDouble()*100,
+                rand.nextInt(100),
+                rand.nextDouble()*100
         ));
 
         ekwipunek.getEkwipunekBron().forEach(x->{
@@ -82,15 +84,29 @@ public class Handlarz extends NPC {
     }
 
     public void przedstawOferte(){
-        System.out.println("Moja oferta dla ciebie byczq: \n" + this.oferta);
+        if (oferta.size()<1){
+            System.out.println("Brak przedmiotow do kupienia.");
+        }else {
+            System.out.println("Moja oferta dla ciebie byczq: \n" + this.oferta);
+        }
     }
 
     public void resetujOferte(){
         setEkwipunek(generujEkwipunek());
     }
 
-    void sprzedajGraczowi(Gracz g){
-        //update ekwipunek gracza
+    void sprzedajGraczowi(Gracz gracz, int indeksOferty){
+        if (oferta.size()<1){
+            System.out.println("Brak przedmiotow do kupienia.");
+        } else if(oferta.get(indeksOferty) instanceof PrzedmiotPozywienie){
+            gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie) oferta.get(indeksOferty));
+            oferta.stream()
+                    .filter(x-> !(x.getNazwa().equals(oferta.get(indeksOferty).getNazwa())))
+                    .collect(Collectors.toList());
+        } else if(oferta.get(indeksOferty) instanceof  BronFizyczna || oferta.get(indeksOferty) instanceof  BronMagiczna){
+            oferta.stream()
+                    .filter(x-> !(x.getNazwa().equals(oferta.get(indeksOferty).getNazwa())))
+                    .collect(Collectors.toList());
+        }
     }
-
 }

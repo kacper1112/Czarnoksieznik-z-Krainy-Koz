@@ -1,8 +1,8 @@
 package gra;
 
 public abstract class NPC {
-    String imie;
-    Ekwipunek ekwipunek;
+    private String imie;
+    private Ekwipunek ekwipunek;
 
     public NPC(String imie) {
         this.imie = imie;
@@ -19,7 +19,7 @@ public abstract class NPC {
         this.ekwipunek.wlozBron(bronMagiczna);
     }
 
-    public void wlozPozywienieDoEkwipunku(Pozywienie pozywienie) {
+    public void wlozPozywienieDoEkwipunku(PrzedmiotPozywienie pozywienie) {
         this.ekwipunek.wlozPozywienie(pozywienie);
     }
 

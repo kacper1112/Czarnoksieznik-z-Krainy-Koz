@@ -10,5 +10,4 @@ public class Fabularny extends NPC {
         return null;
     }
 
-
 }
