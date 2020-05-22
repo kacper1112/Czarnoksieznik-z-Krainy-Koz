@@ -7,7 +7,7 @@ public class Kaplan extends Gracz {
 
     // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
-        return this.ekwipunek.getWyekwipowanaBron().wartosc;
+        return this.ekwipunek.getWyekwipowanaBron().getWartosc();
     }
 
     // obsluzyc jak gracza ginie
@@ -17,7 +17,7 @@ public class Kaplan extends Gracz {
             this.zwiekszPunktyZycia(wartosc);
         } else {
             // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
-            double obrazenia = (1 - sila / 100) * wartosc;
+            double obrazenia = (1 - getSila() / 100) * wartosc;
             zmniejszPunktyZycia(obrazenia);
         }
     }
