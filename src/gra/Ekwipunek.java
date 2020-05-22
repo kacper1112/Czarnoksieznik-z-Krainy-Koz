@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Ekwipunek {
     private List<? super PrzedmiotFabularny> ekwipunekFabularne;
-    private List<? super Pozywienie> ekwipunekPozywienie;
+    private List<? super PrzedmiotPozywienie> ekwipunekPozywienie;
     private List<? super Przedmiot> ekwipunekBron;
     //private List<Przedmiot> ekwipunekPozostale; CZY TO JEST POTRZEBNE????
     private Przedmiot wyekwipowanaBron;
@@ -20,7 +20,7 @@ public class Ekwipunek {
         ekwipunekFabularne.add(pf);
     }
 
-    public void wlozPozywienie(Pozywienie pozywienie){
+    public void wlozPozywienie(PrzedmiotPozywienie pozywienie){
         ekwipunekPozywienie.add(pozywienie);
     }
 
@@ -36,8 +36,8 @@ public class Ekwipunek {
         return (PrzedmiotFabularny) ekwipunekFabularne.get(indeks);
     }
 
-    public Pozywienie wyciagnijPozywienie(int indeks){
-        return (Pozywienie) ekwipunekPozywienie.get(indeks);
+    public PrzedmiotPozywienie wyciagnijPozywienie(int indeks){
+        return (PrzedmiotPozywienie) ekwipunekPozywienie.get(indeks);
     }
 
     public void zmienWyekwipowanaBron(int indeksBroni){
@@ -50,7 +50,7 @@ public class Ekwipunek {
         return ekwipunekFabularne;
     }
 
-    public List<? super Pozywienie> getEkwipunekPozywienie() {
+    public List<? super PrzedmiotPozywienie> getEkwipunekPozywienie() {
         return ekwipunekPozywienie;
     }
 
