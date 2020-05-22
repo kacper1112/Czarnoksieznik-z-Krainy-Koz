@@ -3,14 +3,22 @@ package gra;
 public abstract class Gracz {
     // pola klasy Gracza
     Ekwipunek ekwipunek;
-    double maksymalnePunktyZycia;
-    double obecnePunktyZycia;
-    double sila;
-    double inteligencja;
-    int poziom;
-    double punktyDoswiadczenia;
-    int postepFabularny;
-    double pieniadze;
+    private double maksymalnePunktyZycia;
+    private double obecnePunktyZycia;
+    private double sila;
+    private double inteligencja;
+    private int poziom;
+    private double punktyDoswiadczenia;
+    private int postepFabularny;
+    private double pieniadze;
+
+    public Ekwipunek getEkwipunek() {
+        return ekwipunek;
+    }
+
+    public void setEkwipunek(Ekwipunek ekwipunek) {
+        this.ekwipunek = ekwipunek;
+    }
 
     // gettery i settery Gracza
     public double getMaksymalnePunktyZycia() {
@@ -122,6 +130,7 @@ public abstract class Gracz {
 
     public abstract double zadajObrazenia();
     public abstract void otrzymajObrazenia(double wartosc);
+    public abstract void zwiekszLevel();
 
     // wkladanie przedmiotow do ekwipunku
     public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
@@ -132,7 +141,7 @@ public abstract class Gracz {
         this.ekwipunek.wlozBron(bronMagiczna);
     }
 
-    public void wlozPozywienieDoEkwipunku(Pozywienie pozywienie) {
+    public void wlozPozywienieDoEkwipunku(PrzedmiotPozywienie pozywienie) {
         this.ekwipunek.wlozPozywienie(pozywienie);
     }
 
@@ -142,7 +151,21 @@ public abstract class Gracz {
 
     // dodac uzywanie pozywienia
     public void uzyjPozywienia(int index) {
+        this.obecnePunktyZycia += ((PrzedmiotPozywienie) this.ekwipunek.getEkwipunekPozywienie().get(index)).getPrzywracaneZycie();
+    }
 
+    // zmien wyekwipowana bron
+    public void zmienBron(int index) {
+        if(index < this.ekwipunek.getEkwipunekBron().size()) {
+            this.ekwipunek.zmienWyekwipowanaBron(index);
+        } else {
+            System.out.println("Bron o podanym indeksie nie istnieje");
+        }
+    }
+
+    // wywolaj wskazwoke, jezeli masz wystarczajaca ilosc inteligencji
+    public void uzyjPrzedmiotuFabularnego(int index) {
+        ((PrzedmiotFabularny)this.ekwipunek.getEkwipunekFabularne().get(index)).getWskazowka(this.inteligencja);
     }
 
     public String toString() {
@@ -160,12 +183,4 @@ public abstract class Gracz {
     void aktualizujPostepFabularny(int etap) {
         postepFabularny = etap;
     }
-
-//    void uzyjPrzedmiotu(Pozywienie pozywienie) {
-//
-//    }
-//
-//    void uzyjPrzedmiotu(Fabularny fabularny) {
-//
-//    }
 }
