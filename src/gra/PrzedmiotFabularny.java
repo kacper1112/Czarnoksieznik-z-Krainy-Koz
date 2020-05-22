@@ -1,9 +1,9 @@
 package gra;
 
 public class PrzedmiotFabularny {
-    boolean czyZuzyty;
-    String wskazowka;
-    double inteligencjaWymaganaDoWskazowki;
+    private final boolean czyZuzyty;
+    private final String wskazowka;
+    private final double inteligencjaWymaganaDoWskazowki;
 
     public PrzedmiotFabularny(boolean czyZuzyty,
                               String wskazowka,
@@ -19,5 +19,13 @@ public class PrzedmiotFabularny {
         } else {
             return "Nie jestes wystarczajaco inteligentny!";
         }
+    }
+
+    public boolean isCzyZuzyty() {
+        return czyZuzyty;
+    }
+
+    public String getWskazowka() {
+        return wskazowka;
     }
 }

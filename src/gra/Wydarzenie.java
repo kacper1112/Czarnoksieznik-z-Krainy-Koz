@@ -3,10 +3,10 @@ package gra;
 import java.util.List;
 
 public class Wydarzenie {
-    final String nazwa;
-    final String opis;
-    List<Wrog> wrogowie;
-    List<Fabularny> postacieFabularne;
+    private final String nazwa;
+    private final String opis;
+    private List<Wrog> wrogowie;
+    private List<Fabularny> postacieFabularne;
 
     public Wydarzenie(String nazwa, String opis) {
         this.nazwa = nazwa;
@@ -19,5 +19,21 @@ public class Wydarzenie {
 
     public void dodajPostacFabularna(Fabularny fabularny) {
         this.postacieFabularne.add(fabularny);
+    }
+
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public List<Wrog> getWrogowie() {
+        return wrogowie;
+    }
+
+    public List<Fabularny> getPostacieFabularne() {
+        return postacieFabularne;
     }
 }

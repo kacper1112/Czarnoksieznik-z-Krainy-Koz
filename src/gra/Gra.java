@@ -35,6 +35,8 @@ public class Gra {
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
 
+        // Lokacja lokacjaStartowa = new Lokacja("Lokacja startowa", );
+
         // Chalupka nad urwista dolina
 
         // Bajkowa polana

@@ -22,7 +22,7 @@ public class BronMagiczna extends Przedmiot implements bron {
     @Override
     public double zadajObrazenia() {
         double obrazenia = obrazeniaBazowe * mocZwoju / 100;
-        boolean czyKrytyczne = (Math.random() < atrybut.getSzansaNaKrytyczne());
+        boolean czyKrytyczne = (Math.random() < this.getAtrybut().getSzansaNaKrytyczne());
 
         if(czyKrytyczne) {
             obrazenia *= mocUderzeniaKrytycznego;

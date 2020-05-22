@@ -1,10 +1,10 @@
 package gra;
 
 public abstract class Przedmiot {
-    final String nazwa;
-    final String opis;
-    double wartosc;
-    Atrybut atrybut;
+    private final String nazwa;
+    private final String opis;
+    private final double wartosc;
+    private final Atrybut atrybut;
 
     Przedmiot() {
         nazwa = "";
@@ -18,5 +18,21 @@ public abstract class Przedmiot {
         this.opis = opis;
         this.wartosc = wartosc;
         this.atrybut = new Atrybut(szansaAtrybutu);
+    }
+
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public double getWartosc() {
+        return wartosc;
+    }
+
+    public Atrybut getAtrybut() {
+        return atrybut;
     }
 }

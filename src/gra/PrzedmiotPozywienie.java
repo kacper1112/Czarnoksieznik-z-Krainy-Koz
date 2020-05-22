@@ -1,7 +1,7 @@
 package gra;
 
 public class PrzedmiotPozywienie extends Przedmiot {
-    double przywracaneZycie;
+    private final double przywracaneZycie;
 
     public PrzedmiotPozywienie(String nazwa, String opis, double wartosc, int szansaAtrybutu, double przywracaneZycie) {
         super(nazwa, opis, wartosc, szansaAtrybutu);
