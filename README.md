@@ -1,6 +1,6 @@
-#Czarnoksiężnik z Krainy Kóz
+# Czarnoksiężnik z Krainy Kóz
 
-**Czarnoksiężnik z Krainy Kóz** - opis fabularny  
+Opis fabularny: 
 
 Gra osadzona jest w bliżej nieokreślonych czasach średniowiecza. Główny bohater Roman jest cieślą mieszkającym nieopodal największego miasta królestwa Krainy Kóz - Mysłowic (zbieżność nazw przypadkowa). Razem ze swoją małżonką Joanną prowadzi spokojne życie zdala od miejskiego zgiełku.
 
