@@ -62,13 +62,13 @@ public class Handlarz extends NPC {
                 rand.nextDouble()*100
         ));
 
-        /* JAK BEDZIE ZROBIONE POZYWIENIE
+
                 pairIndex = rand.nextInt(pozywienieTMP.size());
-        ekwipunek.wlozPozywienie(new Pozywienie(
+        ekwipunek.wlozPozywienie(new PrzedmiotPozywienie(
                 pozywienieTMP.get(pairIndex).getPierwszy(),
-                pozywienieTMP.get(pairIndex).getDrugi()
+                pozywienieTMP.get(pairIndex).getDrugi(),
+
         ));
-         */
 
         ekwipunek.getEkwipunekBron().forEach(x->{
             oferta.add((Przedmiot) x);
