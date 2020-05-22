@@ -3,9 +3,9 @@ package gra;
 public class BronMagiczna extends Przedmiot implements bron {
 
     // moc zwoju okresla jaki % obrazen bazowych zadajemy, zakres 0-100
-    int mocZwoju;
-    double obrazeniaBazowe;
-    double mocUderzeniaKrytycznego;
+    private final int mocZwoju;
+    private final double obrazeniaBazowe;
+    private final double mocUderzeniaKrytycznego;
 
     public BronMagiczna(String nazwa,
                         String opis,
