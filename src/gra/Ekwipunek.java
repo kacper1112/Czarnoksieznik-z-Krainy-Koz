@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ekwipunek {
-    private List<? super PrzedmiotFabularny> ekwipunekFabularne;
-    private List<? super PrzedmiotPozywienie> ekwipunekPozywienie;
-    private List<? super Przedmiot> ekwipunekBron;
+    private final List<? super PrzedmiotFabularny> ekwipunekFabularne;
+    private final List<? super PrzedmiotPozywienie> ekwipunekPozywienie;
+    private final List<? super Przedmiot> ekwipunekBron;
     //private List<Przedmiot> ekwipunekPozostale; CZY TO JEST POTRZEBNE????
     private Przedmiot wyekwipowanaBron;
 
