@@ -1,11 +1,11 @@
 package gra;
 
 public class Lokacja {
-    final String nazwa;
-    String[] opisy;
-    int[] sasiednieLokacje;
-    Wydarzenie wydarzenieFabularne;
-    Wydarzenie[] wydarzeniaPoboczne;
+    private final String nazwa;
+    private String[] opisy;
+    private int[] sasiednieLokacje;
+    private Wydarzenie wydarzenieFabularne;
+    private Wydarzenie[] wydarzeniaPoboczne;
 
     public Lokacja(String nazwa) {
         this.nazwa = nazwa;

@@ -13,7 +13,12 @@ public class Wojownik extends Gracz {
     // obsluzyc jak gracza ginie
     public void otrzymajObrazenia(double wartosc) {
         // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
-        double obrazenia = (1 - sila / 100) * wartosc;
+        double obrazenia = (1 - this.getSila() / 100) * wartosc;
         zmniejszPunktyZycia(obrazenia);
+    }
+
+    @Override
+    public void zwiekszLevel() {
+
     }
 }

@@ -7,7 +7,7 @@ public class Mag extends Gracz {
 
     // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
-        return this.getInteligencja() + this.ekwipunek.getWyekwipowanaBron().wartosc;
+        return this.getInteligencja() + this.ekwipunek.getWyekwipowanaBron().getWartosc();
     }
 
     // obsluzyc jak gracza ginie
@@ -15,7 +15,7 @@ public class Mag extends Gracz {
         // mozwliwosc uniku
         if(Math.random() >= .1) {
             // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
-            double obrazenia = (1 - inteligencja / 100) * wartosc;
+            double obrazenia = (1 - this.getInteligencja() / 100) * wartosc;
             zmniejszPunktyZycia(obrazenia);
         }
     }

@@ -98,6 +98,4 @@ public class Fabularny extends NPC {
     public void setCzyPosiadaPrzedmiotFabularny(boolean czyPosiadaPrzedmiotFabularny) {
         this.czyPosiadaPrzedmiotFabularny = czyPosiadaPrzedmiotFabularny;
     }
-
-
 }

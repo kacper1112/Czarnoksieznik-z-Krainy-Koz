@@ -3,9 +3,9 @@ package gra;
 public class BronFizyczna extends Przedmiot implements bron {
 
     // ostrosc okresla jaki % obrazen bazowych zadajemy, zakres 0-100
-    private int ostrosc;
-    private double obrazeniaBazowe;
-    private double mocUderzeniaKrytycznego;
+    private final int ostrosc;
+    private final double obrazeniaBazowe;
+    private final double mocUderzeniaKrytycznego;
 
     public BronFizyczna(String nazwa,
                         String opis,
