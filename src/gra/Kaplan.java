@@ -7,7 +7,11 @@ public class Kaplan extends Gracz {
 
     // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
-        return this.ekwipunek.getWyekwipowanaBron().getWartosc();
+        return this.ekwipunek.getWyekwipowanaBron().zadajObrazenia();
+    }
+
+    public double zadajObrazeniaSpecjalne() {
+        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazeniaSpecjalne();
     }
 
     // obsluzyc jak gracza ginie

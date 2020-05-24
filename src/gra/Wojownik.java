@@ -7,7 +7,11 @@ public class Wojownik extends Gracz {
 
     // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
-        return this.getSila();
+        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
+    }
+
+    public double zadajObrazeniaSpecjalne() {
+        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazeniaSpecjalne();
     }
 
     // obsluzyc jak gracza ginie
