@@ -5,6 +5,7 @@ import java.util.List;
 public class Wydarzenie {
     private final String nazwa;
     private final String opis;
+    private Boss boss;
     private List<Wrog> wrogowie;
     private List<Fabularny> postacieFabularne;
 
@@ -15,6 +16,9 @@ public class Wydarzenie {
 
     public void dodajWroga(Wrog wrog) {
         this.wrogowie.add(wrog);
+    }
+    public void dodajBossa(Boss boss) {
+        this.boss = boss;
     }
 
     public void dodajPostacFabularna(Fabularny fabularny) {
@@ -35,5 +39,9 @@ public class Wydarzenie {
 
     public List<Fabularny> getPostacieFabularne() {
         return postacieFabularne;
+    }
+
+    public Boss getBoss() {
+        return boss;
     }
 }
