@@ -1,20 +1,66 @@
 package gra;
 
+import java.util.Scanner;
+
 public class Gra {
     // tylko jedna instancja gry - singleton
-    private static Gra instance;
-    private Gra() {
+    private Scanner in;
+    private int wyborGracza;
 
+    private static Gra instance;
+    private Gracz gracz;
+    private Lokacja[] lokacje;
+
+    private Gra() {
+        in = new Scanner(System.in);
+
+        System.out.println("Czarnoksieznik z Krainy Koz\n");
+        System.out.println("1. Rozpocznij nowa gre \n 2. Pokaz instrukcje");
+        wyborGracza = in.nextInt();
+
+        if(wyborGracza == 1) {
+            if(!inicjalizacjaGry()) {
+                System.out.println("Blad podczas inicjalizacji gry!");
+                System.exit(1);
+            }
+
+            if(rozpocznijGre()) {
+                System.out.println("Gratulacje, udalo Ci sie ukonczyc gre!");
+            } else {
+                System.out.println("Powodzenia nastepnym razem!");
+            }
+
+        } else if(wyborGracza == 2) {
+            pokazInstrukcje();
+        } else {
+            System.out.println("Nieprawidlowy numer instrukcji");
+        }
     };
 
-    Gracz gracz;
-    Lokacja[] lokacje;
 
     public static Gra getInstance() {
         if(instance == null) {
             instance = new Gra();
         }
         return instance;
+    }
+
+    private void pokazInstrukcje() {
+        System.out.println("To jest instrukcja");
+    }
+
+    private boolean inicjalizacjaGry() {
+        lokacje = inicjalizacjaLokacji();
+        //inicjalizacjaBossow();
+        inicjalizacjaWydarzenFabularnych();
+
+
+        return true;
+    }
+
+
+    private boolean rozpocznijGre() {
+        return false;
     }
 
     private void inicjalizacjaWydarzenFabularnych() {
@@ -30,7 +76,7 @@ public class Gra {
         Wydarzenie spotkanieNaBajkowejPolanie_2;
     }
 
-    private void inicjalizacjaLokacji() {
+    private Lokacja[] inicjalizacjaLokacji() {
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
