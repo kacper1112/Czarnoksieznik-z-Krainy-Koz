@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Gra {
     // tylko jedna instancja gry - singleton
-    private Scanner in;
+    private static Scanner in;
     private int wyborGracza;
 
     private static Gra instance;
@@ -63,6 +63,16 @@ public class Gra {
         return false;
     }
 
+    public int menu0(){
+        System.out.println("1. Pokaż ekwipunek\n" +
+                "2. Zmień broń\n" +
+                "3. Użyj pożywienia\n" +
+                "4. Użyj przedmiotu fabularnego\n" +
+                "5. Pokaż listę dostępnych lokalizacji\n" +
+                "6. Przejdź do innej lokalizacji\n");
+        return in.nextInt();
+    }
+
     private void inicjalizacjaWydarzenFabularnych() {
         // nazywa wydarzenia fabularnego (obiektu) - nazwa + podloga +
         // kolejny numer wg postepu fabuly
@@ -112,5 +122,26 @@ public class Gra {
         // Wysoka Brama
 
         // Wieza Czarnoksieznika z Koz (lokacja koncowa)
+        return new Lokacja[1];
+    }
+
+    private void inicjalizacjaBossow(){
+        Boss czarnoksieznik = new Boss("Czarnoksieznik z Krainy Koz", new PrzedmiotFabularny(
+                false,
+                "ksiezniczka znajduje sie.....",
+                100
+        ));
+
+        Boss ork = new Boss("Dis", new PrzedmiotFabularny(
+           false,
+           "po przejsciu przez bagna..",
+                100
+        ));
+
+        Boss smok = new Boss("Smok", new PrzedmiotFabularny(
+                false,
+                "po przez zdradliwe urwisko...",
+                100
+        ));
     }
 }
