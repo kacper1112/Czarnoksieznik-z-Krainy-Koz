@@ -7,7 +7,11 @@ public class Mag extends Gracz {
 
     // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
-        return this.getInteligencja() + this.ekwipunek.getWyekwipowanaBron().getWartosc();
+        return this.getInteligencja() + this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
+    }
+
+    public double zadajObrazeniaSpecjalne() {
+        return this.getInteligencja() + this.getEkwipunek().getWyekwipowanaBron().zadajObrazeniaSpecjalne();
     }
 
     // obsluzyc jak gracza ginie

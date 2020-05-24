@@ -8,7 +8,7 @@ public class Ekwipunek {
     private final List<? super PrzedmiotPozywienie> ekwipunekPozywienie;
     private final List<? super Przedmiot> ekwipunekBron;
     //private List<Przedmiot> ekwipunekPozostale; CZY TO JEST POTRZEBNE????
-    private Przedmiot wyekwipowanaBron;
+    private bron wyekwipowanaBron;
 
     public Ekwipunek() {
         ekwipunekFabularne = new ArrayList<>();
@@ -41,7 +41,7 @@ public class Ekwipunek {
     }
 
     public void zmienWyekwipowanaBron(int indeksBroni){
-        wyekwipowanaBron = (Przedmiot) ekwipunekBron.get(indeksBroni);
+        wyekwipowanaBron = (bron) ekwipunekBron.get(indeksBroni);
     }
 
     //GETERY I SETTERY (CZESC DO WYWALENIA POZNIEJ)
@@ -58,7 +58,7 @@ public class Ekwipunek {
         return ekwipunekBron;
     }
 
-    public Przedmiot getWyekwipowanaBron() {
+    public bron getWyekwipowanaBron() {
         return wyekwipowanaBron;
     }
 

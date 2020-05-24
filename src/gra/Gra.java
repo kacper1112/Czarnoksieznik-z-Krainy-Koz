@@ -1,39 +1,37 @@
 package gra;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Gra {
     // tylko jedna instancja gry - singleton
     private static Scanner in;
     private int wyborGracza;
-    private Map<String,Wydarzenie> wydarzenia;
-    private Map<String, Lokacja> lokacje;
+
     private static Gra instance;
     private Gracz gracz;
+    private Lokacja[] lokacje;
 
-
-    public static Scanner getIn() {
-        return in;
-    }
-
-    public Map<String, Wydarzenie> getWydarzenia() {
-        return wydarzenia;
-    }
-
-    public Map<String, Lokacja> getLokacje() {
-        return lokacje;
+    public static void main(String[] args) {
+        getInstance();
     }
 
     private Gra() {
         in = new Scanner(System.in);
-        wydarzenia = new HashMap<>();
-        lokacje = new HashMap<>();
+
         System.out.println("Czarnoksieznik z Krainy Koz\n");
-        System.out.println("1. Rozpocznij nowa gre \n 2. Pokaz instrukcje");
+        System.out.println("1. Rozpocznij nowa gre \n2. Pokaz instrukcje");
         wyborGracza = in.nextInt();
 
         if(wyborGracza == 1) {
-            if(!inicjalizacjaGry()) {
+            System.out.println("Wybierz swoja klase postaci:\n" +
+                    "1. Wojownik\n2.Mag\n3.Kaplan");
+            wyborGracza = in.nextInt();
+
+            if (wyborGracza != 1 && wyborGracza != 2 && wyborGracza != 3) {
+                System.out.println("Nieprawidlowy numer instrukcji!");
+            }
+
+            if(!inicjalizacjaGry(wyborGracza)) {
                 System.out.println("Blad podczas inicjalizacji gry!");
                 System.exit(1);
             }
@@ -63,11 +61,22 @@ public class Gra {
         System.out.println("To jest instrukcja");
     }
 
-    private boolean inicjalizacjaGry() {
-        inicjalizacjaLokacji();
-        //inicjalizacjaBossow();
+    private boolean inicjalizacjaGry(int klasaPostaci) {
+        inicjalizacjaBossow();
         inicjalizacjaWydarzenFabularnych();
+        lokacje = inicjalizacjaLokacji();
 
+        switch(klasaPostaci){
+            case 1:
+                gracz = new Wojownik();
+                break;
+            case 2:
+                gracz = new Mag();
+                break;
+            case 3:
+                gracz = new Kaplan();
+                break;
+        }
 
         return true;
     }
@@ -96,14 +105,11 @@ public class Gra {
                         " z kryzysu! Mam tylko nadzieje, ze nie zamkna naszego zakladu, to dopiero bylaby" +
                         " katastrofa...\" myslal Roman wracajac do domu po kolejnym ciezkim dniu pracy jako" +
                         "ciesla. Wraca do domu a tam zony nimo." );
-        wydarzenia.put(wprowadzenie_1.getNazwa(),wprowadzenie_1);
 
-        Wydarzenie spotkanieNaBajkowejPolanie_2 = new Wydarzenie("Spotkanie na bajkowej polanie",
-                "opis");
-        wydarzenia.put(spotkanieNaBajkowejPolanie_2.getNazwa(), spotkanieNaBajkowejPolanie_2);
+        Wydarzenie spotkanieNaBajkowejPolanie_2;
     }
 
-    private void inicjalizacjaLokacji() {
+    private Lokacja[] inicjalizacjaLokacji() {
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
@@ -111,26 +117,6 @@ public class Gra {
         // Lokacja lokacjaStartowa = new Lokacja("Lokacja startowa", );
 
         // Chalupka nad urwista dolina
-
-        /*
-        (String nazwa,
-                   List<String> opisy,
-                   Wydarzenie fabularne,
-                   List<Wydarzenie> poboczne,
-                   List<Integer> sasiednie)
-         */
-    /*
-            Lokacja lokacja0 = new Lokacja("Chałpka nad urwistą doliną",
-                Arrays.asList("Znajdujesz się w swojej chałpce, dookoła panuje straszny bałagan, wszędzie na podłodze walają" +
-                        " się szczątki tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy" +
-                        " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę złotych monet" +
-                        " jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi."),
-                new Wydarzenie("fabularne", "opis"),
-                Arrays.asList(new Wydarzenie("w1","opis"),
-                Arrays.asList(1,2,3)
-                ));
-     */
-
 
         // Bajkowa polana
 
@@ -159,7 +145,7 @@ public class Gra {
         // Wysoka Brama
 
         // Wieza Czarnoksieznika z Koz (lokacja koncowa)
-        //return new Lokacja[1];
+        return new Lokacja[1];
     }
 
     private void inicjalizacjaBossow(){
@@ -180,5 +166,17 @@ public class Gra {
                 "po przez zdradliwe urwisko...",
                 100
         ));
+    }
+
+
+    private boolean walka(Gracz gracz, Wrog wrog) {
+        boolean walkaTrwa = true;
+
+        while(walkaTrwa) {
+            walkaTrwa = (gracz.getObecnePunktyZycia() > 0 && wrog.getObecnePunktyZycia() > 0);
+        }
+
+
+        return false;
     }
 }
