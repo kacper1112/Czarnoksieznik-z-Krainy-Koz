@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Wrog extends NPC{
     private double punktyZycia;
-    private double bazowyAtak;
+    private final double bazowyAtak;
 
     public Wrog(String imie) {
         super(imie);
@@ -27,7 +27,11 @@ public class Wrog extends NPC{
         return bazowyAtak;
     }
 
-    public void otryzmajObrazenia(double wartosc) {
+    public void setPunktyZycia(double punktyZycia) {
+        this.punktyZycia = punktyZycia;
+    }
+
+    public void otrzymajObrazenia(double wartosc) {
         if(punktyZycia - wartosc <= 0){
             punktyZycia = 0;
         }else {
@@ -36,15 +40,16 @@ public class Wrog extends NPC{
     }
 
     public double zadajObrazenia(){
-        return this.generujEkwipunek().getWyekwipowanaBron().getWartosc();
+        return this.getEkwipunek().getWyekwipowanaBron().getWartosc();
     }
 
     @Override
     public Ekwipunek generujEkwipunek() {
+
         Ekwipunek ekwipunek = new Ekwipunek();
         List<Para<String, String>> bronFizycznaTMP = List.of(
                 new Para<>("Ostrze Zniszczonego Krola", "opis"),
-                new Para<>("Ostrze Nieskonoczonosci", "opis")
+                new Para<>("Ostrze Nieskonczonosci", "opis")
         );
         List<Para<String, String>> bronMagicznaTMP = List.of(
                 new Para<>("Rozdzka Zniszczenia", "opis"),

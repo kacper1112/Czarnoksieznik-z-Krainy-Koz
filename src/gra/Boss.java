@@ -12,11 +12,6 @@ public class Boss extends Wrog{
         this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
-    public Boss(String imie, double szansaNaTrafienieKrytyczne) {
-        super(imie);
-        this.szansaNaTrafienieKrytyczne = szansaNaTrafienieKrytyczne;
-    }
-
     public void ulepszEkwipunekBossa(PrzedmiotFabularny przedmiotFabularny){
         this.getEkwipunek().wlozFabularne(przedmiotFabularny);
         //MOZE JAKIS BRONI I POT
