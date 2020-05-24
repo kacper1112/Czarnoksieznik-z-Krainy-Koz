@@ -129,6 +129,7 @@ public abstract class Gracz {
     }
 
     public abstract double zadajObrazenia();
+    public abstract double zadajObrazeniaSpecjalne();
     public abstract void otrzymajObrazenia(double wartosc);
     public abstract void zwiekszLevel();
 

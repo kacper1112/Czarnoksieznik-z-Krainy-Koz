@@ -20,16 +20,12 @@ public class Gra {
 
         System.out.println("Czarnoksieznik z Krainy Koz\n");
         System.out.println("1. Rozpocznij nowa gre \n2. Pokaz instrukcje");
-        wyborGracza = in.nextInt();
+        wyborGracza = wczytajWyborGracza(2);
 
         if(wyborGracza == 1) {
             System.out.println("Wybierz swoja klase postaci:\n" +
                     "1. Wojownik\n2.Mag\n3.Kaplan");
-            wyborGracza = in.nextInt();
-
-            if (wyborGracza != 1 && wyborGracza != 2 && wyborGracza != 3) {
-                System.out.println("Nieprawidlowy numer instrukcji!");
-            }
+            wyborGracza = wczytajWyborGracza(3);
 
             if(!inicjalizacjaGry(wyborGracza)) {
                 System.out.println("Blad podczas inicjalizacji gry!");
@@ -44,10 +40,8 @@ public class Gra {
 
         } else if(wyborGracza == 2) {
             pokazInstrukcje();
-        } else {
-            System.out.println("Nieprawidlowy numer instrukcji");
         }
-    };
+    }
 
 
     public static Gra getInstance() {
@@ -84,6 +78,19 @@ public class Gra {
 
     private boolean rozpocznijGre() {
         return false;
+    }
+
+    private int wczytajWyborGracza(int liczbaOpcji) {
+        int wybor;
+        while(true) {
+            System.out.print("Twoj wybor: ");
+            wybor = in.nextInt();
+            if(1 <= wybor && wybor <= liczbaOpcji) {
+                return wybor;
+            } else {
+                System.out.println("Nieprawidlowy numer instrukcji");
+            }
+        }
     }
 
     public int menu0(){
@@ -168,12 +175,73 @@ public class Gra {
         ));
     }
 
+    private void wygranaGracza(Wrog wrog) {
 
-    private boolean walka(Gracz gracz, Wrog wrog) {
+    }
+
+    private void wygranaGracza(Boss wrog) {
+
+    }
+
+
+    private boolean walka(Wrog wrog) {
         boolean walkaTrwa = true;
+        double obrazenia;
+        // true - gracz, false - wrog
+        boolean kolejGracza = (Math.random() < 0.5);
+        if(kolejGracza) {
+            System.out.println("Walke rozpoczyna Twoj przeciwnik!");
+        } else {
+            System.out.println("Rozpoczynasz walke!");
+        }
 
         while(walkaTrwa) {
-            walkaTrwa = (gracz.getObecnePunktyZycia() > 0 && wrog.getObecnePunktyZycia() > 0);
+            if(kolejGracza) {
+                System.out.println("Co chcesz zrobic?\n1.Skorzystaj z ekwipunku\n2.Zaatakuj przeciwnika" +
+                        "korzystajac z " + gracz.getEkwipunek().getWyekwipowanaBron() + "\n" +
+                        "3.Sprobuj wykonac atak specjalny");
+
+                wyborGracza = wczytajWyborGracza(3);
+                if(wyborGracza == 1) {
+                    System.out.println(gracz.getEkwipunek().toString());
+                    // menu wyboru przedmiotu z ekwipunku
+                } else if(wyborGracza == 2) {
+                    obrazenia = gracz.zadajObrazenia();
+                    System.out.println("Atakujesz wroga za " + obrazenia + " punktow!");
+                    wrog.otrzymajObrazenia(obrazenia);
+                    System.out.println("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
+                            wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
+                } else if(wyborGracza == 3) {
+                    obrazenia = gracz.zadajObrazeniaSpecjalne();
+                    System.out.println("Atakujesz wroga za " + obrazenia + " punktow!");
+                    wrog.otrzymajObrazenia(obrazenia);
+                    System.out.println("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
+                            wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
+                }
+
+                if(wrog.getObecnePunktyZycia() <= 0) {
+                    //wygranaGracza(wrog);
+                }
+
+            } else {
+                obrazenia = wrog.zadajObrazenia();
+                System.out.println(wrog.getImie() + " zadaje Ci " + obrazenia + "punktow obrazen!");
+                gracz.otrzymajObrazenia(obrazenia);
+                System.out.println("Masz teraz " + gracz.getObecnePunktyZycia() + "/" +
+                        gracz.getMaksymalnePunktyZycia() + " punktow zycia.");
+
+                if(gracz.getObecnePunktyZycia() <= 0) {
+                    System.out.println("Nie zyjesz! Koniec gry!");
+                    System.exit(0);
+                }
+            }
+
+
+            if(gracz.getObecnePunktyZycia() <= 0 && wrog.getObecnePunktyZycia() <= 0) {
+                walkaTrwa = false;
+            }
+
+            kolejGracza = !kolejGracza;
         }
 
 
