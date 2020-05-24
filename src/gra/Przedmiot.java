@@ -6,7 +6,7 @@ public abstract class Przedmiot {
     private final double wartosc;
     private final Atrybut atrybut;
 
-    Przedmiot() {
+    public Przedmiot() {
         nazwa = "";
         opis = "";
         wartosc = 0;
