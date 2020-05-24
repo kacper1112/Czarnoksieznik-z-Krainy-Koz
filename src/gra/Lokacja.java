@@ -2,14 +2,10 @@ package gra;
 
 public class Lokacja {
     private final String nazwa;
-    private String[] opisy;
-    private int[] sasiednieLokacje;
-    private Wydarzenie wydarzenieFabularne;
-    private Wydarzenie[] wydarzeniaPoboczne;
-
-    public Lokacja(String nazwa) {
-        this.nazwa = nazwa;
-    }
+    private final String[] opisy;
+    private final int[] sasiednieLokacje;
+    private final Wydarzenie wydarzenieFabularne;
+    private final Wydarzenie[] wydarzeniaPoboczne;
 
     public Lokacja(String nazwa,
                    String[] opisy,
