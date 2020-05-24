@@ -167,4 +167,16 @@ public class Gra {
                 100
         ));
     }
+
+
+    private boolean walka(Gracz gracz, Wrog wrog) {
+        boolean walkaTrwa = true;
+
+        while(walkaTrwa) {
+            walkaTrwa = (gracz.getObecnePunktyZycia() > 0 && wrog.getObecnePunktyZycia() > 0);
+        }
+
+
+        return false;
+    }
 }

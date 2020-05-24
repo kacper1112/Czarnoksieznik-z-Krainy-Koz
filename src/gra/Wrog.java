@@ -4,43 +4,46 @@ import java.util.List;
 import java.util.Random;
 
 public class Wrog extends NPC{
-    private double punktyZycia;
+    private double obecnePunktyZycia;
+    private double maksymalnePunktyZycia;
     private final double bazowyAtak;
 
     public Wrog(String imie) {
         super(imie);
-        punktyZycia = 100;
-        bazowyAtak = 100;
+        this.maksymalnePunktyZycia = 100;
+        this.obecnePunktyZycia = maksymalnePunktyZycia;
+        this.bazowyAtak = 100;
     }
 
-    public Wrog(String imie, int punktyZycia, int bazowyAtak) {
+    public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak) {
         super(imie);
-        this.punktyZycia = punktyZycia;
+        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
+        this.obecnePunktyZycia = this.maksymalnePunktyZycia;
         this.bazowyAtak = bazowyAtak;
     }
 
-    public double getPunktyZycia() {
-        return punktyZycia;
+    public double getObecnePunktyZycia() {
+        return obecnePunktyZycia;
+    }
+
+    public double getMaksymalnePunktyZycia() {
+        return maksymalnePunktyZycia;
     }
 
     public double getBazowyAtak() {
         return bazowyAtak;
     }
 
-    public void setPunktyZycia(double punktyZycia) {
-        this.punktyZycia = punktyZycia;
-    }
-
     public void otrzymajObrazenia(double wartosc) {
-        if(punktyZycia - wartosc <= 0){
-            punktyZycia = 0;
-        }else {
-            punktyZycia -=wartosc;
+        if(obecnePunktyZycia - wartosc <= 0){
+            obecnePunktyZycia = 0;
+        } else {
+            obecnePunktyZycia -=wartosc;
         }
     }
 
     public double zadajObrazenia(){
-        return this.getEkwipunek().getWyekwipowanaBron().getWartosc();
+        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
     }
 
     @Override
