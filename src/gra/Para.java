@@ -40,4 +40,9 @@ public class Para <A, B> {
     public int hashCode() {
         return Objects.hash(pierwszy, drugi);
     }
+
+    @Override
+    public String toString() {
+        return "[" + pierwszy + ", " + drugi + ']';
+    }
 }

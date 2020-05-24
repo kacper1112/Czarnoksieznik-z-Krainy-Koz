@@ -15,7 +15,7 @@ public class Fabularny extends NPC {
 
     @Override
     public Ekwipunek generujEkwipunek() {
-        Ekwipunek ekwipunek = new Ekwipunek();
+        Ekwipunek ekwipunekTMP = new Ekwipunek();
 
         List<Para<String, String> > pozywienieTMP = List.of(
                 new Para<>("Mikstura Lowcy", "opis"),
@@ -50,10 +50,10 @@ public class Fabularny extends NPC {
                         rand.nextDouble()*100,
                         rand.nextDouble()*100
                 ));
-                podarki.add((Przedmiot) ekwipunek.getEkwipunekBron().get(0));
+                podarki.add((Przedmiot) ekwipunekTMP.getEkwipunekBron().get(0));
             }else{
                 indeks-=bronFizycznaTMP.size();
-                ekwipunek.wlozBron( new BronMagiczna(
+                ekwipunekTMP.wlozBron( new BronMagiczna(
                         bronMagicznaTMP.get(indeks).getPierwszy(),
                         bronMagicznaTMP.get(indeks).getDrugi(),
                         rand.nextDouble()*100,
@@ -61,20 +61,20 @@ public class Fabularny extends NPC {
                         rand.nextDouble()*100,
                         rand.nextDouble()*100
                 ));
-                podarki.add((Przedmiot) ekwipunek.getEkwipunekBron().get(0));
+                podarki.add((Przedmiot) ekwipunekTMP.getEkwipunekBron().get(0));
             }
         }else{
             int indeks = rand.nextInt(pozywienieTMP.size());
-            ekwipunek.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     pozywienieTMP.get(indeks).getPierwszy(),
                     pozywienieTMP.get(indeks).getDrugi(),
                     rand.nextDouble()*100,
                     rand.nextInt(100),
                     rand.nextDouble()*100
             ));
-            podarki.add((Przedmiot) ekwipunek.getEkwipunekPozywienie().get(0));
+            podarki.add((Przedmiot) ekwipunekTMP.getEkwipunekPozywienie().get(0));
         }
-        return ekwipunek;
+        return ekwipunekTMP;
     }
 
     public Przedmiot podarujLosowyPrzedmiotNieFabularny(){

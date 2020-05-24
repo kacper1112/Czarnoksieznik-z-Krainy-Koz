@@ -20,7 +20,7 @@ public class Handlarz extends NPC {
     //METODY WLASCIWE
     @Override
     public Ekwipunek generujEkwipunek() {
-        Ekwipunek ekwipunek = new Ekwipunek();
+        Ekwipunek ekwipunekTMP = new Ekwipunek();
         List<Para<String, String> > pozywienieTMP = List.of(
                 new Para<>("Mikstura Lowcy", "opis"),
                 new Para<>("Elikis Gniewu", "opis"),
@@ -45,7 +45,7 @@ public class Handlarz extends NPC {
         Random rand = new Random();
 
         int pairIndex = rand.nextInt(bronFizycznaTMP.size());
-        ekwipunek.wlozBron(new BronFizyczna(
+        ekwipunekTMP.wlozBron(new BronFizyczna(
                 bronFizycznaTMP.get(pairIndex).getPierwszy(),
                 bronFizycznaTMP.get(pairIndex).getDrugi(),
                 rand.nextDouble()*100,
@@ -55,7 +55,7 @@ public class Handlarz extends NPC {
         ));
 
         pairIndex = rand.nextInt(bronFizycznaTMP.size());
-        ekwipunek.wlozBron( new BronMagiczna(
+        ekwipunekTMP.wlozBron( new BronMagiczna(
                 bronMagicznaTMP.get(pairIndex).getPierwszy(),
                 bronMagicznaTMP.get(pairIndex).getDrugi(),
                 rand.nextDouble()*100,
@@ -65,7 +65,7 @@ public class Handlarz extends NPC {
         ));
 
         pairIndex = rand.nextInt(pozywienieTMP.size());
-        ekwipunek.wlozPozywienie(new PrzedmiotPozywienie(
+        ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                 pozywienieTMP.get(pairIndex).getPierwszy(),
                 pozywienieTMP.get(pairIndex).getDrugi(),
                 rand.nextDouble()*100,
@@ -73,11 +73,11 @@ public class Handlarz extends NPC {
                 rand.nextDouble()*100
         ));
 
-        ekwipunek.getEkwipunekBron().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 250)));
+        ekwipunekTMP.getEkwipunekBron().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 250)));
 
-        ekwipunek.getEkwipunekPozywienie().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 50)));
+        ekwipunekTMP.getEkwipunekPozywienie().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 50)));
 
-        return ekwipunek;
+        return ekwipunekTMP;
     }
 
     public void przedstawOferte(){
