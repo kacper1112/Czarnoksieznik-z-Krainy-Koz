@@ -11,15 +11,27 @@ public class Gra {
     private Gracz gracz;
     private Lokacja[] lokacje;
 
+    public static void main(String[] args) {
+        getInstance();
+    }
+
     private Gra() {
         in = new Scanner(System.in);
 
         System.out.println("Czarnoksieznik z Krainy Koz\n");
-        System.out.println("1. Rozpocznij nowa gre \n 2. Pokaz instrukcje");
+        System.out.println("1. Rozpocznij nowa gre \n2. Pokaz instrukcje");
         wyborGracza = in.nextInt();
 
         if(wyborGracza == 1) {
-            if(!inicjalizacjaGry()) {
+            System.out.println("Wybierz swoja klase postaci:\n" +
+                    "1. Wojownik\n2.Mag\n3.Kaplan");
+            wyborGracza = in.nextInt();
+
+            if (wyborGracza != 1 && wyborGracza != 2 && wyborGracza != 3) {
+                System.out.println("Nieprawidlowy numer instrukcji!");
+            }
+
+            if(!inicjalizacjaGry(wyborGracza)) {
                 System.out.println("Blad podczas inicjalizacji gry!");
                 System.exit(1);
             }
@@ -49,11 +61,22 @@ public class Gra {
         System.out.println("To jest instrukcja");
     }
 
-    private boolean inicjalizacjaGry() {
-        lokacje = inicjalizacjaLokacji();
-        //inicjalizacjaBossow();
+    private boolean inicjalizacjaGry(int klasaPostaci) {
+        inicjalizacjaBossow();
         inicjalizacjaWydarzenFabularnych();
+        lokacje = inicjalizacjaLokacji();
 
+        switch(klasaPostaci){
+            case 1:
+                gracz = new Wojownik();
+                break;
+            case 2:
+                gracz = new Mag();
+                break;
+            case 3:
+                gracz = new Kaplan();
+                break;
+        }
 
         return true;
     }
