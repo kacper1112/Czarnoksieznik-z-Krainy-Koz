@@ -8,10 +8,11 @@ public class Ekwipunek {
     private final List<PrzedmiotPozywienie> ekwipunekPozywienie;
     private final List<BronMagiczna> ekwipunekBronMagiczna;
     private final List<BronFizyczna> ekwipunekBronFizczna;
-    //private List<Przedmiot> ekwipunekPozostale; CZY TO JEST POTRZEBNE????
+    private final TYP_POSIADACZA_EKWIPUNKU TYP;
     private bron wyekwipowanaBron;
 
-    public Ekwipunek() {
+    public Ekwipunek(TYP_POSIADACZA_EKWIPUNKU typ) {
+        TYP = typ;
         ekwipunekFabularne = new ArrayList<>();
         ekwipunekPozywienie = new ArrayList<>();
         ekwipunekBronMagiczna = new ArrayList<>();
@@ -21,16 +22,28 @@ public class Ekwipunek {
     public void wlozFabularne(PrzedmiotFabularny pf){
         ekwipunekFabularne.add(pf);
     }
-
     public void wlozPozywienie(PrzedmiotPozywienie pozywienie){
         ekwipunekPozywienie.add(pozywienie);
     }
-
     public void wlozBronMagiczna(BronMagiczna p){
-        ekwipunekBronMagiczna.add(p);
+        if(TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK){
+            System.out.println("Nie mozesz korzystac z broni magicznej - jestes wojownikiem");
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.MAG){
+            ekwipunekBronMagiczna.add(p);
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
+            ekwipunekBronMagiczna.add(p);
+        }
+        System.out.println("Bron Wlozona");
     }
     public void wlozBronFizyczna(BronFizyczna p){
-        ekwipunekBronFizczna.add(p);
+        if(TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK){
+            ekwipunekBronFizczna.add(p);
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.MAG){
+            System.out.println("Nie mozesz korzystac z broni magicznej - jestes magiem");
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
+            ekwipunekBronFizczna.add(p);
+        }
+        System.out.println("Bron wlozona");
     }
 
     public BronFizyczna wyciagnijBronFizyczna(int indeks){
@@ -49,10 +62,10 @@ public class Ekwipunek {
     }
 
     public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni){
-        wyekwipowanaBron = (bron) ekwipunekBronMagiczna.get(indeksBroni);
+        wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
     }
     public void zmienWyekwipowanaBronNaFiczyna(int indeksBroni){
-        wyekwipowanaBron = (bron) ekwipunekBronFizczna.get(indeksBroni);
+        wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
     }
 
     //GETERY I SETTERY (CZESC DO WYWALENIA POZNIEJ)
@@ -68,7 +81,7 @@ public class Ekwipunek {
     public List<BronFizyczna> getEkwipunekBronFizyczna() {
         return ekwipunekBronFizczna;
     }
-    public List<BronMagiczna> getEkwipunekBron() {
+    public List<BronMagiczna> getEkwipunekBronMagiczna() {
         return ekwipunekBronMagiczna;
     }
 

@@ -53,7 +53,7 @@ public class Wrog extends NPC{
     @Override
     public Ekwipunek generujEkwipunek() {
 
-        Ekwipunek ekwipunek = new Ekwipunek();
+        Ekwipunek ekwipunek = new Ekwipunek(typ);
         List<Para<String, String>> bronFizycznaTMP = List.of(
                 new Para<>("Ostrze Zniszczonego Krola", "opis"),
                 new Para<>("Ostrze Nieskonczonosci", "opis")
@@ -66,7 +66,7 @@ public class Wrog extends NPC{
         Random rand = new Random();
         if(rand.nextInt(bronFizycznaTMP.size()) < bronFizycznaTMP.size()/2){
             int indeks = rand.nextInt(bronFizycznaTMP.size());
-            ekwipunek.wlozBron(new BronFizyczna(
+            ekwipunek.wlozBronFizyczna(new BronFizyczna(
                     bronFizycznaTMP.get(indeks).getPierwszy(),
                     bronFizycznaTMP.get(indeks).getDrugi(),
                     rand.nextDouble()*100,
@@ -76,7 +76,7 @@ public class Wrog extends NPC{
             ));
         }else {
             int indeks = rand.nextInt(bronMagicznaTMP.size());
-            ekwipunek.wlozBron(new BronMagiczna(
+            ekwipunek.wlozBronMagiczna(new BronMagiczna(
                     bronMagicznaTMP.get(indeks).getPierwszy(),
                     bronMagicznaTMP.get(indeks).getDrugi(),
                     rand.nextDouble()*100,

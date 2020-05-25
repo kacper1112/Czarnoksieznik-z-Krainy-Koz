@@ -138,11 +138,11 @@ public abstract class Gracz {
 
     // wkladanie przedmiotow do ekwipunku
     public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
-        this.ekwipunek.wlozBron(bronFizyczna);
+        this.ekwipunek.wlozBronFizyczna(bronFizyczna);
     }
 
     public void wlozBronMagicznaDoEwkipunku(BronMagiczna bronMagiczna) {
-        this.ekwipunek.wlozBron(bronMagiczna);
+        this.ekwipunek.wlozBronMagiczna(bronMagiczna);
     }
 
     public void wlozPozywienieDoEkwipunku(PrzedmiotPozywienie pozywienie) {
@@ -164,10 +164,19 @@ public abstract class Gracz {
         ((PrzedmiotFabularny)this.ekwipunek.getEkwipunekFabularne().get(index)).getWskazowka(this.inteligencja);
     }
 
-    // zmien wyekwipowana bron
-    public void zmienBron(int index) {
-        if(index < this.ekwipunek.getEkwipunekBron().size()) {
-            this.ekwipunek.zmienWyekwipowanaBron(index);
+    // zmien wyekwipowana bron na Fizyczna
+    public void zmienBronNaFizyczna(int index) {
+        if(index < this.ekwipunek.getEkwipunekBronFizyczna().size()) {
+            this.ekwipunek.zmienWyekwipowanaBronNaFiczyna(index);
+        } else {
+            System.out.println("Bron o podanym indeksie nie istnieje");
+        }
+    }
+
+    // zmien wyekwipowana bron na Fizyczna
+    public void zmienBronNaMagiczna(int index) {
+        if(index < this.ekwipunek.getEkwipunekBronMagiczna().size()) {
+            this.ekwipunek.zmienWyekwipowanaBronNaMagiczna(index);
         } else {
             System.out.println("Bron o podanym indeksie nie istnieje");
         }
@@ -175,7 +184,7 @@ public abstract class Gracz {
 
     public void menuEkwipunku() {
         System.out.println("Twoje przedmioty:");
-        ekwipunek.
+        System.out.println(ekwipunek.toString());
     }
 
     public String toString() {

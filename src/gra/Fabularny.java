@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Fabularny extends NPC {
     private boolean czyPosiadaPrzedmiotFabularny;
-    private List<Przedmiot> podarki;
+    private List<? super Przedmiot> podarki;
     public Fabularny(String imie) {
         super(imie);
         podarki = new ArrayList<>();
@@ -15,7 +15,7 @@ public class Fabularny extends NPC {
 
     @Override
     public Ekwipunek generujEkwipunek() {
-        Ekwipunek ekwipunekTMP = new Ekwipunek();
+        Ekwipunek ekwipunekTMP = new Ekwipunek(typ);
 
         List<Para<String, String> > pozywienieTMP = List.of(
                 new Para<>("Mikstura Lowcy", "opis"),
@@ -42,7 +42,7 @@ public class Fabularny extends NPC {
         if(10<rand.nextInt(100)){
             int indeks = rand.nextInt(bronFizycznaTMP.size() + bronMagicznaTMP.size() +1);
             if(indeks < bronFizycznaTMP.size()){
-                this.getEkwipunek().wlozBron(new BronFizyczna(
+                this.getEkwipunek().wlozBronFizyczna(new BronFizyczna(
                         bronFizycznaTMP.get(indeks).getPierwszy(),
                         bronFizycznaTMP.get(indeks).getDrugi(),
                         rand.nextDouble()*100,
@@ -50,10 +50,10 @@ public class Fabularny extends NPC {
                         rand.nextDouble()*100,
                         rand.nextDouble()*100
                 ));
-                podarki.add((Przedmiot) ekwipunekTMP.getEkwipunekBron().get(0));
+                ekwipunekTMP.getEkwipunekBronFizyczna().forEach(x->podarki.add((Przedmiot) x));
             }else{
                 indeks-=bronFizycznaTMP.size();
-                ekwipunekTMP.wlozBron( new BronMagiczna(
+                ekwipunekTMP.wlozBronMagiczna( new BronMagiczna(
                         bronMagicznaTMP.get(indeks).getPierwszy(),
                         bronMagicznaTMP.get(indeks).getDrugi(),
                         rand.nextDouble()*100,
@@ -61,7 +61,7 @@ public class Fabularny extends NPC {
                         rand.nextDouble()*100,
                         rand.nextDouble()*100
                 ));
-                podarki.add((Przedmiot) ekwipunekTMP.getEkwipunekBron().get(0));
+                ekwipunekTMP.getEkwipunekBronMagiczna().forEach(x->podarki.add((Przedmiot) x));
             }
         }else{
             int indeks = rand.nextInt(pozywienieTMP.size());
@@ -72,7 +72,7 @@ public class Fabularny extends NPC {
                     rand.nextInt(100),
                     rand.nextDouble()*100
             ));
-            podarki.add((Przedmiot) ekwipunekTMP.getEkwipunekPozywienie().get(0));
+            ekwipunekTMP.getEkwipunekPozywienie().forEach(x->podarki.add((Przedmiot) x));
         }
         return ekwipunekTMP;
     }
@@ -80,7 +80,7 @@ public class Fabularny extends NPC {
     public Przedmiot podarujLosowyPrzedmiotNieFabularny(){
         Random random = new Random();
         int indeks = random.nextInt(podarki.size());
-        return podarki.get(indeks);
+        return (Przedmiot) podarki.get(indeks);
     }
 
     public PrzedmiotFabularny podarujPrzedmiotFabularny(){

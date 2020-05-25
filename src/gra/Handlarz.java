@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Handlarz extends NPC {
     private int pieniadze;
-    private List<Para<Przedmiot,Integer> > oferta;
+    private List<Para<? extends Przedmiot, Integer>> oferta;
 
     public Handlarz(String imie) {
         super(imie);
@@ -20,7 +20,7 @@ public class Handlarz extends NPC {
     //METODY WLASCIWE
     @Override
     public Ekwipunek generujEkwipunek() {
-        Ekwipunek ekwipunekTMP = new Ekwipunek();
+        Ekwipunek ekwipunekTMP = new Ekwipunek(typ);
         List<Para<String, String> > pozywienieTMP = List.of(
                 new Para<>("Mikstura Lowcy", "opis"),
                 new Para<>("Elikis Gniewu", "opis"),
@@ -45,7 +45,7 @@ public class Handlarz extends NPC {
         Random rand = new Random();
 
         int pairIndex = rand.nextInt(bronFizycznaTMP.size());
-        ekwipunekTMP.wlozBron(new BronFizyczna(
+        ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                 bronFizycznaTMP.get(pairIndex).getPierwszy(),
                 bronFizycznaTMP.get(pairIndex).getDrugi(),
                 rand.nextDouble()*100,
@@ -55,7 +55,7 @@ public class Handlarz extends NPC {
         ));
 
         pairIndex = rand.nextInt(bronFizycznaTMP.size());
-        ekwipunekTMP.wlozBron( new BronMagiczna(
+        ekwipunekTMP.wlozBronMagiczna( new BronMagiczna(
                 bronMagicznaTMP.get(pairIndex).getPierwszy(),
                 bronMagicznaTMP.get(pairIndex).getDrugi(),
                 rand.nextDouble()*100,
@@ -73,8 +73,8 @@ public class Handlarz extends NPC {
                 rand.nextDouble()*100
         ));
 
-        ekwipunekTMP.getEkwipunekBron().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 250)));
-
+        ekwipunekTMP.getEkwipunekBronFizyczna().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 214)));
+        ekwipunekTMP.getEkwipunekBronMagiczna().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 213)));
         ekwipunekTMP.getEkwipunekPozywienie().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 50)));
 
         return ekwipunekTMP;
@@ -103,8 +103,15 @@ public class Handlarz extends NPC {
                     .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
                     .collect(Collectors.toList());
 
-        } else if(oferta.get(indeksOferty).getPierwszy() instanceof  BronFizyczna || oferta.get(indeksOferty).getPierwszy() instanceof  BronMagiczna){
-            gracz.getEkwipunek().wlozBron(oferta.get(indeksOferty).getPierwszy());
+        } else if(oferta.get(indeksOferty).getPierwszy() instanceof  BronFizyczna ){
+            gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna) oferta.get(indeksOferty).getPierwszy());
+            gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi());
+            this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi());
+            oferta.stream()
+                    .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
+                    .collect(Collectors.toList());
+        }else if( oferta.get(indeksOferty).getPierwszy() instanceof  BronMagiczna){
+            gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna) oferta.get(indeksOferty).getPierwszy());
             gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi());
             this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi());
             oferta.stream()
@@ -121,11 +128,11 @@ public class Handlarz extends NPC {
         this.pieniadze = pieniadze;
     }
 
-    public List<Para<Przedmiot,Integer> > getOferta() {
+    public List<Para<? extends Przedmiot, Integer>> getOferta() {
         return oferta;
     }
 
-    public void setOferta(List<Para<Przedmiot,Integer> > oferta) {
+    public void setOferta(List<Para<? extends Przedmiot,Integer> > oferta) {
         this.oferta = oferta;
     }
 }

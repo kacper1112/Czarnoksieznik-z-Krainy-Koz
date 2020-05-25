@@ -12,11 +12,11 @@ public abstract class NPC {
     public abstract Ekwipunek generujEkwipunek();
 
     public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
-        this.ekwipunek.wlozBron(bronFizyczna);
+        this.ekwipunek.wlozBronFizyczna(bronFizyczna);
     }
 
     public void wlozBronMagicznaDoEwkipunku(BronMagiczna bronMagiczna) {
-        this.ekwipunek.wlozBron(bronMagiczna);
+        this.ekwipunek.wlozBronMagiczna(bronMagiczna);
     }
 
     public void wlozPozywienieDoEkwipunku(PrzedmiotPozywienie pozywienie) {
