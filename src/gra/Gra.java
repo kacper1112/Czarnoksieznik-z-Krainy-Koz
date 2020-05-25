@@ -20,16 +20,12 @@ public class Gra {
 
         System.out.println("Czarnoksieznik z Krainy Koz\n");
         System.out.println("1. Rozpocznij nowa gre \n2. Pokaz instrukcje");
-        wyborGracza = in.nextInt();
+        wyborGracza = wczytajWyborGracza(2);
 
         if(wyborGracza == 1) {
             System.out.println("Wybierz swoja klase postaci:\n" +
                     "1. Wojownik\n2.Mag\n3.Kaplan");
-            wyborGracza = in.nextInt();
-
-            if (wyborGracza != 1 && wyborGracza != 2 && wyborGracza != 3) {
-                System.out.println("Nieprawidlowy numer instrukcji!");
-            }
+            wyborGracza = wczytajWyborGracza(3);
 
             if(!inicjalizacjaGry(wyborGracza)) {
                 System.out.println("Blad podczas inicjalizacji gry!");
@@ -37,17 +33,15 @@ public class Gra {
             }
 
             if(rozpocznijGre()) {
-                System.out.println("Gratulacje, udalo Ci sie ukonczyc gre!");
+                wygrana();
             } else {
-                System.out.println("Powodzenia nastepnym razem!");
+                przegrana();
             }
 
         } else if(wyborGracza == 2) {
             pokazInstrukcje();
-        } else {
-            System.out.println("Nieprawidlowy numer instrukcji");
         }
-    };
+    }
 
 
     public static Gra getInstance() {
@@ -86,6 +80,30 @@ public class Gra {
         return false;
     }
 
+    public static void wygrana() {
+        System.out.println("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!");
+        System.out.println("To juz koniec Twojej przygody!");
+        System.exit(0);
+    }
+
+    public static void przegrana() {
+        System.out.println("Nie zyjesz! Koniec gry! Powodzenia nastepnym razem.");
+        System.exit(0);
+    }
+
+    public static int wczytajWyborGracza(int liczbaOpcji) {
+        int wybor;
+        while(true) {
+            System.out.print("Twoj wybor: ");
+            wybor = in.nextInt();
+            if(1 <= wybor && wybor <= liczbaOpcji) {
+                return wybor;
+            } else {
+                System.out.println("Nieprawidlowy numer instrukcji");
+            }
+        }
+    }
+
     public int menu0(){
         System.out.println("1. Pokaż ekwipunek\n" +
                 "2. Zmień broń\n" +
@@ -104,7 +122,7 @@ public class Gra {
                 "\"Jezeli Krol dalej bedzie nakladal na nas tak wysokie podatki, to juz nigdy nie wyjdziemy" +
                         " z kryzysu! Mam tylko nadzieje, ze nie zamkna naszego zakladu, to dopiero bylaby" +
                         " katastrofa...\" myslal Roman wracajac do domu po kolejnym ciezkim dniu pracy jako" +
-                        "ciesla. Wraca do domu a tam zony nimo." );
+                        "ciesla. Wraca do domu a tam zony nimo.", gracz, null, 0, null);
 
         Wydarzenie spotkanieNaBajkowejPolanie_2;
     }
@@ -169,14 +187,6 @@ public class Gra {
     }
 
 
-    private boolean walka(Gracz gracz, Wrog wrog) {
-        boolean walkaTrwa = true;
+    //todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga juz ma
 
-        while(walkaTrwa) {
-            walkaTrwa = (gracz.getObecnePunktyZycia() > 0 && wrog.getObecnePunktyZycia() > 0);
-        }
-
-
-        return false;
-    }
 }

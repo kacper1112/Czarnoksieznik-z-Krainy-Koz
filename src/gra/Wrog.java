@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Wrog extends NPC{
     private double obecnePunktyZycia;
-    private double maksymalnePunktyZycia;
+    private final double maksymalnePunktyZycia;
     private final double bazowyAtak;
 
     public Wrog(String imie) {
@@ -42,8 +42,12 @@ public class Wrog extends NPC{
         }
     }
 
+    // todo: przeciwnik posluguje sie bronia o ile ma jakas w ekwipunku, jak nie to walczy nwm szponami XD
     public double zadajObrazenia(){
-        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
+        if(this.getEkwipunek().getWyekwipowanaBron() != null) {
+            return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
+        }
+        return getBazowyAtak();
     }
 
     @Override

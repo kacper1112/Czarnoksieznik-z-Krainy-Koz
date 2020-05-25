@@ -1,6 +1,6 @@
 package gra;
 
-public class PrzedmiotFabularny {
+public class PrzedmiotFabularny extends Przedmiot {
     private final boolean czyZuzyty;
     private final String wskazowka;
     private final double inteligencjaWymaganaDoWskazowki;
