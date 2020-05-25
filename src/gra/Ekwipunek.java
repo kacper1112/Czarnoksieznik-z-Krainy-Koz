@@ -43,7 +43,7 @@ public class Ekwipunek {
         }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
             ekwipunekBronFizczna.add(p);
         }
-        System.out.println("Bron wlozona");
+        System.out.println("Kutacz wlozony");
     }
 
     public BronFizyczna wyciagnijBronFizyczna(int indeks){

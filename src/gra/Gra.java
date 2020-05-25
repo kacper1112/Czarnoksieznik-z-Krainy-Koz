@@ -22,24 +22,24 @@ public class Gra {
         System.out.println("1.Rozpocznij nowa gre \n2.Pokaz instrukcje");
         wyborGracza = wczytajWyborGracza(2);
 
-        if(wyborGracza == 1) {
-            System.out.println("Wybierz swoja klase postaci:\n" +
-                    "1.Wojownik\n2.Mag\n3.Kaplan");
-            wyborGracza = wczytajWyborGracza(3);
-
-            if(!inicjalizacjaGry(wyborGracza)) {
-                System.out.println("Blad podczas inicjalizacji gry!");
-                System.exit(1);
-            }
-
-            if(rozpocznijGre()) {
-                wygrana();
-            } else {
-                przegrana();
-            }
-
-        } else if(wyborGracza == 2) {
+        if(wyborGracza == 2) {
             pokazInstrukcje();
+            System.out.println("1.Kontynuuj");
+            wyborGracza = wczytajWyborGracza(1);
+        }
+
+        System.out.println("Wybierz swoja klase postaci:\n1.Wojownik\n2.Mag\n3.Kaplan");
+        wyborGracza = wczytajWyborGracza(3);
+
+        if(!inicjalizacjaGry(wyborGracza)) {
+            System.out.println("Blad podczas inicjalizacji gry!");
+            System.exit(1);
+        }
+
+        if(rozpocznijGre()) {
+            wygrana();
+        } else {
+            przegrana();
         }
     }
 
