@@ -8,7 +8,7 @@ public class Ekwipunek {
     private final List<PrzedmiotPozywienie> ekwipunekPozywienie;
     private final List<BronMagiczna> ekwipunekBronMagiczna;
     private final List<BronFizyczna> ekwipunekBronFizczna;
-    private final TYP_POSIADACZA_EKWIPUNKU TYP;
+    private TYP_POSIADACZA_EKWIPUNKU TYP;
     private bron wyekwipowanaBron;
 
     public Ekwipunek(TYP_POSIADACZA_EKWIPUNKU typ) {
@@ -64,6 +64,10 @@ public class Ekwipunek {
     }
     public void zmienWyekwipowanaBronNaFiczyna(int indeksBroni){
         wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
+    }
+
+    public void setTYP(TYP_POSIADACZA_EKWIPUNKU TYP) {
+        this.TYP = TYP;
     }
 
     //GETERY I SETTERY (CZESC DO WYWALENIA POZNIEJ)
