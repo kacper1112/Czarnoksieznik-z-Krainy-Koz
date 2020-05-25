@@ -2,7 +2,7 @@ package gra;
 
 import java.util.Scanner;
 
-public class Gra implements generatorEkwipunku{
+public class Gra{
     // tylko jedna instancja gry - singleton
     private static Scanner in;
     private int wyborGracza;
@@ -185,12 +185,6 @@ public class Gra implements generatorEkwipunku{
                 100
         ));
     }
-
-    @Override
-    public Ekwipunek generujEkwipunek() {
-        return null;
-    }
-
 
     //todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga juz ma
 
