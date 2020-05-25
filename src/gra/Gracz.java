@@ -1,5 +1,7 @@
 package gra;
 
+import java.util.Arrays;
+
 public abstract class Gracz {
     // pola klasy Gracza
     Ekwipunek ekwipunek;
@@ -12,17 +14,17 @@ public abstract class Gracz {
     private int postepFabularny;
     private double pieniadze;
 
+    // gettery i settery Gracza
+    public double getMaksymalnePunktyZycia() {
+        return maksymalnePunktyZycia;
+    }
+
     public Ekwipunek getEkwipunek() {
         return ekwipunek;
     }
 
     public void setEkwipunek(Ekwipunek ekwipunek) {
         this.ekwipunek = ekwipunek;
-    }
-
-    // gettery i settery Gracza
-    public double getMaksymalnePunktyZycia() {
-        return maksymalnePunktyZycia;
     }
 
     public void setMaksymalnePunktyZycia(double maksymalnePunktyZycia) {
@@ -133,6 +135,7 @@ public abstract class Gracz {
     public abstract void otrzymajObrazenia(double wartosc);
     public abstract void zwiekszLevel();
 
+
     // wkladanie przedmiotow do ekwipunku
     public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
         this.ekwipunek.wlozBron(bronFizyczna);
@@ -152,7 +155,13 @@ public abstract class Gracz {
 
     // dodac uzywanie pozywienia
     public void uzyjPozywienia(int index) {
-        this.obecnePunktyZycia += ((PrzedmiotPozywienie) this.ekwipunek.getEkwipunekPozywienie().get(index)).getPrzywracaneZycie();
+        this.obecnePunktyZycia +=
+                ((PrzedmiotPozywienie) this.ekwipunek.getEkwipunekPozywienie().get(index)).getPrzywracaneZycie();
+    }
+
+    // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
+    public void uzyjPrzedmiotuFabularnego(int index) {
+        ((PrzedmiotFabularny)this.ekwipunek.getEkwipunekFabularne().get(index)).getWskazowka(this.inteligencja);
     }
 
     // zmien wyekwipowana bron
@@ -164,9 +173,9 @@ public abstract class Gracz {
         }
     }
 
-    // wywolaj wskazwoke, jezeli masz wystarczajaca ilosc inteligencji
-    public void uzyjPrzedmiotuFabularnego(int index) {
-        ((PrzedmiotFabularny)this.ekwipunek.getEkwipunekFabularne().get(index)).getWskazowka(this.inteligencja);
+    public void menuEkwipunku() {
+        System.out.println("Twoje przedmioty:");
+
     }
 
     public String toString() {

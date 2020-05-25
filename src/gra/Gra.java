@@ -80,7 +80,7 @@ public class Gra {
         return false;
     }
 
-    private int wczytajWyborGracza(int liczbaOpcji) {
+    public int wczytajWyborGracza(int liczbaOpcji) {
         int wybor;
         while(true) {
             System.out.print("Twoj wybor: ");
@@ -176,6 +176,8 @@ public class Gra {
     }
 
     private void wygranaGracza(Wrog wrog) {
+        System.out.println("Udalo Ci sie pokonac przeciwnika!");
+        System.out.println("W truchle znajdujesz:");
 
     }
 
