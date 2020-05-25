@@ -68,10 +68,10 @@ public class Wydarzenie {
 
                 System.out.println("O bogowie, walka!");
 
-                if(!walka(wrog)) {
-                    Gra.przegrana();
-                } else {
+                if(walka(wrog)) {
                     wygranaGracza(wrog);
+                } else {
+                    Gra.przegrana();
                 }
             }
         }

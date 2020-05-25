@@ -175,7 +175,7 @@ public abstract class Gracz {
 
     public void menuEkwipunku() {
         System.out.println("Twoje przedmioty:");
-
+        ekwipunek.
     }
 
     public String toString() {
