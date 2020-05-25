@@ -12,9 +12,8 @@ public class Boss extends Wrog {
         this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
-    public void ulepszEkwipunekBossa(PrzedmiotFabularny przedmiotFabularny){
+    public void dodajKolejnyPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){
         this.getEkwipunek().wlozFabularne(przedmiotFabularny);
-        //MOZE JAKIS BRONI I POT
     }
 
     PrzedmiotFabularny wygranaBohatera(int indeks){
@@ -33,7 +32,9 @@ public class Boss extends Wrog {
 
     @Override
     public Ekwipunek generujEkwipunek() {
-        System.out.println("GENERATOR DLA BOSA");//do testu
+        //System.out.println("GENERATOR DLA BOSA"); test czy korzysta z dobrego generatora -> zaliczony
+        Ekwipunek ekwipunek = super.generujEkwipunek();
+
         return null;
     }
 }
