@@ -28,4 +28,12 @@ public class PrzedmiotFabularny extends Przedmiot {
     public String getWskazowka() {
         return wskazowka;
     }
+
+    @Override
+    public String toString() {
+        return "PrzedmiotFabularny: " +
+                "czyZuzyty: " + czyZuzyty +
+                ", wskazowka: " + wskazowka +
+                ", inteligencjaWymaganaDoWskazowki: " + inteligencjaWymaganaDoWskazowki;
+    }
 }

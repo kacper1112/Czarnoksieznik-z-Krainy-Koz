@@ -15,4 +15,10 @@ public class PrzedmiotPozywienie extends Przedmiot {
     public double getPrzywracaneZycie() {
         return przywracaneZycie;
     }
+
+    @Override
+    public String toString() {
+        return "PrzedmiotPozywienie: " +
+                "przywracaneZycie: " + przywracaneZycie;
+    }
 }

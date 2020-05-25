@@ -55,4 +55,12 @@ public class BronFizyczna extends Przedmiot implements bron {
     public double getMocUderzeniaKrytycznego() {
         return mocUderzeniaKrytycznego;
     }
+
+    @Override
+    public String toString() {
+        return "BronFizyczna: " +
+                "ostrosc: " + ostrosc +
+                ", obrazeniaBazowe: " + obrazeniaBazowe +
+                ", mocUderzeniaKrytycznego: " + mocUderzeniaKrytycznego;
+    }
 }

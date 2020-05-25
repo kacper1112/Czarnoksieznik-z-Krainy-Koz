@@ -96,5 +96,14 @@ public class Ekwipunek {
                 ekwipunekFabularne.isEmpty() && getEkwipunekPozywienie().isEmpty());
     }
 
+    @Override
+    public String toString() {
+        return "Ekwipunek typu: " + TYP +
+                " Przedmioty: Fabularne=" + ekwipunekFabularne +
+                ", Przedmioty: Pozywienie=" + ekwipunekPozywienie +
+                ", Przedmioty: BronMagiczna=" + ekwipunekBronMagiczna +
+                ", Przedmioty: BronFizczna=" + ekwipunekBronFizczna +
+                ", wyekwipowanaBron=" + wyekwipowanaBron;
+    }
 }
 
