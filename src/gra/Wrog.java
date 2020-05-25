@@ -3,23 +3,26 @@ package gra;
 import java.util.List;
 import java.util.Random;
 
-public class Wrog extends NPC{
+public class Wrog extends NPC {
     private double obecnePunktyZycia;
     private final double maksymalnePunktyZycia;
     private final double bazowyAtak;
+    //private boolean czyJestBossem;
 
     public Wrog(String imie) {
         super(imie);
         this.maksymalnePunktyZycia = 100;
         this.obecnePunktyZycia = maksymalnePunktyZycia;
         this.bazowyAtak = 100;
+        //this.czyJestBossem = false;
     }
 
-    public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak) {
+    public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak ){//, boolean czyJestBossem) {
         super(imie);
         this.maksymalnePunktyZycia = maksymalnePunktyZycia;
         this.obecnePunktyZycia = this.maksymalnePunktyZycia;
         this.bazowyAtak = bazowyAtak;
+        //this.czyJestBossem = czyJestBossem;
     }
 
     public double getObecnePunktyZycia() {
@@ -52,7 +55,7 @@ public class Wrog extends NPC{
 
     @Override
     public Ekwipunek generujEkwipunek() {
-
+        System.out.println("GENERATOR DLA WROGA");//do testu
         Ekwipunek ekwipunek = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WROG);
         List<Para<String, String>> bronFizycznaTMP = List.of(
                 new Para<>("Ostrze Zniszczonego Krola", "opis"),
@@ -87,4 +90,5 @@ public class Wrog extends NPC{
         }
         return ekwipunek;
     }
+
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Fabularny extends NPC {
+public class Fabularny extends NPC{
     private boolean czyPosiadaPrzedmiotFabularny;
     private List<? super Przedmiot> podarki;
     public Fabularny(String imie) {

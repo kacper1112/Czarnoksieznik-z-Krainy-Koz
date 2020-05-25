@@ -2,7 +2,7 @@ package gra;
 
 import java.util.Scanner;
 
-public class Gra {
+public class Gra{
     // tylko jedna instancja gry - singleton
     private static Scanner in;
     private int wyborGracza;
@@ -185,7 +185,6 @@ public class Gra {
                 100
         ));
     }
-
 
     //todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga juz ma
 

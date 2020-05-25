@@ -34,5 +34,11 @@ public class Kaplan extends Gracz {
             this.setInteligencja(this.getInteligencja() + 5);
         }
     }
+
+    @Override
+    public Ekwipunek generujEkwipunek() {
+        return null;
+    }
+
     //TODO generator ekwipunku
 }

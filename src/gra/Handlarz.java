@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class Handlarz extends NPC {
+public class Handlarz extends NPC{
     private int pieniadze;
     private List<Para<? extends Przedmiot, Integer>> oferta;
 
@@ -135,4 +135,5 @@ public class Handlarz extends NPC {
     public void setOferta(List<Para<? extends Przedmiot,Integer> > oferta) {
         this.oferta = oferta;
     }
+
 }

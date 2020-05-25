@@ -1,6 +1,6 @@
 package gra;
 
-public abstract class NPC {
+public abstract class NPC implements generatorEkwipunku{
     private String imie;
     private Ekwipunek ekwipunek;
 
@@ -9,7 +9,7 @@ public abstract class NPC {
         this.ekwipunek = generujEkwipunek();
     }
 
-    public abstract Ekwipunek generujEkwipunek();
+    //public abstract Ekwipunek generujEkwipunek();
 
     public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
         this.ekwipunek.wlozBronFizyczna(bronFizyczna);
