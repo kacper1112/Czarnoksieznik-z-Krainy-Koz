@@ -1,6 +1,7 @@
 package gra;
 
 import java.util.List;
+import java.util.Random;
 
 public class Kaplan extends Gracz {
     public Kaplan() {
@@ -37,12 +38,69 @@ public class Kaplan extends Gracz {
         }
     }
 
+    /**
+     * Kapalan na poczatku dostaje:
+     * podstawowa bron magiczna lub z fizyczna - szansa 50% na kazda
+     * jedzenie lub potion *2 - szansa 25 na kazda kombiancje:  JJ JP PJ PP
+     */
     @Override
     public Ekwipunek generujEkwipunek() {
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.KAPLAN);
-        ekwipunekTMP.wlozBronFizyczna();
+        Random rand = new Random();
+        if(rand.nextDouble() < 0.5){
+            ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
+                    "poczatkowa bron fizyczna",
+                    "opis",
+                    10,
+                    10,
+                    10,
+                    10
+            ));
+        }else{
+            ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
+                    "poczatkowa bron magiczna",
+                    "opis",
+                    10,
+                    10,
+                    10,
+                    10
+            ));
+        }
+        if(rand.nextDouble() < 0.5){
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowa pota",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }else {
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowe mieso",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }
+        if(rand.nextDouble() < 0.5){
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowa pota",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }else {
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowe mieso",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }
+
         return ekwipunekTMP;
     }
-
-    //TODO generator ekwipunku
 }

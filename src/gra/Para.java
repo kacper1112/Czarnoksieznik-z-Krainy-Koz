@@ -45,6 +45,4 @@ public class Para <A, B> {
     public String toString() {
         return "[" + pierwszy + ", " + drugi + ']';
     }
-
-
 }

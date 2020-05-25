@@ -1,5 +1,7 @@
 package gra;
 
+import java.util.Random;
+
 public class Mag extends Gracz {
     public Mag() {
         super(100, 10, 20);
@@ -32,9 +34,50 @@ public class Mag extends Gracz {
         }
     }
 
+    /**
+     * Mag na poczatku dostaje:
+     * podstawowa bron magiczna
+     * potion + potion lub jedzenie - szansa 50%
+     */
     @Override
     public Ekwipunek generujEkwipunek() {
-        return null;
+        Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.MAG);
+        Random rand = new Random();
+        ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
+                "poczatkowa bron magiczna",
+                "opis",
+                10,
+                10,
+                10,
+                10
+        ));
+
+        ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                "podstawowa pota",
+                "opis",
+                10,
+                10,
+                10
+        ));
+
+        if(rand.nextDouble() < 0.5){
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowa pota",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }else {
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowe mieso",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }
+
+        return  ekwipunekTMP;
     }
-    //TODO generator ekwipunku
 }

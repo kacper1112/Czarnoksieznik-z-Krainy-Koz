@@ -1,5 +1,7 @@
 package gra;
 
+import java.util.Random;
+
 public class Wojownik extends Gracz  {
     public Wojownik() {
         super(120, 20, 10);
@@ -26,10 +28,49 @@ public class Wojownik extends Gracz  {
 
     }
 
+    /**
+     * Wojownik na poczatku dostaje:
+     * podstawowa bron fizyczna
+     * jedzenie + potion lub jedzenie - szansa 50%
+     */
     @Override
     public Ekwipunek generujEkwipunek() {
-        return null;
-    }
+        Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK);
+        Random rand = new Random();
+        ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
+                "poczatkowa bron fizyczna",
+                "opis",
+                10,
+                10,
+                10,
+                10
+        ));
+        ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                "podstawowe mieso",
+                "opis",
+                10,
+                10,
+                10
+        ));
 
-    //TODO generator ekwipunku
+        if(rand.nextDouble() < 0.5){
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowa pota",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }else {
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowe mieso",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }
+
+        return ekwipunekTMP;
+    }
 }
