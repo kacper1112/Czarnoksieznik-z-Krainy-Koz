@@ -143,22 +143,13 @@ public class Wydarzenie {
                             wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
                 }
 
-                if(wrog.getObecnePunktyZycia() <= 0) {
-                    //wygranaGracza(wrog);
-                }
-
             } else {
                 obrazenia = wrog.zadajObrazenia();
                 System.out.println(wrog.getImie() + " zadaje Ci " + obrazenia + "punktow obrazen!");
                 gracz.otrzymajObrazenia(obrazenia);
                 System.out.println("Masz teraz " + gracz.getObecnePunktyZycia() + "/" +
                         gracz.getMaksymalnePunktyZycia() + " punktow zycia.");
-
-                if(gracz.getObecnePunktyZycia() <= 0) {
-                    Gra.przegrana();
-                }
             }
-
 
             if(gracz.getObecnePunktyZycia() <= 0 || wrog.getObecnePunktyZycia() <= 0) {
                 walkaTrwa = false;
