@@ -182,9 +182,76 @@ public abstract class Gracz {
         }
     }
 
-    public void menuEkwipunku() {
+    private int pokazEkwipunek() {
+        int indeks = 1;
+        if(ekwipunek.isEmpty()) {
+            System.out.println("Twoj ekwipunek jest pusty!");
+            return 0;
+        }
+
         System.out.println("Twoje przedmioty:");
-        System.out.println(ekwipunek.toString());
+        if(!ekwipunek.getEkwipunekPozywienie().isEmpty()) {
+            System.out.println("Pozywienie:");
+            for(PrzedmiotPozywienie p: ekwipunek.getEkwipunekPozywienie()) {
+                System.out.println(indeks++ + ". " + p.getNazwa());
+            }
+        }
+        if(!ekwipunek.getEkwipunekBronFizyczna().isEmpty()) {
+            System.out.println("Bron fizyczna:");
+            for(BronFizyczna bron: ekwipunek.getEkwipunekBronFizyczna()) {
+                System.out.println(indeks++ + ". " + bron.getNazwa());
+            }
+        }
+        if(!ekwipunek.getEkwipunekBronMagiczna().isEmpty()) {
+            System.out.println("Bron magiczna:");
+            for(BronMagiczna bron: ekwipunek.getEkwipunekBronMagiczna()) {
+                System.out.println(indeks++ + ". " + bron.getNazwa());
+            }
+        }
+        if(!ekwipunek.getEkwipunekFabularne().isEmpty()) {
+            System.out.println("Przedmioty fabularne:");
+            for(PrzedmiotFabularny p: ekwipunek.getEkwipunekFabularne()) {
+                System.out.println(indeks++ + ". " + p.getNazwa());
+            }
+        }
+        return indeks - 1;
+    }
+
+    public void menuEkwipunku() {
+        int indeks;
+
+        if(ekwipunek.isEmpty()) {
+            System.out.println("Twoj ekwipunek jest pusty!");
+            return;
+        }
+        indeks = pokazEkwipunek();
+        System.out.println("Wybierz przedmiot do uzycia lub bron do wyekwipowania");
+        indeks = Gra.wczytajWyborGracza(indeks);
+
+        // obliczamy z ktorej kategorii chcemy wyciagnac przedmiot
+        int rozmiarEq = 0;
+        boolean uzytoPrzedmiot = false;
+
+        rozmiarEq += ekwipunek.getEkwipunekPozywienie().size();
+        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
+            //ekwipunek.getEkwipunekPozywienie().get(indeks);
+            uzytoPrzedmiot = true;
+        }
+        rozmiarEq += ekwipunek.getEkwipunekBronFizyczna().size();
+        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
+            //ekwipunek.getEkwipunekBronFizyczna().get(indeks);
+            uzytoPrzedmiot = true;
+        }
+        rozmiarEq += ekwipunek.getEkwipunekBronMagiczna().size();
+        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
+            //ekwipunek.getEkwipunekBronMagiczna().get(indeks);
+            uzytoPrzedmiot = true;
+        }
+        if(!uzytoPrzedmiot) {
+            //ekwipunek.getEkwipunekFabularne().get(indeks);
+            uzytoPrzedmiot = true;
+        }
+
     }
 
     public String toString() {

@@ -87,5 +87,10 @@ public class Ekwipunek {
         return wyekwipowanaBron;
     }
 
+    public boolean isEmpty() {
+        return (ekwipunekBronFizczna.isEmpty() && ekwipunekBronMagiczna.isEmpty() &&
+                ekwipunekFabularne.isEmpty() && getEkwipunekPozywienie().isEmpty());
+    }
+
 }
 
