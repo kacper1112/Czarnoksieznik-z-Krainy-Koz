@@ -33,9 +33,9 @@ public class Gra {
             }
 
             if(rozpocznijGre()) {
-                System.out.println("Gratulacje, udalo Ci sie ukonczyc gre!");
+                wygrana();
             } else {
-                System.out.println("Powodzenia nastepnym razem!");
+                przegrana();
             }
 
         } else if(wyborGracza == 2) {
@@ -80,7 +80,18 @@ public class Gra {
         return false;
     }
 
-    public int wczytajWyborGracza(int liczbaOpcji) {
+    public static void wygrana() {
+        System.out.println("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!");
+        System.out.println("To juz koniec Twojej przygody!");
+        System.exit(0);
+    }
+
+    public static void przegrana() {
+        System.out.println("Nie zyjesz! Koniec gry! Powodzenia nastepnym razem.");
+        System.exit(0);
+    }
+
+    public static int wczytajWyborGracza(int liczbaOpcji) {
         int wybor;
         while(true) {
             System.out.print("Twoj wybor: ");
@@ -111,7 +122,7 @@ public class Gra {
                 "\"Jezeli Krol dalej bedzie nakladal na nas tak wysokie podatki, to juz nigdy nie wyjdziemy" +
                         " z kryzysu! Mam tylko nadzieje, ze nie zamkna naszego zakladu, to dopiero bylaby" +
                         " katastrofa...\" myslal Roman wracajac do domu po kolejnym ciezkim dniu pracy jako" +
-                        "ciesla. Wraca do domu a tam zony nimo." );
+                        "ciesla. Wraca do domu a tam zony nimo.", gracz);
 
         Wydarzenie spotkanieNaBajkowejPolanie_2;
     }
@@ -175,78 +186,7 @@ public class Gra {
         ));
     }
 
-    private void wygranaGracza(Wrog wrog) {
-        System.out.println("Udalo Ci sie pokonac przeciwnika!");
-        System.out.println("W truchle znajdujesz:");
 
-    }
+    //todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga juz ma
 
-    private void wygranaGracza(Boss wrog) {
-
-    }
-
-
-    private boolean walka(Wrog wrog) {
-        boolean walkaTrwa = true;
-        double obrazenia;
-        // true - gracz, false - wrog
-        boolean kolejGracza = (Math.random() < 0.5);
-        if(kolejGracza) {
-            System.out.println("Walke rozpoczyna Twoj przeciwnik!");
-        } else {
-            System.out.println("Rozpoczynasz walke!");
-        }
-
-        while(walkaTrwa) {
-            if(kolejGracza) {
-                System.out.println("Co chcesz zrobic?\n1.Skorzystaj z ekwipunku\n2.Zaatakuj przeciwnika" +
-                        "korzystajac z " + gracz.getEkwipunek().getWyekwipowanaBron() + "\n" +
-                        "3.Sprobuj wykonac atak specjalny");
-
-                wyborGracza = wczytajWyborGracza(3);
-                if(wyborGracza == 1) {
-                    System.out.println(gracz.getEkwipunek().toString());
-                    // menu wyboru przedmiotu z ekwipunku
-                } else if(wyborGracza == 2) {
-                    obrazenia = gracz.zadajObrazenia();
-                    System.out.println("Atakujesz wroga za " + obrazenia + " punktow!");
-                    wrog.otrzymajObrazenia(obrazenia);
-                    System.out.println("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
-                            wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
-                } else if(wyborGracza == 3) {
-                    obrazenia = gracz.zadajObrazeniaSpecjalne();
-                    System.out.println("Atakujesz wroga za " + obrazenia + " punktow!");
-                    wrog.otrzymajObrazenia(obrazenia);
-                    System.out.println("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
-                            wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
-                }
-
-                if(wrog.getObecnePunktyZycia() <= 0) {
-                    //wygranaGracza(wrog);
-                }
-
-            } else {
-                obrazenia = wrog.zadajObrazenia();
-                System.out.println(wrog.getImie() + " zadaje Ci " + obrazenia + "punktow obrazen!");
-                gracz.otrzymajObrazenia(obrazenia);
-                System.out.println("Masz teraz " + gracz.getObecnePunktyZycia() + "/" +
-                        gracz.getMaksymalnePunktyZycia() + " punktow zycia.");
-
-                if(gracz.getObecnePunktyZycia() <= 0) {
-                    System.out.println("Nie zyjesz! Koniec gry!");
-                    System.exit(0);
-                }
-            }
-
-
-            if(gracz.getObecnePunktyZycia() <= 0 && wrog.getObecnePunktyZycia() <= 0) {
-                walkaTrwa = false;
-            }
-
-            kolejGracza = !kolejGracza;
-        }
-
-
-        return false;
-    }
 }
