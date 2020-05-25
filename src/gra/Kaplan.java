@@ -1,5 +1,7 @@
 package gra;
 
+import java.util.List;
+
 public class Kaplan extends Gracz {
     public Kaplan() {
         super(110, 15, 15);
@@ -37,7 +39,9 @@ public class Kaplan extends Gracz {
 
     @Override
     public Ekwipunek generujEkwipunek() {
-        return null;
+        Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.KAPLAN);
+        ekwipunekTMP.wlozBronFizyczna();
+        return ekwipunekTMP;
     }
 
     //TODO generator ekwipunku
