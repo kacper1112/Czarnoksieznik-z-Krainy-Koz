@@ -19,12 +19,12 @@ public class Gra {
         in = new Scanner(System.in);
 
         System.out.println("Czarnoksieznik z Krainy Koz\n");
-        System.out.println("1. Rozpocznij nowa gre \n2. Pokaz instrukcje");
+        System.out.println("1.Rozpocznij nowa gre \n2.Pokaz instrukcje");
         wyborGracza = wczytajWyborGracza(2);
 
         if(wyborGracza == 1) {
             System.out.println("Wybierz swoja klase postaci:\n" +
-                    "1. Wojownik\n2.Mag\n3.Kaplan");
+                    "1.Wojownik\n2.Mag\n3.Kaplan");
             wyborGracza = wczytajWyborGracza(3);
 
             if(!inicjalizacjaGry(wyborGracza)) {

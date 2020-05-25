@@ -19,10 +19,10 @@ public class Ekwipunek {
         ekwipunekBronFizczna = new ArrayList<>();
     }
 
-    public void wlozFabularne(PrzedmiotFabularny pf){
+    public void wlozFabularne(PrzedmiotFabularny pf) {
         ekwipunekFabularne.add(pf);
     }
-    public void wlozPozywienie(PrzedmiotPozywienie pozywienie){
+    public void wlozPozywienie(PrzedmiotPozywienie pozywienie) {
         ekwipunekPozywienie.add(pozywienie);
     }
     public void wlozBronMagiczna(BronMagiczna p){
@@ -54,11 +54,11 @@ public class Ekwipunek {
     }
 
     public PrzedmiotFabularny wyciagnijFabularne(int indeks){
-        return (PrzedmiotFabularny) ekwipunekFabularne.get(indeks);
+        return ekwipunekFabularne.get(indeks);
     }
 
     public PrzedmiotPozywienie wyciagnijPozywienie(int indeks){
-        return (PrzedmiotPozywienie) ekwipunekPozywienie.get(indeks);
+        return ekwipunekPozywienie.get(indeks);
     }
 
     public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni){

@@ -156,12 +156,12 @@ public abstract class Gracz {
     // dodac uzywanie pozywienia
     public void uzyjPozywienia(int index) {
         this.obecnePunktyZycia +=
-                ((PrzedmiotPozywienie) this.ekwipunek.getEkwipunekPozywienie().get(index)).getPrzywracaneZycie();
+                this.ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
     }
 
     // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
     public void uzyjPrzedmiotuFabularnego(int index) {
-        ((PrzedmiotFabularny)this.ekwipunek.getEkwipunekFabularne().get(index)).getWskazowka(this.inteligencja);
+        this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja);
     }
 
     // zmien wyekwipowana bron na Fizyczna
