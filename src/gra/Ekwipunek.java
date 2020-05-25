@@ -33,7 +33,7 @@ public class Ekwipunek {
         }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
             ekwipunekBronMagiczna.add(p);
         }
-        System.out.println("Bron Wlozona");
+        System.out.println("Kutacz Wlozona");
     }
     public void wlozBronFizyczna(BronFizyczna p){
         if(TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK){
