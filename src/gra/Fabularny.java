@@ -15,7 +15,7 @@ public class Fabularny extends NPC {
 
     @Override
     public Ekwipunek generujEkwipunek() {
-        Ekwipunek ekwipunekTMP = new Ekwipunek(typ);
+        Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.FABULARNY);
 
         List<Para<String, String> > pozywienieTMP = List.of(
                 new Para<>("Mikstura Lowcy", "opis"),

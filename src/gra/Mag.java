@@ -31,4 +31,5 @@ public class Mag extends Gracz {
             this.setInteligencja(this.getInteligencja() + 10);
         }
     }
+    //TODO generator ekwipunku
 }

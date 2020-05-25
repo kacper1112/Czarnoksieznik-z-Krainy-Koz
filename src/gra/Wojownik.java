@@ -25,4 +25,6 @@ public class Wojownik extends Gracz {
     public void zwiekszLevel() {
 
     }
+
+    //TODO generator ekwipunku
 }

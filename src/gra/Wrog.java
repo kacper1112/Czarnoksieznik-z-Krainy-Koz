@@ -53,7 +53,7 @@ public class Wrog extends NPC{
     @Override
     public Ekwipunek generujEkwipunek() {
 
-        Ekwipunek ekwipunek = new Ekwipunek(typ);
+        Ekwipunek ekwipunek = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WROG);
         List<Para<String, String>> bronFizycznaTMP = List.of(
                 new Para<>("Ostrze Zniszczonego Krola", "opis"),
                 new Para<>("Ostrze Nieskonczonosci", "opis")
