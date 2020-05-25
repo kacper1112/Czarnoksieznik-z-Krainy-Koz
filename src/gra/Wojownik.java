@@ -1,6 +1,6 @@
 package gra;
 
-public class Wojownik extends Gracz {
+public class Wojownik extends Gracz  {
     public Wojownik() {
         super(120, 20, 10);
     }
@@ -24,6 +24,11 @@ public class Wojownik extends Gracz {
     @Override
     public void zwiekszLevel() {
 
+    }
+
+    @Override
+    public Ekwipunek generujEkwipunek() {
+        return null;
     }
 
     //TODO generator ekwipunku

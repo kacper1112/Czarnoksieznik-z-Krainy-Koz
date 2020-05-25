@@ -2,7 +2,7 @@ package gra;
 
 import java.util.Random;
 
-public class Boss extends Wrog{
+public class Boss extends Wrog {
     private double szansaNaTrafienieKrytyczne;
 
     public Boss(String imie, PrzedmiotFabularny przedmiotFabularny) {
@@ -29,5 +29,11 @@ public class Boss extends Wrog{
 
     public void setSzansaNaTrafienieKrytyczne(double szansaNaTrafienieKrytyczne) {
         this.szansaNaTrafienieKrytyczne = szansaNaTrafienieKrytyczne;
+    }
+
+    @Override
+    public Ekwipunek generujEkwipunek() {
+        System.out.println("GENERATOR DLA BOSA");//do testu
+        return null;
     }
 }

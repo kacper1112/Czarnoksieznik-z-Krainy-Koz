@@ -31,5 +31,10 @@ public class Mag extends Gracz {
             this.setInteligencja(this.getInteligencja() + 10);
         }
     }
+
+    @Override
+    public Ekwipunek generujEkwipunek() {
+        return null;
+    }
     //TODO generator ekwipunku
 }

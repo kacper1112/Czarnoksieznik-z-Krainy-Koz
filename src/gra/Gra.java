@@ -2,7 +2,7 @@ package gra;
 
 import java.util.Scanner;
 
-public class Gra {
+public class Gra implements generatorEkwipunku{
     // tylko jedna instancja gry - singleton
     private static Scanner in;
     private int wyborGracza;
@@ -184,6 +184,11 @@ public class Gra {
                 "po przez zdradliwe urwisko...",
                 100
         ));
+    }
+
+    @Override
+    public Ekwipunek generujEkwipunek() {
+        return null;
     }
 
 

@@ -2,7 +2,7 @@ package gra;
 
 import java.util.Arrays;
 
-public abstract class Gracz {
+public abstract class Gracz implements generatorEkwipunku{
     // pola klasy Gracza
     Ekwipunek ekwipunek;
     private double maksymalnePunktyZycia;
@@ -13,6 +13,32 @@ public abstract class Gracz {
     private double punktyDoswiadczenia;
     private int postepFabularny;
     private double pieniadze;
+
+    // konstruktor domyslny
+    public Gracz() {
+        maksymalnePunktyZycia = 100;
+        obecnePunktyZycia = maksymalnePunktyZycia;
+        sila = 10;
+        inteligencja = 10;
+        poziom = 0;
+        punktyDoswiadczenia = 0;
+        postepFabularny = 0;
+        pieniadze = 100;
+        ekwipunek = generujEkwipunek();
+    }
+
+    // konstruktor klasy gracza
+    public Gracz(double maksymalnePunktyZycia, double sila, double inteligencja) {
+        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
+        this.obecnePunktyZycia = maksymalnePunktyZycia;
+        this.sila = sila;
+        this.inteligencja = inteligencja;
+        this.poziom = 1;
+        this.punktyDoswiadczenia = 0;
+        this.postepFabularny = 0;
+        this.pieniadze = 100;
+        ekwipunek = generujEkwipunek();
+    }
 
     // gettery i settery Gracza
     public double getMaksymalnePunktyZycia() {
@@ -87,30 +113,6 @@ public abstract class Gracz {
         this.pieniadze = pieniadze;
     }
 
-    // konstruktor domyslny
-    public Gracz() {
-        maksymalnePunktyZycia = 100;
-        obecnePunktyZycia = maksymalnePunktyZycia;
-        sila = 10;
-        inteligencja = 10;
-        poziom = 0;
-        punktyDoswiadczenia = 0;
-        postepFabularny = 0;
-        pieniadze = 100;
-    }
-
-    // konstruktor klasy gracza
-    public Gracz(double maksymalnePunktyZycia, double sila, double inteligencja) {
-        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
-        this.obecnePunktyZycia = maksymalnePunktyZycia;
-        this.sila = sila;
-        this.inteligencja = inteligencja;
-        this.poziom = 1;
-        this.punktyDoswiadczenia = 0;
-        this.postepFabularny = 0;
-        this.pieniadze = 100;
-    }
-
     // gracz otrzymuje obrazenia
     // dodac co sie dzieje, gdy obecnePunktyZycia = 0
     void zmniejszPunktyZycia(double wartosc) {
@@ -134,7 +136,6 @@ public abstract class Gracz {
     public abstract double zadajObrazeniaSpecjalne();
     public abstract void otrzymajObrazenia(double wartosc);
     public abstract void zwiekszLevel();
-
 
     // wkladanie przedmiotow do ekwipunku
     public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
