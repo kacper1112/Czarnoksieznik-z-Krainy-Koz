@@ -47,9 +47,13 @@ public class Wrog extends NPC {
         if(this.getEkwipunek().getWyekwipowanaBron() != null) {
             return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
         }
+        System.out.println("Wrog nie posiada broni, atakuje Cie szponami");
         return getBazowyAtak();
     }
-
+    /**
+     * Wrog na poczatku dostaje:
+     * podstawowa bron fizyczna lub magiczna - szansa 50%
+     */
     @Override
     public Ekwipunek generujEkwipunek() {
         //System.out.println("GENERATOR DLA WROGA");test czy korzysta z dobrego generatora - zaliczony

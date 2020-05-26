@@ -31,6 +31,12 @@ public class Boss extends Wrog {
         this.szansaNaTrafienieKrytyczne = szansaNaTrafienieKrytyczne;
     }
 
+    /**
+     * Boss na początku dostaje:
+     * to samo co Wrog
+     * dodatkowe dostaje drugą bron, magiczna lub fizyczna, inną niz dostal przez generator Wroga
+     * jedzenie lub potion *2 - szansa 25 na kazda kombiancje:  JJ JP PJ PP
+     */
     @Override
     public Ekwipunek generujEkwipunek() {
         //System.out.println("GENERATOR DLA BOSA"); test czy korzysta z dobrego generatora -> zaliczony

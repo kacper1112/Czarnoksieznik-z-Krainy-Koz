@@ -169,6 +169,7 @@ public abstract class Gracz implements generatorEkwipunku{
     public void zmienBronNaFizyczna(int index) {
         if(index < this.ekwipunek.getEkwipunekBronFizyczna().size()) {
             this.ekwipunek.zmienWyekwipowanaBronNaFiczyna(index);
+            System.out.println("Zmieniles bron na: " + ekwipunek.getEkwipunekBronFizyczna().get(index));
         } else {
             System.out.println("Bron o podanym indeksie nie istnieje");
         }
@@ -178,6 +179,7 @@ public abstract class Gracz implements generatorEkwipunku{
     public void zmienBronNaMagiczna(int index) {
         if(index < this.ekwipunek.getEkwipunekBronMagiczna().size()) {
             this.ekwipunek.zmienWyekwipowanaBronNaMagiczna(index);
+            System.out.println("Zmieniles bron na: " + ekwipunek.getEkwipunekBronMagiczna().get(index));
         } else {
             System.out.println("Bron o podanym indeksie nie istnieje");
         }
