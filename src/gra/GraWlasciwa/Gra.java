@@ -1,4 +1,11 @@
-package gra;
+package gra.GraWlasciwa;
+
+import gra.NPC.Boss;
+import gra.RodzajeGracz.Gracz;
+import gra.RodzajeGracz.Kaplan;
+import gra.RodzajeGracz.Mag;
+import gra.RodzajeGracz.Wojownik;
+import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
 import java.util.Scanner;
 

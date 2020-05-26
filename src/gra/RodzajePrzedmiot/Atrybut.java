@@ -1,4 +1,4 @@
-package gra;
+package gra.RodzajePrzedmiot;
 
 public class Atrybut {
     private double bonusDoSily;

@@ -1,4 +1,9 @@
-package gra;
+package gra.ElementyPomocnicze;
+
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotFabularny;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.ArrayList;
 import java.util.List;

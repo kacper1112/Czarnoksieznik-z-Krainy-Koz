@@ -1,10 +1,15 @@
-package gra;
+package gra.NPC;
+
+import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.Para;
+import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Fabularny extends NPC{
+public class Fabularny extends NPC {
     private boolean czyPosiadaPrzedmiotFabularny;
     private List<? super Przedmiot> podarki;
     public Fabularny(String imie) {
@@ -17,7 +22,7 @@ public class Fabularny extends NPC{
     public Ekwipunek generujEkwipunek() {
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.FABULARNY);
 
-        List<Para<String, String> > pozywienieTMP = List.of(
+        List<Para<String, String>> pozywienieTMP = List.of(
                 new Para<>("Mikstura Lowcy", "opis"),
                 new Para<>("Elikis Gniewu", "opis"),
                 new Para<>("Eliksir Zdrowia", "opis"),

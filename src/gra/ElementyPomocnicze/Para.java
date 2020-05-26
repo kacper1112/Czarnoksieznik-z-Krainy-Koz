@@ -1,4 +1,4 @@
-package gra;
+package gra.ElementyPomocnicze;
 
 import java.util.Objects;
 

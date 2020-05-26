@@ -1,4 +1,10 @@
-package gra;
+package gra.NPC;
+
+import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.Para;
+import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
 
 import java.util.List;
 import java.util.Random;

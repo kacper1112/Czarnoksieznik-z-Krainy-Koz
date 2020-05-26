@@ -1,4 +1,10 @@
-package gra;
+package gra.GraWlasciwa;
+
+import gra.GraWlasciwa.Gra;
+import gra.NPC.Boss;
+import gra.NPC.Fabularny;
+import gra.NPC.Wrog;
+import gra.RodzajeGracz.Gracz;
 
 import java.util.ArrayList;
 import java.util.List;

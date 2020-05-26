@@ -1,4 +1,6 @@
-package gra;
+package gra.RodzajePrzedmiot;
+
+import gra.ElementyPomocnicze.bron;
 
 public class BronFizyczna extends Przedmiot implements bron {
 

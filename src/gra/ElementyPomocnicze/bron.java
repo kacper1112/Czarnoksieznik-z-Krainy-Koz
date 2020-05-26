@@ -1,4 +1,4 @@
-package gra;
+package gra.ElementyPomocnicze;
 
 public interface bron {
     double zadajObrazenia();

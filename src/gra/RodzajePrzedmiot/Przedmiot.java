@@ -1,4 +1,4 @@
-package gra;
+package gra.RodzajePrzedmiot;
 
 public abstract class Przedmiot {
     private final String nazwa;

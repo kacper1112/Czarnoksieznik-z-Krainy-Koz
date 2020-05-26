@@ -1,4 +1,6 @@
-package gra;
+package gra.RodzajePrzedmiot;
+
+import gra.RodzajePrzedmiot.Przedmiot;
 
 public class PrzedmiotFabularny extends Przedmiot {
     private final boolean czyZuzyty;

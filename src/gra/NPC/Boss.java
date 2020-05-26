@@ -1,4 +1,12 @@
-package gra;
+package gra.NPC;
+
+import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.Para;
+import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotFabularny;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.List;
 import java.util.Random;
@@ -43,7 +51,7 @@ public class Boss extends Wrog {
         Ekwipunek ekwipunekTMP = super.generujEkwipunek();
         ekwipunekTMP.setTYP(TYP_POSIADACZA_EKWIPUNKU.BOSS);
         Random rand = new Random();
-        List<Para<String, String> > pozywienieTMP = List.of(
+        List<Para<String, String>> pozywienieTMP = List.of(
                 new Para<>("Mikstura Lowcy", "opis"),
                 new Para<>("Elikis Gniewu", "opis"),
                 new Para<>("Eliksir Zdrowia", "opis"),

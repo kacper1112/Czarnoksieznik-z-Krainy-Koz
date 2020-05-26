@@ -1,59 +1,57 @@
-package gra;
+package gra.RodzajeGracz;
+
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.ElementyPomocnicze.Ekwipunek;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
+import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 
 import java.util.Random;
 
-public class Mag extends Gracz {
-    public Mag() {
-        super(100, 10, 20);
+public class Wojownik extends Gracz {
+    public Wojownik() {
+        super(120, 20, 10);
     }
 
     // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
-        return this.getInteligencja() + this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
+        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
     }
 
     public double zadajObrazeniaSpecjalne() {
-        return this.getInteligencja() + this.getEkwipunek().getWyekwipowanaBron().zadajObrazeniaSpecjalne();
+        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazeniaSpecjalne();
     }
 
     // obsluzyc jak gracza ginie
     public void otrzymajObrazenia(double wartosc) {
-        // mozwliwosc uniku
-        if(Math.random() >= .1) {
-            // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
-            double obrazenia = (1 - this.getInteligencja() / 100) * wartosc;
-            zmniejszPunktyZycia(obrazenia);
-        }
+        // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
+        double obrazenia = (1 - this.getSila() / 100) * wartosc;
+        zmniejszPunktyZycia(obrazenia);
     }
 
+    @Override
     public void zwiekszLevel() {
-        if(this.getPunktyDoswiadczenia() > 100) {
-            this.setPoziom(this.getPoziom() + 1);
-            this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
-            this.setInteligencja(this.getInteligencja() + 10);
-        }
+
     }
 
     /**
-     * Mag na poczatku dostaje:
-     * podstawowa bron magiczna
-     * potion + potion lub jedzenie - szansa 50%
+     * Wojownik na poczatku dostaje:
+     * podstawowa bron fizyczna
+     * jedzenie + potion lub jedzenie - szansa 50%
      */
     @Override
     public Ekwipunek generujEkwipunek() {
-        Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.MAG);
+        Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK);
         Random rand = new Random();
-        ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
-                "poczatkowa bron magiczna",
+        ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
+                "poczatkowa bron fizyczna",
                 "opis",
                 10,
                 10,
                 10,
                 10
         ));
-
         ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
-                "podstawowa pota",
+                "podstawowe mieso",
                 "opis",
                 10,
                 10,
@@ -78,6 +76,6 @@ public class Mag extends Gracz {
             ));
         }
 
-        return  ekwipunekTMP;
+        return ekwipunekTMP;
     }
 }

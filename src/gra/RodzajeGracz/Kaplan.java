@@ -1,6 +1,11 @@
-package gra;
+package gra.RodzajeGracz;
 
-import java.util.List;
+import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
+
 import java.util.Random;
 
 public class Kaplan extends Gracz {

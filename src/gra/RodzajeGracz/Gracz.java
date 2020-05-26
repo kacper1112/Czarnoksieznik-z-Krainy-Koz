@@ -1,8 +1,14 @@
-package gra;
+package gra.RodzajeGracz;
 
-import java.util.Arrays;
+import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.generatorEkwipunku;
+import gra.GraWlasciwa.Gra;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotFabularny;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
-public abstract class Gracz implements generatorEkwipunku{
+public abstract class Gracz implements generatorEkwipunku {
     // pola klasy Gracza
     Ekwipunek ekwipunek;
     private double maksymalnePunktyZycia;

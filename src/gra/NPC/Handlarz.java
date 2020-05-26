@@ -1,11 +1,20 @@
-package gra;
+package gra.NPC;
+
+import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.Para;
+import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.RodzajeGracz.Gracz;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.Przedmiot;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class Handlarz extends NPC{
+public class Handlarz extends NPC {
     private int pieniadze;
     private List<Para<? extends Przedmiot, Integer>> oferta;
 

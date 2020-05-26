@@ -1,4 +1,6 @@
-package gra;
+package gra.GraWlasciwa;
+
+import gra.GraWlasciwa.Wydarzenie;
 
 public class Lokacja {
     private final String nazwa;

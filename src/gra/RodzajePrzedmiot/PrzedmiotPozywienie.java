@@ -1,4 +1,6 @@
-package gra;
+package gra.RodzajePrzedmiot;
+
+import gra.RodzajePrzedmiot.Przedmiot;
 
 public class PrzedmiotPozywienie extends Przedmiot {
     private final double przywracaneZycie;
