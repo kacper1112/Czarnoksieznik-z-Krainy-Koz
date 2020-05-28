@@ -18,7 +18,7 @@ public class Gra{
 
     private static Gra instance;
     private Gracz gracz;
-    private Lokacja[] lokacje;
+    private List<Lokacja> lokacje;
 
     public static void main(String[] args) {
         getInstance();
@@ -44,6 +44,8 @@ public class Gra{
             System.out.println("Blad podczas inicjalizacji gry!");
             System.exit(1);
         }
+
+
 
         if(rozpocznijGre()) {
             wygrana();
@@ -123,6 +125,13 @@ public class Gra{
         return in.nextInt();
     }
 
+    public int menuPodstawowe(){
+        System.out.println("1. Pokaż ekwipunek\n" +
+                "2. Przejdź do innej lokalizacji\n");
+        return in.nextInt();
+    }
+
+
     private void inicjalizacjaWydarzenFabularnych() {
         // nazywa wydarzenia fabularnego (obiektu) - nazwa + podloga +
         // kolejny numer wg postepu fabuly
@@ -138,7 +147,7 @@ public class Gra{
         Wydarzenie spotkanieNaBajkowejPolanie_2;
     }
 
-    private Lokacja[] inicjalizacjaLokacji() {
+    private List<Lokacja> inicjalizacjaLokacji() {
 
         List<Lokacja> lokacjeTMP = new ArrayList<>();
         /*
@@ -157,8 +166,10 @@ public class Gra{
 
         lokacjeTMP.add(new Lokacja("Bajkowa polana", "Dochodzisz do bajkowej polany, księżyc rozpościera" +
                 " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu." +
-                " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej zmotywowany." +
-                " Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.",));
+                " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej " +
+                "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.",
+                ));
+
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
@@ -194,7 +205,7 @@ public class Gra{
         // Wysoka Brama
 
         // Wieza Czarnoksieznika z Koz (lokacja koncowa)
-        return (Lokacja[]) lokacjeTMP.toArray();
+        return lokacjeTMP;
     }
 
     private void inicjalizacjaBossow(){
