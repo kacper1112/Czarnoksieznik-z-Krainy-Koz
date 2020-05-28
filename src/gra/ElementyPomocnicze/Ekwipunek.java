@@ -31,22 +31,10 @@ public class Ekwipunek {
         ekwipunekPozywienie.add(pozywienie);
     }
     public void wlozBronMagiczna(BronMagiczna p){
-        if(TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK){
-            System.out.println("Nie mozesz korzystac z broni magicznej - jestes wojownikiem");
-        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.MAG){
-            ekwipunekBronMagiczna.add(p);
-        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
-            ekwipunekBronMagiczna.add(p);
-        }
+        ekwipunekBronMagiczna.add(p);
     }
     public void wlozBronFizyczna(BronFizyczna p){
-        if(TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK){
-            ekwipunekBronFizczna.add(p);
-        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.MAG){
-            System.out.println("Nie mozesz korzystac z broni magicznej - jestes magiem");
-        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
-            ekwipunekBronFizczna.add(p);
-        }
+        ekwipunekBronFizczna.add(p);
     }
 
     public BronFizyczna wyciagnijBronFizyczna(int indeks){
@@ -65,10 +53,22 @@ public class Ekwipunek {
     }
 
     public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni){
-        wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
+        if(TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK){
+            System.out.println("Nie mozesz korzystac z broni magicznej - jestes wojownikiem");
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.MAG){
+            wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
+            wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
+        }
     }
     public void zmienWyekwipowanaBronNaFiczyna(int indeksBroni){
-        wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
+        if(TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK){
+            wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.MAG){
+            System.out.println("Nie mozesz korzystac z broni fizycznej - jestes magiem");
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
+            wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
+        }
     }
 
     public void setTYP(TYP_POSIADACZA_EKWIPUNKU TYP) {
