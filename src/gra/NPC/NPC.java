@@ -16,8 +16,6 @@ public abstract class NPC implements generatorEkwipunku {
         this.ekwipunek = generujEkwipunek();
     }
 
-    //public abstract Ekwipunek generujEkwipunek();
-
     public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
         this.ekwipunek.wlozBronFizyczna(bronFizyczna);
     }

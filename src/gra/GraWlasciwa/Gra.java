@@ -7,6 +7,8 @@ import gra.RodzajeGracz.Mag;
 import gra.RodzajeGracz.Wojownik;
 import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Gra{
@@ -125,6 +127,8 @@ public class Gra{
         // nazywa wydarzenia fabularnego (obiektu) - nazwa + podloga +
         // kolejny numer wg postepu fabuly
 
+        //Wydarzenie walka
+
         Wydarzenie wprowadzenie_1 = new Wydarzenie("Wprowadzenie",
                 "\"Jezeli Krol dalej bedzie nakladal na nas tak wysokie podatki, to juz nigdy nie wyjdziemy" +
                         " z kryzysu! Mam tylko nadzieje, ze nie zamkna naszego zakladu, to dopiero bylaby" +
@@ -135,6 +139,26 @@ public class Gra{
     }
 
     private Lokacja[] inicjalizacjaLokacji() {
+
+        List<Lokacja> lokacjeTMP = new ArrayList<>();
+        /*
+        (String nazwa,
+                   String opis,
+                   Wydarzenie fabularne,
+                   Wydarzenie[] poboczne,
+                   int[] sasiednie)
+         */
+        lokacjeTMP.add(new Lokacja("Chałpka nad urwistą doliną", "Znajdujesz się w swojej chałpce, " +
+                "dookoła panuje straszny bałagan, wszędzie na podłodze walają się szczątki" +
+                " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy" +
+                " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę" +
+                " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.",
+                ));
+
+        lokacjeTMP.add(new Lokacja("Bajkowa polana", "Dochodzisz do bajkowej polany, księżyc rozpościera" +
+                " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu." +
+                " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej zmotywowany." +
+                " Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.",));
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
@@ -170,7 +194,7 @@ public class Gra{
         // Wysoka Brama
 
         // Wieza Czarnoksieznika z Koz (lokacja koncowa)
-        return new Lokacja[1];
+        return (Lokacja[]) lokacjeTMP.toArray();
     }
 
     private void inicjalizacjaBossow(){

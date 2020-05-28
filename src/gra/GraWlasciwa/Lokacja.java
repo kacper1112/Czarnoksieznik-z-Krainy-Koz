@@ -20,4 +20,5 @@ public class Lokacja {
         this.wydarzeniaPoboczne = poboczne;
         this.sasiednieLokacje = sasiednie;
     }
+
 }
