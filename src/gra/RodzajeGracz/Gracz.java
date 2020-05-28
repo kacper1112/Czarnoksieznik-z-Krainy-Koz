@@ -161,18 +161,18 @@ public abstract class Gracz implements generatorEkwipunku {
     }
 
     // dodac uzywanie pozywienia
-    public void uzyjPozywienia(int index) {
+    private void uzyjPozywienia(int index) {
         this.obecnePunktyZycia +=
                 this.ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
     }
 
     // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
-    public void uzyjPrzedmiotuFabularnego(int index) {
+    private void uzyjPrzedmiotuFabularnego(int index) {
         this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja);
     }
 
     // zmien wyekwipowana bron na Fizyczna
-    public void zmienBronNaFizyczna(int index) {
+    private void zmienBronNaFizyczna(int index) {
         if(index < this.ekwipunek.getEkwipunekBronFizyczna().size()) {
             this.ekwipunek.zmienWyekwipowanaBronNaFiczyna(index);
             System.out.println("Zmieniles bron na: " + ekwipunek.getEkwipunekBronFizyczna().get(index));
@@ -182,7 +182,7 @@ public abstract class Gracz implements generatorEkwipunku {
     }
 
     // zmien wyekwipowana bron na Fizyczna
-    public void zmienBronNaMagiczna(int index) {
+    private void zmienBronNaMagiczna(int index) {
         if(index < this.ekwipunek.getEkwipunekBronMagiczna().size()) {
             this.ekwipunek.zmienWyekwipowanaBronNaMagiczna(index);
             System.out.println("Zmieniles bron na: " + ekwipunek.getEkwipunekBronMagiczna().get(index));
@@ -242,25 +242,23 @@ public abstract class Gracz implements generatorEkwipunku {
         boolean uzytoPrzedmiot = false;
 
         rozmiarEq += ekwipunek.getEkwipunekPozywienie().size();
-        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-            //ekwipunek.getEkwipunekPozywienie().get(indeks);
+        if(rozmiarEq >= indeks) {
+            uzyjPozywienia(indeks);
             uzytoPrzedmiot = true;
         }
         rozmiarEq += ekwipunek.getEkwipunekBronFizyczna().size();
         if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-            //ekwipunek.getEkwipunekBronFizyczna().get(indeks);
+            zmienBronNaFizyczna(indeks);
             uzytoPrzedmiot = true;
         }
         rozmiarEq += ekwipunek.getEkwipunekBronMagiczna().size();
         if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-            //ekwipunek.getEkwipunekBronMagiczna().get(indeks);
+            zmienBronNaMagiczna(indeks);
             uzytoPrzedmiot = true;
         }
         if(!uzytoPrzedmiot) {
-            //ekwipunek.getEkwipunekFabularne().get(indeks);
-            uzytoPrzedmiot = true;
+            uzyjPrzedmiotuFabularnego(indeks);
         }
-
     }
 
     public String toString() {
