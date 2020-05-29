@@ -16,20 +16,21 @@ public class Fabularny extends NPC {
 
     public Fabularny(String imie) {
         super(imie);
-        podarki = new ArrayList<>();
+        //podarki = new ArrayList<>();
         przedmiotFabularny = null;
         czyPosiadaPrzedmiotFabularny = false;
     }
 
     public Fabularny(String imie, boolean czyPosiadaPrzedmiotFabularny, Przedmiot przedmiotFabularny) {
         super(imie);
-        podarki = new ArrayList<>();
+        //podarki = new ArrayList<>();
         this.przedmiotFabularny = przedmiotFabularny;
         this.czyPosiadaPrzedmiotFabularny = true;
     }
 
     @Override
     public Ekwipunek generujEkwipunek() {
+        podarki = new ArrayList<>();
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.FABULARNY);
 
         List<Para<String, String>> pozywienieTMP = List.of(
