@@ -227,61 +227,61 @@ public class Gra{
                 new int[1]
         ));
 
-        // 4
-        lokacjeTMP.add(new Lokacja("Czarny szczyt",
-                "Po długiej wędrówce docierasz na szczyt, przed Tobą rozpościera się niesamowity widok. " +
-                        "Na swojej drodze jednak napotykasz rozwścieczonego wilka, który nie jest zadowolony z " +
-                        "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę, rozpoczyna się walka.",
-                ));
-
-        // 5
-        lokacjeTMP.add(new Lokacja("Magiczna przystań",
-                "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię. Czujesz dziwną radość" +
-                        " i niepokój zarazem, pod ogromnym drzewem zauważasz zamknięta skrzynię, na wieku której widać" +
-                        " wyrytą inskrypcję, brzmiącą następująco\n",
-                ));
-
-        // 6
-        lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm",
-                "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza, po środku, przy ogromnej studni" +
-                        " znajduje się tajemnicza postać. Podchodzisz do niej, a ona okazuje się być tutejszym handlarzem",
-                ));
-
-        // 7
-        lokacjeTMP.add(new Lokacja("Grota bębniarza",
-                "Wchodzisz do olbrzymiej jaskini, płomienie dogasającego ogniska rzucają lekką poświatę na ściany" +
-                        " pomieszczenia. Podchodzisz bliżej by ogrzać swoje zziębnięte ręce i zauważasz ogromnego trolla" +
-                        " w głębi jaskini, który bez zastnowienia rzuca się na Ciebie",
-                ));
-
-        // 8
-        lokacjeTMP.add(new Lokacja("Żebrowe wzgórze",
-                "Docierasz do rozległego wzgórza, którego widok rozpościera się na całą krainę. W oddali widać" +
-                        " majaczącą się postać, która po dłuższej obserwacji okazuje się być Pradawnym Strażnikiem tego " +
-                        "miejsca, który nie pozwala Ci przejść. Musisz dostać się dalej, nie pozostaje Ci więc nic innego" +
-                        " jak walka ze zbrojnym",
-                ));
-
-        // 9
-        lokacjeTMP.add(new Lokacja("Zdradliwe urwisko",
-                "Docierasz do urwiska, starasz się nawet nie patrzeć w dół, pamiętając jednocześnie, że musisz " +
-                        "dostać się do Gniazda Harpii, aby zdobyć kolejną z przepustek. Dotarłszy do gniazda, już masz " +
-                        "sięgać po jedno z jaj, w którym z pewnością znajduje się przepustka, gdy nagle z nieba naciera na" +
-                        " Ciebie Królowa Harpii",
-                ));
-
-        // 10
-        lokacjeTMP.add(new Lokacja("Orla przepaść",
-                "Przemierzasz most łączący krainę światła i cienia, który pozwala bezpiecznie przejść nad niekończącą" +
-                        " się przepaścią, na Twojej drodze staje Gnomi Wojownik, który wymachując swoją pałką, ślini się " +
-                        "na Twój widok",
-                ));
-
-        // 11
-        lokacjeTMP.add(new Lokacja("Wysoka Brama",
-                "Docierasz do ogromnych wrót, które wystają ponad chmury, widać na nich zapisaną elfickim językiem " +
-                        "inskrypcję",
-                ));
+//        // 4
+//        lokacjeTMP.add(new Lokacja("Czarny szczyt",
+//                "Po długiej wędrówce docierasz na szczyt, przed Tobą rozpościera się niesamowity widok. " +
+//                        "Na swojej drodze jednak napotykasz rozwścieczonego wilka, który nie jest zadowolony z " +
+//                        "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę, rozpoczyna się walka.",
+//                ));
+//
+//        // 5
+//        lokacjeTMP.add(new Lokacja("Magiczna przystań",
+//                "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię. Czujesz dziwną radość" +
+//                        " i niepokój zarazem, pod ogromnym drzewem zauważasz zamknięta skrzynię, na wieku której widać" +
+//                        " wyrytą inskrypcję, brzmiącą następująco\n",
+//                ));
+//
+//        // 6
+//        lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm",
+//                "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza, po środku, przy ogromnej studni" +
+//                        " znajduje się tajemnicza postać. Podchodzisz do niej, a ona okazuje się być tutejszym handlarzem",
+//                ));
+//
+//        // 7
+//        lokacjeTMP.add(new Lokacja("Grota bębniarza",
+//                "Wchodzisz do olbrzymiej jaskini, płomienie dogasającego ogniska rzucają lekką poświatę na ściany" +
+//                        " pomieszczenia. Podchodzisz bliżej by ogrzać swoje zziębnięte ręce i zauważasz ogromnego trolla" +
+//                        " w głębi jaskini, który bez zastnowienia rzuca się na Ciebie",
+//                ));
+//
+//        // 8
+//        lokacjeTMP.add(new Lokacja("Żebrowe wzgórze",
+//                "Docierasz do rozległego wzgórza, którego widok rozpościera się na całą krainę. W oddali widać" +
+//                        " majaczącą się postać, która po dłuższej obserwacji okazuje się być Pradawnym Strażnikiem tego " +
+//                        "miejsca, który nie pozwala Ci przejść. Musisz dostać się dalej, nie pozostaje Ci więc nic innego" +
+//                        " jak walka ze zbrojnym",
+//                ));
+//
+//        // 9
+//        lokacjeTMP.add(new Lokacja("Zdradliwe urwisko",
+//                "Docierasz do urwiska, starasz się nawet nie patrzeć w dół, pamiętając jednocześnie, że musisz " +
+//                        "dostać się do Gniazda Harpii, aby zdobyć kolejną z przepustek. Dotarłszy do gniazda, już masz " +
+//                        "sięgać po jedno z jaj, w którym z pewnością znajduje się przepustka, gdy nagle z nieba naciera na" +
+//                        " Ciebie Królowa Harpii",
+//                ));
+//
+//        // 10
+//        lokacjeTMP.add(new Lokacja("Orla przepaść",
+//                "Przemierzasz most łączący krainę światła i cienia, który pozwala bezpiecznie przejść nad niekończącą" +
+//                        " się przepaścią, na Twojej drodze staje Gnomi Wojownik, który wymachując swoją pałką, ślini się " +
+//                        "na Twój widok",
+//                ));
+//
+//        // 11
+//        lokacjeTMP.add(new Lokacja("Wysoka Brama",
+//                "Docierasz do ogromnych wrót, które wystają ponad chmury, widać na nich zapisaną elfickim językiem " +
+//                        "inskrypcję",
+//                ));
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
