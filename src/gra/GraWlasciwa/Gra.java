@@ -157,21 +157,31 @@ public class Gra{
                    Wydarzenie[] poboczne,
                    int[] sasiednie)
          */
+        // numery lokacji w tablicy lokacje
+        //  0
         lokacjeTMP.add(new Lokacja("Chałpka nad urwistą doliną",
                 "Znajdujesz się w swojej chałpce, " +
                 "dookoła panuje straszny bałagan, wszędzie na podłodze walają się szczątki" +
                 " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy" +
                 " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę" +
                 " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n",
+                new Wydarzenie("Lokacja startowa", "Gracz zaczyna gre, znajduje sie w lokacji startowej", gracz, null, 0, null),
+                null,
+                new int[] {1}
                 ));
 
+        // 1
         lokacjeTMP.add(new Lokacja("Bajkowa polana",
                 "Dochodzisz do bajkowej polany, księżyc rozpościera" +
                 " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu." +
                 " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej " +
                 "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
+                new Wydarzenie("List od Czarnoksieznika", "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic", gracz, null, 0, null),
+                new Wydarzenie[] {new Wydarzenie("Walka z zajacem", "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, , null)},
+
                 ));
 
+        // 3
         lokacjeTMP.add(new Lokacja("Miasto",
                 "Docierasz do majestatycznego miasta Mysłowice, wszędzie panuje zamęt, na ulicach " +
                         "widać pełno mieszkańców, którzy w świetle dzisiejszego słonecznego dnia wyszli na ulicę " +
@@ -180,29 +190,34 @@ public class Gra{
                         " z uliczek napotykasz żebraka, który przygląda CI się uważnie swoim tajemniczym wzrokiem\n",
                 ));
 
+        // 4
         lokacjeTMP.add(new Lokacja("Czarny szczyt",
                 "Po długiej wędrówce docierasz na szczyt, przed Tobą rozpościera się niesamowity widok. " +
                         "Na swojej drodze jednak napotykasz rozwścieczonego wilka, który nie jest zadowolony z " +
                         "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę, rozpoczyna się walka.",
                 ));
 
+        // 5
         lokacjeTMP.add(new Lokacja("Magiczna przystań",
                 "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię. Czujesz dziwną radość" +
                         " i niepokój zarazem, pod ogromnym drzewem zauważasz zamknięta skrzynię, na wieku której widać" +
                         " wyrytą inskrypcję, brzmiącą następująco\n",
                 ));
 
+        // 6
         lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm",
                 "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza, po środku, przy ogromnej studni" +
                         " znajduje się tajemnicza postać. Podchodzisz do niej, a ona okazuje się być tutejszym handlarzem",
                 ));
 
+        // 7
         lokacjeTMP.add(new Lokacja("Grota bębniarza",
                 "Wchodzisz do olbrzymiej jaskini, płomienie dogasającego ogniska rzucają lekką poświatę na ściany" +
                         " pomieszczenia. Podchodzisz bliżej by ogrzać swoje zziębnięte ręce i zauważasz ogromnego trolla" +
                         " w głębi jaskini, który bez zastnowienia rzuca się na Ciebie",
                 ));
 
+        // 8
         lokacjeTMP.add(new Lokacja("Żebrowe wzgórze",
                 "Docierasz do rozległego wzgórza, którego widok rozpościera się na całą krainę. W oddali widać" +
                         " majaczącą się postać, która po dłuższej obserwacji okazuje się być Pradawnym Strażnikiem tego " +
@@ -210,6 +225,7 @@ public class Gra{
                         " jak walka ze zbrojnym",
                 ));
 
+        // 9
         lokacjeTMP.add(new Lokacja("Zdradliwe urwisko",
                 "Docierasz do urwiska, starasz się nawet nie patrzeć w dół, pamiętając jednocześnie, że musisz " +
                         "dostać się do Gniazda Harpii, aby zdobyć kolejną z przepustek. Dotarłszy do gniazda, już masz " +
@@ -217,12 +233,14 @@ public class Gra{
                         " Ciebie Królowa Harpii",
                 ));
 
+        // 10
         lokacjeTMP.add(new Lokacja("Orla przepaść",
                 "Przemierzasz most łączący krainę światła i cienia, który pozwala bezpiecznie przejść nad niekończącą" +
                         " się przepaścią, na Twojej drodze staje Gnomi Wojownik, który wymachując swoją pałką, ślini się " +
                         "na Twój widok",
                 ));
 
+        // 11
         lokacjeTMP.add(new Lokacja("Wysoka Brama",
                 "Docierasz do ogromnych wrót, które wystają ponad chmury, widać na nich zapisaną elfickim językiem " +
                         "inskrypcję",
