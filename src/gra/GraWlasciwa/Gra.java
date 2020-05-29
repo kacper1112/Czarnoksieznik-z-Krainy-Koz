@@ -217,7 +217,7 @@ public class Gra {
                         + " z uliczek napotykasz żebraka, który przygląda CI się uważnie swoim tajemniczym wzrokiem\n",
                 new Wydarzenie("Spotkanie z zebrakiem",
                         "Gracz spotyka zebraka, ktory przekazuje mu wiadomosc od czarnoksieznika", gracz,
-                        Arrays.asList(new Fabularny("Zebrak", true, new PrzedmiotFabularny(false,
+                        Arrays.asList(new Fabularny("Zebrak", true, new PrzedmiotFabularny("List", "List od czarnoksieznika", 100,50, false,
                                 "Moj najdrozszy Romanie z ogromna nostalgia wspominam nasze minione porachunki, "
                                         + "niestety musze Cie zawiadomic, ze niestety nie moglem pojawic sie na naszym ostatnim spotkaniu na Bajkowej Polanie. "
                                         + "Twoja ukochana jest wciaz cala i zdrowa, jednak jej spotkanie nie bedzie takie proste. Odnajdziesz mnie za pomoca trzech Tajemniczych Kluczy ktore "
@@ -343,11 +343,11 @@ public class Gra {
 
     private void inicjalizacjaBossow() {
         Boss czarnoksieznik = new Boss("Czarnoksieznik z Krainy Koz",
-                new PrzedmiotFabularny(false, "ksiezniczka znajduje sie.....", 100));
+                new PrzedmiotFabularny("", "", 0, 0, false, "ksiezniczka znajduje sie.....", 100));
 
-        Boss ork = new Boss("Dis", new PrzedmiotFabularny(false, "po przejsciu przez bagna..", 100));
+        Boss ork = new Boss("Dis", new PrzedmiotFabularny("", "", 0, 0, false, "po przejsciu przez bagna..", 100));
 
-        Boss smok = new Boss("Smok", new PrzedmiotFabularny(false, "po przez zdradliwe urwisko...", 100));
+        Boss smok = new Boss("Smok", new PrzedmiotFabularny("", "", 0, 0, false, "po przez zdradliwe urwisko...", 100));
     }
 
     // todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga
