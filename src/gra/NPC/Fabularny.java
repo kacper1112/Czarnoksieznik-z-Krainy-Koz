@@ -93,6 +93,7 @@ public class Fabularny extends NPC {
             if(ekwipunekTMP.getEkwipunekPozywienie().size()>0)
             ekwipunekTMP.getEkwipunekPozywienie().forEach(x->podarki.add((Przedmiot) x));
         }
+
         return ekwipunekTMP;
     }
 
