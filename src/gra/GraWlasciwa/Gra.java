@@ -96,6 +96,7 @@ public class Gra {
     private boolean rozpocznijGre() {
         int lokalizacjaGracza = 0;
         while (true) {
+            
 
             return true;
         }
