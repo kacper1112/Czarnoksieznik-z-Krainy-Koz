@@ -123,6 +123,7 @@ public class Gra {
                     }
                 });
             }
+            
             if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null) {
                 System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
                 System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
