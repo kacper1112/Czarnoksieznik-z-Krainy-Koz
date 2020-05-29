@@ -226,7 +226,7 @@ public class Gra{
                 // todo dodac lokajce z bossem
                 new int[1]
         ));
-
+/*
         // 4
         lokacjeTMP.add(new Lokacja("Czarny szczyt",
                 "Po długiej wędrówce docierasz na szczyt, przed Tobą rozpościera się niesamowity widok. " +
@@ -315,7 +315,7 @@ public class Gra{
         // Orla Przepasc
 
         // Wysoka Brama
-
+*/
         // Wieza Czarnoksieznika z Koz (lokacja koncowa)
         return lokacjeTMP;
     }

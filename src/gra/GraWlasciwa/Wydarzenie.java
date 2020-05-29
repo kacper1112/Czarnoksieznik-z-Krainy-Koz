@@ -60,8 +60,6 @@ public class Wydarzenie {
         this.boss = null;
     }
 
-
-
     private List<Wrog> generujWrogow(int iluWrogow) {
         List<Wrog> tempWrogowie = new ArrayList<>();
         for(int i = 0; i < iluWrogow; i++) {
