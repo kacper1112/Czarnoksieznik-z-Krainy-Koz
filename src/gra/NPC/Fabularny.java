@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class Fabularny extends NPC {
     private boolean czyPosiadaPrzedmiotFabularny;
-    private final Przedmiot przedmiotFabularny;
+    private final PrzedmiotFabularny przedmiotFabularny;
     private List<? super Przedmiot> podarki;
 
     public Fabularny(String imie) {
@@ -20,7 +20,7 @@ public class Fabularny extends NPC {
         czyPosiadaPrzedmiotFabularny = false;
     }
 
-    public Fabularny(String imie, boolean czyPosiadaPrzedmiotFabularny, Przedmiot przedmiotFabularny) {
+    public Fabularny(String imie, boolean czyPosiadaPrzedmiotFabularny, PrzedmiotFabularny przedmiotFabularny) {
         super(imie);
         this.przedmiotFabularny = przedmiotFabularny;
         this.czyPosiadaPrzedmiotFabularny = true;
@@ -104,9 +104,9 @@ public class Fabularny extends NPC {
         return (Przedmiot) podarki.get(indeks);
     }
 
-    public PrzedmiotFabularny podarujPrzedmiotFabularny(int indeks){
-        System.out.println("Przekazuje Ci ten ważny przedmiot: " + this.getEkwipunek().getEkwipunekFabularne().get(indeks).toString());
-        return (PrzedmiotFabularny) this.getEkwipunek().getEkwipunekFabularne().get(indeks);
+    public PrzedmiotFabularny podarujPrzedmiotFabularny(){
+        System.out.println("Przekazuje Ci ten ważny przedmiot: " + this.przedmiotFabularny);
+        return this.przedmiotFabularny;
     }
 
     public void wlozPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){
