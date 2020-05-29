@@ -181,7 +181,8 @@ public class Gra {
                 new Wydarzenie("List od Czarnoksieznika",
                         "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic",
                         gracz, null, null, 0, null),
-                new Wydarzenie[] { this.wydarzeniaPoboczne.get(0) }, new int[] { 2, 8 }));
+                List.of(this.wydarzeniaPoboczne.get(0)),
+                new int[] { 2, 8 }));
 
         // 3
         lokacjeTMP.add(new Lokacja("Miasto",
@@ -199,9 +200,9 @@ public class Gra {
                                         + "mozesz zdobyc rozprawiajac sie z trzema bossami. Do zobaczenia\n",
                                 0))),
                         null, 0, null),
-                new Wydarzenie[] { new Wydarzenie("Spotkanie z handlarzem w miescie",
+                List.of( new Wydarzenie("Spotkanie z handlarzem w miescie",
                         "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem", gracz, null,
-                        List.of(new Handlarz("Miejski handlarz")), 0, null) },
+                        List.of(new Handlarz("Miejski handlarz")), 0, null) ),
                 // todo dodac lokajce z bossem
                 new int[1]));
 

@@ -2,17 +2,19 @@ package gra.GraWlasciwa;
 
 import gra.GraWlasciwa.Wydarzenie;
 
+import java.util.List;
+
 public class Lokacja {
     private final String nazwa;
     private final String opis;
     private final int[] sasiednieLokacje;
     private final Wydarzenie wydarzenieFabularne;
-    private final Wydarzenie[] wydarzeniaPoboczne;
+    private final List<Wydarzenie> wydarzeniaPoboczne;
 
     public Lokacja(String nazwa,
                    String opis,
                    Wydarzenie fabularne,
-                   Wydarzenie[] poboczne,
+                   List<Wydarzenie> poboczne,
                    int[] sasiednie) {
         this.nazwa = nazwa;
         this.opis = opis;
@@ -37,7 +39,7 @@ public class Lokacja {
         return wydarzenieFabularne;
     }
 
-    public Wydarzenie[] getWydarzeniaPoboczne() {
+    public List<Wydarzenie> getWydarzeniaPoboczne() {
         return wydarzeniaPoboczne;
     }
 }
