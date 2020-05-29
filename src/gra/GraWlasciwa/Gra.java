@@ -122,6 +122,7 @@ public class Gra {
                 break;
             case 5:
                 break;
+                //hej byczq
             case 6:
                 break;
         }
