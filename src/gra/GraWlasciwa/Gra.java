@@ -97,7 +97,31 @@ public class Gra {
         int lokalizacjaGracza = 0;
         while (true) {
             if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
-                this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne()
+                this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
+                    System.out.println(wydarzenie.getNazwa());
+                    System.out.println(wydarzenie.getOpis());
+                    if(wydarzenie.getPostacieFabularne() != null) {
+                        wydarzenie.getPostacieFabularne().forEach(postac -> {
+                            postac.podarujLosowyPrzedmiotNieFabularny();
+                            if(postac.isCzyPosiadaPrzedmiotFabularny()) {
+                                postac.podarujPrzedmiotFabularny();
+                            }
+                        });
+                    }
+                    if(wydarzenie.getHandlarze() != null) {
+                        wydarzenie.getHandlarze().forEach(handlarz -> {
+                            System.out.println("Handlowanko");
+                        });
+                    }
+                    if(wydarzenie.getWrogowie() != null) {
+                        wydarzenie.getWrogowie().forEach(wrog -> {
+                            System.out.println("Walka z wrogiem");
+                        });
+                    }
+                    if(wydarzenie.getBoss() != null) {
+                        System.out.println("Walka z bossem");
+                    }
+                });
             }
             return true;
         }
