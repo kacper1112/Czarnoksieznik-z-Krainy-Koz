@@ -93,6 +93,46 @@ public class Gra {
         return true;
     }
 
+    private void menuGlowne(){
+        System.out.println(
+                "1. Pokaż ekwipunek\n" + "2. Zmień broń\n" + "3. Użyj pożywienia\n" + "4. Użyj przedmiotu fabularnego\n"
+                        + "5. Pokaż listę dostępnych lokalizacji\n" + "6. Przejdź do innej lokalizacji\n");
+        int wybor = in.nextInt();
+
+        switch (wybor){
+            case 1:
+                menuEkwipunku();
+                break;
+            case 2:
+                System.out.println("Wybierz bron na ktora chcesz zmienic - podaj typ: ");
+                String jakaBron = in.nextLine();
+                System.out.println("Wybierz bron na ktora chcesz zmienic - podaj indeks: ");
+                int jakIndex = in.nextInt();
+                if(jakaBron.equals("Fizyczna")){
+                    gracz.getEkwipunek().zmienWyekwipowanaBronNaFiczyna(jakIndex);
+                }else if(jakaBron.equals("Magiczna")){
+                    gracz.getEkwipunek().zmienWyekwipowanaBronNaMagiczna(jakIndex);
+                }else {
+                    System.out.println("Podaj jeszcze raz typ broni");
+                }
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+        }
+
+    }
+
+    private int menuEkwipunku(){
+
+        return in.nextInt();
+    }
+
     private boolean rozpocznijGre() {
         int lokalizacjaGracza = 2;
         while (true) {
@@ -149,6 +189,7 @@ public class Gra {
                     System.out.println("Walka z bossem");
                 }
             }
+
             return true;
         }
     }
