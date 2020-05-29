@@ -16,14 +16,12 @@ public class Fabularny extends NPC {
 
     public Fabularny(String imie) {
         super(imie);
-        //podarki = new ArrayList<>();
         przedmiotFabularny = null;
         czyPosiadaPrzedmiotFabularny = false;
     }
 
     public Fabularny(String imie, boolean czyPosiadaPrzedmiotFabularny, Przedmiot przedmiotFabularny) {
         super(imie);
-        //podarki = new ArrayList<>();
         this.przedmiotFabularny = przedmiotFabularny;
         this.czyPosiadaPrzedmiotFabularny = true;
     }
@@ -57,7 +55,6 @@ public class Fabularny extends NPC {
         Random rand = new Random();
         if(10<rand.nextInt(100)){
             int indeks = rand.nextInt(bronFizycznaTMP.size() + bronMagicznaTMP.size());
-            System.out.println("indeks ->" + indeks);
             if(indeks < bronFizycznaTMP.size()){
                 ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                         bronFizycznaTMP.get(indeks).getPierwszy(),

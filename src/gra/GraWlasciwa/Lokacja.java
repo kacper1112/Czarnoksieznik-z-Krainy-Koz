@@ -21,4 +21,23 @@ public class Lokacja {
         this.sasiednieLokacje = sasiednie;
     }
 
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public int[] getSasiednieLokacje() {
+        return sasiednieLokacje;
+    }
+
+    public Wydarzenie getWydarzenieFabularne() {
+        return wydarzenieFabularne;
+    }
+
+    public Wydarzenie[] getWydarzeniaPoboczne() {
+        return wydarzeniaPoboczne;
+    }
 }

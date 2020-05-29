@@ -23,7 +23,6 @@ public class Handlarz extends NPC {
         Random random = new Random();
         int bonus =  random.nextInt(100);
         pieniadze = 300 + bonus;
-        //oferta = new ArrayList<>();
     }
 
     //METODY WLASCIWE
