@@ -167,7 +167,7 @@ public class Gra{
                 " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy" +
                 " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę" +
                 " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n",
-                new Wydarzenie("Lokacja startowa", "Gracz zaczyna gre, znajduje sie w lokacji startowej", gracz, null, 0, null),
+                new Wydarzenie("Lokacja startowa", "Gracz zaczyna gre, znajduje sie w lokacji startowej", gracz, null, null, 0, null),
                 null,
                 new int[] {1}
                 ));
@@ -178,8 +178,22 @@ public class Gra{
                 " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu." +
                 " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej " +
                 "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
-                new Wydarzenie("List od Czarnoksieznika", "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic", gracz, null, 0, null),
-                new Wydarzenie[] {new Wydarzenie("Walka z zajacem", "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, Arrays.asList(new Wrog("Zajac", 10, 10)), null)},
+                new Wydarzenie(
+                        "List od Czarnoksieznika",
+                        "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic",
+                        gracz,
+                        null,
+                        null,
+                        0,
+                        null),
+                new Wydarzenie[] {
+                        new Wydarzenie(
+                                "Walka z zajacem",
+                                "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki",
+                                gracz,
+                                null,
+                                null,
+                                Arrays.asList(new Wrog("Zajac", 10, 10)), null)},
                 new int[] {2, 8}
                 ));
 
