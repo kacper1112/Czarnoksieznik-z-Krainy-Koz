@@ -1,6 +1,7 @@
 package gra.GraWlasciwa;
 
 import gra.NPC.Boss;
+import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
 import gra.RodzajeGracz.Kaplan;
 import gra.RodzajeGracz.Mag;
@@ -8,6 +9,7 @@ import gra.RodzajeGracz.Wojownik;
 import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -177,8 +179,8 @@ public class Gra{
                 " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej " +
                 "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
                 new Wydarzenie("List od Czarnoksieznika", "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic", gracz, null, 0, null),
-                new Wydarzenie[] {new Wydarzenie("Walka z zajacem", "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, , null)},
-
+                new Wydarzenie[] {new Wydarzenie("Walka z zajacem", "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, Arrays.asList(new Wrog("Zajac", 10, 10)), null)},
+                new int[] {2, 8}
                 ));
 
         // 3
