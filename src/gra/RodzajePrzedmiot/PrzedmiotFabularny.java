@@ -2,7 +2,7 @@ package gra.RodzajePrzedmiot;
 
 import gra.RodzajePrzedmiot.Przedmiot;
 
-public class PrzedmiotFabularny extends Przedmiot {
+public class  PrzedmiotFabularny extends Przedmiot {
     private final boolean czyZuzyty;
     private final String wskazowka;
     private final double inteligencjaWymaganaDoWskazowki;

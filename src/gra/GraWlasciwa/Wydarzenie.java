@@ -7,6 +7,7 @@ import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Wydarzenie {
@@ -43,6 +44,8 @@ public class Wydarzenie {
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = null;
     }
+
+
 
     private List<Wrog> generujWrogow(int iluWrogow) {
         List<Wrog> tempWrogowie = new ArrayList<>();

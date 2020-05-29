@@ -12,6 +12,7 @@ import java.util.Random;
 public class Fabularny extends NPC {
     private boolean czyPosiadaPrzedmiotFabularny;
     private List<? super Przedmiot> podarki;
+
     public Fabularny(String imie) {
         super(imie);
         podarki = new ArrayList<>();
