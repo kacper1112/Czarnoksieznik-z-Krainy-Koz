@@ -144,7 +144,7 @@ public class Gra{
                 "\"Jezeli Krol dalej bedzie nakladal na nas tak wysokie podatki, to juz nigdy nie wyjdziemy" +
                         " z kryzysu! Mam tylko nadzieje, ze nie zamkna naszego zakladu, to dopiero bylaby" +
                         " katastrofa...\" myslal Roman wracajac do domu po kolejnym ciezkim dniu pracy jako" +
-                        "ciesla. Wraca do domu a tam zony nimo.", gracz, null, 0, null);
+                        "ciesla. Wraca do domu a tam zony nimo.", gracz, null, null, 0, null);
 
         Wydarzenie spotkanieNaBajkowejPolanie_2;
     }
