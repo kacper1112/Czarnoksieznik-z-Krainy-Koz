@@ -124,28 +124,27 @@ public class Gra {
                 });
             }
             if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null) {
-                Wydarzenie wydarzenie = this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne();
-                System.out.println(wydarzenie.getNazwa());
-                System.out.println(wydarzenie.getOpis());
-                if(wydarzenie.getPostacieFabularne() != null) {
-                    wydarzenie.getPostacieFabularne().forEach(postac -> {
+                System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
+                System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
+                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
+                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne().forEach(postac -> {
                         postac.podarujLosowyPrzedmiotNieFabularny();
                         if(postac.isCzyPosiadaPrzedmiotFabularny()) {
                             postac.podarujPrzedmiotFabularny();
                         }
                     });
                 }
-                if(wydarzenie.getHandlarze() != null) {
-                    wydarzenie.getHandlarze().forEach(handlarz -> {
+                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarze() != null) {
+                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarze().forEach(handlarz -> {
                         System.out.println("Handlowanko");
                     });
                 }
-                if(wydarzenie.getWrogowie() != null) {
-                    wydarzenie.getWrogowie().forEach(wrog -> {
+                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
+                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
                         System.out.println("Walka z wrogiem");
                     });
                 }
-                if(wydarzenie.getBoss() != null) {
+                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
                     System.out.println("Walka z bossem");
                 }
             }
