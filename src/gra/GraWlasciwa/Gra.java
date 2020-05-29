@@ -96,7 +96,9 @@ public class Gra {
     private boolean rozpocznijGre() {
         int lokalizacjaGracza = 0;
         while (true) {
-
+            if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
+                this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne()
+            }
             return true;
         }
     }
