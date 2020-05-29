@@ -55,7 +55,8 @@ public class Fabularny extends NPC {
 
         Random rand = new Random();
         if(10<rand.nextInt(100)){
-            int indeks = rand.nextInt(bronFizycznaTMP.size() + bronMagicznaTMP.size() +1);
+            int indeks = rand.nextInt(bronFizycznaTMP.size() + bronMagicznaTMP.size());
+            System.out.println("indeks ->" + indeks);
             if(indeks < bronFizycznaTMP.size()){
                 ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                         bronFizycznaTMP.get(indeks).getPierwszy(),
