@@ -23,12 +23,13 @@ public class Handlarz extends NPC {
         Random random = new Random();
         int bonus =  random.nextInt(100);
         pieniadze = 300 + bonus;
-        oferta = new ArrayList<>();
+        //oferta = new ArrayList<>();
     }
 
     //METODY WLASCIWE
     @Override
     public Ekwipunek generujEkwipunek() {
+        oferta = new ArrayList<>();
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.HANDLARZ);
         List<Para<String, String> > pozywienieTMP = List.of(
                 new Para<>("Mikstura Lowcy", "opis"),
