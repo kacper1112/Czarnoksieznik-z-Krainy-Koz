@@ -146,7 +146,7 @@ public class Gra{
                 "\"Jezeli Krol dalej bedzie nakladal na nas tak wysokie podatki, to juz nigdy nie wyjdziemy" +
                         " z kryzysu! Mam tylko nadzieje, ze nie zamkna naszego zakladu, to dopiero bylaby" +
                         " katastrofa...\" myslal Roman wracajac do domu po kolejnym ciezkim dniu pracy jako" +
-                        "ciesla. Wraca do domu a tam zony nimo.", gracz, null, 0, null);
+                        "ciesla. Wraca do domu a tam zony nimo.", gracz, null, null, 0, null);
 
         Wydarzenie spotkanieNaBajkowejPolanie_2;
     }
@@ -165,34 +165,68 @@ public class Gra{
         //  0
         lokacjeTMP.add(new Lokacja("Chałpka nad urwistą doliną",
                 "Znajdujesz się w swojej chałpce, " +
-                "dookoła panuje straszny bałagan, wszędzie na podłodze walają się szczątki" +
-                " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy" +
-                " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę" +
-                " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n",
-                new Wydarzenie("Lokacja startowa", "Gracz zaczyna gre, znajduje sie w lokacji startowej", gracz, null, 0, null),
+                        "dookoła panuje straszny bałagan, wszędzie na podłodze walają się szczątki" +
+                        " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy" +
+                        " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę" +
+                        " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n",
+                new Wydarzenie("Lokacja startowa", "Gracz zaczyna gre, znajduje sie w lokacji startowej", gracz, null, null, 0, null),
                 null,
                 new int[] {1}
-                ));
+        ));
 
         // 1
         lokacjeTMP.add(new Lokacja("Bajkowa polana",
                 "Dochodzisz do bajkowej polany, księżyc rozpościera" +
-                " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu." +
-                " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej " +
-                "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
-                new Wydarzenie("List od Czarnoksieznika", "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic", gracz, null, 0, null),
-                new Wydarzenie[] {new Wydarzenie("Walka z zajacem", "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, Arrays.asList(new Wrog("Zajac", 10, 10)), null)},
+                        " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu." +
+                        " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej " +
+                        "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
+                new Wydarzenie(
+                        "List od Czarnoksieznika",
+                        "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic",
+                        gracz,
+                        null,
+                        null,
+                        0,
+                        null),
+                new Wydarzenie[] {
+                        new Wydarzenie(
+                                "Walka z zajacem",
+                                "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki",
+                                gracz,
+                                null,
+                                null,
+                                Arrays.asList(new Wrog("Zajac", 10, 10)), null)},
                 new int[] {2, 8}
-                ));
+        ));
 
         // 3
-        lokacjeTMP.add(new Lokacja("Miasto",
+        lokacjeTMP.add(new Lokacja(
+                "Miasto",
                 "Docierasz do majestatycznego miasta Mysłowice, wszędzie panuje zamęt, na ulicach " +
                         "widać pełno mieszkańców, którzy w świetle dzisiejszego słonecznego dnia wyszli na ulicę " +
                         "zaczerpnąć trochę świeżego powietrza. Na ulicach swoje kramiki rozstawili tutejsi handlarze, " +
                         "którzy energicznym wymachywaniem swoich rąk zachęcają Cię do skorzystania z ich ofert. W jednej" +
                         " z uliczek napotykasz żebraka, który przygląda CI się uważnie swoim tajemniczym wzrokiem\n",
-                ));
+                new Wydarzenie(
+                        "Spotkanie z zebrakiem",
+                        "Gracz spotyka zebraka, ktory przekazuje mu wiadomosc od czarnoksieznika",
+                        gracz,
+                        Arrays.asList(new Fabularny("Zebrak", true, new PrzedmiotFabularny(false,
+                                "Moj najdrozszy Romanie z ogromna nostalgia wspominam nasze minione porachunki, " +
+                                        "niestety musze Cie zawiadomic, ze niestety nie moglem pojawic sie na naszym ostatnim spotkaniu na Bajkowej Polanie. " +
+                                        "Twoja ukochana jest wciaz cala i zdrowa, jednak jej spotkanie nie bedzie takie proste. Odnajdziesz mnie za pomoca trzech Tajemniczych Kluczy ktore " +
+                                        "mozesz zdobyc rozprawiajac sie z trzema bossami. Do zobaczenia\n", 0))),
+                        null,
+                        0,
+                        null
+                ),
+                new Wydarzenie[] {
+                        new Wydarzenie("Spotkanie z handlarzem w miescie", "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem", gracz, null,
+                                List.of(new Handlarz("Miejski handlarz")), 0, null)
+                },
+                // todo dodac lokajce z bossem
+                new int[1]
+        ));
 
         // 4
         lokacjeTMP.add(new Lokacja("Czarny szczyt",
@@ -295,8 +329,8 @@ public class Gra{
         ));
 
         Boss ork = new Boss("Dis", new PrzedmiotFabularny(
-           false,
-           "po przejsciu przez bagna..",
+                false,
+                "po przejsciu przez bagna..",
                 100
         ));
 
