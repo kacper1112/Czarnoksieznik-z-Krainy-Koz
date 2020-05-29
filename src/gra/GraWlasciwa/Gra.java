@@ -72,11 +72,11 @@ public class Gra {
     private boolean inicjalizacjaGry(int klasaPostaci) {
         inicjalizacjaBossow();
         inicjalizacjaWydarzenFabularnych();
-        lokacje = inicjalizacjaLokacji();
         wydarzeniaPoboczne = new ArrayList<>();
         wydarzeniaPoboczne.add(new Wydarzenie("Walka z zajacem",
                 "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, null,
                 Arrays.asList(new Wrog("Zajac", 10, 10)), null));
+        lokacje = inicjalizacjaLokacji();
 
         switch (klasaPostaci) {
             case 1:
@@ -96,7 +96,6 @@ public class Gra {
     private boolean rozpocznijGre() {
         int lokalizacjaGracza = 0;
         while (true) {
-            
 
             return true;
         }
