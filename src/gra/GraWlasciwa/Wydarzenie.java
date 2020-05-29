@@ -3,6 +3,7 @@ package gra.GraWlasciwa;
 import gra.GraWlasciwa.Gra;
 import gra.NPC.Boss;
 import gra.NPC.Fabularny;
+import gra.NPC.Handlarz;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
 
@@ -15,15 +16,27 @@ public class Wydarzenie {
     private final String opis;
     private final Gracz gracz;
     private final List<Fabularny> postacieFabularne;
+    private final List<Handlarz> handlarze;
     private final List<Wrog> wrogowie;
     private final Boss boss;
 
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, int iluWrogow, Boss boss) {
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, int iluWrogow, Boss boss) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
+        this.handlarze = handlarze;
         this.wrogowie = generujWrogow(iluWrogow);
+        this.boss = boss;
+    }
+
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, List<Wrog> wrogowie, Boss boss) {
+        this.nazwa = nazwa;
+        this.opis = opis;
+        this.gracz = gracz;
+        this.postacieFabularne = fabularne;
+        this.handlarze = handlarze;
+        this.wrogowie = wrogowie;
         this.boss = boss;
     }
 
@@ -32,6 +45,7 @@ public class Wydarzenie {
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = null;
+        this.handlarze = null;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = null;
     }
@@ -41,6 +55,7 @@ public class Wydarzenie {
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
+        this.handlarze = null;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = null;
     }

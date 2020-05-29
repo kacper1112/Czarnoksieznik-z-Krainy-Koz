@@ -165,21 +165,21 @@ public class Gra{
         //  0
         lokacjeTMP.add(new Lokacja("Chałpka nad urwistą doliną",
                 "Znajdujesz się w swojej chałpce, " +
-                        "dookoła panuje straszny bałagan, wszędzie na podłodze walają się szczątki" +
-                        " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy" +
-                        " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę" +
-                        " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n",
+                "dookoła panuje straszny bałagan, wszędzie na podłodze walają się szczątki" +
+                " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy" +
+                " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę" +
+                " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n",
                 new Wydarzenie("Lokacja startowa", "Gracz zaczyna gre, znajduje sie w lokacji startowej", gracz, null, null, 0, null),
                 null,
                 new int[] {1}
-        ));
+                ));
 
         // 1
         lokacjeTMP.add(new Lokacja("Bajkowa polana",
                 "Dochodzisz do bajkowej polany, księżyc rozpościera" +
-                        " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu." +
-                        " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej " +
-                        "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
+                " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu." +
+                " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej " +
+                "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
                 new Wydarzenie(
                         "List od Czarnoksieznika",
                         "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic",
@@ -197,11 +197,10 @@ public class Gra{
                                 null,
                                 Arrays.asList(new Wrog("Zajac", 10, 10)), null)},
                 new int[] {2, 8}
-        ));
+                ));
 
         // 3
-        lokacjeTMP.add(new Lokacja(
-                "Miasto",
+        lokacjeTMP.add(new Lokacja("Miasto",
                 "Docierasz do majestatycznego miasta Mysłowice, wszędzie panuje zamęt, na ulicach " +
                         "widać pełno mieszkańców, którzy w świetle dzisiejszego słonecznego dnia wyszli na ulicę " +
                         "zaczerpnąć trochę świeżego powietrza. Na ulicach swoje kramiki rozstawili tutejsi handlarze, " +
@@ -329,8 +328,8 @@ public class Gra{
         ));
 
         Boss ork = new Boss("Dis", new PrzedmiotFabularny(
-                false,
-                "po przejsciu przez bagna..",
+           false,
+           "po przejsciu przez bagna..",
                 100
         ));
 
