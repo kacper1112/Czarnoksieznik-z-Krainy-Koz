@@ -1,6 +1,8 @@
 package gra.GraWlasciwa;
 
 import gra.NPC.Boss;
+import gra.NPC.Fabularny;
+import gra.NPC.Handlarz;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
 import gra.RodzajeGracz.Kaplan;
