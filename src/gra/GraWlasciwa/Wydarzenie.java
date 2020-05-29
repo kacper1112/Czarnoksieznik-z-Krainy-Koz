@@ -181,4 +181,32 @@ public class Wydarzenie {
         }
         return !kolejGracza;
     }
+
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public Gracz getGracz() {
+        return gracz;
+    }
+
+    public List<Fabularny> getPostacieFabularne() {
+        return postacieFabularne;
+    }
+
+    public List<Handlarz> getHandlarze() {
+        return handlarze;
+    }
+
+    public List<Wrog> getWrogowie() {
+        return wrogowie;
+    }
+
+    public Boss getBoss() {
+        return boss;
+    }
 }
