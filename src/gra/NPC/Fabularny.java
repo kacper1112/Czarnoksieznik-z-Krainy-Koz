@@ -99,11 +99,14 @@ public class Fabularny extends NPC {
     public Przedmiot podarujLosowyPrzedmiotNieFabularny(){
         Random random = new Random();
         int indeks = random.nextInt(podarki.size());
+        System.out.println("To dla ciebie: " + podarki.get(indeks).toString());
+        System.out.println("Niby mały podarek ale zawsze cos.");
         return (Przedmiot) podarki.get(indeks);
     }
 
-    public PrzedmiotFabularny podarujPrzedmiotFabularny(){
-        return (PrzedmiotFabularny) this.getEkwipunek().getEkwipunekFabularne().get(0);
+    public PrzedmiotFabularny podarujPrzedmiotFabularny(int indeks){
+        System.out.println("Przekazuje Ci ten ważny przedmiot: " + this.getEkwipunek().getEkwipunekFabularne().get(indeks).toString());
+        return (PrzedmiotFabularny) this.getEkwipunek().getEkwipunekFabularne().get(indeks);
     }
 
     public void wlozPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){

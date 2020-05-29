@@ -127,6 +127,7 @@ public class Handlarz extends NPC {
                     .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
                     .collect(Collectors.toList());
         }
+        System.out.println("Właśnie kupiłeś: " + oferta.get(indeksOferty).getPierwszy());
     }
 
     public int getPieniadze() {
