@@ -143,6 +143,9 @@ public class Gra {
                 System.out.println("Wybierz lokalizacje: ");
                 this.lokalizacjaGracza  = in.nextInt();
                 return false;
+            default:
+                System.out.println("Cos poszlo nie tak, sprobuj jeszcze raz");
+                return true;
         }
     }
 
@@ -207,8 +210,16 @@ public class Gra {
                 }
             }
 
-            return true;
+            while(this.menuGlowne()) {
+
+            }
+
+            if(lokalizacjaGracza == 10) {
+                break;
+            }
+
         }
+        return true;
     }
 
     public static void wygrana() {
