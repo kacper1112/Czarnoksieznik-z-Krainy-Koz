@@ -7,7 +7,7 @@ import java.util.List;
 public class Lokacja {
     private final String nazwa;
     private final String opis;
-    private final int[] sasiednieLokacje;
+    private final List<Integer> sasiednieLokacje;
     private final Wydarzenie wydarzenieFabularne;
     private final List<Wydarzenie> wydarzeniaPoboczne;
 
@@ -15,7 +15,7 @@ public class Lokacja {
                    String opis,
                    Wydarzenie fabularne,
                    List<Wydarzenie> poboczne,
-                   int[] sasiednie) {
+                   List<Integer> sasiednie) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.wydarzenieFabularne = fabularne;
@@ -31,7 +31,7 @@ public class Lokacja {
         return opis;
     }
 
-    public int[] getSasiednieLokacje() {
+    public List<Integer> getSasiednieLokacje() {
         return sasiednieLokacje;
     }
 

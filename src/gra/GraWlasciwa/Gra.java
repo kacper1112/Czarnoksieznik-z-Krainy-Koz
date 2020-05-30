@@ -266,7 +266,7 @@ public class Gra {
                 + " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n",
                 new Wydarzenie("Lokacja startowa", "Gracz zaczyna gre, znajduje sie w lokacji startowej", gracz, null,
                         null, 0, null),
-                null, new int[] { 1 }));
+                null, List.of( 1 )));
 
         // 1
         lokacjeTMP.add(new Lokacja("Bajkowa polana", "Dochodzisz do bajkowej polany, księżyc rozpościera"
@@ -277,7 +277,7 @@ public class Gra {
                         "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic",
                         gracz, null, null, 0, null),
                 List.of(this.wydarzeniaPoboczne.get(0)),
-                new int[] { 2, 8 }));
+                List.of( 2, 8 )));
 
         // 3
         lokacjeTMP.add(new Lokacja("Miasto",
@@ -299,7 +299,7 @@ public class Gra {
                         "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem", gracz, null,
                         List.of(new Handlarz("Miejski handlarz")), 0, null) ),
                 // todo dodac lokajce z bossem
-                new int[1]));
+                List.of(1)));
 
         // // 4
         // lokacjeTMP.add(new Lokacja("Czarny szczyt",
