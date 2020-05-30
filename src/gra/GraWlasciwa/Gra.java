@@ -97,12 +97,15 @@ public class Gra {
     }
 
     private boolean menuGlowne(){
-        System.out.println(
+        System.out.println("0. Pokaż Moje Statystyki\n" +
                 "1. Pokaż ekwipunek\n" + "2. Zmień broń\n" + "3. Użyj pożywienia\n" + "4. Użyj przedmiotu fabularnego\n"
                         + "5. Pokaż listę dostępnych lokalizacji\n" + "6. Przejdź do innej lokalizacji\n");
         int wybor = in.nextInt();
         int jakIndex;
         switch (wybor){
+            case 0:
+                System.out.println(gracz);
+                return true;
             case 1:
                 gracz.getEkwipunek().wyswietlEkwipunek();
                 return true;
