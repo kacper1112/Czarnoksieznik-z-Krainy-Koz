@@ -99,7 +99,32 @@ public class Ekwipunek {
     }
 
     public void wyswietlEkwipunek(){
-
+        System.out.print("Przedmioty Fabularne(nazwa, wymagana inteligencja): ");
+        if(ekwipunekFabularne.size()>0){
+            System.out.println(ekwipunekFabularne);
+        }else{
+            System.out.println("Brak przedmitów fabularnych");
+        }
+        System.out.print("Przedmioty Pozywienie(nazwa, przywracane pkt zycia): ");
+        if(ekwipunekPozywienie.size()>0){
+            System.out.println(ekwipunekPozywienie);
+        }else{
+            System.out.println("Brak pozywienia");
+        }
+        System.out.print("Bronie Magiczne(nazwa, obrazeniaBazowe, mocZwoju,  mocUderzeniaKrytycznego): ");
+        if(ekwipunekBronMagiczna.size()>0){
+            System.out.println(ekwipunekBronMagiczna);
+        }else{
+            System.out.println("Brak bronii Magicznych");
+        }
+        System.out.print("Bronie Fizyczne(nazwa, obrazeniaBazowe, ostrosc, mocUderzeniaKrytycznego): ");
+        if(ekwipunekBronFizczna.size()>0){
+            System.out.println(ekwipunekBronFizczna);
+        }else {
+            System.out.println("Brak bronii Fizycznych");
+        }
+        System.out.print("Wyekwipowana Bron: ");
+        System.out.println(wyekwipowanaBron);
     }
 
     @Override

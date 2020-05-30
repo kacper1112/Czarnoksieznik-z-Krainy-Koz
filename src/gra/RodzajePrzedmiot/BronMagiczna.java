@@ -48,9 +48,12 @@ public class BronMagiczna extends Przedmiot implements bron {
 
     @Override
     public String toString() {
-        return "BronMagiczna: " +
+        return "(" + getNazwa()  + ", " + obrazeniaBazowe + ", " + mocZwoju + ", " + mocUderzeniaKrytycznego + ")";
+        /*
+                return "BronMagiczna: " +
                 "mocZwoju: " + mocZwoju +
                 ", obrazeniaBazowe: " + obrazeniaBazowe +
                 ", mocUderzeniaKrytycznego: " + mocUderzeniaKrytycznego;
+         */
     }
 }

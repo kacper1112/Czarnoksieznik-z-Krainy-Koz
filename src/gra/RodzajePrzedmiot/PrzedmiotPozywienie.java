@@ -20,7 +20,7 @@ public class PrzedmiotPozywienie extends Przedmiot {
 
     @Override
     public String toString() {
-        return "PrzedmiotPozywienie: " +
-                "przywracaneZycie: " + przywracaneZycie;
+        return "(" + getNazwa() +
+                "," + przywracaneZycie + ")";
     }
 }
