@@ -8,6 +8,7 @@ import gra.RodzajeGracz.Gracz;
 import gra.RodzajeGracz.Kaplan;
 import gra.RodzajeGracz.Mag;
 import gra.RodzajeGracz.Wojownik;
+import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
 import java.util.ArrayList;
@@ -104,6 +105,7 @@ public class Gra {
         int jakIndex;
         switch (wybor){
             case 0:
+                gracz.wlozBronMagicznaDoEwkipunku(new BronMagiczna("jakas bron", "super bronka to jest", 10, 10, 10, 10));
                 System.out.println(gracz);
                 return true;
             case 1:
