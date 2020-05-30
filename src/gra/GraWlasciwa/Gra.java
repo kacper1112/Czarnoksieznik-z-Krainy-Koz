@@ -96,7 +96,7 @@ public class Gra {
         return true;
     }
 
-    private void menuGlowne(){
+    private boolean menuGlowne(){
         System.out.println(
                 "1. Pokaż ekwipunek\n" + "2. Zmień broń\n" + "3. Użyj pożywienia\n" + "4. Użyj przedmiotu fabularnego\n"
                         + "5. Pokaż listę dostępnych lokalizacji\n" + "6. Przejdź do innej lokalizacji\n");
@@ -105,7 +105,7 @@ public class Gra {
         switch (wybor){
             case 1:
                 menuEkwipunku();
-                break;
+                return true;
             case 2:
                 System.out.println("Wybierz bron na ktora chcesz zmienic - podaj typ(fizyczna lub magiczna): ");
                 String jakaBron = in.nextLine();
@@ -118,19 +118,19 @@ public class Gra {
                 }else {
                     System.out.println("Zły typ broni");
                 }
-                break;
+                return true;
             case 3:
                 System.out.println("Wybierz pozywienie ktorego chcesz uzyc - podaj indeks: ");
                 jakIndex = in.nextInt();
                 gracz.zwiekszPunktyZycia(gracz.getEkwipunek().getEkwipunekPozywienie().get(jakIndex).getPrzywracaneZycie());
-                break;
+                return true;
             case 4:
                 System.out.println("Wybierz przedmiot fabularny ktorego chcesz uzyc - podaj indeks: ");
                 jakIndex = in.nextInt();
                 System.out.println(gracz.getEkwipunek().getEkwipunekFabularne().get(jakIndex).getWskazowka(
                         gracz.getInteligencja()
                 ));
-                break;
+                return true;
             case 5:
                 System.out.println("Sasiednie lokacje:");
                 this.lokacje.get(lokalizacjaGracza).getSasiednieLokacje().forEach(index -> {
@@ -138,11 +138,11 @@ public class Gra {
                     //System.out.println(this.lokacje.get(index).getNazwa());
                     //System.out.println(this.lokacje.get(index).getOpis());
                 });
-                break;
+                return true;
             case 6:
                 System.out.println("Wybierz lokalizacje: ");
                 this.lokalizacjaGracza  = in.nextInt();
-                break;
+                return false;
         }
     }
 
