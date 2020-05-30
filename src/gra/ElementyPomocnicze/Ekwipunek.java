@@ -98,6 +98,10 @@ public class Ekwipunek {
                 ekwipunekFabularne.isEmpty() && getEkwipunekPozywienie().isEmpty());
     }
 
+    public void wyswietlEkwipunek(){
+
+    }
+
     @Override
     public String toString() {
         return "Ekwipunek typu: " + TYP +

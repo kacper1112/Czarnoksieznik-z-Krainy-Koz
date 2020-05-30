@@ -104,7 +104,7 @@ public class Gra {
         int jakIndex;
         switch (wybor){
             case 1:
-                menuEkwipunku();
+                gracz.getEkwipunek().wyswietlEkwipunek();
                 return true;
             case 2:
                 System.out.println("Wybierz bron na ktora chcesz zmienic - podaj typ(fizyczna lub magiczna): ");
@@ -147,11 +147,6 @@ public class Gra {
                 System.out.println("Cos poszlo nie tak, sprobuj jeszcze raz");
                 return true;
         }
-    }
-
-    private int menuEkwipunku(){
-
-        return in.nextInt();
     }
 
     private boolean rozpocznijGre() {
