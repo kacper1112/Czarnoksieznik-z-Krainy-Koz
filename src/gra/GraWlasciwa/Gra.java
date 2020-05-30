@@ -101,27 +101,35 @@ public class Gra {
                 "1. Pokaż ekwipunek\n" + "2. Zmień broń\n" + "3. Użyj pożywienia\n" + "4. Użyj przedmiotu fabularnego\n"
                         + "5. Pokaż listę dostępnych lokalizacji\n" + "6. Przejdź do innej lokalizacji\n");
         int wybor = in.nextInt();
-
+        int jakIndex;
         switch (wybor){
             case 1:
                 menuEkwipunku();
                 break;
             case 2:
-                System.out.println("Wybierz bron na ktora chcesz zmienic - podaj typ: ");
+                System.out.println("Wybierz bron na ktora chcesz zmienic - podaj typ(fizyczna lub magiczna): ");
                 String jakaBron = in.nextLine();
                 System.out.println("Wybierz bron na ktora chcesz zmienic - podaj indeks: ");
-                int jakIndex = in.nextInt();
-                if(jakaBron.equals("Fizyczna")){
+                jakIndex = in.nextInt();
+                if(jakaBron.equals("Fizyczna") || jakaBron.equals("fizyczna") ){
                     gracz.getEkwipunek().zmienWyekwipowanaBronNaFiczyna(jakIndex);
-                }else if(jakaBron.equals("Magiczna")){
+                }else if(jakaBron.equals("Magiczna") || jakaBron.equals("magiczna")){
                     gracz.getEkwipunek().zmienWyekwipowanaBronNaMagiczna(jakIndex);
                 }else {
-                    System.out.println("Podaj jeszcze raz typ broni");
+                    System.out.println("Zły typ broni");
                 }
                 break;
             case 3:
+                System.out.println("Wybierz pozywienie ktorego chcesz uzyc - podaj indeks: ");
+                jakIndex = in.nextInt();
+                gracz.zwiekszPunktyZycia(gracz.getEkwipunek().getEkwipunekPozywienie().get(jakIndex).getPrzywracaneZycie());
                 break;
             case 4:
+                System.out.println("Wybierz przedmiot fabularny ktorego chcesz uzyc - podaj indeks: ");
+                jakIndex = in.nextInt();
+                System.out.println(gracz.getEkwipunek().getEkwipunekFabularne().get(jakIndex).getWskazowka(
+                        gracz.getInteligencja()
+                ));
                 break;
             case 5:
                 System.out.println("Sasiednie lokacje:");
@@ -131,12 +139,11 @@ public class Gra {
                     //System.out.println(this.lokacje.get(index).getOpis());
                 });
                 break;
-                //hej byczq
             case 6:
+                System.out.println("Wybierz lokalizacje: ");
                 this.lokalizacjaGracza  = in.nextInt();
                 break;
         }
-
     }
 
     private int menuEkwipunku(){

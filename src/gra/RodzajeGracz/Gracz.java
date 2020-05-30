@@ -121,7 +121,7 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // gracz otrzymuje obrazenia
     // dodac co sie dzieje, gdy obecnePunktyZycia = 0
-    void zmniejszPunktyZycia(double wartosc) {
+    public void zmniejszPunktyZycia(double wartosc) {
         if(obecnePunktyZycia <= wartosc) {
             obecnePunktyZycia = 0;
         } else {
@@ -130,7 +130,7 @@ public abstract class Gracz implements generatorEkwipunku {
     }
 
     // gracz zwieksza swoje punkty zycia
-    void zwiekszPunktyZycia(double wartosc) {
+    public void zwiekszPunktyZycia(double wartosc) {
         if(obecnePunktyZycia + wartosc >= maksymalnePunktyZycia) {
             obecnePunktyZycia = maksymalnePunktyZycia;
         } else {
