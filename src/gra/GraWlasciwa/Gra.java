@@ -113,9 +113,10 @@ public class Gra {
             case 2:
                 System.out.println("Wybierz bron na ktora chcesz zmienic - podaj typ(fizyczna lub magiczna): ");
                 String jakaBron = in.nextLine();
-                System.out.println("->"+jakaBron + "<-");
+                String jakaBron2 = in.nextLine();
+                System.out.println("->"+jakaBron2 + "<-");
                 jakaBron.trim();
-                System.out.println("->"+jakaBron + "<-");
+                System.out.println("->"+jakaBron2 + "<-");
                 System.out.println("Wybierz bron na ktora chcesz zmienic - podaj indeks: ");
                 jakIndex = in.nextInt();
                 if(jakaBron.equals("Fizyczna") || jakaBron.equals("fizyczna") ){
