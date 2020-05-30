@@ -82,7 +82,7 @@ public class Mag extends Gracz {
                     10
             ));
         }
-
+        ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0);
         return  ekwipunekTMP;
     }
 }

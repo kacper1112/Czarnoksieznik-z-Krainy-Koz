@@ -106,6 +106,12 @@ public class Kaplan extends Gracz {
             ));
         }
 
+        if(ekwipunekTMP.getEkwipunekBronMagiczna().size()>0){
+            ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0);
+        }else{
+            ekwipunekTMP.zmienWyekwipowanaBronNaFiczyna(0);
+        }
+
         return ekwipunekTMP;
     }
 }

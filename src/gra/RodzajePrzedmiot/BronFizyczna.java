@@ -67,6 +67,5 @@ public class BronFizyczna extends Przedmiot implements bron {
                 ", obrazeniaBazowe: " + obrazeniaBazowe +
                 ", mocUderzeniaKrytycznego: " + mocUderzeniaKrytycznego;
          */
-
     }
 }
