@@ -141,8 +141,14 @@ public class Gra {
                 return true;
             case 6:
                 System.out.println("Wybierz lokalizacje: ");
-                this.lokalizacjaGracza  = in.nextInt();
-                return false;
+                int wyborLokacji = in.nextInt();
+                if(this.lokacje.get(lokalizacjaGracza).getSasiednieLokacje().contains(wyborLokacji)) {
+                    this.lokalizacjaGracza  = wyborLokacji;
+                    return false;
+                } else {
+                    System.out.println("Niepoprawna lokacja");
+                    return true;
+                }
             default:
                 System.out.println("Cos poszlo nie tak, sprobuj jeszcze raz");
                 return true;
