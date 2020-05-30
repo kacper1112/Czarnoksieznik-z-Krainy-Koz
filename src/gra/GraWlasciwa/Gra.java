@@ -26,12 +26,15 @@ public class Gra {
 
     private List<Wydarzenie> wydarzeniaPoboczne;
 
+    private int lokalizacjaGracza;
+
     public static void main(String[] args) {
         getInstance();
     }
 
     private Gra() {
         in = new Scanner(System.in);
+        lokalizacjaGracza = 0;
 
         System.out.println("Czarnoksieznik z Krainy Koz\n");
         System.out.println("1.Rozpocznij nowa gre \n2.Pokaz instrukcje");
@@ -121,6 +124,7 @@ public class Gra {
             case 4:
                 break;
             case 5:
+                this.lokacje.get(lokalizacjaGracza).getSasiednieLokacje()
                 break;
                 //hej byczq
             case 6:
@@ -135,7 +139,6 @@ public class Gra {
     }
 
     private boolean rozpocznijGre() {
-        int lokalizacjaGracza = 2;
         while (true) {
             if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
