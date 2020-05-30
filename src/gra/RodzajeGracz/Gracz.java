@@ -270,7 +270,8 @@ public abstract class Gracz implements generatorEkwipunku {
                 inteligencja +" inteligencji. Posiadasz " +
                 poziom + " poziom oraz " +
                 punktyDoswiadczenia + " punktow zycia. Masz " +
-                pieniadze + " zlotych monet.";
+                pieniadze + " zlotych monet" +
+                this.ekwipunek.getWyekwipowanaBron().toString() + " to Twoja bron";
     }
 
     double obliczWplywAtrybutowPrzedmiotowNaOtrzymanePrzezWojownikaObrazenia() {return 0;}
