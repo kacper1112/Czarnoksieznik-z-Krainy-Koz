@@ -126,13 +126,14 @@ public class Gra {
             case 5:
                 System.out.println("Sasiednie lokacje:");
                 this.lokacje.get(lokalizacjaGracza).getSasiednieLokacje().forEach(index -> {
-                    System.out.println(index + this.lokacje.get(index).getNazwa());
+                    System.out.println(index + ": " + this.lokacje.get(index).getNazwa());
                     //System.out.println(this.lokacje.get(index).getNazwa());
                     //System.out.println(this.lokacje.get(index).getOpis());
                 });
                 break;
                 //hej byczq
             case 6:
+                this.lokalizacjaGracza  = in.nextInt();
                 break;
         }
 
