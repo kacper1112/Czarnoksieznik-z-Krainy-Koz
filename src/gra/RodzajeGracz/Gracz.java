@@ -163,18 +163,18 @@ public abstract class Gracz implements generatorEkwipunku {
     }
 
     // dodac uzywanie pozywienia
-    private void uzyjPozywienia(int index) {
+    public void uzyjPozywienia(int index) {
         this.obecnePunktyZycia +=
                 this.ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
     }
 
     // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
-    private void uzyjPrzedmiotuFabularnego(int index) {
+    public void uzyjPrzedmiotuFabularnego(int index) {
         this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja);
     }
 
     // zmien wyekwipowana bron na Fizyczna
-    private void zmienBronNaFizyczna(int index) {
+    public void zmienBronNaFizyczna(int index) {
         if(index < this.ekwipunek.getEkwipunekBronFizyczna().size()) {
             this.ekwipunek.zmienWyekwipowanaBronNaFiczyna(index);
             System.out.println("Zmieniles bron na: " + ekwipunek.getEkwipunekBronFizyczna().get(index));
@@ -184,7 +184,7 @@ public abstract class Gracz implements generatorEkwipunku {
     }
 
     // zmien wyekwipowana bron na Fizyczna
-    private void zmienBronNaMagiczna(int index) {
+    public void zmienBronNaMagiczna(int index) {
         if(index < this.ekwipunek.getEkwipunekBronMagiczna().size()) {
             this.ekwipunek.zmienWyekwipowanaBronNaMagiczna(index);
             System.out.println("Zmieniles bron na: " + ekwipunek.getEkwipunekBronMagiczna().get(index));
@@ -193,7 +193,7 @@ public abstract class Gracz implements generatorEkwipunku {
         }
     }
 
-    private int pokazEkwipunek() {
+    public int pokazEkwipunek() {
         int indeks = 1;
         if(ekwipunek.isEmpty()) {
             System.out.println("Twoj ekwipunek jest pusty!");
@@ -228,6 +228,7 @@ public abstract class Gracz implements generatorEkwipunku {
         return indeks - 1;
     }
 
+    /*
     public void menuEkwipunku() {
         int indeks;
 
@@ -262,7 +263,7 @@ public abstract class Gracz implements generatorEkwipunku {
             uzyjPrzedmiotuFabularnego(indeks);
         }
     }
-
+    */
     public String toString() {
         return "Masz obecnie " +
                 obecnePunktyZycia +" punktow zycia, " +

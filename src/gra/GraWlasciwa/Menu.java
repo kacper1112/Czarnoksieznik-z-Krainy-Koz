@@ -19,6 +19,49 @@ public class Menu {
         Menu.lokacje = lokacje;
     }
 
+    public static boolean menuEkwipunku(){
+        if(in.nextInt()!= 0){
+
+            int indeks;
+
+            if(gracz.getEkwipunek().isEmpty()) {
+                System.out.println("Twoj ekwipunek jest pusty!");
+                return false;
+            }
+
+            indeks = gracz.pokazEkwipunek();
+            System.out.println("Wybierz przedmiot do uzycia lub bron do wyekwipowania");
+            indeks = Gra.wczytajWyborGracza(indeks);
+
+            // obliczamy z ktorej kategorii chcemy wyciagnac przedmiot
+            int rozmiarEq = 0;
+            boolean uzytoPrzedmiot = false;
+
+            rozmiarEq += gracz.getEkwipunek().getEkwipunekPozywienie().size();
+            if(rozmiarEq >= indeks) {
+                gracz.uzyjPozywienia(indeks);
+                uzytoPrzedmiot = true;
+            }
+            rozmiarEq += gracz.getEkwipunek().getEkwipunekBronFizyczna().size();
+            if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
+                gracz.zmienBronNaFizyczna(indeks);
+                uzytoPrzedmiot = true;
+            }
+            rozmiarEq += gracz.getEkwipunek().getEkwipunekBronMagiczna().size();
+            if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
+                gracz.zmienBronNaMagiczna(indeks);
+                uzytoPrzedmiot = true;
+            }
+            if(!uzytoPrzedmiot) {
+                gracz.uzyjPrzedmiotuFabularnego(indeks);
+            }
+
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     public static boolean menuGlowne(){
         System.out.println("0. Pokaż Moje Statystyki\n" +
                 "1. Pokaż ekwipunek\n" + "2. Zmień broń\n" + "3. Użyj pożywienia\n" + "4. Użyj przedmiotu fabularnego\n"
