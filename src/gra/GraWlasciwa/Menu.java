@@ -20,46 +20,46 @@ public class Menu {
     }
 
     public static boolean menuEkwipunku(){
-        if(in.nextInt()!= 0){
 
-            int indeks;
+        int indeks;
 
-            if(gracz.getEkwipunek().isEmpty()) {
-                System.out.println("Twoj ekwipunek jest pusty!");
-                return false;
-            }
-
-            indeks = gracz.pokazEkwipunek();
-            System.out.println("Wybierz przedmiot do uzycia lub bron do wyekwipowania");
-            indeks = Gra.wczytajWyborGracza(indeks);
-
-            // obliczamy z ktorej kategorii chcemy wyciagnac przedmiot
-            int rozmiarEq = 0;
-            boolean uzytoPrzedmiot = false;
-
-            rozmiarEq += gracz.getEkwipunek().getEkwipunekPozywienie().size();
-            if(rozmiarEq >= indeks) {
-                gracz.uzyjPozywienia(indeks);
-                uzytoPrzedmiot = true;
-            }
-            rozmiarEq += gracz.getEkwipunek().getEkwipunekBronFizyczna().size();
-            if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-                gracz.zmienBronNaFizyczna(indeks);
-                uzytoPrzedmiot = true;
-            }
-            rozmiarEq += gracz.getEkwipunek().getEkwipunekBronMagiczna().size();
-            if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-                gracz.zmienBronNaMagiczna(indeks);
-                uzytoPrzedmiot = true;
-            }
-            if(!uzytoPrzedmiot) {
-                gracz.uzyjPrzedmiotuFabularnego(indeks);
-            }
-
+        if(gracz.getEkwipunek().isEmpty()) {
+            System.out.println("Twoj ekwipunek jest pusty!");
             return true;
-        }else {
+        }
+
+        indeks = gracz.pokazEkwipunek();
+        System.out.println("Wybierz przedmiot do uzycia lub bron do wyekwipowania");
+        int wyborGracza = in.nextInt();//Gra.wczytajWyborGracza(indeks);
+
+        if(wyborGracza < 0 || wyborGracza > indeks) {
             return false;
         }
+
+        // obliczamy z ktorej kategorii chcemy wyciagnac przedmiot
+        int rozmiarEq = 0;
+        boolean uzytoPrzedmiot = false;
+
+        rozmiarEq += gracz.getEkwipunek().getEkwipunekPozywienie().size();
+        if(rozmiarEq >= indeks) {
+            gracz.uzyjPozywienia(indeks);
+            uzytoPrzedmiot = true;
+        }
+        rozmiarEq += gracz.getEkwipunek().getEkwipunekBronFizyczna().size();
+        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
+            gracz.zmienBronNaFizyczna(indeks);
+            uzytoPrzedmiot = true;
+        }
+        rozmiarEq += gracz.getEkwipunek().getEkwipunekBronMagiczna().size();
+        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
+            gracz.zmienBronNaMagiczna(indeks);
+            uzytoPrzedmiot = true;
+        }
+        if(!uzytoPrzedmiot) {
+            gracz.uzyjPrzedmiotuFabularnego(indeks);
+        }
+
+        return true;
     }
 
     public static boolean menuGlowne(){
