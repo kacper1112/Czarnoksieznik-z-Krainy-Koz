@@ -1,5 +1,6 @@
 package gra.GraWlasciwa;
 
+import gra.ElementyPomocnicze.Ekwipunek;
 import gra.GraWlasciwa.Gra;
 import gra.NPC.Boss;
 import gra.NPC.Fabularny;
@@ -85,7 +86,7 @@ public class Wydarzenie {
                 wyborGracza = Gra.wczytajWyborGracza(2);
 
                 if(wyborGracza == 2) {
-                    gracz.menuEkwipunku();
+                    Menu.menuEkwipunku();
                 }
 
                 System.out.println("O bogowie, walka!");
