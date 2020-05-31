@@ -30,10 +30,14 @@ public class Gra {
     private int lokalizacjaGracza;
 
     public static void main(String[] args) {
-        getInstance();
+        Gra.getInstance().granko();
     }
 
     private Gra() {
+        System.out.println("Zainicjalowana GRA");
+    }
+
+    public void granko(){
         in = new Scanner(System.in);
         lokalizacjaGracza = 0;
 
