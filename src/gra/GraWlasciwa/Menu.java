@@ -15,11 +15,11 @@ public class Menu {
         Menu.gracz = gracz;
     }
 
-    public void setLokacje(List<Lokacja> lokacje) {
+    public static void setLokacje(List<Lokacja> lokacje) {
         Menu.lokacje = lokacje;
     }
 
-    static public boolean menuGlowne(int lokalizacjaGracza){
+    static public boolean menuGlowne(){
         System.out.println("0. Pokaż Moje Statystyki\n" +
                 "1. Pokaż ekwipunek\n" + "2. Zmień broń\n" + "3. Użyj pożywienia\n" + "4. Użyj przedmiotu fabularnego\n"
                 + "5. Pokaż listę dostępnych lokalizacji\n" + "6. Przejdź do innej lokalizacji\n");
@@ -64,7 +64,7 @@ public class Menu {
                 return true;
             case 5:
                 System.out.println("Sasiednie lokacje:");
-                lokacje.get(lokalizacjaGracza).getSasiednieLokacje().forEach(index -> {
+                lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().forEach(index -> {
                     System.out.println(index + ": " + lokacje.get(index).getNazwa());
                     //System.out.println(this.lokacje.get(index).getNazwa());
                     //System.out.println(this.lokacje.get(index).getOpis());
@@ -73,8 +73,8 @@ public class Menu {
             case 6:
                 System.out.println("Wybierz lokalizacje: ");
                 int wyborLokacji = in.nextInt();
-                if(lokacje.get(lokalizacjaGracza).getSasiednieLokacje().contains(wyborLokacji)) {
-                    lokalizacjaGracza  = wyborLokacji;
+                if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().contains(wyborLokacji)) {
+                    Gra.getInstance().setLokalizacjaGracza(wyborLokacji);
                     return false;
                 } else {
                     System.out.println("Niepoprawna lokacja");
@@ -85,5 +85,4 @@ public class Menu {
                 return true;
         }
     }
-
 }

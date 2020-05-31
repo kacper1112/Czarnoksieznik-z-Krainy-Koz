@@ -93,6 +93,8 @@ public class Gra {
                 gracz = new Kaplan();
                 break;
         }
+        Menu.setGracz(gracz);
+        Menu.setLokacje(lokacje);
         return true;
     }
 
@@ -153,7 +155,7 @@ public class Gra {
                 }
             }
 
-            while(Menu.menuGlowne(99999999)) {
+            while(Menu.menuGlowne()) {
 
             }
 
@@ -387,6 +389,14 @@ public class Gra {
         Boss ork = new Boss("Dis", new PrzedmiotFabularny("", "", 0, 0, false, "po przejsciu przez bagna..", 100));
 
         Boss smok = new Boss("Smok", new PrzedmiotFabularny("", "", 0, 0, false, "po przez zdradliwe urwisko...", 100));
+    }
+
+    public int getLokalizacjaGracza() {
+        return lokalizacjaGracza;
+    }
+
+    public void setLokalizacjaGracza(int lokalizacjaGracza) {
+        this.lokalizacjaGracza = lokalizacjaGracza;
     }
 
     // todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga
