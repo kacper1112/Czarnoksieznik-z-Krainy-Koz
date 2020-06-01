@@ -1,9 +1,6 @@
 package gra.ElementyPomocnicze;
 
-import gra.RodzajePrzedmiot.BronFizyczna;
-import gra.RodzajePrzedmiot.BronMagiczna;
-import gra.RodzajePrzedmiot.PrzedmiotFabularny;
-import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
+import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,19 +34,35 @@ public class Ekwipunek {
         ekwipunekBronFizczna.add(p);
     }
 
-    public BronFizyczna wyciagnijBronFizyczna(int indeks){
-        return ekwipunekBronFizczna.get(indeks);
-    }
-    public BronMagiczna wyciagnijBronMagiczna(int indeks){
-        return  ekwipunekBronMagiczna.get(indeks);
+    public int getIloscPozywienie() {
+        return ekwipunekPozywienie.size();
     }
 
-    public PrzedmiotFabularny wyciagnijFabularne(int indeks){
-        return ekwipunekFabularne.get(indeks);
+    public int getIloscFabularne() {
+        return ekwipunekFabularne.size();
     }
 
-    public PrzedmiotPozywienie wyciagnijPozywienie(int indeks){
-        return ekwipunekPozywienie.get(indeks);
+    public int getIloscBronMagiczna() {
+        return ekwipunekBronMagiczna.size();
+    }
+
+    public int getIloscBronFizyczna() {
+        return ekwipunekBronFizczna.size();
+    }
+
+    public void wyciagnijBronFizyczna(int indeks){
+        ekwipunekBronFizczna.remove(indeks);
+    }
+    public void wyciagnijBronMagiczna(int indeks){
+        ekwipunekBronMagiczna.remove(indeks);
+    }
+
+    public void wyciagnijFabularne(int indeks){
+        ekwipunekFabularne.remove(indeks);
+    }
+
+    public void wyciagnijPozywienie(int indeks){
+        ekwipunekPozywienie.remove(indeks);
     }
 
     public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni){
@@ -98,34 +111,6 @@ public class Ekwipunek {
                 ekwipunekFabularne.isEmpty() && getEkwipunekPozywienie().isEmpty());
     }
 
-    public void wyswietlEkwipunek(){
-        System.out.print("Przedmioty Fabularne(nazwa, wymagana inteligencja): ");
-        if(ekwipunekFabularne.size()>0){
-            System.out.println(ekwipunekFabularne);
-        }else{
-            System.out.println("Brak przedmitów fabularnych");
-        }
-        System.out.print("Przedmioty Pozywienie(nazwa, przywracane pkt zycia): ");
-        if(ekwipunekPozywienie.size()>0){
-            System.out.println(ekwipunekPozywienie);
-        }else{
-            System.out.println("Brak pozywienia");
-        }
-        System.out.print("Bronie Magiczne(nazwa, obrazeniaBazowe, mocZwoju,  mocUderzeniaKrytycznego): ");
-        if(ekwipunekBronMagiczna.size()>0){
-            System.out.println(ekwipunekBronMagiczna);
-        }else{
-            System.out.println("Brak bronii Magicznych");
-        }
-        System.out.print("Bronie Fizyczne(nazwa, obrazeniaBazowe, ostrosc, mocUderzeniaKrytycznego): ");
-        if(ekwipunekBronFizczna.size()>0){
-            System.out.println(ekwipunekBronFizczna);
-        }else {
-            System.out.println("Brak bronii Fizycznych");
-        }
-        System.out.print("Wyekwipowana Bron: ");
-        System.out.println(wyekwipowanaBron);
-    }
 
     @Override
     public String toString() {

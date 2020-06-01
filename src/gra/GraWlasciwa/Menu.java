@@ -2,6 +2,7 @@ package gra.GraWlasciwa;
 
 import gra.RodzajeGracz.Gracz;
 import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.Przedmiot;
 
 import java.util.List;
 import java.util.Scanner;
@@ -19,54 +20,85 @@ public class Menu {
         Menu.lokacje = lokacje;
     }
 
-    public static boolean menuEkwipunku(){
+    public static boolean menuLokacji() {
+        // nie da sie jakos ladniej tego potwora linijke nizej?
+        System.out.println("Sasiednie lokacje:");
+                lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().forEach(index -> {
+                    System.out.println(index + ": " + lokacje.get(index).getNazwa());
+                    //System.out.println(this.lokacje.get(index).getNazwa());
+                    //System.out.println(this.lokacje.get(index).getOpis());
+                });
+        System.out.println("Wybierz numer lokacji do ktorej chcialbys przejsc (0 zeby wyjsc do poprzedniego menu)");
+        int wyborLokacji = in.nextInt();
 
-        int indeks;
+        if(wyborLokacji == 0) {
+            return false;
+        } else if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().contains(wyborLokacji)) {
+            Gra.getInstance().setLokalizacjaGracza(wyborLokacji);
+            System.out.println("Przechodzisz do: " + lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getNazwa());
+            return true;
+        } else  {
+            System.out.println("Niepoprawna lokacja");
+            return false;
+        }
+    }
+
+    public static void menuEkwipunku(){
+
+        int rozmiarEq;
+
+        //System.out.println("Twoja wyekwipowana bron to: " + (Przedmiot)(gracz.getEkwipunek().getWyekwipowanaBron()).getNazwa());
 
         if(gracz.getEkwipunek().isEmpty()) {
-            System.out.println("Twoj ekwipunek jest pusty!");
-            return true;
+            System.out.println("Nie masz w ekwipunku wiecej przedmiotow!");
+            return;
         }
 
-        indeks = gracz.pokazEkwipunek();
-        System.out.println("Wybierz przedmiot do uzycia lub bron do wyekwipowania");
-        int wyborGracza = in.nextInt();//Gra.wczytajWyborGracza(indeks);
+        rozmiarEq = gracz.pokazEkwipunek();
+        System.out.println("Wybierz przedmiot do uzycia lub bron do wyekwipowania (0 zeby wyjsc do poprzedniego menu)");
+        int wyborGracza = Gra.wczytajWyborGracza(rozmiarEq, true);
 
-        if(wyborGracza < 0 || wyborGracza > indeks) {
-            return false;
+        // wybor spoza ekwipunku albo chec powrotu
+        if(wyborGracza <= 0 || wyborGracza > rozmiarEq) {
+            return;
         }
 
         // obliczamy z ktorej kategorii chcemy wyciagnac przedmiot
-        int rozmiarEq = 0;
-        boolean uzytoPrzedmiot = false;
-
-        rozmiarEq += gracz.getEkwipunek().getEkwipunekPozywienie().size();
-        if(rozmiarEq >= indeks) {
-            gracz.uzyjPozywienia(indeks);
-            uzytoPrzedmiot = true;
-        }
-        rozmiarEq += gracz.getEkwipunek().getEkwipunekBronFizyczna().size();
-        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-            gracz.zmienBronNaFizyczna(indeks);
-            uzytoPrzedmiot = true;
-        }
-        rozmiarEq += gracz.getEkwipunek().getEkwipunekBronMagiczna().size();
-        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-            gracz.zmienBronNaMagiczna(indeks);
-            uzytoPrzedmiot = true;
-        }
-        if(!uzytoPrzedmiot) {
-            gracz.uzyjPrzedmiotuFabularnego(indeks);
+        rozmiarEq -= gracz.getEkwipunek().getIloscFabularne();
+        if(wyborGracza > rozmiarEq) {
+            System.out.println("Uzyto przedmiotu fabularnego");
+            gracz.uzyjPrzedmiotuFabularnego(wyborGracza - rozmiarEq - 1);
+            return;
         }
 
-        return true;
+        rozmiarEq -= gracz.getEkwipunek().getIloscBronMagiczna();
+        if(wyborGracza > rozmiarEq) {
+            System.out.println("Wyekwipowano bron magiczna");
+            gracz.zmienBronNaMagiczna(wyborGracza - rozmiarEq - 1);
+            return;
+        }
+
+        rozmiarEq -= gracz.getEkwipunek().getIloscBronFizyczna();
+        if(wyborGracza > rozmiarEq) {
+            System.out.println("Wyekwipowano bron fizyczna");
+            gracz.zmienBronNaFizyczna(wyborGracza - rozmiarEq - 1);
+            return;
+        }
+
+        rozmiarEq -= gracz.getEkwipunek().getIloscPozywienie();
+        if(wyborGracza > rozmiarEq) {
+            System.out.println("Uzyto pozywienia");
+            gracz.uzyjPozywienia(wyborGracza - rozmiarEq - 1);
+            return;
+        }
+
+        System.out.println("Cos poszlo nie tak podczas wyboru przedmiotu");
     }
 
     public static boolean menuGlowne(){
         System.out.println("1. Pokaż Moje Statystyki\n" +
                 "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji\n");
         int wybor = in.nextInt(); //Gra.wczytajWyborGracza(3);
-        int jakIndex;
         switch (wybor){
             case 1:
                 gracz.wlozBronMagicznaDoEwkipunku(new BronMagiczna("jakas bron", "super bronka to jest",
@@ -77,54 +109,7 @@ public class Menu {
                 menuEkwipunku();
                 return true;
             case 3:
-                //menuLokalizacji();
-                return true;
-//                System.out.println("Wybierz bron na ktora chcesz zmienic - podaj typ(fizyczna lub magiczna): ");
-//                String jakaBron0 = in.nextLine();
-//                String jakaBron1 = in.nextLine();
-//                String jakaBron2 = jakaBron0 + jakaBron1;
-//                jakaBron2.trim();
-//                System.out.println("->"+jakaBron2 + "<-");
-//                System.out.println("Wybierz bron na ktora chcesz zmienic - podaj indeks: ");
-//                jakIndex = in.nextInt();
-//                if(jakaBron2.equals("Fizyczna") || jakaBron2.equals("fizyczna") ){
-//                    gracz.getEkwipunek().zmienWyekwipowanaBronNaFiczyna(jakIndex);
-//                }else if(jakaBron2.equals("Magiczna") || jakaBron2.equals("magiczna")){
-//                    gracz.getEkwipunek().zmienWyekwipowanaBronNaMagiczna(jakIndex);
-//                }else {
-//                    System.out.println("Zły typ broni");
-//                }
-//                return true;
-//            case 3:
-//                System.out.println("Wybierz pozywienie ktorego chcesz uzyc - podaj indeks: ");
-//                jakIndex = in.nextInt();
-//                gracz.zwiekszPunktyZycia(gracz.getEkwipunek().getEkwipunekPozywienie().get(jakIndex).getPrzywracaneZycie());
-//                return true;
-//            case 4:
-//                System.out.println("Wybierz przedmiot fabularny ktorego chcesz uzyc - podaj indeks: ");
-//                jakIndex = in.nextInt();
-//                System.out.println(gracz.getEkwipunek().getEkwipunekFabularne().get(jakIndex).getWskazowka(
-//                        gracz.getInteligencja()
-//                ));
-//                return true;
-//            case 5:
-//                System.out.println("Sasiednie lokacje:");
-//                lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().forEach(index -> {
-//                    System.out.println(index + ": " + lokacje.get(index).getNazwa());
-//                    //System.out.println(this.lokacje.get(index).getNazwa());
-//                    //System.out.println(this.lokacje.get(index).getOpis());
-//                });
-//                return true;
-//            case 6:
-//                System.out.println("Wybierz lokalizacje: ");
-//                int wyborLokacji = in.nextInt();
-//                if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().contains(wyborLokacji)) {
-//                    Gra.getInstance().setLokalizacjaGracza(wyborLokacji);
-//                    return false;
-//                } else {
-//                    System.out.println("Niepoprawna lokacja");
-//                    return true;
-//                }
+                return menuLokacji();
             default:
                 System.out.println("Cos poszlo nie tak, sprobuj jeszcze raz");
                 return true;

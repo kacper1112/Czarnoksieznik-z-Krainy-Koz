@@ -166,6 +166,7 @@ public abstract class Gracz implements generatorEkwipunku {
     public void uzyjPozywienia(int index) {
         this.obecnePunktyZycia +=
                 this.ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
+        this.ekwipunek.wyciagnijPozywienie(index);
     }
 
     // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji

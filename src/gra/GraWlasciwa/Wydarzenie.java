@@ -83,7 +83,7 @@ public class Wydarzenie {
                 // przerwa na zmiane wyposazenia / uleczenie sie
                 System.out.println("Przed Toba stoi " + wrog.getImie() + "! Jestes gotowy do walki (1), czy wolisz " +
                         "skorzystac z ekwipunku (2) przed walka?");
-                wyborGracza = Gra.wczytajWyborGracza(2);
+                wyborGracza = Gra.wczytajWyborGracza(2, false);
 
                 if(wyborGracza == 2) {
                     Menu.menuEkwipunku();
@@ -148,9 +148,9 @@ public class Wydarzenie {
                         "korzystajac z " + gracz.getEkwipunek().getWyekwipowanaBron() + "\n" +
                         "3.Sprobuj wykonac atak specjalny");
 
-                wyborGracza = Gra.wczytajWyborGracza(3);
+                wyborGracza = Gra.wczytajWyborGracza(3, false);
                 if(wyborGracza == 1) {
-                    System.out.println(gracz.getEkwipunek().toString());
+                    Menu.menuEkwipunku();
                     // menu wyboru przedmiotu z ekwipunku
                 } else if(wyborGracza == 2) {
                     obrazenia = gracz.zadajObrazenia();

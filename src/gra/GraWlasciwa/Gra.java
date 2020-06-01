@@ -43,16 +43,16 @@ public class Gra {
 
         System.out.println("Czarnoksieznik z Krainy Koz\n");
         System.out.println("1.Rozpocznij nowa gre \n2.Pokaz instrukcje");
-        wyborGracza = wczytajWyborGracza(2);
+        wyborGracza = wczytajWyborGracza(2, false);
 
         if (wyborGracza == 2) {
             pokazInstrukcje();
             System.out.println("1.Kontynuuj");
-            wyborGracza = wczytajWyborGracza(1);
+            wyborGracza = wczytajWyborGracza(1, false);
         }
 
         System.out.println("Wybierz swoja klase postaci:\n1.Wojownik\n2.Mag\n3.Kaplan");
-        wyborGracza = wczytajWyborGracza(3);
+        wyborGracza = wczytajWyborGracza(3, false);
 
         if (!inicjalizacjaGry(wyborGracza)) {
             System.out.println("Blad podczas inicjalizacji gry!");
@@ -182,12 +182,14 @@ public class Gra {
         System.exit(0);
     }
 
-    public static int wczytajWyborGracza(int liczbaOpcji) {
+    public static int wczytajWyborGracza(int liczbaOpcji, boolean mozliwoscPowrotu) {
         int wybor;
         while (true) {
             System.out.print("Twoj wybor: ");
             wybor = in.nextInt();
-            if (1 <= wybor && wybor <= liczbaOpcji) {
+            if(wybor == 0 && mozliwoscPowrotu) {
+                return 0;
+            } else if (1 <= wybor && wybor <= liczbaOpcji) {
                 return wybor;
             } else {
                 System.out.println("Nieprawidlowy numer instrukcji");
