@@ -347,6 +347,9 @@ public class Gra {
         // nagle z nieba naciera na" +
         // " Ciebie Królowa Harpii",
         // ));
+        lokacjeTMP.add(new Lokacja("Zdradliwe urwisko", "Docierasz do urwiska, starasz sie nawet nie patrzec w dol, pamietajac jednoczesnie, że musisz dostac sie do Gniazda Harpii, aby zdobyc kolejna z przepustek",
+                new Wydarzenie("Walka z krolowa harpii", "Dotarlszy do gniazda, juz masz siegac po jedno z jaj, w ktorym z pewnoscia znajduje sie przepustka, gdy nagle z nieba naciera na Ciebie Krolowa Harpii",
+                        gracz, null, null, List.of(new Wrog("Krlowa Harpii", 200, 100)), null, null), null, List.of(1, 9, 10)));
         //
         // // 9
         // lokacjeTMP.add(new Lokacja("Orla przepaść",
@@ -356,6 +359,8 @@ public class Gra {
         // swoją pałką, ślini się " +
         // "na Twój widok",
         // ));
+        lokacjeTMP.add(new Lokacja("Orla przepasc", "Przemierzasz most laczacy kraine swiatla i cienia, ktory pozwala bezpiecznie przejsc nad niekonczaca sie przepascia",
+                new Wydarzenie("Walka z Gnomim Wojownikiem", "Na Twojej drodze staje Gnomi Wojownik, ktory wymachujac swoja palka, slini sie na Twoj widok", gracz, null, null, List.of(new Wrog("Gnomi Wojownik", 190, 90)), null, null), null, List.of(7, 8, 10)));
         //
         // // 10
         // lokacjeTMP.add(new Lokacja("Wysoka Brama",
@@ -363,6 +368,11 @@ public class Gra {
         // zapisaną elfickim językiem " +
         // "inskrypcję",
         // ));
+        lokacjeTMP.add(new Lokacja("Wysoka brama", "Docierasz do ogromnych wrot, ktore wystaja ponad chmury", new Wydarzenie(
+                "Zagadka na elfich wrotach", "Na wrotach widac zapisana elfickim jezykiem inskrypcje", gracz, null, null, null, null, new Zagadka("Syc mnie, a bede zyl. Napoj mnie, a umre. Czym jestem?", "Ogniem", new PrzedmiotFabularny(
+                "Przepustka 3", "Przepustka do boss'a 3", 0, 0, false, "Uzyj, aby wejsc do boss'a 3", 10
+        ))
+        ), null, List.of(7, 8, 9)));
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
