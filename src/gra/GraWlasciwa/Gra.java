@@ -170,7 +170,7 @@ public class Gra {
 
             }
 
-            if(lokalizacjaGracza == 10) {
+            if(lokalizacjaGracza == 11) {
                 break;
             }
 
