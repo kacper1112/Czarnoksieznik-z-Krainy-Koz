@@ -198,19 +198,6 @@ public class Gra {
         }
     }
 
-    //CO Z TYM?
-    public int menu0() {
-        System.out.println(
-                "1. Pokaż ekwipunek\n" + "2. Zmień broń\n" + "3. Użyj pożywienia\n" + "4. Użyj przedmiotu fabularnego\n"
-                        + "5. Pokaż listę dostępnych lokalizacji\n" + "6. Przejdź do innej lokalizacji\n");
-        return in.nextInt();
-    }
-
-    public int menuPodstawowe() {
-        System.out.println("1. Pokaż ekwipunek\n" + "2. Przejdź do innej lokalizacji\n");
-        return in.nextInt();
-    }
-
     private void inicjalizacjaWydarzenFabularnych() {
         // nazywa wydarzenia fabularnego (obiektu) - nazwa + podloga +
         // kolejny numer wg postepu fabuly

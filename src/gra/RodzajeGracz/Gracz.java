@@ -194,6 +194,7 @@ public abstract class Gracz implements generatorEkwipunku {
         }
     }
 
+    //todo czy tu ma sie pokazywac wyekwipowana bron??????
     public int pokazEkwipunek() {
         int indeks = 1;
         if(ekwipunek.isEmpty()) {
@@ -229,42 +230,6 @@ public abstract class Gracz implements generatorEkwipunku {
         return indeks - 1;
     }
 
-    /*
-    public void menuEkwipunku() {
-        int indeks;
-
-        if(ekwipunek.isEmpty()) {
-            System.out.println("Twoj ekwipunek jest pusty!");
-            return;
-        }
-        indeks = pokazEkwipunek();
-        System.out.println("Wybierz przedmiot do uzycia lub bron do wyekwipowania");
-        indeks = Gra.wczytajWyborGracza(indeks);
-
-        // obliczamy z ktorej kategorii chcemy wyciagnac przedmiot
-        int rozmiarEq = 0;
-        boolean uzytoPrzedmiot = false;
-
-        rozmiarEq += ekwipunek.getEkwipunekPozywienie().size();
-        if(rozmiarEq >= indeks) {
-            uzyjPozywienia(indeks);
-            uzytoPrzedmiot = true;
-        }
-        rozmiarEq += ekwipunek.getEkwipunekBronFizyczna().size();
-        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-            zmienBronNaFizyczna(indeks);
-            uzytoPrzedmiot = true;
-        }
-        rozmiarEq += ekwipunek.getEkwipunekBronMagiczna().size();
-        if(!uzytoPrzedmiot && rozmiarEq >= indeks) {
-            zmienBronNaMagiczna(indeks);
-            uzytoPrzedmiot = true;
-        }
-        if(!uzytoPrzedmiot) {
-            uzyjPrzedmiotuFabularnego(indeks);
-        }
-    }
-    */
     public String toString() {
         return "Masz obecnie " +
                 obecnePunktyZycia +" punktow zycia, " +
