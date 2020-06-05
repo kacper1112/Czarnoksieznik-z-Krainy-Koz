@@ -2,6 +2,7 @@ package gra.GraWlasciwa;
 
 import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.ElementyPomocnicze.Zagadka;
 import gra.GraWlasciwa.Gra;
 import gra.NPC.Boss;
 import gra.NPC.Fabularny;
@@ -26,6 +27,7 @@ public class Wydarzenie {
     private final List<Handlarz> handlarze;
     private final List<Wrog> wrogowie;
     private final Boss boss;
+    private final Zagadka zagadka;
 
     public Wydarzenie() {
         this.nazwa = null;
@@ -35,6 +37,7 @@ public class Wydarzenie {
         this.handlarze = null;
         this.wrogowie = null;
         this.boss = null;
+        this.zagadka = null;
     }
 
     public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, int iluWrogow, Boss boss) {
@@ -45,6 +48,7 @@ public class Wydarzenie {
         this.handlarze = handlarze;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = boss;
+        this.zagadka = null;
     }
 
     public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, List<Wrog> wrogowie, Boss boss) {
@@ -55,6 +59,18 @@ public class Wydarzenie {
         this.handlarze = handlarze;
         this.wrogowie = wrogowie;
         this.boss = boss;
+        this.zagadka = null;
+    }
+
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, List<Wrog> wrogowie, Boss boss, Zagadka zagadka) {
+        this.nazwa = nazwa;
+        this.opis = opis;
+        this.gracz = gracz;
+        this.postacieFabularne = fabularne;
+        this.handlarze = handlarze;
+        this.wrogowie = wrogowie;
+        this.boss = boss;
+        this.zagadka = zagadka;
     }
 
     public Wydarzenie(String nazwa, String opis, Gracz gracz, int iluWrogow) {
@@ -65,6 +81,7 @@ public class Wydarzenie {
         this.handlarze = null;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = null;
+        this.zagadka = null;
     }
 
     public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, int iluWrogow) {
@@ -75,6 +92,7 @@ public class Wydarzenie {
         this.handlarze = null;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = null;
+        this.zagadka = null;
     }
 
     private List<Wrog> generujWrogow(int iluWrogow) {
@@ -196,6 +214,11 @@ public class Wydarzenie {
                 &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozFabularne);
         }
+    }
+
+    public void zagadka(PrzedmiotFabularny przedmiotFabularny) {
+        this.zagadka.wywolajZagadke();
+        this.gracz.wlozPrzedmiotFabularnyDoEkwipunku(przedmiotFabularny);
     }
 
     private boolean walka(Wrog wrog) {
