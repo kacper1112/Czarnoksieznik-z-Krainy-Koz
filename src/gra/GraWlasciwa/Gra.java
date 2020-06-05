@@ -1,5 +1,6 @@
 package gra.GraWlasciwa;
 
+import gra.ElementyPomocnicze.Zagadka;
 import gra.NPC.Boss;
 import gra.NPC.Fabularny;
 import gra.NPC.Handlarz;
@@ -123,7 +124,7 @@ public class Gra {
                         });
                     }
                     if(wydarzenie.getZagadka() != null) {
-                        wydarzenie.getZagadka().wywolajZagadke();
+                        wydarzenie.zagadka();
                     }
                     if(wydarzenie.getWrogowie() != null) {
                         wydarzenie.getWrogowie().forEach(wrog -> {
@@ -153,7 +154,7 @@ public class Gra {
                     });
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka() != null) {
-                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka().wywolajZagadke();
+                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().zagadka();
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
@@ -291,7 +292,10 @@ public class Gra {
         // " wyrytą inskrypcję, brzmiącą następująco\n",
         // ));
         lokacjeTMP.add(new Lokacja("Magiczna przystan", "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię. Czujesz dziwną radość i niepokój zarazem",
-                        new Wydarzenie(), List.of(new Wydarzenie("Walka z zywiolakiem",
+                        new Wydarzenie("Zagadka na wieku skrzyni", "Pod ogromnym drzewem zauważasz zamknięta skrzynię, na wieku której widać wyrytą inskrypcję, brzmiącą następująco",
+                                gracz, null, null, null, null, new Zagadka("Co jest lepsze od wszystkich bogów i gorsze od unicestwienia duszy? Umarli jedzą to cały czas, a pożywiający się tym żywi powoli umierają", "Nic", new PrzedmiotFabularny(
+                                        "Przepustka 1", "Przepustka do boss'a 1", 0, 0, false, "Uzyj, aby wejsc do boss'a 1", 10
+                        ))), List.of(new Wydarzenie("Walka z zywiolakiem",
                         "Rzuca sie na Ciebie wsciekly zywiolak, wyciagasz bron i stajesz do walki.", gracz, null, null,
                         Arrays.asList(new Wrog("Zywiolak", 100, 50)), null)), List.of(3, 5, 6)
                         ));
