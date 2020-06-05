@@ -22,8 +22,17 @@ public class Zagadka {
         while(!odpowiedzGracza.equals(this.odpowiedz)) {
             System.out.println(this.zagadka);
             odpowiedzGracza = in.nextLine().trim();
+            System.out.println("->"+odpowiedzGracza+"<-");
         }
-        gracz.wlozPrzedmiotFabularnyDoEkwipunku(przedmiotFabularny);
+        //gracz.wlozPrzedmiotFabularnyDoEkwipunku(przedmiotFabularny);
+        if(gracz==null){
+            System.out.println("gracz to null");
+        }
+
+        if(przedmiotFabularny==null){
+            System.out.println("pf to nulll to null");
+        }
+        gracz.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
 
