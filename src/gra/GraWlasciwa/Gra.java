@@ -270,17 +270,14 @@ public class Gra {
                 );
                 // todo dodac lokajce z bossem
 
-        // // 4
-        // lokacjeTMP.add(new Lokacja("Czarny szczyt",
-        // "Po długiej wędrówce docierasz na szczyt, przed Tobą rozpościera się
-        // niesamowity widok. " +
-        // "Na swojej drodze jednak napotykasz rozwścieczonego wilka, który nie jest
-        // zadowolony z " +
-        // "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę,
-        // rozpoczyna się walka.",
-        // ));
+        // // 3
+        lokacjeTMP.add(new Lokacja("Czarny szczyt", "Po długiej wędrówce docierasz na szczyt, przed Tobą rozpościera się niesamowity widok.", null,
+                List.of(new Wydarzenie("Walka z wilkiem",
+                        "Na swojej drodze jednak napotykasz rozwścieczonego wilka, który nie jest zadowolony z " +
+                        "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę, rozpoczyna się walka.", gracz, null, null,
+                        Arrays.asList(new Wrog("Wilk", 40, 30)), null)), List.of(4, 5, 6)));
         //
-        // // 5
+        // // 4
         // lokacjeTMP.add(new Lokacja("Magiczna przystań",
         // "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj
         // magię. Czujesz dziwną radość" +
@@ -288,8 +285,11 @@ public class Gra {
         // wieku której widać" +
         // " wyrytą inskrypcję, brzmiącą następująco\n",
         // ));
+        lokacjeTMP.add(new Lokacja("Magiczna przystan", "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię. Czujesz dziwną radość i niepokój zarazem",
+                        new Wydarzenie(),
+                        )
         //
-        // // 6
+        // // 5
         // lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm",
         // "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza, po
         // środku, przy ogromnej studni" +
@@ -297,7 +297,7 @@ public class Gra {
         // tutejszym handlarzem",
         // ));
         //
-        // // 7
+        // // 6
         // lokacjeTMP.add(new Lokacja("Grota bębniarza",
         // "Wchodzisz do olbrzymiej jaskini, płomienie dogasającego ogniska rzucają
         // lekką poświatę na ściany" +
@@ -306,7 +306,7 @@ public class Gra {
         // " w głębi jaskini, który bez zastnowienia rzuca się na Ciebie",
         // ));
         //
-        // // 8
+        // // 7
         // lokacjeTMP.add(new Lokacja("Żebrowe wzgórze",
         // "Docierasz do rozległego wzgórza, którego widok rozpościera się na całą
         // krainę. W oddali widać" +
@@ -317,7 +317,7 @@ public class Gra {
         // " jak walka ze zbrojnym",
         // ));
         //
-        // // 9
+        // // 8
         // lokacjeTMP.add(new Lokacja("Zdradliwe urwisko",
         // "Docierasz do urwiska, starasz się nawet nie patrzeć w dół, pamiętając
         // jednocześnie, że musisz " +
@@ -328,7 +328,7 @@ public class Gra {
         // " Ciebie Królowa Harpii",
         // ));
         //
-        // // 10
+        // // 9
         // lokacjeTMP.add(new Lokacja("Orla przepaść",
         // "Przemierzasz most łączący krainę światła i cienia, który pozwala bezpiecznie
         // przejść nad niekończącą" +
@@ -337,7 +337,7 @@ public class Gra {
         // "na Twój widok",
         // ));
         //
-        // // 11
+        // // 10
         // lokacjeTMP.add(new Lokacja("Wysoka Brama",
         // "Docierasz do ogromnych wrót, które wystają ponad chmury, widać na nich
         // zapisaną elfickim językiem " +

@@ -21,6 +21,16 @@ public class Wydarzenie {
     private final List<Wrog> wrogowie;
     private final Boss boss;
 
+    public Wydarzenie() {
+        this.nazwa = null;
+        this.opis = null;
+        this.gracz = null;
+        this.postacieFabularne = null;
+        this.handlarze = null;
+        this.wrogowie = null;
+        this.boss = null;
+    }
+
     public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, int iluWrogow, Boss boss) {
         this.nazwa = nazwa;
         this.opis = opis;
