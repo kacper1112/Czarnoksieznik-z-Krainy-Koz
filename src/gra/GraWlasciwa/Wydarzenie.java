@@ -216,9 +216,8 @@ public class Wydarzenie {
         }
     }
 
-    public void zagadka(PrzedmiotFabularny przedmiotFabularny) {
-        this.zagadka.wywolajZagadke();
-        this.gracz.wlozPrzedmiotFabularnyDoEkwipunku(przedmiotFabularny);
+    public void zagadka() {
+        this.zagadka.wywolajZagadke(gracz);
     }
 
     private boolean walka(Wrog wrog) {
