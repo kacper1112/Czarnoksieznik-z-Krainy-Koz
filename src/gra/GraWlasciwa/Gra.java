@@ -122,6 +122,9 @@ public class Gra {
                             System.out.println("Handlowanko");
                         });
                     }
+                    if(wydarzenie.getZagadka() != null) {
+                        wydarzenie.getZagadka().wywolajZagadke();
+                    }
                     if(wydarzenie.getWrogowie() != null) {
                         wydarzenie.getWrogowie().forEach(wrog -> {
                             System.out.println("Walka z wrogiem");
@@ -148,6 +151,9 @@ public class Gra {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarze().forEach(handlarz -> {
                         System.out.println("Handlowanko");
                     });
+                }
+                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka() != null) {
+                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka().wywolajZagadke();
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
