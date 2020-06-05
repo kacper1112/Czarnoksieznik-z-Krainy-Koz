@@ -105,6 +105,7 @@ public class Gra {
 
     private boolean rozpocznijGre() {
         while (true) {
+            this.lokacje.get(lokalizacjaGracza).getOpis();
             if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
                     System.out.println(wydarzenie.getNazwa());
@@ -235,35 +236,36 @@ public class Gra {
          */
         // numery lokacji w tablicy lokacje
         // 0
-        lokacjeTMP.add(new Lokacja("Chałpka nad urwistą doliną", "Znajdujesz się w swojej chałpce, "
-                + "dookoła panuje straszny bałagan, wszędzie na podłodze walają się szczątki"
-                + " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy"
-                + " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę"
-                + " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n",
-                new Wydarzenie("Lokacja startowa", "Gracz zaczyna gre, znajduje sie w lokacji startowej", gracz, null,
+        lokacjeTMP.add(new Lokacja("Chałpka nad urwistą doliną", "Stary domek Romana i jego ukochanej.",
+                new Wydarzenie("Lokacja startowa", "Znajdujesz się w swojej chałpce, "
+                        + "dookoła panuje straszny bałagan, wszędzie na podłodze walają się szczątki"
+                        + " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy"
+                        + " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę"
+                        + " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n", gracz, null,
                         null, 0, null),
                 null, List.of( 1 )));
 
         // 1
-        lokacjeTMP.add(new Lokacja("Bajkowa polana", "Dochodzisz do bajkowej polany, księżyc rozpościera"
-                + " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu."
-                + " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej "
-                + "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
+        lokacjeTMP.add(new Lokacja("Bajkowa polana", "Bajkowa polana, księżyc w nowiu.",
                 new Wydarzenie("List od Czarnoksieznika",
-                        "Gracz otrzymuje list od czarnoksieznika, ktory wprowadza go do gry i wskazuje co ma dalej robic",
+                        "Dochodzisz do bajkowej polany, księżyc rozpościera"
+                                + " się na ciemnym niebie, panuje północ. Rozglądasz się dookoła jednak po czarnoksiężniku ani widu ani słychu."
+                                + " Czujesz napływającą do głowy gorycz i rozczarowanie, czujesz się oszukany, jednak zarazem jeszcze mocniej "
+                                + "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
                         gracz, null, null, 0, null),
-                List.of(this.wydarzeniaPoboczne.get(0)),
+                List.of(new Wydarzenie("Walka z zajacem",
+                        "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, null,
+                        Arrays.asList(new Wrog("Zajac", 10, 10)), null)),
                 List.of( 2, 8 )));
 
-        // 3
+        // 2
         lokacjeTMP.add(new Lokacja("Miasto",
                 "Docierasz do majestatycznego miasta Mysłowice, wszędzie panuje zamęt, na ulicach "
                         + "widać pełno mieszkańców, którzy w świetle dzisiejszego słonecznego dnia wyszli na ulicę "
                         + "zaczerpnąć trochę świeżego powietrza. Na ulicach swoje kramiki rozstawili tutejsi handlarze, "
-                        + "którzy energicznym wymachywaniem swoich rąk zachęcają Cię do skorzystania z ich ofert. W jednej"
-                        + " z uliczek napotykasz żebraka, który przygląda CI się uważnie swoim tajemniczym wzrokiem\n",
+                        + "którzy energicznym wymachywaniem swoich rąk zachęcają Cię do skorzystania z ich ofert.",
                 new Wydarzenie("Spotkanie z zebrakiem",
-                        "Gracz spotyka zebraka, ktory przekazuje mu wiadomosc od czarnoksieznika", gracz,
+                        "W jednej z uliczek napotykasz żebraka, który przygląda CI się uważnie swoim tajemniczym wzrokiem \n", gracz,
                         Arrays.asList(new Fabularny("Zebrak", true, new PrzedmiotFabularny("List", "List od czarnoksieznika", 100,50, false,
                                 "Moj najdrozszy Romanie z ogromna nostalgia wspominam nasze minione porachunki, "
                                         + "niestety musze Cie zawiadomic, ze niestety nie moglem pojawic sie na naszym ostatnim spotkaniu na Bajkowej Polanie. "
@@ -271,11 +273,15 @@ public class Gra {
                                         + "mozesz zdobyc rozprawiajac sie z trzema bossami. Do zobaczenia\n",
                                 0))),
                         null, 0, null),
-                List.of( new Wydarzenie("Spotkanie z handlarzem w miescie",
-                        "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem", gracz, null,
-                        List.of(new Handlarz("Miejski handlarz")), 0, null) ),
+                List.of( new Wydarzenie(
+                        "Spotkanie z handlarzem w miescie",
+                        "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem",
+                        gracz,
+                        null,
+                        Arrays.asList(new Handlarz("Miejski handlarz")), 0, null),
+                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), null)
+                );
                 // todo dodac lokajce z bossem
-                List.of(1)));
 
         // // 4
         // lokacjeTMP.add(new Lokacja("Czarny szczyt",
