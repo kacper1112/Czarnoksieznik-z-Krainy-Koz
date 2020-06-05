@@ -21,6 +21,13 @@ public class Boss extends Wrog {
         this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
+    public Boss(String imie, int maksymalnePunktyZycia, int bazowyAtak , PrzedmiotFabularny przedmiotFabularny){
+        super(imie,maksymalnePunktyZycia,bazowyAtak,przedmiotFabularny);
+        Random random = new Random();
+        szansaNaTrafienieKrytyczne = random.nextInt(50)+10;
+        this.getEkwipunek().wlozFabularne(przedmiotFabularny);
+    }
+
     public void dodajKolejnyPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){
         this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
