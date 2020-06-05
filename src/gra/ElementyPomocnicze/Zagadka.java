@@ -16,7 +16,9 @@ public class Zagadka {
         String odpowiedzGracza = "";
         while(!odpowiedzGracza.equals(this.odpowiedz)) {
             System.out.println(this.zagadka);
-
+            odpowiedzGracza = in.nextLine().trim();
         }
     }
+
+
 }

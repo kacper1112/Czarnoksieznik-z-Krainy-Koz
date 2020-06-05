@@ -274,6 +274,10 @@ public class Wydarzenie {
         return !kolejGracza;
     }
 
+    public Zagadka getZagadka() {
+        return zagadka;
+    }
+
     public String getNazwa() {
         return nazwa;
     }
