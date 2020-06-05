@@ -179,14 +179,10 @@ public class Wydarzenie {
                 System.out.println(p.getNazwa());
             }
         }
-        if(wrog instanceof Boss){
-            polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek(), TYP_POSIADACZA_EKWIPUNKU.BOSS);
-        }else{
-            polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek(), TYP_POSIADACZA_EKWIPUNKU.WROG);
-        }
+        polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek());
     }
 
-    private void polaczEkwipunki(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika, TYP_POSIADACZA_EKWIPUNKU type){
+    private void polaczEkwipunki(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika){
         if(!ekwipunekPrzeciwnika.getEkwipunekPozywienie().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(ekwipunekGracza::wlozPozywienie);
         }
@@ -196,7 +192,8 @@ public class Wydarzenie {
         if(!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(ekwipunekGracza::wlozBronMagiczna);
         }
-        if(type==TYP_POSIADACZA_EKWIPUNKU.BOSS &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+        if(ekwipunekPrzeciwnika.getTYP()==TYP_POSIADACZA_EKWIPUNKU.BOSS
+                &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozFabularne);
         }
     }
