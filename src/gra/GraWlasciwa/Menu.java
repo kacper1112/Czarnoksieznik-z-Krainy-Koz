@@ -37,7 +37,7 @@ public class Menu {
         } else if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().contains(wyborLokacji)) {
             Gra.getInstance().setLokalizacjaGracza(wyborLokacji);
             System.out.println("Przechodzisz do: " + lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getNazwa());
-            return true;
+            return false;
         } else  {
             System.out.println("Niepoprawna lokacja");
             return false;
