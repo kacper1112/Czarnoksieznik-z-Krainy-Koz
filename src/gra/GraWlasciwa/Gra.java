@@ -274,7 +274,7 @@ public class Gra {
                 List.of(new Wydarzenie("Walka z wilkiem",
                         "Na swojej drodze jednak napotykasz rozwścieczonego wilka, który nie jest zadowolony z " +
                         "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę, rozpoczyna się walka.", gracz, null, null,
-                        Arrays.asList(new Wrog("Wilk", 40, 30)), null)), List.of(4, 5, 6)));
+                        Arrays.asList(new Wrog("Wilk", 40, 30)), null)), List.of(1, 4, 5, 6)));
         //
         // // 4
         // lokacjeTMP.add(new Lokacja("Magiczna przystań",
@@ -285,25 +285,26 @@ public class Gra {
         // " wyrytą inskrypcję, brzmiącą następująco\n",
         // ));
         lokacjeTMP.add(new Lokacja("Magiczna przystan", "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię. Czujesz dziwną radość i niepokój zarazem",
-                        new Wydarzenie(),
-                        )
+                        new Wydarzenie(), List.of(new Wydarzenie("Walka z zywiolakiem",
+                        "Rzuca sie na Ciebie wsciekly zywiolak, wyciagasz bron i stajesz do walki.", gracz, null, null,
+                        Arrays.asList(new Wrog("Zywiolak", 100, 50)), null)), List.of(3, 5, 6)
+                        ));
         //
         // // 5
-        // lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm",
-        // "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza, po
-        // środku, przy ogromnej studni" +
-        // " znajduje się tajemnicza postać. Podchodzisz do niej, a ona okazuje się być
-        // tutejszym handlarzem",
-        // ));
+        lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm", "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza", null, List.of(
+                new Wydarzenie(
+                        "Spotkanie z handlarzem w miescie",
+                        "Po środku, przy ogromnej studni znajduje się tajemnicza postać, Podchodzisz do niej, a ona " +
+                                "okazuje się być tutejszym handlarzem.",
+                        gracz,
+                        null,
+                        Arrays.asList(new Handlarz("Miejski handlarz")), 0, null)
+        ), List.of(3, 4, 6)));
         //
         // // 6
-        // lokacjeTMP.add(new Lokacja("Grota bębniarza",
-        // "Wchodzisz do olbrzymiej jaskini, płomienie dogasającego ogniska rzucają
-        // lekką poświatę na ściany" +
-        // " pomieszczenia. Podchodzisz bliżej by ogrzać swoje zziębnięte ręce i
-        // zauważasz ogromnego trolla" +
-        // " w głębi jaskini, który bez zastnowienia rzuca się na Ciebie",
-        // ));
+        lokacjeTMP.add(new Lokacja("Grota bebniarza", "Wchodzisz do olbrzymiej jaskini, płomienie dogasającego ogniska rzucają lekką poświatę na ściany pomieszczenia.",
+                new Wydarzenie("Walka z trollem", "Podchodzisz bliżej by ogrzać swoje zziębnięte ręce i zauważasz ogromnego trolla w głębi jaskini, który bez zastnowienia rzuca się na Ciebie.", gracz,
+                        null, null, List.of(new Wrog("Troll", 120, 60)), null), null, List.of(3, 4, 5)));
         //
         // // 7
         // lokacjeTMP.add(new Lokacja("Żebrowe wzgórze",
@@ -315,6 +316,16 @@ public class Gra {
         // pozostaje Ci więc nic innego" +
         // " jak walka ze zbrojnym",
         // ));
+        lokacjeTMP.add(new Lokacja("Zebrowe wzgorze", "Docierasz do rozległego wzgórza, którego widok rozpościera się na całą krainę",
+                new Wydarzenie("Walka ze straznikiem",
+                        "W oddali widać majaczącą się postać, " +
+                                "która po dłuższej obserwacji " +
+                                "okazuje się być Pradawnym Strażnikiem " +
+                                "tego miejsca, który nie pozwala Ci przejść. " +
+                                "Musisz dostać się dalej, nie pozostaje Ci więc nic " +
+                                "innego jak walka ze zbrojnym", gracz, null, null, List.of(new Wrog("Straznik", 150, 70)), null), List.of(
+                                        new Wydarzenie("Walka z orlem", "Nie wiadomo skad pikuje na Ciebie olbrzymi orzel.", gracz, null, null, List.of(new Wrog("Orzel", 70, 30)), null)
+        ), List.of(1, 8, 9, 10)));
         //
         // // 8
         // lokacjeTMP.add(new Lokacja("Zdradliwe urwisko",
