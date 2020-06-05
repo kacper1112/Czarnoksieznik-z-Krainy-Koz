@@ -22,7 +22,6 @@ public class Zagadka {
         while(!odpowiedzGracza.equals(this.odpowiedz)) {
             System.out.println(this.zagadka);
             odpowiedzGracza = in.nextLine().trim();
-            System.out.println("->"+odpowiedzGracza+"<-");
         }
         gracz.wlozPrzedmiotFabularnyDoEkwipunku(przedmiotFabularny);
 
