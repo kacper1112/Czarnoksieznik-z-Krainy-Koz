@@ -45,7 +45,6 @@ public class Menu {
     }
 
     public static void menuEkwipunku(){
-
         int rozmiarEq;
 
         if(gracz.getEkwipunek().isEmpty()) {
@@ -102,9 +101,20 @@ public class Menu {
         System.out.println("Cos poszlo nie tak podczas wyboru przedmiotu");
     }
 
+    public static void menuHandlu(){
+        //todo pokazywanie oferty i wybor jakis mordeczko
+        System.out.println("Przehandlowanie twojej starej");
+    }
+
     public static boolean menuGlowne(){
         System.out.println("1. Pokaż Moje Statystyki\n" +
-                "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji\n");
+                "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji");
+        if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzenieFabularne().getHandlarze().size()>0 ||
+                lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().stream()
+                        .anyMatch(x-> x.getHandlarze().size()>0)){
+            System.out.println("4. Handluj z handlarzem");
+        }
+
         int wybor = in.nextInt(); //Gra.wczytajWyborGracza(3);
         switch (wybor){
             case 1:
@@ -114,6 +124,9 @@ public class Menu {
                 return true;
             case 2:
                 menuEkwipunku();
+                return true;
+            case 4:
+                menuHandlu();
                 return true;
             case 3:
                 return menuLokacji();
