@@ -102,7 +102,6 @@ public class Gra {
         return true;
     }
 
-
     private boolean rozpocznijGre() {
         while (true) {
             this.lokacje.get(lokalizacjaGracza).getOpis();
