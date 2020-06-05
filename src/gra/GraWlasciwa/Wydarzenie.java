@@ -1,12 +1,17 @@
 package gra.GraWlasciwa;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.GraWlasciwa.Gra;
 import gra.NPC.Boss;
 import gra.NPC.Fabularny;
 import gra.NPC.Handlarz;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotFabularny;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,7 +117,7 @@ public class Wydarzenie {
         // interakcja z kazdym bohaterem fabularnym w lokacji
         for(Fabularny fabularny: postacieFabularne) {
             System.out.println("Spotykasz " + fabularny.getImie());
-            // todo fabularny.interakcja() ?
+            //todo fabularny.interakcja() ?
         }
 
         // walka z bossem o ile jest
@@ -130,14 +135,62 @@ public class Wydarzenie {
 
 
     private void wygranaGracza(Wrog wrog) {
-        // todo levelup, zbieranie lootu z wroga
+        //todo LVL UP???
+        if(wrog instanceof Boss){
+            System.out.println("Specjalne napisy do bossa");
+        }
         System.out.println("Udalo Ci sie pokonac przeciwnika!");
         System.out.println("W truchle znajdujesz:");
+        if(wrog.getEkwipunek().isEmpty()) {
+            System.out.println("Tym razem nic :/");
+            return;
+        }
 
+        System.out.println("Przedmioty wroga:");
+        if(!wrog.getEkwipunek().getEkwipunekPozywienie().isEmpty()) {
+            System.out.println("Pozywienie:");
+            for(PrzedmiotPozywienie p: wrog.getEkwipunek().getEkwipunekPozywienie()) {
+                System.out.println(p.getNazwa());
+            }
+        }
+        if(!wrog.getEkwipunek().getEkwipunekBronFizyczna().isEmpty()) {
+            System.out.println("Bron fizyczna:");
+            for(BronFizyczna bron: wrog.getEkwipunek().getEkwipunekBronFizyczna()) {
+                System.out.println(bron.getNazwa());
+            }
+        }
+        if(!wrog.getEkwipunek().getEkwipunekBronMagiczna().isEmpty()) {
+            System.out.println("Bron magiczna:");
+            for(BronMagiczna bron: wrog.getEkwipunek().getEkwipunekBronMagiczna()) {
+                System.out.println(bron.getNazwa());
+            }
+        }
+        if(wrog instanceof Boss && !wrog.getEkwipunek().getEkwipunekFabularne().isEmpty()){
+            System.out.println("Przedmioty fabularne:");
+            for(PrzedmiotFabularny p: wrog.getEkwipunek().getEkwipunekFabularne()) {
+                System.out.println(p.getNazwa());
+            }
+        }
+        if(wrog instanceof Boss){
+            polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek(), TYP_POSIADACZA_EKWIPUNKU.BOSS);
+        }else{
+            polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek(), TYP_POSIADACZA_EKWIPUNKU.WROG);
+        }
     }
 
-    private void wygranaGracza(Boss wrog) {
-
+    private void polaczEkwipunki(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika, TYP_POSIADACZA_EKWIPUNKU type){
+        if(!ekwipunekPrzeciwnika.getEkwipunekPozywienie().isEmpty()) {
+            ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(ekwipunekGracza::wlozPozywienie);
+        }
+        if(!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+            ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().forEach(ekwipunekGracza::wlozBronFizyczna);
+        }
+        if(!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
+            ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(ekwipunekGracza::wlozBronMagiczna);
+        }
+        if(type==TYP_POSIADACZA_EKWIPUNKU.BOSS &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozFabularne);
+        }
     }
 
     private boolean walka(Wrog wrog) {
