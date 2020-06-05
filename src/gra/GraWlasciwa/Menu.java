@@ -1,6 +1,7 @@
 package gra.GraWlasciwa;
 
 import gra.RodzajeGracz.Gracz;
+import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.Przedmiot;
 
@@ -47,11 +48,17 @@ public class Menu {
 
         int rozmiarEq;
 
-        //System.out.println("Twoja wyekwipowana bron to: " + (Przedmiot)(gracz.getEkwipunek().getWyekwipowanaBron()).getNazwa());
-
         if(gracz.getEkwipunek().isEmpty()) {
             System.out.println("Nie masz w ekwipunku wiecej przedmiotow!");
             return;
+        }
+
+        if(gracz.getEkwipunek().getWyekwipowanaBron() instanceof BronMagiczna){
+            System.out.println("Wyekwipowana bron magiczna:");
+            System.out.println(((BronMagiczna)gracz.getEkwipunek().getWyekwipowanaBron()).getNazwa());
+        }else if(gracz.getEkwipunek().getWyekwipowanaBron() instanceof BronFizyczna){
+            System.out.println("Wyekwipowana bron fizyczna:");
+            System.out.println(((BronFizyczna)gracz.getEkwipunek().getWyekwipowanaBron()).getNazwa());
         }
 
         rozmiarEq = gracz.pokazEkwipunek();
