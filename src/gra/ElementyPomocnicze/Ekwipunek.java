@@ -11,6 +11,9 @@ public class Ekwipunek {
     private final List<BronMagiczna> ekwipunekBronMagiczna;
     private final List<BronFizyczna> ekwipunekBronFizczna;
     private TYP_POSIADACZA_EKWIPUNKU TYP;
+
+
+
     private bron wyekwipowanaBron;
 
     public Ekwipunek(TYP_POSIADACZA_EKWIPUNKU typ) {
@@ -87,6 +90,10 @@ public class Ekwipunek {
 
     //GETERY I SETTERY (CZESC DO WYWALENIA POZNIEJ)
 
+    public TYP_POSIADACZA_EKWIPUNKU getTYP() {
+        return TYP;
+    }
+
     public List<PrzedmiotFabularny> getEkwipunekFabularne() {
         return ekwipunekFabularne;
     }
@@ -98,6 +105,7 @@ public class Ekwipunek {
     public List<BronFizyczna> getEkwipunekBronFizyczna() {
         return ekwipunekBronFizczna;
     }
+
     public List<BronMagiczna> getEkwipunekBronMagiczna() {
         return ekwipunekBronMagiczna;
     }

@@ -16,6 +16,7 @@ import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Wydarzenie {
     private final String nazwa;
@@ -135,17 +136,24 @@ public class Wydarzenie {
 
 
     private void wygranaGracza(Wrog wrog) {
-        //todo LVL UP???
+        System.out.println("Udalo Ci sie pokonac przeciwnika!");
+        Random rand = new Random();
+        double pktDoswiadczenia;
         if(wrog instanceof Boss){
             System.out.println("Specjalne napisy do bossa");
+            pktDoswiadczenia = gracz.getPunktyDoswiadczenia() + 100.0 + 40*rand.nextDouble();
+            gracz.setPunktyDoswiadczenia(pktDoswiadczenia);
+        }else {
+            gracz.setPunktyDoswiadczenia(gracz.getPunktyDoswiadczenia() + 80 + rand.nextInt(40));
+            pktDoswiadczenia = gracz.getPunktyDoswiadczenia() + 10.0 + 30*rand.nextDouble();
         }
-        System.out.println("Udalo Ci sie pokonac przeciwnika!");
+        System.out.println("Zdobyłes " + pktDoswiadczenia + "punktow doswiadczenia");
+
         System.out.println("W truchle znajdujesz:");
         if(wrog.getEkwipunek().isEmpty()) {
             System.out.println("Tym razem nic :/");
             return;
         }
-
         System.out.println("Przedmioty wroga:");
         if(!wrog.getEkwipunek().getEkwipunekPozywienie().isEmpty()) {
             System.out.println("Pozywienie:");
@@ -171,14 +179,10 @@ public class Wydarzenie {
                 System.out.println(p.getNazwa());
             }
         }
-        if(wrog instanceof Boss){
-            polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek(), TYP_POSIADACZA_EKWIPUNKU.BOSS);
-        }else{
-            polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek(), TYP_POSIADACZA_EKWIPUNKU.WROG);
-        }
+        polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek());
     }
 
-    private void polaczEkwipunki(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika, TYP_POSIADACZA_EKWIPUNKU type){
+    private void polaczEkwipunki(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika){
         if(!ekwipunekPrzeciwnika.getEkwipunekPozywienie().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(ekwipunekGracza::wlozPozywienie);
         }
@@ -188,7 +192,8 @@ public class Wydarzenie {
         if(!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(ekwipunekGracza::wlozBronMagiczna);
         }
-        if(type==TYP_POSIADACZA_EKWIPUNKU.BOSS &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+        if(ekwipunekPrzeciwnika.getTYP()==TYP_POSIADACZA_EKWIPUNKU.BOSS
+                &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozFabularne);
         }
     }
