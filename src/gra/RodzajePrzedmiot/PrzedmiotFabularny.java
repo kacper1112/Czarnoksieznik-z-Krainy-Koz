@@ -25,14 +25,6 @@ public class  PrzedmiotFabularny extends Przedmiot {
         }
     }
 
-    public boolean isCzyZuzyty() {
-        return czyZuzyty;
-    }
-
-    public String getWskazowka() {
-        return wskazowka;
-    }
-
     @Override
     public String toString() {
         return "(" + getNazwa() + ", " + inteligencjaWymaganaDoWskazowki + ")";
