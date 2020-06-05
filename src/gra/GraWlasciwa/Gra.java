@@ -249,7 +249,7 @@ public class Gra {
                 List.of(new Wydarzenie("Walka z zajacem",
                         "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, null,
                         Arrays.asList(new Wrog("Zajac", 10, 10)), null)),
-                List.of( 2, 8 )));
+                List.of( 2, 3, 7 )));
 
         // 2
         lokacjeTMP.add(new Lokacja("Miasto",
