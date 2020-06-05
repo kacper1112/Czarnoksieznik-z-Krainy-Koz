@@ -24,15 +24,8 @@ public class Zagadka {
             odpowiedzGracza = in.nextLine().trim();
             System.out.println("->"+odpowiedzGracza+"<-");
         }
-        //gracz.wlozPrzedmiotFabularnyDoEkwipunku(przedmiotFabularny);
-        if(gracz==null){
-            System.out.println("gracz to null");
-        }
+        gracz.wlozPrzedmiotFabularnyDoEkwipunku(przedmiotFabularny);
 
-        if(przedmiotFabularny==null){
-            System.out.println("pf to nulll to null");
-        }
-        gracz.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
 

@@ -217,9 +217,6 @@ public class Wydarzenie {
     }
 
     public void zagadka() {
-        if(gracz==null){
-            System.out.println("gracz w WYDARZENIU to null");
-        }
         this.zagadka.wywolajZagadke(gracz);
     }
 
