@@ -171,7 +171,7 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
     public void uzyjPrzedmiotuFabularnego(int index) {
-        this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja);
+        System.out.println(this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja));
     }
 
     // zmien wyekwipowana bron na Fizyczna
