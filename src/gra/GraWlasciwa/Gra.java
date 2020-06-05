@@ -266,7 +266,7 @@ public class Gra {
                         gracz,
                         null,
                         Arrays.asList(new Handlarz("Miejski handlarz")), 0, null),
-                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), null)
+                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), List.of( 3 ))
                 );
                 // todo dodac lokajce z bossem
 
