@@ -5,6 +5,7 @@ import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
 import java.util.List;
 import java.util.Random;
@@ -21,11 +22,19 @@ public class Wrog extends NPC {
         this.bazowyAtak = 100;
     }
 
-    public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak ){//, boolean czyJestBossem) {
+    public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak ){
         super(imie);
         this.maksymalnePunktyZycia = maksymalnePunktyZycia;
         this.obecnePunktyZycia = this.maksymalnePunktyZycia;
         this.bazowyAtak = bazowyAtak;
+    }
+
+    public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak , PrzedmiotFabularny przedmiotFabularny){
+        super(imie);
+        this.getEkwipunek().wlozFabularne(przedmiotFabularny);
+        this.maksymalnePunktyZycia = 100;
+        this.obecnePunktyZycia = maksymalnePunktyZycia;
+        this.bazowyAtak = 100;
     }
 
     public double getObecnePunktyZycia() {
