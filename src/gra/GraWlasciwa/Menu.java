@@ -103,7 +103,7 @@ public class Menu {
 
     public static void menuHandlu(){
         //todo pokazywanie oferty i wybor jakis mordeczko
-        System.out.println("Przehandlowanie twojej starej");
+        System.out.println("Przehandlowanie kacpra polaka");
     }
 
     public static boolean menuGlowne(){
