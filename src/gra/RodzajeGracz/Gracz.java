@@ -194,6 +194,7 @@ public abstract class Gracz implements generatorEkwipunku {
         }
     }
 
+    /*
     //todo czy tu ma sie pokazywac wyekwipowana bron??????
     public int pokazEkwipunek() {
         int indeks = 1;
@@ -229,6 +230,7 @@ public abstract class Gracz implements generatorEkwipunku {
         }
         return indeks - 1;
     }
+     */
 
     public String toString() {
         return "Masz obecnie " +

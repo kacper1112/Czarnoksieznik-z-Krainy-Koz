@@ -12,8 +12,6 @@ public class Ekwipunek {
     private final List<BronFizyczna> ekwipunekBronFizczna;
     private TYP_POSIADACZA_EKWIPUNKU TYP;
 
-
-
     private bron wyekwipowanaBron;
 
     public Ekwipunek(TYP_POSIADACZA_EKWIPUNKU typ) {
@@ -117,6 +115,48 @@ public class Ekwipunek {
     public boolean isEmpty() {
         return (ekwipunekBronFizczna.isEmpty() && ekwipunekBronMagiczna.isEmpty() &&
                 ekwipunekFabularne.isEmpty() && getEkwipunekPozywienie().isEmpty());
+    }
+
+    public int pokazEkwipunek() {
+        int indeks = 1;
+        if(this.isEmpty()) {
+            System.out.println("Twoj ekwipunek jest pusty!");
+            return 0;
+        }
+
+        if(TYP==TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK||TYP==TYP_POSIADACZA_EKWIPUNKU.MAG||TYP==TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
+            System.out.println("Twoje przedmioty:");
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.HANDLARZ) {
+            System.out.println("Witaj przybyszu!\n"+"Oto moja oferta, spcjalnie dla ciebie:");
+        }else if(TYP == TYP_POSIADACZA_EKWIPUNKU.BOSS ||TYP == TYP_POSIADACZA_EKWIPUNKU.WROG){
+            System.out.println("Oto ekwipunek twego przeciwnika:");
+        }
+
+        if(!this.getEkwipunekPozywienie().isEmpty()) {
+            System.out.println("Pozywienie:");
+            for(PrzedmiotPozywienie p: this.getEkwipunekPozywienie()) {
+                System.out.println(indeks++ + ". " + p.getNazwa());
+            }
+        }
+        if(!this.getEkwipunekBronFizyczna().isEmpty()) {
+            System.out.println("Bron fizyczna:");
+            for(BronFizyczna bron: this.getEkwipunekBronFizyczna()) {
+                System.out.println(indeks++ + ". " + bron.getNazwa());
+            }
+        }
+        if(!this.getEkwipunekBronMagiczna().isEmpty()) {
+            System.out.println("Bron magiczna:");
+            for(BronMagiczna bron: this.getEkwipunekBronMagiczna()) {
+                System.out.println(indeks++ + ". " + bron.getNazwa());
+            }
+        }
+        if(!this.getEkwipunekFabularne().isEmpty()) {
+            System.out.println("Przedmioty fabularne:");
+            for(PrzedmiotFabularny p: this.getEkwipunekFabularne()) {
+                System.out.println(indeks++ + ". " + p.getNazwa());
+            }
+        }
+        return indeks - 1;
     }
 
 

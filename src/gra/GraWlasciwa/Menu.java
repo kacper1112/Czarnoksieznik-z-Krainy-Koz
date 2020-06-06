@@ -60,7 +60,7 @@ public class Menu {
             System.out.println(((BronFizyczna)gracz.getEkwipunek().getWyekwipowanaBron()).getNazwa());
         }
 
-        rozmiarEq = gracz.pokazEkwipunek();
+        rozmiarEq = gracz.getEkwipunek().pokazEkwipunek();
         System.out.println("Wybierz przedmiot do uzycia lub bron do wyekwipowania (0 zeby wyjsc do poprzedniego menu)");
         int wyborGracza = Gra.wczytajWyborGracza(rozmiarEq, true);
 
@@ -102,16 +102,34 @@ public class Menu {
     }
 
     public static void menuHandlu(){
-        //todo pokazywanie oferty i wybor jakis mordeczko
-        System.out.println("Przehandlowanie kacpra polaka");
+        lokacje.get(Gra.getInstance().getLokalizacjaGracza())
+                .getWydarzeniaPoboczne()
+                .forEach(x->{
+                    if(x.getHandlarze()!=null){
+                        x.getHandlarze()
+                                .forEach(a->{
+                                    if(a!=null){
+                                        a.getEkwipunek().pokazEkwipunek();
+                                    }
+                                    else {
+                                        System.out.println("HANDLARZ == NULL");
+                                    }
+                                });
+                    }else {
+                        System.out.println("Lista handlarzy == null");
+                    }
+                });
     }
 
     public static boolean menuGlowne(){
         System.out.println("1. Pokaż Moje Statystyki\n" +
                 "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji");
-        if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzenieFabularne().getHandlarze().size()>0 ||
-                lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().stream()
-                        .anyMatch(x-> x.getHandlarze().size()>0)){
+
+        if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzenieFabularne().getHandlarze()!=null ||
+                (lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne()!=null &&
+                        lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().stream()
+                        .anyMatch(x-> x.getHandlarze()!=null))
+){
             System.out.println("4. Handluj z handlarzem");
         }
 
