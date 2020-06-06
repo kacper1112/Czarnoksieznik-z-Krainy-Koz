@@ -94,45 +94,34 @@ public class Handlarz extends NPC {
     }
 
     public void przedstawOferte(){
-        if (oferta.size()<1){
+        if (oferta.size()<1) {
             System.out.println("Brak przedmiotow do kupienia.");
-        }else {
-            System.out.println("Oto moja oferta dla ciebie przybyszu:");
-
-            oferta.forEach(x->{
-                System.out.println(x.getDrugi() + ". " + x.getPierwszy().getNazwa());
-            });
+            return;
         }
+        System.out.println("    Oto moja oferta dla ciebie przybyszu:");
+
+        oferta.forEach(x->{
+                System.out.println("    "+x.getDrugi().getPierwszy() + ". " + x.getPierwszy().getNazwa() + " - cena: " + x.getDrugi().getDrugi());
+        });
     }
 
     public void resetujOferte(){
         setEkwipunek(generujEkwipunek());
     }
 
-    void sprzedajGraczowi(Gracz gracz, int indeksOferty){
+    public void sprzedajGraczowi(Gracz gracz, int indeksOferty){
         if (oferta.size()<1){
             System.out.println("Brak przedmiotow do kupienia.");
+        } else if(oferta.get(indeksOferty).getDrugi().getDrugi() > gracz.getPieniadze()){
+            System.out.println("Nie masz wystarczajacej ilosci pieniedzy aby kupic ten przedmiot");
+            System.out.println("Twoj stan konta wynosi: " + gracz.getPieniadze());
+            return;
         } else if(oferta.get(indeksOferty).getPierwszy() instanceof PrzedmiotPozywienie){
             gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie) oferta.get(indeksOferty).getPierwszy());
         } else if(oferta.get(indeksOferty).getPierwszy() instanceof  BronFizyczna ){
             gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna) oferta.get(indeksOferty).getPierwszy());
-            /*
-            gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi().getDrugi());
-            this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi().getDrugi());
-            oferta.stream()
-                    .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
-                    .collect(Collectors.toList());
-             */
         }else if( oferta.get(indeksOferty).getPierwszy() instanceof  BronMagiczna){
             gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna) oferta.get(indeksOferty).getPierwszy());
-            /*
-            gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi().getDrugi());
-            this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi().getDrugi());
-            oferta.stream()
-                    .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
-                    .collect(Collectors.toList());
-
-             */
         }
         System.out.println("Właśnie kupiłeś: " + oferta.get(indeksOferty).getPierwszy());
         gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi().getDrugi());

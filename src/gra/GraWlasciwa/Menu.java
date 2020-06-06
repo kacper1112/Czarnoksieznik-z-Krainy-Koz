@@ -112,15 +112,40 @@ public class Menu {
                 handlarzeTMP.add(x.getHandlarz());
             }
         });
+
         List<Para<Integer,Handlarz> > handlarze = new ArrayList<>();
         AtomicInteger nrHandlarza = new AtomicInteger(1);
         handlarzeTMP.forEach(x->handlarze.add(new Para<Integer, Handlarz>(nrHandlarza.getAndIncrement(),x)));
         handlarze.forEach(x->{
-            System.out.println(x.getPierwszy()+": ");
+            System.out.println(x.getPierwszy() +". Handlarz: " + "Witaj jestem "+ x.getDrugi().getImie() +": ");
             x.getDrugi().przedstawOferte();
         });
-        //int nrZOferty;
-
+        System.out.println("Jeśli chcesz kupic przedmiot wybierz numer Handlarza a następnie numer przedmiotu z oferty:");
+        System.out.print("Wybieram Handlarza nr: ");
+        int wyborHandlarza = in.nextInt();
+        System.out.print("Wybieram Przedmiot nr: ");
+        int wyborPrzedmiotu = in.nextInt();
+        while (true){
+            if (wyborHandlarza > 0 && wyborHandlarza <= handlarze.size()){
+                if(wyborPrzedmiotu > 0 && handlarze.get(wyborHandlarza-1).getDrugi().getOferta().size() <= wyborPrzedmiotu){
+                    handlarze.get(wyborHandlarza-1)
+                            .getDrugi().sprzedajGraczowi(gracz,wyborPrzedmiotu-1);
+                    break;
+                }else {
+                    System.out.println("Niepoprawny wybor przedmiotu podaj, dane handlu jeszcze raz: ");
+                    System.out.print("Wybieram Handlarza nr: ");
+                    wyborHandlarza = in.nextInt();
+                    System.out.print("Wybieram Przedmiot nr: ");
+                    wyborPrzedmiotu = in.nextInt();
+                }
+            }else{
+                System.out.println("Niepoprawny wybor handlarza podaj, dane handlu jeszcze raz: ");
+                System.out.print("Wybieram Handlarza nr: ");
+                wyborHandlarza = in.nextInt();
+                System.out.print("Wybieram Przedmiot nr: ");
+                wyborPrzedmiotu = in.nextInt();
+            }
+        }
     }
 
     public static boolean menuGlowne(){
