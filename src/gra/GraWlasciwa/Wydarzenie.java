@@ -24,7 +24,8 @@ public class Wydarzenie {
     private final String opis;
     private final Gracz gracz;
     private final List<Fabularny> postacieFabularne;
-    private final List<Handlarz> handlarze;
+    //private final List<Handlarz> handlarze;
+    private final Handlarz handlarz;
     private final List<Wrog> wrogowie;
     private final Boss boss;
     private final Zagadka zagadka;
@@ -34,40 +35,40 @@ public class Wydarzenie {
         this.opis = null;
         this.gracz = null;
         this.postacieFabularne = null;
-        this.handlarze = null;
+        this.handlarz = null;
         this.wrogowie = null;
         this.boss = null;
         this.zagadka = null;
     }
 
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, int iluWrogow, Boss boss) {
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, Handlarz handlarz, int iluWrogow, Boss boss) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
-        this.handlarze = handlarze;
+        this.handlarz = handlarz;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = boss;
         this.zagadka = null;
     }
 
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, List<Wrog> wrogowie, Boss boss) {
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, Handlarz handlarz, List<Wrog> wrogowie, Boss boss) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
-        this.handlarze = handlarze;
+        this.handlarz = handlarz;
         this.wrogowie = wrogowie;
         this.boss = boss;
         this.zagadka = null;
     }
 
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Handlarz> handlarze, List<Wrog> wrogowie, Boss boss, Zagadka zagadka) {
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, Handlarz handlarz, List<Wrog> wrogowie, Boss boss, Zagadka zagadka) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
-        this.handlarze = handlarze;
+        this.handlarz = handlarz;
         this.wrogowie = wrogowie;
         this.boss = boss;
         this.zagadka = zagadka;
@@ -78,7 +79,7 @@ public class Wydarzenie {
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = null;
-        this.handlarze = null;
+        this.handlarz = null;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = null;
         this.zagadka = null;
@@ -89,7 +90,7 @@ public class Wydarzenie {
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
-        this.handlarze = null;
+        this.handlarz = null;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = null;
         this.zagadka = null;
@@ -293,8 +294,8 @@ public class Wydarzenie {
         return postacieFabularne;
     }
 
-    public List<Handlarz> getHandlarze() {
-        return handlarze;
+    public Handlarz getHandlarz() {
+        return handlarz;
     }
 
     public List<Wrog> getWrogowie() {

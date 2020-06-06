@@ -102,6 +102,7 @@ public class Menu {
     }
 
     public static void menuHandlu(){
+        /*
         lokacje.get(Gra.getInstance().getLokalizacjaGracza())
                 .getWydarzeniaPoboczne()
                 .forEach(x->{
@@ -119,17 +120,17 @@ public class Menu {
                         System.out.println("Lista handlarzy == null");
                     }
                 });
+          */
     }
 
     public static boolean menuGlowne(){
         System.out.println("1. Pokaż Moje Statystyki\n" +
                 "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji");
 
-        if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzenieFabularne().getHandlarze()!=null ||
+        if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzenieFabularne().getHandlarz()!=null ||
                 (lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne()!=null &&
                         lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().stream()
-                        .anyMatch(x-> x.getHandlarze()!=null))
-){
+                        .anyMatch(x-> x.getHandlarz()!=null))){
             System.out.println("4. Handluj z handlarzem");
         }
 

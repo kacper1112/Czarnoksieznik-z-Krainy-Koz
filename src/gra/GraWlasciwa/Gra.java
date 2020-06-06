@@ -118,10 +118,13 @@ public class Gra {
                             }
                         });
                     }
-                    if(wydarzenie.getHandlarze() != null) {
-                        wydarzenie.getHandlarze().forEach(handlarz -> {
+                    if(wydarzenie.getHandlarz() != null) {
+                        System.out.println("Handlowanko");
+                        /*
+                        wydarzenie.getHandlarz().forEach(handlarz -> {
                             System.out.println("Handlowanko");
                         });
+                         */
                     }
                     if(wydarzenie.getZagadka() != null) {
                         wydarzenie.zagadka();
@@ -148,10 +151,13 @@ public class Gra {
                         }
                     });
                 }
-                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarze() != null) {
-                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarze().forEach(handlarz -> {
+                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarz() != null) {
+                    System.out.println("Handlowanko");
+                    /*
+                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarz().forEach(handlarz -> {
                         System.out.println("Handlowanko");
                     });
+                     */
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().zagadka();
@@ -271,7 +277,7 @@ public class Gra {
                         "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem",
                         gracz,
                         null,
-                        Arrays.asList(new Handlarz("Miejski handlarz")), 0, null),
+                        new Handlarz("Miejski handlarz"), 0, null),
                         new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), List.of( 3 ))
                 );
                 // todo dodac lokajce z bossem
@@ -308,7 +314,7 @@ public class Gra {
                                 "okazuje się być tutejszym handlarzem.",
                         gracz,
                         null,
-                        Arrays.asList(new Handlarz("Miejski handlarz")), 0, null)
+                        new Handlarz("Miejski handlarz"), 0, null)
         ), List.of(3, 4, 6)));
         //
         // // 6
