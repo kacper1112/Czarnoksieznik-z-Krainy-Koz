@@ -194,44 +194,6 @@ public abstract class Gracz implements generatorEkwipunku {
         }
     }
 
-    /*
-    //todo czy tu ma sie pokazywac wyekwipowana bron??????
-    public int pokazEkwipunek() {
-        int indeks = 1;
-        if(ekwipunek.isEmpty()) {
-            System.out.println("Twoj ekwipunek jest pusty!");
-            return 0;
-        }
-
-        System.out.println("Twoje przedmioty:");
-        if(!ekwipunek.getEkwipunekPozywienie().isEmpty()) {
-            System.out.println("Pozywienie:");
-            for(PrzedmiotPozywienie p: ekwipunek.getEkwipunekPozywienie()) {
-                System.out.println(indeks++ + ". " + p.getNazwa());
-            }
-        }
-        if(!ekwipunek.getEkwipunekBronFizyczna().isEmpty()) {
-            System.out.println("Bron fizyczna:");
-            for(BronFizyczna bron: ekwipunek.getEkwipunekBronFizyczna()) {
-                System.out.println(indeks++ + ". " + bron.getNazwa());
-            }
-        }
-        if(!ekwipunek.getEkwipunekBronMagiczna().isEmpty()) {
-            System.out.println("Bron magiczna:");
-            for(BronMagiczna bron: ekwipunek.getEkwipunekBronMagiczna()) {
-                System.out.println(indeks++ + ". " + bron.getNazwa());
-            }
-        }
-        if(!ekwipunek.getEkwipunekFabularne().isEmpty()) {
-            System.out.println("Przedmioty fabularne:");
-            for(PrzedmiotFabularny p: ekwipunek.getEkwipunekFabularne()) {
-                System.out.println(indeks++ + ". " + p.getNazwa());
-            }
-        }
-        return indeks - 1;
-    }
-     */
-
     public String toString() {
         return "Masz obecnie " +
                 obecnePunktyZycia +" punktow zycia, " +

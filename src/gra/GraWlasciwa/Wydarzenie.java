@@ -153,7 +153,6 @@ public class Wydarzenie {
         }
     }
 
-
     private void wygranaGracza(Wrog wrog) {
         System.out.println("Udalo Ci sie pokonac przeciwnika!");
         Random rand = new Random();

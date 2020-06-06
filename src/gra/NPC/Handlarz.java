@@ -12,11 +12,12 @@ import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Handlarz extends NPC {
     private int pieniadze;
-    private List<Para<? extends Przedmiot, Integer>> oferta;
+    private List<Para<? extends Przedmiot, Para<Integer,Integer>>> oferta;
 
     public Handlarz(String imie) {
         super(imie);
@@ -81,10 +82,13 @@ public class Handlarz extends NPC {
                 rand.nextInt(100),
                 rand.nextDouble()*100
         ));
-
-        ekwipunekTMP.getEkwipunekBronFizyczna().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 214)));
-        ekwipunekTMP.getEkwipunekBronMagiczna().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 213)));
-        ekwipunekTMP.getEkwipunekPozywienie().forEach(x-> oferta.add(new Para<>((Przedmiot) x, 50)));
+        AtomicInteger licznik = new AtomicInteger(1);
+        ekwipunekTMP.getEkwipunekBronFizyczna()
+                .forEach(x-> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(),(100+rand.nextInt(40)-20)))));
+        ekwipunekTMP.getEkwipunekBronMagiczna()
+                .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(100+rand.nextInt(40)-20) ))));
+        ekwipunekTMP.getEkwipunekPozywienie()
+                .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(25+rand.nextInt(40)-20) ))));
 
         return ekwipunekTMP;
     }
@@ -93,8 +97,11 @@ public class Handlarz extends NPC {
         if (oferta.size()<1){
             System.out.println("Brak przedmiotow do kupienia.");
         }else {
-            System.out.println("Moja oferta dla ciebie byczq: \n");
-            System.out.println(oferta);
+            System.out.println("Oto moja oferta dla ciebie przybyszu:");
+
+            oferta.forEach(x->{
+                System.out.println(x.getDrugi() + ". " + x.getPierwszy().getNazwa());
+            });
         }
     }
 
@@ -107,28 +114,32 @@ public class Handlarz extends NPC {
             System.out.println("Brak przedmiotow do kupienia.");
         } else if(oferta.get(indeksOferty).getPierwszy() instanceof PrzedmiotPozywienie){
             gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie) oferta.get(indeksOferty).getPierwszy());
-            gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi());
-            this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi());
+        } else if(oferta.get(indeksOferty).getPierwszy() instanceof  BronFizyczna ){
+            gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna) oferta.get(indeksOferty).getPierwszy());
+            /*
+            gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi().getDrugi());
+            this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi().getDrugi());
+            oferta.stream()
+                    .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
+                    .collect(Collectors.toList());
+             */
+        }else if( oferta.get(indeksOferty).getPierwszy() instanceof  BronMagiczna){
+            gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna) oferta.get(indeksOferty).getPierwszy());
+            /*
+            gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi().getDrugi());
+            this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi().getDrugi());
             oferta.stream()
                     .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
                     .collect(Collectors.toList());
 
-        } else if(oferta.get(indeksOferty).getPierwszy() instanceof  BronFizyczna ){
-            gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna) oferta.get(indeksOferty).getPierwszy());
-            gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi());
-            this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi());
-            oferta.stream()
-                    .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
-                    .collect(Collectors.toList());
-        }else if( oferta.get(indeksOferty).getPierwszy() instanceof  BronMagiczna){
-            gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna) oferta.get(indeksOferty).getPierwszy());
-            gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi());
-            this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi());
-            oferta.stream()
-                    .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
-                    .collect(Collectors.toList());
+             */
         }
         System.out.println("Właśnie kupiłeś: " + oferta.get(indeksOferty).getPierwszy());
+        gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi().getDrugi());
+        this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi().getDrugi());
+        oferta.stream()
+                .filter(x-> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
+                .collect(Collectors.toList());
     }
 
     public int getPieniadze() {
@@ -139,12 +150,7 @@ public class Handlarz extends NPC {
         this.pieniadze = pieniadze;
     }
 
-    public List<Para<? extends Przedmiot, Integer>> getOferta() {
+    public List<Para<? extends Przedmiot, Para<Integer, Integer>>> getOferta() {
         return oferta;
     }
-
-    public void setOferta(List<Para<? extends Przedmiot,Integer> > oferta) {
-        this.oferta = oferta;
-    }
-
 }
