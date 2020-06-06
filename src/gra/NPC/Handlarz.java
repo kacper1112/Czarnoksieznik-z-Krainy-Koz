@@ -93,7 +93,8 @@ public class Handlarz extends NPC {
         if (oferta.size()<1){
             System.out.println("Brak przedmiotow do kupienia.");
         }else {
-            System.out.println("Moja oferta dla ciebie byczq: \n" + this.oferta);
+            System.out.println("Moja oferta dla ciebie byczq: \n");
+            System.out.println(oferta);
         }
     }
 

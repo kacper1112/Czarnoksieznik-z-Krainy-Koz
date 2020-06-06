@@ -1,12 +1,15 @@
 package gra.GraWlasciwa;
 
+import gra.ElementyPomocnicze.Para;
+import gra.NPC.Handlarz;
 import gra.RodzajeGracz.Gracz;
 import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.BronMagiczna;
-import gra.RodzajePrzedmiot.Przedmiot;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Menu {
     private static final Scanner in = new Scanner(System.in);
@@ -102,25 +105,22 @@ public class Menu {
     }
 
     public static void menuHandlu(){
-        /*
-        lokacje.get(Gra.getInstance().getLokalizacjaGracza())
-                .getWydarzeniaPoboczne()
-                .forEach(x->{
-                    if(x.getHandlarze()!=null){
-                        x.getHandlarze()
-                                .forEach(a->{
-                                    if(a!=null){
-                                        a.getEkwipunek().pokazEkwipunek();
-                                    }
-                                    else {
-                                        System.out.println("HANDLARZ == NULL");
-                                    }
-                                });
-                    }else {
-                        System.out.println("Lista handlarzy == null");
-                    }
-                });
-          */
+        System.out.println("MENU HANDLU");
+        List<Handlarz> handlarzeTMP = new ArrayList<>();
+        lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().forEach(x->{
+            if(x.getHandlarz()!=null){
+                handlarzeTMP.add(x.getHandlarz());
+            }
+        });
+        List<Para<Integer,Handlarz> > handlarze = new ArrayList<>();
+        AtomicInteger nrHandlarza = new AtomicInteger(1);
+        handlarzeTMP.forEach(x->handlarze.add(new Para<Integer, Handlarz>(nrHandlarza.getAndIncrement(),x)));
+        handlarze.forEach(x->{
+            System.out.println(x.getPierwszy()+": ");
+            x.getDrugi().przedstawOferte();
+        });
+        //int nrZOferty;
+
     }
 
     public static boolean menuGlowne(){
