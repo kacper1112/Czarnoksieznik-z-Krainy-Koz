@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Fabularny extends NPC {
-    private boolean czyPosiadaPrzedmiotFabularny;
     private final PrzedmiotFabularny przedmiotFabularny;
+    private boolean czyPosiadaPrzedmiotFabularny;
     private List<? super Przedmiot> podarki;
 
     public Fabularny(String imie) {
@@ -53,50 +53,50 @@ public class Fabularny extends NPC {
         );
 
         Random rand = new Random();
-        if(10<rand.nextInt(100)){
+        if (10 < rand.nextInt(100)) {
             int indeks = rand.nextInt(bronFizycznaTMP.size() + bronMagicznaTMP.size());
-            if(indeks < bronFizycznaTMP.size()){
+            if (indeks < bronFizycznaTMP.size()) {
                 ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                         bronFizycznaTMP.get(indeks).getPierwszy(),
                         bronFizycznaTMP.get(indeks).getDrugi(),
-                        rand.nextDouble()*100,
+                        rand.nextDouble() * 100,
                         rand.nextInt(100),
-                        rand.nextDouble()*100,
-                        rand.nextDouble()*100
+                        rand.nextDouble() * 100,
+                        rand.nextDouble() * 100
                 ));
-                if(ekwipunekTMP.getEkwipunekBronFizyczna().size()>0)
-                ekwipunekTMP.getEkwipunekBronFizyczna().forEach(x->podarki.add(x));
-            }else{
-                indeks-=bronFizycznaTMP.size();
-                ekwipunekTMP.wlozBronMagiczna( new BronMagiczna(
+                if (ekwipunekTMP.getEkwipunekBronFizyczna().size() > 0)
+                    ekwipunekTMP.getEkwipunekBronFizyczna().forEach(x -> podarki.add(x));
+            } else {
+                indeks -= bronFizycznaTMP.size();
+                ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
                         bronMagicznaTMP.get(indeks).getPierwszy(),
                         bronMagicznaTMP.get(indeks).getDrugi(),
-                        rand.nextDouble()*100,
+                        rand.nextDouble() * 100,
                         rand.nextInt(100),
-                        rand.nextDouble()*100,
-                        rand.nextDouble()*100
+                        rand.nextDouble() * 100,
+                        rand.nextDouble() * 100
                 ));
 
-                if(ekwipunekTMP.getEkwipunekBronMagiczna().size()>0)
-                ekwipunekTMP.getEkwipunekBronMagiczna().forEach(x->podarki.add(x));
+                if (ekwipunekTMP.getEkwipunekBronMagiczna().size() > 0)
+                    ekwipunekTMP.getEkwipunekBronMagiczna().forEach(x -> podarki.add(x));
             }
-        }else{
+        } else {
             int indeks = rand.nextInt(pozywienieTMP.size());
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     pozywienieTMP.get(indeks).getPierwszy(),
                     pozywienieTMP.get(indeks).getDrugi(),
-                    rand.nextDouble()*100,
+                    rand.nextDouble() * 100,
                     rand.nextInt(100),
-                    rand.nextDouble()*100
+                    rand.nextDouble() * 100
             ));
-            if(ekwipunekTMP.getEkwipunekPozywienie().size()>0)
-            ekwipunekTMP.getEkwipunekPozywienie().forEach(x->podarki.add(x));
+            if (ekwipunekTMP.getEkwipunekPozywienie().size() > 0)
+                ekwipunekTMP.getEkwipunekPozywienie().forEach(x -> podarki.add(x));
         }
 
         return ekwipunekTMP;
     }
 
-    public Przedmiot podarujLosowyPrzedmiotNieFabularny(){
+    public Przedmiot podarujLosowyPrzedmiotNieFabularny() {
         Random random = new Random();
         int indeks = random.nextInt(podarki.size());
         System.out.println("To dla ciebie: " + podarki.get(indeks).toString());
@@ -104,12 +104,12 @@ public class Fabularny extends NPC {
         return (Przedmiot) podarki.get(indeks);
     }
 
-    public PrzedmiotFabularny podarujPrzedmiotFabularny(){
+    public PrzedmiotFabularny podarujPrzedmiotFabularny() {
         System.out.println("Przekazuje Ci ten ważny przedmiot: " + this.przedmiotFabularny);
         return this.przedmiotFabularny;
     }
 
-    public void wlozPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){
+    public void wlozPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny) {
         this.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
     }
 
