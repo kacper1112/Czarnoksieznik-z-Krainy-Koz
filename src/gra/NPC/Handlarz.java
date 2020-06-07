@@ -4,10 +4,7 @@ import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajeGracz.Gracz;
-import gra.RodzajePrzedmiot.BronFizyczna;
-import gra.RodzajePrzedmiot.BronMagiczna;
-import gra.RodzajePrzedmiot.Przedmiot;
-import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
+import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -154,7 +151,7 @@ public class Handlarz extends NPC {
             System.out.println("Za tę bron magiczna moge Ci zaoferowac: "+ pieniadzeOferta);
             if(zgodnaNaOferte()==1){
                 int indeks = (int) gracz.getEkwipunek().getEkwipunekBronMagiczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
-                gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
+                gracz.getEkwipunek().wyciagnijBronMagiczna(indeks);
                 this.getEkwipunek().wlozBronMagiczna((BronMagiczna) przedmiot);
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
@@ -172,10 +169,12 @@ public class Handlarz extends NPC {
             System.out.println("Za to pozywienie moge Ci zaoferowac: "+ pieniadzeOferta);
             if(zgodnaNaOferte()==1){
                 int indeks = (int) gracz.getEkwipunek().getEkwipunekPozywienie().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
-                gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
+                gracz.getEkwipunek().wyciagnijPozywienie(indeks);
                 this.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie) przedmiot);
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
+        } else if(przedmiot instanceof PrzedmiotFabularny){
+            System.out.println("Nie moge tego od Ciebie kupic przybyszu, to zrujnuje twoje dalsze losy!");
         }
     }
 
