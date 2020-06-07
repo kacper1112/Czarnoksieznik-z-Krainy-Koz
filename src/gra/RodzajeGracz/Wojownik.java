@@ -75,7 +75,7 @@ public class Wojownik extends Gracz {
                     10
             ));
         }
-        ekwipunekTMP.zmienWyekwipowanaBronNaFiczyna(0);
+        ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0);
         return ekwipunekTMP;
     }
 }

@@ -71,14 +71,16 @@ public class Ekwipunek {
             System.out.println("Nie mozesz korzystac z broni magicznej - jestes wojownikiem");
         }else {
             wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
+            System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
         }
     }
 
-    public void zmienWyekwipowanaBronNaFiczyna(int indeksBroni){
+    public void zmienWyekwipowanaBronNaFizyczna(int indeksBroni){
         if(TYP == TYP_POSIADACZA_EKWIPUNKU.MAG) {
             System.out.println("Nie mozesz korzystac z broni fizycznej - jestes magiem");
         } else {
             wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
+            System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
         }
     }
 
