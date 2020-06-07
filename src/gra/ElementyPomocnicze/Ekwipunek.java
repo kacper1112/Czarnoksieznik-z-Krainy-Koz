@@ -159,19 +159,19 @@ public class Ekwipunek {
         return indeks - 1;
     }
 
-    public void dodajEkwipunek(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika){
+    public void dodajEkwipunek(Ekwipunek ekwipunekPrzeciwnika){
         if(!ekwipunekPrzeciwnika.getEkwipunekPozywienie().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(ekwipunekGracza::wlozPozywienie);
+            ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(this::wlozPozywienie);
         }
         if(!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().forEach(ekwipunekGracza::wlozBronFizyczna);
+            ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().forEach(this::wlozBronFizyczna);
         }
         if(!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(ekwipunekGracza::wlozBronMagiczna);
+            ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(this::wlozBronMagiczna);
         }
         if(ekwipunekPrzeciwnika.getTYP()==TYP_POSIADACZA_EKWIPUNKU.BOSS
                 &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozFabularne);
+            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozFabularne);
         }
     }
 
