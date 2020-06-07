@@ -133,9 +133,9 @@ public class Handlarz extends NPC {
 
     public void kupOdGracza(Gracz gracz, Przedmiot przedmiot){
         if(przedmiot instanceof BronMagiczna){
-            int indeks = 0;
-            gracz.getEkwipunek().getEkwipunekBronMagiczna()
-            gracz.getEkwipunek().wyciagnijBronFizyczna();
+            System.out.println("Za tę bron magiczna moge Ci zaoferowac");
+            int indeks = (int) gracz.getEkwipunek().getEkwipunekBronMagiczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count();
+            gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
         }else if(przedmiot instanceof BronFizyczna){
 
         } else if(przedmiot instanceof PrzedmiotPozywienie ){
