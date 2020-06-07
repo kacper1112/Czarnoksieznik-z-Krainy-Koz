@@ -114,7 +114,7 @@ public class Gra {
                         wydarzenie.getPostacieFabularne().forEach(postac -> {
                             postac.podarujLosowyPrzedmiotNieFabularny();
                             if(postac.isCzyPosiadaPrzedmiotFabularny()) {
-                                postac.getEkwipunek().wlozFabularne(postac.podarujPrzedmiotFabularny());
+                                gracz.getEkwipunek().wlozFabularne(postac.podarujPrzedmiotFabularny());
                             }
                         });
                     }
@@ -148,7 +148,7 @@ public class Gra {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne().forEach(postac -> {
                         postac.podarujLosowyPrzedmiotNieFabularny();
                         if(postac.isCzyPosiadaPrzedmiotFabularny()) {
-                            postac.getEkwipunek().wlozFabularne(postac.podarujPrzedmiotFabularny());
+                            gracz.getEkwipunek().wlozFabularne(postac.podarujPrzedmiotFabularny());
                         }
                     });
                 }
