@@ -17,14 +17,20 @@ public class Wojownik extends Gracz {
         return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
     }
 
-    public double zadajObrazeniaSpecjalne() {
-        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazeniaSpecjalne();
+    public double zadajMocneObrazenia() {
+        return this.getEkwipunek().getWyekwipowanaBron().zadajMocneObrazenia();
     }
 
     // obsluzyc jak gracza ginie
     public void otrzymajObrazenia(double wartosc) {
         // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
-        double obrazenia = (1 - this.getSila() / 100) * wartosc;
+        double sumaSily = getSila() + getSumaBonusowDoSily();
+
+        if(sumaSily >= 100) {
+            sumaSily = 90;
+        }
+
+        double obrazenia = (1 - sumaSily / 100) * wartosc;
         zmniejszPunktyZycia(obrazenia);
     }
 

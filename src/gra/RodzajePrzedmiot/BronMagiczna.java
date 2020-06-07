@@ -5,7 +5,7 @@ import gra.ElementyPomocnicze.bron;
 public class BronMagiczna extends Przedmiot implements bron {
 
     // moc zwoju okresla jaki % obrazen bazowych zadajemy, zakres 0-100
-    private final int mocZwoju;
+    private int mocZwoju;
     private final double obrazeniaBazowe;
     private final double mocUderzeniaKrytycznego;
 
@@ -34,16 +34,14 @@ public class BronMagiczna extends Przedmiot implements bron {
     }
 
     @Override
-    public double zadajObrazeniaSpecjalne() {
-        // 40% szans na powodzenie podwojnego czaru
-        boolean czyPodwojne = (Math.random() < 0.4);
-
-        if(czyPodwojne) {
-            return zadajObrazenia() + zadajObrazenia();
-        } else {
-            // ujemne obrazenia zadzialaja jak leczenie
-            return -zadajObrazenia();
-        }
+    public double zadajMocneObrazenia() {
+       if(Math.random() < 0.6) {
+           System.out.println("Twoje zaklecie nie trafilo wroga!");
+           return 0;
+       } else {
+           // czar uzyty dwukrotnie
+           return zadajObrazenia() + zadajObrazenia();
+       }
     }
 
     @Override

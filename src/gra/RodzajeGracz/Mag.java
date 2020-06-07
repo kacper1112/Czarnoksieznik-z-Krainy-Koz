@@ -12,13 +12,20 @@ public class Mag extends Gracz {
         super(100, 10, 20);
     }
 
-    // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
-        return this.getInteligencja() + this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
+        double sumaInteligencji = getInteligencja() + getSumaBonusowDoInteligencji();
+        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia() + sumaInteligencji;
     }
 
-    public double zadajObrazeniaSpecjalne() {
-        return this.getInteligencja() + this.getEkwipunek().getWyekwipowanaBron().zadajObrazeniaSpecjalne();
+    public double zadajMocneObrazenia() {
+        double obrazenia = this.ekwipunek.getWyekwipowanaBron().zadajMocneObrazenia();
+        double sumaInteligencji = getInteligencja() + getSumaBonusowDoInteligencji();
+
+        if(obrazenia == 0) {
+            return 0;
+        } else {
+            return this.getEkwipunek().getWyekwipowanaBron().zadajMocneObrazenia() + sumaInteligencji;
+        }
     }
 
     // obsluzyc jak gracza ginie

@@ -3,10 +3,7 @@ package gra.RodzajeGracz;
 import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.generatorEkwipunku;
 import gra.GraWlasciwa.Gra;
-import gra.RodzajePrzedmiot.BronFizyczna;
-import gra.RodzajePrzedmiot.BronMagiczna;
-import gra.RodzajePrzedmiot.PrzedmiotFabularny;
-import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
+import gra.RodzajePrzedmiot.*;
 
 public abstract class Gracz implements generatorEkwipunku {
     // pola klasy Gracza
@@ -139,7 +136,7 @@ public abstract class Gracz implements generatorEkwipunku {
     }
 
     public abstract double zadajObrazenia();
-    public abstract double zadajObrazeniaSpecjalne();
+    public abstract double zadajMocneObrazenia();
     public abstract void otrzymajObrazenia(double wartosc);
     public abstract void zwiekszLevel();
 
@@ -183,7 +180,47 @@ public abstract class Gracz implements generatorEkwipunku {
                 this.ekwipunek.getWyekwipowanaBron().toString() + " to Twoja bron";
     }
 
-    double obliczWplywAtrybutowPrzedmiotowNaOtrzymanePrzezWojownikaObrazenia() {return 0;}
+    public double getSumaBonusowDoInteligencji() {
+        double sumaBonusow = 0;
+        for(Przedmiot p: ekwipunek.getEkwipunekFabularne()) {
+            sumaBonusow += p.getAtrybut().getBonusDoInteligencji();
+        }
+        if(ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
+            sumaBonusow += ((BronFizyczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoInteligencji();
+        } else {
+            sumaBonusow += ((BronMagiczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoInteligencji();
+        }
+
+        return sumaBonusow;
+    }
+
+    public double getSumaBonusowDoSily() {
+        double sumaBonusow = 0;
+        for(Przedmiot p: ekwipunek.getEkwipunekFabularne()) {
+            sumaBonusow += p.getAtrybut().getBonusDoSily();
+        }
+        if(ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
+            sumaBonusow += ((BronFizyczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoSily();
+        } else {
+            sumaBonusow += ((BronMagiczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoSily();
+        }
+
+        return sumaBonusow;
+    }
+
+    public double getSzansaNaNatychmiastoweZabicie() {
+        double sumaBonusow = 0;
+        for(Przedmiot p: ekwipunek.getEkwipunekFabularne()) {
+            sumaBonusow += p.getAtrybut().getSzansaNaNatychmiastoweZabicie();
+        }
+        if(ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
+            sumaBonusow += ((BronFizyczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getSzansaNaNatychmiastoweZabicie();
+        } else {
+            sumaBonusow += ((BronMagiczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getSzansaNaNatychmiastoweZabicie();
+        }
+
+        return sumaBonusow;
+    }
 
     void aktualizujPostepFabularny(int etap) {
         postepFabularny = etap;

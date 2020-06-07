@@ -6,5 +6,5 @@ public interface bron {
     // dla bronii fizycznej mocniejszy atak, w przypadku niepowodzenia 0 obrazenia
     // dla bronii magicznej mozliwosc podwojnego ataku, w przypadku niepowodzenia
     // leczy przeciwnika zamiast ranic
-    double zadajObrazeniaSpecjalne();
+    double zadajMocneObrazenia();
 }

@@ -32,17 +32,31 @@ public class Walka {
                     Menu.menuEkwipunku();
                     // menu wyboru przedmiotu z ekwipunku
                 } else if(wyborGracza == 2) {
-                    obrazenia = gracz.zadajObrazenia();
-                    System.out.println("Atakujesz wroga za " + obrazenia + " punktow!");
-                    wrog.otrzymajObrazenia(obrazenia);
-                    System.out.println("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
-                            wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
+                    if(Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
+                        System.out.println("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
+                                "uderzeniu!");
+                        walkaTrwa = false;
+                        wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
+                    } else {
+                        obrazenia = gracz.zadajObrazenia();
+                        System.out.println("Atakujesz wroga za " + obrazenia + " punktow!");
+                        wrog.otrzymajObrazenia(obrazenia);
+                        System.out.println("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
+                                wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
+                    }
                 } else if(wyborGracza == 3) {
-                    obrazenia = gracz.zadajObrazeniaSpecjalne();
-                    System.out.println("Atakujesz wroga za " + obrazenia + " punktow!");
-                    wrog.otrzymajObrazenia(obrazenia);
-                    System.out.println("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
-                            wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
+                    if(Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
+                        System.out.println("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
+                                "uderzeniu!");
+                        walkaTrwa = false;
+                        wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
+                    } else {
+                        obrazenia = gracz.zadajMocneObrazenia();
+                        System.out.println("Atakujesz wroga za " + obrazenia + " punktow!");
+                        wrog.otrzymajObrazenia(obrazenia);
+                        System.out.println("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
+                                wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
+                    }
                 }
 
             } else {

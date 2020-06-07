@@ -13,24 +13,20 @@ public class Kaplan extends Gracz {
         super(110, 15, 15);
     }
 
-    // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
         return this.ekwipunek.getWyekwipowanaBron().zadajObrazenia();
     }
 
-    public double zadajObrazeniaSpecjalne() {
-        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazeniaSpecjalne();
+    public double zadajMocneObrazenia() {
+        return this.ekwipunek.getWyekwipowanaBron().zadajMocneObrazenia();
     }
 
-    // obsluzyc jak gracza ginie
     public void otrzymajObrazenia(double wartosc) {
-        // sprawdz czy moze sie uleczyc
-        if(Math.random() < .1) {
-            this.zwiekszPunktyZycia(wartosc);
+        if(Math.random() < 0.3) {
+            System.out.println("Atak wroga leczy Cie!");
+            zwiekszPunktyZycia(wartosc);
         } else {
-            // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
-            double obrazenia = (1 - getSila() / 100) * wartosc;
-            zmniejszPunktyZycia(obrazenia);
+            otrzymajObrazenia(wartosc);
         }
     }
 

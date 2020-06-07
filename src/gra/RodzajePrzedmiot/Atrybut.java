@@ -37,19 +37,19 @@ public class Atrybut {
         szansaNaNatychmiastoweZabicie = Math.random() / 20;
     }
 
-    double getBonusDoSily() {
+    public double getBonusDoSily() {
         return bonusDoSily;
     }
 
-    double getBonusDoInteligencji() {
+    public double getBonusDoInteligencji() {
         return bonusDoInteligencji;
     }
 
-    double getSzansaNaKrytyczne() {
+    public double getSzansaNaKrytyczne() {
         return szansaNaKrytyczne;
     }
 
-    double getSzansaNaNatychmiastoweZabicie() {
+    public double getSzansaNaNatychmiastoweZabicie() {
         return szansaNaNatychmiastoweZabicie;
     }
 }
