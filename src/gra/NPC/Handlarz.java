@@ -42,7 +42,7 @@ public class Handlarz extends NPC {
                 );
         List<Para<String, String>> bronFizycznaTMP = List.of(
                 new Para<>("Rteciowy Bula", "opis"),
-                new Para<>("Wlucznia Shojin", "opis"),
+                new Para<>("Wlocznia Shojin", "opis"),
                 new Para<>("Plonoce Ostrze", "opis"),
                 new Para<>("Czarny Tasak", "opis")
         );
