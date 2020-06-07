@@ -10,7 +10,6 @@ import gra.RodzajeGracz.Gracz;
 import gra.RodzajeGracz.Kaplan;
 import gra.RodzajeGracz.Mag;
 import gra.RodzajeGracz.Wojownik;
-import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
 import java.io.IOException;
@@ -121,7 +120,7 @@ public class Gra {
                             wydarzenie.getPostacieFabularne().forEach(postac -> {
                                 postac.podarujLosowyPrzedmiotNieFabularny();
                                 if (postac.isCzyPosiadaPrzedmiotFabularny()) {
-                                    gracz.getEkwipunek().wlozFabularne(postac.podarujPrzedmiotFabularny());
+                                    gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
                                 }
                             });
                         }
@@ -149,7 +148,7 @@ public class Gra {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne().forEach(postac -> {
                         postac.podarujLosowyPrzedmiotNieFabularny();
                         if(postac.isCzyPosiadaPrzedmiotFabularny()) {
-                            gracz.getEkwipunek().wlozFabularne(postac.podarujPrzedmiotFabularny());
+                            gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
                         }
                     });
                 }

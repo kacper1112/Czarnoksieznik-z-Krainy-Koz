@@ -110,7 +110,7 @@ public class Fabularny extends NPC {
     }
 
     public void wlozPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){
-        this.getEkwipunek().wlozFabularne(przedmiotFabularny);
+        this.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
     }
 
     public boolean isCzyPosiadaPrzedmiotFabularny() {

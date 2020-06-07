@@ -22,7 +22,7 @@ public class Ekwipunek {
         ekwipunekBronFizczna = new ArrayList<>();
     }
 
-    public void wlozFabularne(PrzedmiotFabularny pf) {
+    public void wlozPrzedmiotFabularny(PrzedmiotFabularny pf) {
         ekwipunekFabularne.add(pf);
     }
 
@@ -176,7 +176,7 @@ public class Ekwipunek {
             ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(this::wlozBronMagiczna);
         }
         if (!ekwipunekPrzeciwnika.getEkwipunekFabularne().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozFabularne);
+            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozPrzedmiotFabularny);
         }
     }
 

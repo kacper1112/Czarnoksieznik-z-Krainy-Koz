@@ -29,7 +29,7 @@ public abstract class NPC implements generatorEkwipunku {
     }
 
     public void wlozPrzedmiotFabularnyDoEkwipunku(PrzedmiotFabularny przedmiotFabularny) {
-        this.ekwipunek.wlozFabularne(przedmiotFabularny);
+        this.ekwipunek.wlozPrzedmiotFabularny(przedmiotFabularny);
     }
 
     //WYCIAGANIE Z EQ DODAC

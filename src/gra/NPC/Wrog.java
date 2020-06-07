@@ -35,7 +35,7 @@ public class Wrog extends NPC {
         this.maksymalnePunktyZycia = maksymalnePunktyZycia;
         this.obecnePunktyZycia = maksymalnePunktyZycia;
         this.bazowyAtak = bazowyAtak;
-        this.getEkwipunek().wlozFabularne(przedmiotFabularny);
+        this.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
     }
 
     public double getObecnePunktyZycia() {

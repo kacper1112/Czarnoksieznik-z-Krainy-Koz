@@ -3,10 +3,8 @@ package gra.GraWlasciwa;
 import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.ElementyPomocnicze.Zagadka;
-import gra.GraWlasciwa.Gra;
 import gra.NPC.Boss;
 import gra.NPC.Fabularny;
-import gra.NPC.Handlarz;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
 import gra.RodzajePrzedmiot.BronFizyczna;
@@ -15,7 +13,6 @@ import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -194,7 +191,7 @@ public class Wydarzenie {
         }
         if(ekwipunekPrzeciwnika.getTYP()==TYP_POSIADACZA_EKWIPUNKU.BOSS
                 &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozFabularne);
+            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozPrzedmiotFabularny);
         }
     }
 

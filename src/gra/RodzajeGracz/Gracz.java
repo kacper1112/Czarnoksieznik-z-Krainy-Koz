@@ -2,19 +2,17 @@ package gra.RodzajeGracz;
 
 import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.generatorEkwipunku;
-import gra.GraWlasciwa.Gra;
 import gra.RodzajePrzedmiot.*;
 
 public abstract class Gracz implements generatorEkwipunku {
     // pola klasy Gracza
     Ekwipunek ekwipunek;
-    private double maksymalnePunktyZycia;
+    private final double maksymalnePunktyZycia;
     private double obecnePunktyZycia;
     private double sila;
     private double inteligencja;
     private int poziom;
     private double punktyDoswiadczenia;
-    private int postepFabularny;
     private double pieniadze;
 
     // konstruktor domyslny
@@ -25,7 +23,6 @@ public abstract class Gracz implements generatorEkwipunku {
         inteligencja = 10;
         poziom = 0;
         punktyDoswiadczenia = 0;
-        postepFabularny = 0;
         pieniadze = 100;
         ekwipunek = generujEkwipunek();
     }
@@ -38,7 +35,6 @@ public abstract class Gracz implements generatorEkwipunku {
         this.inteligencja = inteligencja;
         this.poziom = 1;
         this.punktyDoswiadczenia = 0;
-        this.postepFabularny = 0;
         this.pieniadze = 100;
         ekwipunek = generujEkwipunek();
     }
@@ -93,14 +89,6 @@ public abstract class Gracz implements generatorEkwipunku {
         this.punktyDoswiadczenia = punktyDoswiadczenia;
     }
 
-    public int getPostepFabularny() {
-        return postepFabularny;
-    }
-
-    public void setPostepFabularny(int postepFabularny) {
-        this.postepFabularny = postepFabularny;
-    }
-
     public double getPieniadze() {
         return pieniadze;
     }
@@ -112,7 +100,7 @@ public abstract class Gracz implements generatorEkwipunku {
     // gracz otrzymuje obrazenia
     // dodac co sie dzieje, gdy obecnePunktyZycia = 0
     public void zmniejszPunktyZycia(double wartosc) {
-        if(obecnePunktyZycia <= wartosc) {
+        if (obecnePunktyZycia <= wartosc) {
             obecnePunktyZycia = 0;
         } else {
             obecnePunktyZycia -= wartosc;
@@ -121,7 +109,7 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // gracz zwieksza swoje punkty zycia
     public void zwiekszPunktyZycia(double wartosc) {
-        if(obecnePunktyZycia + wartosc >= maksymalnePunktyZycia) {
+        if (obecnePunktyZycia + wartosc >= maksymalnePunktyZycia) {
             obecnePunktyZycia = maksymalnePunktyZycia;
         } else {
             obecnePunktyZycia += wartosc;
@@ -129,26 +117,12 @@ public abstract class Gracz implements generatorEkwipunku {
     }
 
     public abstract double zadajObrazenia();
+
     public abstract double zadajMocneObrazenia();
+
     public abstract void otrzymajObrazenia(double wartosc);
+
     public abstract void zwiekszLevel();
-
-    // wkladanie przedmiotow do ekwipunku
-    public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
-        this.ekwipunek.wlozBronFizyczna(bronFizyczna);
-    }
-
-    public void wlozBronMagicznaDoEwkipunku(BronMagiczna bronMagiczna) {
-        this.ekwipunek.wlozBronMagiczna(bronMagiczna);
-    }
-
-    public void wlozPozywienieDoEkwipunku(PrzedmiotPozywienie pozywienie) {
-        this.ekwipunek.wlozPozywienie(pozywienie);
-    }
-
-    public void wlozPrzedmiotFabularnyDoEkwipunku(PrzedmiotFabularny przedmiotFabularny) {
-        this.ekwipunek.wlozFabularne(przedmiotFabularny);
-    }
 
     // dodac uzywanie pozywienia
     public void uzyjPozywienia(int index) {
@@ -176,13 +150,13 @@ public abstract class Gracz implements generatorEkwipunku {
 
     public double getSumaBonusowDoInteligencji() {
         double sumaBonusow = 0;
-        for(Przedmiot p: ekwipunek.getEkwipunekFabularne()) {
+        for (Przedmiot p : ekwipunek.getEkwipunekFabularne()) {
             sumaBonusow += p.getAtrybut().getBonusDoInteligencji();
         }
-        if(ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
-            sumaBonusow += ((BronFizyczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoInteligencji();
+        if (ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
+            sumaBonusow += ((BronFizyczna) ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoInteligencji();
         } else {
-            sumaBonusow += ((BronMagiczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoInteligencji();
+            sumaBonusow += ((BronMagiczna) ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoInteligencji();
         }
 
         return sumaBonusow;
@@ -190,13 +164,13 @@ public abstract class Gracz implements generatorEkwipunku {
 
     public double getSumaBonusowDoSily() {
         double sumaBonusow = 0;
-        for(Przedmiot p: ekwipunek.getEkwipunekFabularne()) {
+        for (Przedmiot p : ekwipunek.getEkwipunekFabularne()) {
             sumaBonusow += p.getAtrybut().getBonusDoSily();
         }
-        if(ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
-            sumaBonusow += ((BronFizyczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoSily();
+        if (ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
+            sumaBonusow += ((BronFizyczna) ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoSily();
         } else {
-            sumaBonusow += ((BronMagiczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoSily();
+            sumaBonusow += ((BronMagiczna) ekwipunek.getWyekwipowanaBron()).getAtrybut().getBonusDoSily();
         }
 
         return sumaBonusow;
@@ -204,19 +178,15 @@ public abstract class Gracz implements generatorEkwipunku {
 
     public double getSzansaNaNatychmiastoweZabicie() {
         double sumaBonusow = 0;
-        for(Przedmiot p: ekwipunek.getEkwipunekFabularne()) {
+        for (Przedmiot p : ekwipunek.getEkwipunekFabularne()) {
             sumaBonusow += p.getAtrybut().getSzansaNaNatychmiastoweZabicie();
         }
-        if(ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
-            sumaBonusow += ((BronFizyczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getSzansaNaNatychmiastoweZabicie();
+        if (ekwipunek.getWyekwipowanaBron() instanceof BronFizyczna) {
+            sumaBonusow += ((BronFizyczna) ekwipunek.getWyekwipowanaBron()).getAtrybut().getSzansaNaNatychmiastoweZabicie();
         } else {
-            sumaBonusow += ((BronMagiczna)ekwipunek.getWyekwipowanaBron()).getAtrybut().getSzansaNaNatychmiastoweZabicie();
+            sumaBonusow += ((BronMagiczna) ekwipunek.getWyekwipowanaBron()).getAtrybut().getSzansaNaNatychmiastoweZabicie();
         }
 
         return sumaBonusow;
-    }
-
-    void aktualizujPostepFabularny(int etap) {
-        postepFabularny = etap;
     }
 }
