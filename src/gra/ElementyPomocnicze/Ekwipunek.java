@@ -143,13 +143,15 @@ public class Ekwipunek {
         if(!this.getEkwipunekBronFizyczna().isEmpty()) {
             System.out.println("Bron fizyczna:");
             for(BronFizyczna bron: this.getEkwipunekBronFizyczna()) {
-                System.out.println(indeks++ + ". " + bron.getNazwa());
+                //System.out.println(indeks++ + ". " + bron.getNazwa());
+                System.out.println(indeks++ + ". " + bron);
             }
         }
         if(!this.getEkwipunekBronMagiczna().isEmpty()) {
             System.out.println("Bron magiczna:");
             for(BronMagiczna bron: this.getEkwipunekBronMagiczna()) {
-                System.out.println(indeks++ + ". " + bron.getNazwa());
+                //System.out.println(indeks++ + ". " + bron.getNazwa());
+                System.out.println(indeks++ + ". " + bron);
             }
         }
         if(!this.getEkwipunekFabularne().isEmpty()) {
