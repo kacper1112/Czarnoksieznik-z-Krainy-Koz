@@ -58,7 +58,19 @@ public class Menu {
                 System.out.println("Nie masz przepustki");
                 return true;
             }
+        } else if(wyborLokacji == 14) {
+            if(
+                    gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 1")).collect(Collectors.toList()).size() != 0 &&
+                    gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 2")).collect(Collectors.toList()).size() != 0 &&
+                    gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 3")).collect(Collectors.toList()).size() != 0
+            ) {
+                System.out.println("Masz przepustke");
+            } else {
+                System.out.println("Nie masz przepustek");
+                return true;
+            }
         }
+
         if(wyborLokacji == 0) {
             return false;
         } else if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().contains(wyborLokacji)) {

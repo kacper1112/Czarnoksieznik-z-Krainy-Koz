@@ -458,7 +458,11 @@ public class Gra {
 
                         ), null, List.of(11, 12, 2, 14), null));
 
-        lokacjeTMP.add(new Lokacja(null, null, null, null, null,null));
+        lokacjeTMP.add(new Lokacja("Wrota beliara", "Docierasz do kresu swojej wedrwoki, ogladasz sie wokol siebie, ale wszedzie panuje chaos...",
+                new Wydarzenie("Walka z Czarnoksieznikiem", "Stajesz na przeciw Czarnoskieznika", gracz, null, null, new Boss(
+                        "Czarnoksieznik z Krainy Koz", 1000, 500, null
+                ))
+                , null, List.of(11, 12, 13),null));
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
