@@ -124,5 +124,4 @@ public class Wrog extends NPC {
         }
         return ekwipunekTMP;
     }
-    //TODO WROGOWIE UZYWAJA ITEMKOW
 }
