@@ -132,7 +132,7 @@ public class Gra {
                     if(wydarzenie.getWrogowie() != null) {
                         wydarzenie.getWrogowie().forEach(wrog -> {
                             System.out.println("Walka z wrogiem");
-                            Walka.walkaZWrogiem(gracz, wrog);
+                            Walka.walka(gracz, wrog);
                         });
                     }
                     if(wydarzenie.getBoss() != null) {
@@ -166,7 +166,7 @@ public class Gra {
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
                         System.out.println("Walka z wrogiem");
-                        Walka.walkaZWrogiem(gracz, wrog);
+                        Walka.walka(gracz, wrog);
                     });
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
