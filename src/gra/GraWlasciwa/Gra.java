@@ -12,6 +12,7 @@ import gra.RodzajeGracz.Wojownik;
 import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -495,6 +496,15 @@ public class Gra {
 
     public Gracz getGracz() {
         return gracz;
+    }
+
+    public static void wyczyscTerminal() {
+        try {
+            if (System.getProperty("os.name").contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+        } catch (IOException | InterruptedException ignored) {}
     }
 
     // todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga

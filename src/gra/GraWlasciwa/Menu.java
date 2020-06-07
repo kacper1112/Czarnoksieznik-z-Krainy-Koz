@@ -27,6 +27,7 @@ public class Menu {
     }
 
     public static boolean menuLokacji() {
+        Gra.wyczyscTerminal();
         // nie da sie jakos ladniej tego potwora linijke nizej?
         System.out.println("Sasiednie lokacje:");
                 lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().forEach(index -> {
@@ -73,6 +74,8 @@ public class Menu {
 
     public static void menuEkwipunku(){
         int rozmiarEq;
+
+        Gra.wyczyscTerminal();
 
         if(gracz.getEkwipunek().isEmpty()) {
             System.out.println("Nie masz w ekwipunku wiecej przedmiotow!");
@@ -129,6 +132,7 @@ public class Menu {
     }
 
     public static void menuHandlu(){
+        Gra.wyczyscTerminal();
         System.out.println("Wybierz co chcesz zrobic: ");
         System.out.println("1. Kupic od Handlarza");
         System.out.println("2. Sprzedac dla Handlarza");
@@ -192,6 +196,7 @@ public class Menu {
     }
 
     public static boolean menuGlowne(){
+        Gra.wyczyscTerminal();
         System.out.println("1. Pokaż Moje Statystyki\n" +
                 "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji");
 
