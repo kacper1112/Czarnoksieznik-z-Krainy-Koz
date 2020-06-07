@@ -1,5 +1,6 @@
 package gra.RodzajePrzedmiot;
 
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.bron;
 
 public class BronFizyczna extends Przedmiot implements bron {
@@ -38,7 +39,7 @@ public class BronFizyczna extends Przedmiot implements bron {
     public double zadajMocneObrazenia() {
         // 40% szans na powodzenie uderzenia
         if (Math.random() < 0.4) {
-            System.out.println("Nie trafiles wroga!");
+            KolorTekstu.printCzerwony("Nie trafiles wroga!");
             return 0;
         }
         // mocne uderzenie jest o 30% mocniejsze od zwyklego
