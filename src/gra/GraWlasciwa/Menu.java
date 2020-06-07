@@ -5,6 +5,7 @@ import gra.NPC.Handlarz;
 import gra.RodzajeGracz.Gracz;
 import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.Przedmiot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,46 +118,61 @@ public class Menu {
     }
 
     public static void menuHandlu(){
-        System.out.println("MENU HANDLU");
-        List<Handlarz> handlarzeTMP = new ArrayList<>();
-        lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().forEach(x->{
-            if(x.getHandlarz()!=null){
-                handlarzeTMP.add(x.getHandlarz());
-            }
-        });
+        System.out.println("Wybierz co chcesz zrobic: ");
+        System.out.println("1. Kupic od Handlarza");
+        System.out.println("2. Sprzedac dla Handlarza");
+        int wyborCzynnosci = in.nextInt();
+        if(wyborCzynnosci==1){
+            List<Handlarz> handlarzeTMP = new ArrayList<>();
+            lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().forEach(x->{
+                if(x.getHandlarz()!=null){
+                    handlarzeTMP.add(x.getHandlarz());
+                }
+            });
 
-        List<Para<Integer,Handlarz> > handlarze = new ArrayList<>();
-        AtomicInteger nrHandlarza = new AtomicInteger(1);
-        handlarzeTMP.forEach(x->handlarze.add(new Para<Integer, Handlarz>(nrHandlarza.getAndIncrement(),x)));
-        handlarze.forEach(x->{
-            System.out.println(x.getPierwszy() +". Handlarz: " + "Witaj jestem "+ x.getDrugi().getImie() +": ");
-            x.getDrugi().przedstawOferte();
-        });
-        System.out.println("Jeśli chcesz kupic przedmiot wybierz numer Handlarza a następnie numer przedmiotu z oferty:");
-        System.out.print("Wybieram Handlarza nr: ");
-        int wyborHandlarza = in.nextInt();
-        System.out.print("Wybieram Przedmiot nr: ");
-        int wyborPrzedmiotu = in.nextInt();
-        while (true){
-            if (wyborHandlarza > 0 && wyborHandlarza <= handlarze.size()){
-                if(wyborPrzedmiotu > 0 && handlarze.get(wyborHandlarza-1).getDrugi().getOferta().size() <= wyborPrzedmiotu){
-                    handlarze.get(wyborHandlarza-1)
-                            .getDrugi().sprzedajGraczowi(gracz,wyborPrzedmiotu-1);
-                    break;
-                }else {
-                    System.out.println("Niepoprawny wybor przedmiotu podaj, dane handlu jeszcze raz: ");
+            List<Para<Integer,Handlarz> > handlarze = new ArrayList<>();
+            AtomicInteger nrHandlarza = new AtomicInteger(1);
+            handlarzeTMP.forEach(x->handlarze.add(new Para<>(nrHandlarza.getAndIncrement(),x)));
+            handlarze.forEach(x->{
+                System.out.println(x.getPierwszy() +". Handlarz: " + "Witaj jestem "+ x.getDrugi().getImie() +": ");
+                x.getDrugi().przedstawOferte();
+            });
+            System.out.println("Jeśli chcesz kupic przedmiot wybierz numer Handlarza a następnie numer przedmiotu z oferty" +
+                    "(jesli chcesz wrocic do poprzedniego menu wybierz: 0,0):");
+            System.out.print("Wybieram Handlarza nr: ");
+            int wyborHandlarza = in.nextInt();
+            System.out.print("Wybieram Przedmiot nr: ");
+            int wyborPrzedmiotu = in.nextInt();
+            if(wyborHandlarza==0 && wyborPrzedmiotu==0) return;
+            while (true){
+                if (wyborHandlarza > 0 && wyborHandlarza <= handlarze.size()){
+                    if(wyborPrzedmiotu > 0 && wyborPrzedmiotu <=handlarze.get(wyborHandlarza-1).getDrugi().getOferta().size()){
+                        handlarze.get(wyborHandlarza-1)
+                                .getDrugi().sprzedajGraczowi(gracz,wyborPrzedmiotu-1);
+                        break;
+                    }else {
+                        System.out.println("Niepoprawny wybor przedmiotu podaj, dane handlu jeszcze raz" +
+                                "(jesli chcesz wrocic do poprzedniego menu wybierz: 0,0): ");
+                        System.out.print("Wybieram Handlarza nr: ");
+                        wyborHandlarza = in.nextInt();
+                        System.out.print("Wybieram Przedmiot nr: ");
+                        wyborPrzedmiotu = in.nextInt();
+                        if(wyborHandlarza==0 && wyborPrzedmiotu==0) return;
+                    }
+                }else{
+                    System.out.println("Niepoprawny wybor handlarza podaj, dane handlu jeszcze raz" +
+                            "(jesli chcesz wrocic do poprzedniego menu wybierz: 0,0): ");
                     System.out.print("Wybieram Handlarza nr: ");
                     wyborHandlarza = in.nextInt();
                     System.out.print("Wybieram Przedmiot nr: ");
                     wyborPrzedmiotu = in.nextInt();
+                    if(wyborHandlarza==0 && wyborPrzedmiotu==0) return;
                 }
-            }else{
-                System.out.println("Niepoprawny wybor handlarza podaj, dane handlu jeszcze raz: ");
-                System.out.print("Wybieram Handlarza nr: ");
-                wyborHandlarza = in.nextInt();
-                System.out.print("Wybieram Przedmiot nr: ");
-                wyborPrzedmiotu = in.nextInt();
             }
+        } else if(wyborCzynnosci==2) {
+            Przedmiot p;
+        } else{
+            System.out.println("Niepoprawny wybor czynnosci");
         }
     }
 
