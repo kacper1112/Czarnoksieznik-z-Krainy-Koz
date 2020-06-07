@@ -47,7 +47,7 @@ public class KolorTekstu {
         public static final String BLINK_RAPID = "\u001B[6m";
 
         public static void tekstyZLokacji(String tekst){
-            System.out.println(GREEN + tekst);
+            System.out.println(GREEN + tekst + RESET);
         }
 }
 
