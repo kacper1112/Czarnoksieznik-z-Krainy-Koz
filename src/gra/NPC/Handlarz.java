@@ -138,6 +138,7 @@ public class Handlarz extends NPC {
             gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
         }else if(przedmiot instanceof BronFizyczna){
 
+
         } else if(przedmiot instanceof PrzedmiotPozywienie ){
 
         }
