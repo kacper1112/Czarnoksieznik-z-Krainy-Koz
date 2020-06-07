@@ -181,6 +181,7 @@ public class Handlarz extends NPC {
 
     public int getPieniadze() {
         return pieniadze;
+
     }
 
     public void setPieniadze(int pieniadze) {
