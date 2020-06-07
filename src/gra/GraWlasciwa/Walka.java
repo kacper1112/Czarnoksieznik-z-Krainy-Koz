@@ -1,24 +1,10 @@
 package gra.GraWlasciwa;
 
-import gra.NPC.Boss;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 public class Walka {
 
-    static Random random = new Random();
-
-    static List<String > komentarze(){
-        return new ArrayList<>();
-    }
-
-    private static int whoBegin(){
-        return random.nextInt(2);
-    }
 
     public static void walka(Gracz gracz, Wrog wrog) {
         int wyborGracza;
@@ -30,14 +16,14 @@ public class Walka {
 
         boolean kolejGracza = (Math.random() < 0.5);
         if(kolejGracza) {
-            System.out.println("Walke rozpoczyna Twoj przeciwnik!");
+            System.out.println("Atakujesz pierwszy!");
         } else {
-            System.out.println("Rozpoczynasz walke!");
+            System.out.println("Pierwszy atakuje Twoj przeciwnik!");
         }
 
         while(walkaTrwa) {
             if(kolejGracza) {
-                System.out.println("Co chcesz zrobic?\n1.Skorzystaj z ekwipunku\n2.Zaatakuj przeciwnika" +
+                System.out.println("Co chcesz zrobic?\n1.Skorzystaj z ekwipunku\n2.Zaatakuj przeciwnika " +
                         "korzystajac z " + gracz.getEkwipunek().getWyekwipowanaBron() + "\n" +
                         "3.Sprobuj wykonac atak specjalny");
 
