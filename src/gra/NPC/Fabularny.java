@@ -65,7 +65,7 @@ public class Fabularny extends NPC {
                         rand.nextDouble()*100
                 ));
                 if(ekwipunekTMP.getEkwipunekBronFizyczna().size()>0)
-                ekwipunekTMP.getEkwipunekBronFizyczna().forEach(x->podarki.add((Przedmiot) x));
+                ekwipunekTMP.getEkwipunekBronFizyczna().forEach(x->podarki.add(x));
             }else{
                 indeks-=bronFizycznaTMP.size();
                 ekwipunekTMP.wlozBronMagiczna( new BronMagiczna(
@@ -78,7 +78,7 @@ public class Fabularny extends NPC {
                 ));
 
                 if(ekwipunekTMP.getEkwipunekBronMagiczna().size()>0)
-                ekwipunekTMP.getEkwipunekBronMagiczna().forEach(x->podarki.add((Przedmiot) x));
+                ekwipunekTMP.getEkwipunekBronMagiczna().forEach(x->podarki.add(x));
             }
         }else{
             int indeks = rand.nextInt(pozywienieTMP.size());
@@ -90,7 +90,7 @@ public class Fabularny extends NPC {
                     rand.nextDouble()*100
             ));
             if(ekwipunekTMP.getEkwipunekPozywienie().size()>0)
-            ekwipunekTMP.getEkwipunekPozywienie().forEach(x->podarki.add((Przedmiot) x));
+            ekwipunekTMP.getEkwipunekPozywienie().forEach(x->podarki.add(x));
         }
 
         return ekwipunekTMP;

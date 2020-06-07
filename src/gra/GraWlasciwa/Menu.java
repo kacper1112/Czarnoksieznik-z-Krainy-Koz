@@ -96,11 +96,11 @@ public class Menu {
 
         if(gracz.getEkwipunek().getWyekwipowanaBron() instanceof BronMagiczna){
             System.out.println("Wyekwipowana bron magiczna:\n"
-                    + ((BronMagiczna)gracz.getEkwipunek().getWyekwipowanaBron()) + "\n");
+                    + gracz.getEkwipunek().getWyekwipowanaBron() + "\n");
 
         }else if(gracz.getEkwipunek().getWyekwipowanaBron() instanceof BronFizyczna){
             System.out.println("Wyekwipowana bron fizyczna:\n"
-                    + ((BronFizyczna)gracz.getEkwipunek().getWyekwipowanaBron()) + "\n");
+                    + gracz.getEkwipunek().getWyekwipowanaBron() + "\n");
         }
 
         rozmiarEq = gracz.getEkwipunek().pokazEkwipunek();
