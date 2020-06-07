@@ -1,5 +1,6 @@
 package gra.GraWlasciwa;
 
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Para;
 import gra.NPC.Handlarz;
 import gra.RodzajeGracz.Gracz;
@@ -177,24 +178,17 @@ public class Menu {
     }
 
     public static boolean menuGlowne(){
-        System.out.println("1. Pokaż Moje Statystyki\n" +
+        KolorTekstu.printZolty("1. Pokaż Moje Statystyki\n" +
                 "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji");
 
-        /*
-        if((lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne()!=null &&
-                        lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().stream()
-                        .anyMatch(x-> x.getHandlarz()!=null)))
-        */
         if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getHandlarz()!=null){
-            System.out.println("4. Handluj z handlarzem");
+            KolorTekstu.printZolty("4. Handluj z handlarzem");
         }
 
 
         int wybor = in.nextInt(); //Gra.wczytajWyborGracza(3);
         switch (wybor){
             case 1:
-                gracz.wlozBronMagicznaDoEwkipunku(new BronMagiczna("jakas bron", "super bronka to jest",
-                        10, 10, 10, 10));
                 System.out.println(gracz);
                 return true;
             case 2:

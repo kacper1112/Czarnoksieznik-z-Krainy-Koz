@@ -45,8 +45,9 @@ public class Gra {
         lokalizacjaGracza = 0;
 
         wyczyscTerminal();
-        System.out.println("Czarnoksieznik z Krainy Koz\n");
-        System.out.println("1.Rozpocznij nowa gre \n2.Pokaz instrukcje");
+        KolorTekstu.printCyan("Czarnoksieznik z Krainy Koz\n");
+
+        KolorTekstu.printZolty("1.Rozpocznij nowa gre \n2.Pokaz instrukcje");
         wyborGracza = wczytajWyborGracza(2, false);
 
         if (wyborGracza == 2) {
@@ -56,7 +57,7 @@ public class Gra {
         }
 
         wyczyscTerminal();
-        System.out.println("Wybierz swoja klase postaci:\n1.Wojownik\n2.Mag\n3.Kaplan");
+        KolorTekstu.printZolty("Wybierz swoja klase postaci:\n1.Wojownik\n2.Mag\n3.Kaplan");
         wyborGracza = wczytajWyborGracza(3, false);
 
         if (!inicjalizacjaGry(wyborGracza)) {
@@ -80,7 +81,7 @@ public class Gra {
 
     private void pokazInstrukcje() {
         wyczyscTerminal();
-        System.out.println("To jest instrukcja");
+        KolorTekstu.printZolty("To jest instrukcja");
     }
 
     private boolean inicjalizacjaGry(int klasaPostaci) {
@@ -96,7 +97,6 @@ public class Gra {
                 break;
         }
         Menu.setGracz(gracz);
-        inicjalizacjaBossow();
         inicjalizacjaWydarzenFabularnych();
         wydarzeniaPoboczne = new ArrayList<>();
         wydarzeniaPoboczne.add(new Wydarzenie("Walka z zajacem",
@@ -110,14 +110,13 @@ public class Gra {
 
     private boolean rozpocznijGre() {
         while (true) {
-            //System.out.println(this.lokacje.get(lokalizacjaGracza).getOpis());
             KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getOpis());
             if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
                     if(!wydarzenie.getCzyWykonana()) {
 
-                        System.out.println(wydarzenie.getNazwa());
-                        System.out.println(wydarzenie.getOpis());
+                        KolorTekstu.printCyan(wydarzenie.getNazwa());
+                        KolorTekstu.printCyan(wydarzenie.getOpis());
                         if (wydarzenie.getPostacieFabularne() != null) {
                             wydarzenie.getPostacieFabularne().forEach(postac -> {
                                 postac.podarujLosowyPrzedmiotNieFabularny();
@@ -126,24 +125,15 @@ public class Gra {
                                 }
                             });
                         }
-                    /*
-                    if(wydarzenie.getHandlarz() != null) {
-                        System.out.println("Handlowanko");
-
-                    }
-
-                     */
                         if (wydarzenie.getZagadka() != null) {
                             wydarzenie.zagadka();
                         }
                         if (wydarzenie.getWrogowie() != null) {
                             wydarzenie.getWrogowie().forEach(wrog -> {
-                                // System.out.println("Walka z wrogiem");
                                 Walka.walka(gracz, wrog);
                             });
                         }
                         if (wydarzenie.getBoss() != null) {
-                            // System.out.println("Walka z bossem");
                             Walka.walka(gracz, wydarzenie.getBoss());
                         }
 
@@ -153,8 +143,6 @@ public class Gra {
             }
             
             if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null && !this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
-                //System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
-                //System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
@@ -165,27 +153,15 @@ public class Gra {
                         }
                     });
                 }
-                /*
-                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarz() != null) {
-                    System.out.println("Handlowanko");
-
-                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getHandlarz().forEach(handlarz -> {
-                        System.out.println("Handlowanko");
-                    });
-
-                }
-                */
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().zagadka();
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
-                        // System.out.println("Walka z wrogiem");
                         Walka.walka(gracz, wrog);
                     });
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
-                    // System.out.println("Walka z bossem");
                     Walka.walka(gracz, this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss());
                 }
 
@@ -205,13 +181,13 @@ public class Gra {
     }
 
     public static void wygrana() {
-        System.out.println("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!");
-        System.out.println("To juz koniec Twojej przygody!");
+        KolorTekstu.printCyan("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!");
+        KolorTekstu.printCyan("To juz koniec Twojej przygody!");
         System.exit(0);
     }
 
     public static void przegrana() {
-        System.out.println("Nie zyjesz! Koniec gry! Powodzenia nastepnym razem.");
+        KolorTekstu.printCyan("Nie zyjesz! Koniec gry! Powodzenia nastepnym razem.");
         System.exit(0);
     }
 
@@ -303,7 +279,6 @@ public class Gra {
                                 List.of(new Wrog("Bandyta", 20, 20)), null)),
                         List.of( 1, 11, 12, 13 ), new Handlarz("Miejski handlarz") )
                 );
-                // todo dodac lokajce z bossem
 
         // // 3
         lokacjeTMP.add(new Lokacja("Czarny szczyt", "Po długiej wędrówce docierasz na szczyt, przed Tobą rozpościera się niesamowity widok.", null,
@@ -501,15 +476,6 @@ public class Gra {
 
         // Wieza Czarnoksieznika z Koz (lokacja koncowa)
         return lokacjeTMP;
-    }
-
-    private void inicjalizacjaBossow() {
-        Boss czarnoksieznik = new Boss("Czarnoksieznik z Krainy Koz",
-                new PrzedmiotFabularny("", "", 0, 0, false, "ksiezniczka znajduje sie.....", 100));
-
-        Boss ork = new Boss("Dis", new PrzedmiotFabularny("", "", 0, 0, false, "po przejsciu przez bagna..", 100));
-
-        Boss smok = new Boss("Smok", new PrzedmiotFabularny("", "", 0, 0, false, "po przez zdradliwe urwisko...", 100));
     }
 
     public int getLokalizacjaGracza() {
