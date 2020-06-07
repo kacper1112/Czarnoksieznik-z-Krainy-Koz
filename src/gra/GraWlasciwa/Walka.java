@@ -75,6 +75,8 @@ public class Walka {
         }
         if(gracz.getObecnePunktyZycia() > 0) {
             gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
+            System.out.println("Udalo Ci sie zwyciezyc w walce!");
+            System.out.println("Podnosisz przedmioty przecinika");
         } else {
             System.out.println("Zostales zabity");
         }
