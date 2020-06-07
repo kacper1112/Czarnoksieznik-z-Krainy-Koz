@@ -30,9 +30,9 @@ public class Walka {
 
         boolean kolejGracza = (Math.random() < 0.5);
         if(kolejGracza) {
-            System.out.println("Rozpoczynasz walke!");
+            System.out.println("Atakujesz pierwszy!");
         } else {
-            System.out.println("Walke rozpoczyna Twoj przeciwnik!");
+            System.out.println("Pierwszy atakuje Twoj przeciwnik!");
         }
 
         while(walkaTrwa) {
