@@ -14,6 +14,11 @@ import java.util.Random;
 public class Boss extends Wrog {
     private double szansaNaTrafienieKrytyczne;
 
+    // do testowania
+    public Boss() {
+        super("");
+    }
+
     public Boss(String imie, PrzedmiotFabularny przedmiotFabularny) {
         super(imie);
         Random random = new Random();
