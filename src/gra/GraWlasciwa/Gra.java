@@ -137,6 +137,7 @@ public class Gra {
                     }
                     if(wydarzenie.getBoss() != null) {
                         System.out.println("Walka z bossem");
+                        Walka.walka(gracz, wydarzenie.getBoss());
                     }
                 });
             }
@@ -171,6 +172,7 @@ public class Gra {
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
                     System.out.println("Walka z bossem");
+                    Walka.walka(gracz, this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss());
                 }
             }
 
