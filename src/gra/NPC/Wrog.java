@@ -107,7 +107,7 @@ public class Wrog extends NPC {
             ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                     bronFizycznaTMP.get(indeks).getPierwszy(),
                     bronFizycznaTMP.get(indeks).getDrugi(),
-                    rand.nextDouble()*100,
+                    rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100,
                     rand.nextDouble()*100
@@ -117,7 +117,7 @@ public class Wrog extends NPC {
             ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
                     bronMagicznaTMP.get(indeks).getPierwszy(),
                     bronMagicznaTMP.get(indeks).getDrugi(),
-                    rand.nextDouble()*100,
+                    rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100,
                     rand.nextDouble()*100

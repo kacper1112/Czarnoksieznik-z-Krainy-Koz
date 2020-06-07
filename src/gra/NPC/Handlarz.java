@@ -56,7 +56,7 @@ public class Handlarz extends NPC {
         ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                 bronFizycznaTMP.get(pairIndex).getPierwszy(),
                 bronFizycznaTMP.get(pairIndex).getDrugi(),
-                rand.nextDouble()*100,
+                rand.nextInt(100),
                 rand.nextInt(100),
                 rand.nextDouble()*100,
                 rand.nextDouble()*100
@@ -66,7 +66,7 @@ public class Handlarz extends NPC {
         ekwipunekTMP.wlozBronMagiczna( new BronMagiczna(
                 bronMagicznaTMP.get(pairIndex).getPierwszy(),
                 bronMagicznaTMP.get(pairIndex).getDrugi(),
-                rand.nextDouble()*100,
+                rand.nextInt(100),
                 rand.nextInt(100),
                 rand.nextDouble()*100,
                 rand.nextDouble()*100
@@ -76,17 +76,17 @@ public class Handlarz extends NPC {
         ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                 pozywienieTMP.get(pairIndex).getPierwszy(),
                 pozywienieTMP.get(pairIndex).getDrugi(),
-                rand.nextDouble()*100,
+                rand.nextInt(100),
                 rand.nextInt(100),
                 rand.nextDouble()*100
         ));
         AtomicInteger licznik = new AtomicInteger(1);
         ekwipunekTMP.getEkwipunekBronFizyczna()
-                .forEach(x-> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(),(80+rand.nextInt(40)-20)))));
+                .forEach(x-> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(),(x.getWartosc()+rand.nextInt(40)-20)))));
         ekwipunekTMP.getEkwipunekBronMagiczna()
-                .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(80+rand.nextInt(40)-20) ))));
+                .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(x.getWartosc()+rand.nextInt(40)-20) ))));
         ekwipunekTMP.getEkwipunekPozywienie()
-                .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(25+rand.nextInt(40)-20) ))));
+                .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(x.getWartosc()+rand.nextInt(40)-20) ))));
 
         return ekwipunekTMP;
     }
@@ -147,7 +147,7 @@ public class Handlarz extends NPC {
         Random rand = new Random();
         int pieniadzeOferta;
         if(przedmiot instanceof BronMagiczna){
-            pieniadzeOferta = 80+rand.nextInt(20);
+            pieniadzeOferta = przedmiot.getWartosc()-rand.nextInt(20);
             System.out.println("Za tę bron magiczna moge Ci zaoferowac: "+ pieniadzeOferta);
             if(zgodnaNaOferte()==1){
                 int indeks = (int) gracz.getEkwipunek().getEkwipunekBronMagiczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
@@ -156,7 +156,7 @@ public class Handlarz extends NPC {
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
         }else if(przedmiot instanceof BronFizyczna){
-            pieniadzeOferta = 80+rand.nextInt(20);
+            pieniadzeOferta = przedmiot.getWartosc()-rand.nextInt(20);
             System.out.println("Za tę bron fizyczna moge Ci zaoferowac: "+ pieniadzeOferta);
             if(zgodnaNaOferte()==1){
                 int indeks = (int) gracz.getEkwipunek().getEkwipunekBronFizyczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
@@ -165,7 +165,7 @@ public class Handlarz extends NPC {
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
         } else if(przedmiot instanceof PrzedmiotPozywienie ){
-            pieniadzeOferta = 20+rand.nextInt(20);
+            pieniadzeOferta = przedmiot.getWartosc()-rand.nextInt(10);
             System.out.println("Za to pozywienie moge Ci zaoferowac: "+ pieniadzeOferta);
             if(zgodnaNaOferte()==1){
                 int indeks = (int) gracz.getEkwipunek().getEkwipunekPozywienie().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;

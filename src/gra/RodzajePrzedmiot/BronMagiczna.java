@@ -12,7 +12,7 @@ public class BronMagiczna extends Przedmiot implements bron {
 
     public BronMagiczna(String nazwa,
                         String opis,
-                        double wartosc,
+                        int wartosc,
                         int szansaAtrybutu,
                         double obrazeniaBazowe,
                         double mocUderzeniaKrytycznego) {

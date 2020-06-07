@@ -88,7 +88,7 @@ public class Boss extends Wrog {
             ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                     bronFizycznaTMP.get(pairIndex).getPierwszy(),
                     bronFizycznaTMP.get(pairIndex).getDrugi(),
-                    rand.nextDouble()*100,
+                    rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100,
                     rand.nextDouble()*100
@@ -99,7 +99,7 @@ public class Boss extends Wrog {
             ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
                     bronMagicznaTMP.get(pairIndex).getPierwszy(),
                     bronMagicznaTMP.get(pairIndex).getDrugi(),
-                    rand.nextDouble()*100,
+                    rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100,
                     rand.nextDouble()*100
@@ -111,7 +111,7 @@ public class Boss extends Wrog {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     pozywienieTMP.get(pairIndex).getPierwszy(),
                     pozywienieTMP.get(pairIndex).getDrugi(),
-                    rand.nextDouble()*100,
+                    rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100
             ));
