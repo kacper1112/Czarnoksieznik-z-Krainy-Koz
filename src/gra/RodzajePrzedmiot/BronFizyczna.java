@@ -36,7 +36,7 @@ public class BronFizyczna extends Przedmiot implements bron {
 
     @Override
     public double zadajMocneObrazenia() {
-        // 60% szans na powodzenie uderzenia
+        // 40% szans na powodzenie uderzenia
         if(Math.random() < 0.4) {
             System.out.println("Nie trafiles wroga!");
             return 0;
@@ -60,11 +60,5 @@ public class BronFizyczna extends Przedmiot implements bron {
     @Override
     public String toString() {
         return getNazwa() + " [obrażenia: " + obrazeniaBazowe + ", ostrosc: " + ostrosc + ", moc ud. krytycznego: " + (mocUderzeniaKrytycznego + 100)  + "]";
-        /*
-         return "BronFizyczna: " +
-                "ostrosc: " + ostrosc +
-                ", obrazeniaBazowe: " + obrazeniaBazowe +
-                ", mocUderzeniaKrytycznego: " + mocUderzeniaKrytycznego;
-         */
     }
 }
