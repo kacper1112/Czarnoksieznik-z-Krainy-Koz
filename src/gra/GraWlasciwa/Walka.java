@@ -20,7 +20,7 @@ public class Walka {
         return random.nextInt(2);
     }
 
-    public static boolean walka(Gracz gracz, Wrog wrog) {
+    public static void walka(Gracz gracz, Wrog wrog) {
         int wyborGracza;
         boolean walkaTrwa = true;
         double obrazenia;
@@ -70,7 +70,12 @@ public class Walka {
 
             kolejGracza = !kolejGracza;
         }
-        return !kolejGracza;
+        if(gracz.getObecnePunktyZycia() > 0) {
+            gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
+        } else {
+            System.out.println("Zostales zabity");
+        }
+        //return !kolejGracza;
     }
 
     static boolean walkaZWrogiem(Gracz gracz, Wrog wrog){
