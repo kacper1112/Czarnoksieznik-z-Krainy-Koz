@@ -38,7 +38,7 @@ public class Boss extends Wrog {
     }
 
     PrzedmiotFabularny wygranaBohatera(int indeks){
-        PrzedmiotFabularny przedmiot = (PrzedmiotFabularny) this.getEkwipunek().getEkwipunekFabularne().get(indeks);
+        PrzedmiotFabularny przedmiot = this.getEkwipunek().getEkwipunekFabularne().get(indeks);
         System.out.print("Pokonales mnie, na farcie..... i tak ostatniecznie przegrasz byczq!");
         return przedmiot;
     }

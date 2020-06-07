@@ -8,7 +8,7 @@ import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 public abstract class NPC implements generatorEkwipunku {
-    private String imie;
+    private final String imie;
     private Ekwipunek ekwipunek;
 
     public NPC(String imie) {
