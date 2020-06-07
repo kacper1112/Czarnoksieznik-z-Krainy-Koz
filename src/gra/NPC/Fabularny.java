@@ -14,12 +14,6 @@ public class Fabularny extends NPC {
     private boolean czyPosiadaPrzedmiotFabularny;
     private List<? super Przedmiot> podarki;
 
-    public Fabularny(String imie) {
-        super(imie);
-        przedmiotFabularny = null;
-        czyPosiadaPrzedmiotFabularny = false;
-    }
-
     public Fabularny(String imie, boolean czyPosiadaPrzedmiotFabularny, PrzedmiotFabularny przedmiotFabularny) {
         super(imie);
         this.przedmiotFabularny = przedmiotFabularny;
@@ -65,7 +59,7 @@ public class Fabularny extends NPC {
                         rand.nextDouble() * 100
                 ));
                 if (ekwipunekTMP.getEkwipunekBronFizyczna().size() > 0)
-                    ekwipunekTMP.getEkwipunekBronFizyczna().forEach(x -> podarki.add(x));
+                    podarki.addAll(ekwipunekTMP.getEkwipunekBronFizyczna());
             } else {
                 indeks -= bronFizycznaTMP.size();
                 ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
@@ -78,7 +72,7 @@ public class Fabularny extends NPC {
                 ));
 
                 if (ekwipunekTMP.getEkwipunekBronMagiczna().size() > 0)
-                    ekwipunekTMP.getEkwipunekBronMagiczna().forEach(x -> podarki.add(x));
+                    podarki.addAll(ekwipunekTMP.getEkwipunekBronMagiczna());
             }
         } else {
             int indeks = rand.nextInt(pozywienieTMP.size());
@@ -90,7 +84,7 @@ public class Fabularny extends NPC {
                     rand.nextDouble() * 100
             ));
             if (ekwipunekTMP.getEkwipunekPozywienie().size() > 0)
-                ekwipunekTMP.getEkwipunekPozywienie().forEach(x -> podarki.add(x));
+                podarki.addAll(ekwipunekTMP.getEkwipunekPozywienie());
         }
 
         return ekwipunekTMP;
@@ -109,15 +103,8 @@ public class Fabularny extends NPC {
         return this.przedmiotFabularny;
     }
 
-    public void wlozPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny) {
-        this.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
-    }
-
     public boolean isCzyPosiadaPrzedmiotFabularny() {
         return czyPosiadaPrzedmiotFabularny;
     }
 
-    public void setCzyPosiadaPrzedmiotFabularny(boolean czyPosiadaPrzedmiotFabularny) {
-        this.czyPosiadaPrzedmiotFabularny = czyPosiadaPrzedmiotFabularny;
-    }
 }

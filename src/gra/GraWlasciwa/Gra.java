@@ -10,7 +10,7 @@ import gra.RodzajeGracz.Gracz;
 import gra.RodzajeGracz.Kaplan;
 import gra.RodzajeGracz.Mag;
 import gra.RodzajeGracz.Wojownik;
-import gra.RodzajePrzedmiot.PrzedmiotFabularny;
+import gra.RodzajePrzedmiot.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -153,7 +153,15 @@ public class Gra {
                         KolorTekstu.printCyan(wydarzenie.getOpis());
                         if (wydarzenie.getPostacieFabularne() != null) {
                             wydarzenie.getPostacieFabularne().forEach(postac -> {
-                                postac.podarujLosowyPrzedmiotNieFabularny();
+                                Przedmiot p = postac.podarujLosowyPrzedmiotNieFabularny();
+                                if(p instanceof PrzedmiotPozywienie) {
+                                    gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie)p);
+                                } else if (p instanceof BronMagiczna) {
+                                    gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna)p);
+                                } else if (p instanceof BronFizyczna) {
+                                    gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna)p);
+                                }
+
                                 if (postac.isCzyPosiadaPrzedmiotFabularny()) {
                                     gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
                                 }

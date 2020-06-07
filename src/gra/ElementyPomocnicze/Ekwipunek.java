@@ -65,10 +65,6 @@ public class Ekwipunek {
         ekwipunekBronMagiczna.remove(indeks);
     }
 
-    public void wyciagnijFabularne(int indeks) {
-        ekwipunekFabularne.remove(indeks);
-    }
-
     public void wyciagnijPozywienie(int indeks) {
         ekwipunekPozywienie.remove(indeks);
     }
@@ -148,7 +144,6 @@ public class Ekwipunek {
                 KolorTekstu.printZielony("Wyekwipowana bron fizyczna:\n" + "\t"
                         + this.getWyekwipowanaBron());
             }
-
         }
 
         if (!this.getEkwipunekPozywienie().isEmpty()) {
