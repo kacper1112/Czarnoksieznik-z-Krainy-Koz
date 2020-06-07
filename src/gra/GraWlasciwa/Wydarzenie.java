@@ -28,6 +28,16 @@ public class Wydarzenie {
     private final Boss boss;
     private final Zagadka zagadka;
 
+    public Boolean getCzyWykonana() {
+        return czyWykonana;
+    }
+
+    public void setCzyWykonana(Boolean czyWykonana) {
+        this.czyWykonana = czyWykonana;
+    }
+
+    private Boolean czyWykonana;
+
     public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, int iluWrogow, Boss boss) {
         this.nazwa = nazwa;
         this.opis = opis;
@@ -36,6 +46,7 @@ public class Wydarzenie {
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = boss;
         this.zagadka = null;
+        this.czyWykonana = false;
     }
 
     public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Wrog> wrogowie, Boss boss) {
@@ -46,6 +57,7 @@ public class Wydarzenie {
         this.wrogowie = wrogowie;
         this.boss = boss;
         this.zagadka = null;
+        this.czyWykonana = false;
     }
 
     public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Wrog> wrogowie, Boss boss, Zagadka zagadka) {
@@ -56,6 +68,7 @@ public class Wydarzenie {
         this.wrogowie = wrogowie;
         this.boss = boss;
         this.zagadka = zagadka;
+        this.czyWykonana = false;
     }
 
 
