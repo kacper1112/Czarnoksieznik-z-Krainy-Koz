@@ -126,11 +126,14 @@ public class Wydarzenie {
 
                 System.out.println("O bogowie, walka!");
 
+                /*
                 if(walka(wrog)) {
                     wygranaGracza(wrog);
                 } else {
                     Gra.przegrana();
                 }
+
+                 */
             }
         }
 
@@ -145,11 +148,14 @@ public class Wydarzenie {
             // todo boss powinien miec swoj wlasny "wstep" do walki w rodzaju
             // "w powietrzu czuc zapach siarki, slychac ciezkie kroki... nadchodzi smok jakistam!!!!!!!!!!!!!!
             // System.out.println(boss.get);
+            /*
             if(!walka(boss)) {
                 Gra.przegrana();
             } else {
                 wygranaGracza(boss);
             }
+
+             */
         }
     }
 
@@ -220,6 +226,7 @@ public class Wydarzenie {
         this.zagadka.wywolajZagadke(gracz);
     }
 
+    /*
     private boolean walka(Wrog wrog) {
         int wyborGracza;
         boolean walkaTrwa = true;
@@ -272,6 +279,7 @@ public class Wydarzenie {
         }
         return !kolejGracza;
     }
+     */
 
     public Zagadka getZagadka() {
         return zagadka;

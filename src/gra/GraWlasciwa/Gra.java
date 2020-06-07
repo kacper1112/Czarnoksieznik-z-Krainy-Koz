@@ -491,6 +491,10 @@ public class Gra {
         this.lokalizacjaGracza = lokalizacjaGracza;
     }
 
+    public Gracz getGracz() {
+        return gracz;
+    }
+
     // todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga
     // juz ma
 
