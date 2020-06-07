@@ -133,17 +133,17 @@ public class Menu {
         System.out.println("1. Kupic od Handlarza");
         System.out.println("2. Sprzedac dla Handlarza");
         int wyborCzynnosci = in.nextInt();
-        if(wyborCzynnosci==1){
-            List<Handlarz> handlarzeTMP = new ArrayList<>();
-            lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().forEach(x->{
-                if(x.getHandlarz()!=null){
-                    handlarzeTMP.add(x.getHandlarz());
-                }
-            });
+        List<Handlarz> handlarzeTMP = new ArrayList<>();
+        lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().forEach(x->{
+            if(x.getHandlarz()!=null){
+                handlarzeTMP.add(x.getHandlarz());
+            }
+        });
 
-            List<Para<Integer,Handlarz> > handlarze = new ArrayList<>();
-            AtomicInteger nrHandlarza = new AtomicInteger(1);
-            handlarzeTMP.forEach(x->handlarze.add(new Para<>(nrHandlarza.getAndIncrement(),x)));
+        List<Para<Integer,Handlarz> > handlarze = new ArrayList<>();
+        AtomicInteger nrHandlarza = new AtomicInteger(1);
+        handlarzeTMP.forEach(x->handlarze.add(new Para<>(nrHandlarza.getAndIncrement(),x)));
+        if(wyborCzynnosci==1){
             handlarze.forEach(x->{
                 System.out.println(x.getPierwszy() +". Handlarz: " + "Witaj jestem "+ x.getDrugi().getImie() +": ");
                 x.getDrugi().przedstawOferte();
@@ -183,7 +183,9 @@ public class Menu {
         } else if(wyborCzynnosci==2) {
             Przedmiot p = getItemZEkwiupnuku();
             System.out.println("Przedmiot ktory chcesz sprzedac->"+ p.getNazwa());
-
+            System.out.println("Twoj aktualny kapital: "+ gracz.getPieniadze());
+            handlarze.forEach(x->x.getDrugi().kupOdGracza(gracz,p));
+            System.out.println("Twoj kapital po sprzedazy: "+ gracz.getPieniadze());
         } else{
             System.out.println("Niepoprawny wybor czynnosci");
         }

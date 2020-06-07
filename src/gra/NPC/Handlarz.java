@@ -12,6 +12,7 @@ import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -100,9 +101,7 @@ public class Handlarz extends NPC {
         }
         System.out.println("    Oto moja oferta dla ciebie przybyszu:");
 
-        oferta.forEach(x->{
-                System.out.println("    "+x.getDrugi().getPierwszy() + ". " + x.getPierwszy().getNazwa() + " - cena: " + x.getDrugi().getDrugi());
-        });
+        oferta.forEach(x-> System.out.println("    "+x.getDrugi().getPierwszy() + ". " + x.getPierwszy().getNazwa() + " - cena: " + x.getDrugi().getDrugi()));
     }
 
     public void resetujOferte(){
@@ -131,16 +130,52 @@ public class Handlarz extends NPC {
                 .collect(Collectors.toList());
     }
 
+    private int zgodnaNaOferte(){
+        Scanner in = new Scanner(System.in);
+        int wybor;
+        while (true){
+            System.out.println("Wybierz 1 jesli sprzedajesz");
+            System.out.println("Wybierz 2 jesli NIE sprzedajesz");
+            wybor = in.nextInt();
+            if(wybor==1 || wybor==2){
+                break;
+            }else {
+                System.out.println("Zly wybor decyzji");
+            }
+        }
+        return wybor;
+    }
+
     public void kupOdGracza(Gracz gracz, Przedmiot przedmiot){
+        Random rand = new Random();
+        int pieniadzeOferta;
         if(przedmiot instanceof BronMagiczna){
-            System.out.println("Za tę bron magiczna moge Ci zaoferowac");
-            int indeks = (int) gracz.getEkwipunek().getEkwipunekBronMagiczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count();
-            gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
+            pieniadzeOferta = 80+rand.nextInt(20);
+            System.out.println("Za tę bron magiczna moge Ci zaoferowac: "+ pieniadzeOferta);
+            if(zgodnaNaOferte()==1){
+                int indeks = (int) gracz.getEkwipunek().getEkwipunekBronMagiczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
+                gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
+                this.getEkwipunek().wlozBronMagiczna((BronMagiczna) przedmiot);
+                gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
+            }
         }else if(przedmiot instanceof BronFizyczna){
-
-
+            pieniadzeOferta = 80+rand.nextInt(20);
+            System.out.println("Za tę bron fizyczna moge Ci zaoferowac: "+ pieniadzeOferta);
+            if(zgodnaNaOferte()==1){
+                int indeks = (int) gracz.getEkwipunek().getEkwipunekBronFizyczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
+                gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
+                this.getEkwipunek().wlozBronFizyczna((BronFizyczna) przedmiot);
+                gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
+            }
         } else if(przedmiot instanceof PrzedmiotPozywienie ){
-
+            pieniadzeOferta = 20+rand.nextInt(20);
+            System.out.println("Za to pozywienie moge Ci zaoferowac: "+ pieniadzeOferta);
+            if(zgodnaNaOferte()==1){
+                int indeks = (int) gracz.getEkwipunek().getEkwipunekPozywienie().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
+                gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
+                this.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie) przedmiot);
+                gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
+            }
         }
     }
 
