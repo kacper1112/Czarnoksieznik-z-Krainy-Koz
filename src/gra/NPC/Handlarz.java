@@ -84,9 +84,9 @@ public class Handlarz extends NPC {
         ));
         AtomicInteger licznik = new AtomicInteger(1);
         ekwipunekTMP.getEkwipunekBronFizyczna()
-                .forEach(x-> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(),(100+rand.nextInt(40)-20)))));
+                .forEach(x-> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(),(80+rand.nextInt(40)-20)))));
         ekwipunekTMP.getEkwipunekBronMagiczna()
-                .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(100+rand.nextInt(40)-20) ))));
+                .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(80+rand.nextInt(40)-20) ))));
         ekwipunekTMP.getEkwipunekPozywienie()
                 .forEach(x-> oferta.add(new Para<>((Przedmiot) x,new Para<>(licznik.getAndIncrement(),(25+rand.nextInt(40)-20) ))));
 
