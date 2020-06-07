@@ -1,6 +1,7 @@
 package gra.GraWlasciwa;
 
 import gra.GraWlasciwa.Wydarzenie;
+import gra.NPC.Handlarz;
 
 import java.util.List;
 
@@ -10,18 +11,20 @@ public class Lokacja {
     private final List<Integer> sasiednieLokacje;
     private final Wydarzenie wydarzenieFabularne;
     private final List<Wydarzenie> wydarzeniaPoboczne;
-
+    private final Handlarz handlarz;
 
     public Lokacja(String nazwa,
                    String opis,
                    Wydarzenie fabularne,
                    List<Wydarzenie> poboczne,
-                   List<Integer> sasiednie) {
+                   List<Integer> sasiednie,
+                   Handlarz handlarz) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.wydarzenieFabularne = fabularne;
         this.wydarzeniaPoboczne = poboczne;
         this.sasiednieLokacje = sasiednie;
+        this.handlarz = handlarz;
     }
 
     public String getNazwa() {
@@ -42,5 +45,9 @@ public class Lokacja {
 
     public List<Wydarzenie> getWydarzeniaPoboczne() {
         return wydarzeniaPoboczne;
+    }
+
+    public Handlarz getHandlarz() {
+        return handlarz;
     }
 }
