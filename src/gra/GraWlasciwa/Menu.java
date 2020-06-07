@@ -143,8 +143,8 @@ public class Menu {
     public static void menuHandlu(){
         Gra.wyczyscTerminal();
         System.out.println("Wybierz co chcesz zrobic: ");
-        System.out.println("1. Kupic od Handlarza");
-        System.out.println("2. Sprzedac dla Handlarza");
+        System.out.println("1. Kupic przedmioty od handlarza");
+        System.out.println("2. Sprzedac cos handlarzowi");
         int wyborCzynnosci = in.nextInt();
         Handlarz handlarzTMP = lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getHandlarz();
         if(wyborCzynnosci==1) {
