@@ -4,21 +4,8 @@ import gra.NPC.Boss;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 public class Walka {
 
-    static Random random = new Random();
-
-    static List<String > komentarze(){
-        return new ArrayList<>();
-    }
-
-    private static int whoBegin(){
-        return random.nextInt(2);
-    }
 
     public static void walka(Gracz gracz, Wrog wrog) {
         int wyborGracza;
