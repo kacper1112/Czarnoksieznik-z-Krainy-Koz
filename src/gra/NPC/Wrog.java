@@ -63,7 +63,7 @@ public class Wrog extends NPC {
         if(this.getEkwipunek().getWyekwipowanaBron() != null) {
             return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
         }
-        System.out.println("Wrog nie posiada broni, atakuje Cie szponami");
+        System.out.println("Wrog nie posiada broni, ale chyba walczy calkiem niezle i bez niej...");
         return getBazowyAtak();
     }
     /**
