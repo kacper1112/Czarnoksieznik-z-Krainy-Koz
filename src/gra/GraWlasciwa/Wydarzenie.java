@@ -225,7 +225,7 @@ public class Wydarzenie {
 
             } else {
                 obrazenia = wrog.zadajObrazenia();
-                System.out.println(wrog.getImie() + " zadaje Ci " + obrazenia + "punktow obrazen!");
+                System.out.println(wrog.getImie() + " zadaje Ci " + obrazenia + "punktow obrazen! ");
                 gracz.otrzymajObrazenia(obrazenia);
                 System.out.println("Masz teraz " + gracz.getObecnePunktyZycia() + "/" +
                         gracz.getMaksymalnePunktyZycia() + " punktow zycia.");
