@@ -19,7 +19,7 @@ public class Zagadka {
 
     public void wywolajZagadke(Gracz gracz) {
         String odpowiedzGracza = "";
-        while(!odpowiedzGracza.equals(this.odpowiedz)) {
+        while (!odpowiedzGracza.equals(this.odpowiedz)) {
             System.out.println(this.zagadka);
             odpowiedzGracza = in.nextLine().trim();
         }

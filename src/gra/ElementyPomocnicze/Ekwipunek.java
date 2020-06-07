@@ -1,6 +1,9 @@
 package gra.ElementyPomocnicze;
 
-import gra.RodzajePrzedmiot.*;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotFabularny;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,14 +139,14 @@ public class Ekwipunek {
             System.out.println("Oto ekwipunek twego przeciwnika:");
         }
 
-        if(TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK || TYP == TYP_POSIADACZA_EKWIPUNKU.MAG || TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN){
-            if(this.getWyekwipowanaBron() instanceof BronMagiczna){
+        if (TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK || TYP == TYP_POSIADACZA_EKWIPUNKU.MAG || TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN) {
+            if (this.getWyekwipowanaBron() instanceof BronMagiczna) {
                 KolorTekstu.printZielony("Wyekwipowana bron magiczna:\n" + "\t" +
-                        this.getWyekwipowanaBron() );
+                        this.getWyekwipowanaBron());
 
-            }else if(this.getWyekwipowanaBron() instanceof BronFizyczna){
+            } else if (this.getWyekwipowanaBron() instanceof BronFizyczna) {
                 KolorTekstu.printZielony("Wyekwipowana bron fizyczna:\n" + "\t"
-                        + this.getWyekwipowanaBron() );
+                        + this.getWyekwipowanaBron());
             }
 
         }
@@ -157,19 +160,19 @@ public class Ekwipunek {
         if (!this.getEkwipunekBronFizyczna().isEmpty()) {
             KolorTekstu.printZielony("Bron fizyczna:");
             for (BronFizyczna bron : this.getEkwipunekBronFizyczna()) {
-                KolorTekstu.printZielony("\t" +indeks++ + ". " + bron);
+                KolorTekstu.printZielony("\t" + indeks++ + ". " + bron);
             }
         }
         if (!this.getEkwipunekBronMagiczna().isEmpty()) {
             KolorTekstu.printZielony("Bron magiczna:");
             for (BronMagiczna bron : this.getEkwipunekBronMagiczna()) {
-                KolorTekstu.printZielony("\t" +indeks++ + ". " + bron);
+                KolorTekstu.printZielony("\t" + indeks++ + ". " + bron);
             }
         }
         if (!this.getEkwipunekFabularne().isEmpty()) {
             KolorTekstu.printZielony("Przedmioty fabularne:");
             for (PrzedmiotFabularny p : this.getEkwipunekFabularne()) {
-                KolorTekstu.printZielony("\t" +indeks++ + ". " + p.getNazwa());
+                KolorTekstu.printZielony("\t" + indeks++ + ". " + p.getNazwa());
             }
         }
         return indeks - 1;
