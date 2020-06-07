@@ -25,6 +25,9 @@ public class Walka {
         boolean walkaTrwa = true;
         double obrazenia;
         // true - gracz, false - wrog
+
+        Gra.wyczyscTerminal();
+
         boolean kolejGracza = (Math.random() < 0.5);
         if(kolejGracza) {
             System.out.println("Walke rozpoczyna Twoj przeciwnik!");

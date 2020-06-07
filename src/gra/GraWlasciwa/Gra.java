@@ -12,6 +12,7 @@ import gra.RodzajeGracz.Wojownik;
 import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,6 +43,7 @@ public class Gra {
         in = new Scanner(System.in);
         lokalizacjaGracza = 0;
 
+        wyczyscTerminal();
         System.out.println("Czarnoksieznik z Krainy Koz\n");
         System.out.println("1.Rozpocznij nowa gre \n2.Pokaz instrukcje");
         wyborGracza = wczytajWyborGracza(2, false);
@@ -52,6 +54,7 @@ public class Gra {
             wyborGracza = wczytajWyborGracza(1, false);
         }
 
+        wyczyscTerminal();
         System.out.println("Wybierz swoja klase postaci:\n1.Wojownik\n2.Mag\n3.Kaplan");
         wyborGracza = wczytajWyborGracza(3, false);
 
@@ -75,6 +78,7 @@ public class Gra {
     }
 
     private void pokazInstrukcje() {
+        wyczyscTerminal();
         System.out.println("To jest instrukcja");
     }
 
@@ -503,6 +507,15 @@ public class Gra {
 
     public Gracz getGracz() {
         return gracz;
+    }
+
+    public static void wyczyscTerminal() {
+        try {
+            if (System.getProperty("os.name").contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+        } catch (IOException | InterruptedException ignored) {}
     }
 
     // todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga
