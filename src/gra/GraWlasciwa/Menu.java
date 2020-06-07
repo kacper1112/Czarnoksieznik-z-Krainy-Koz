@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public class Menu {
     private static final Scanner in = new Scanner(System.in);
@@ -35,6 +36,17 @@ public class Menu {
         System.out.println("Wybierz numer lokacji do ktorej chcialbys przejsc (0 zeby wyjsc do poprzedniego menu)");
         int wyborLokacji = in.nextInt();
 
+        if(wyborLokacji == 11) {
+            if(gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka 1")).collect(Collectors.toList()).size() != 0) {
+                System.out.println("Masz przepustke");
+            } else {
+                System.out.println("Nie masz przepustki");
+            }
+        } else if(wyborLokacji == 12) {
+
+        } else if(wyborLokacji == 13) {
+
+        }
         if(wyborLokacji == 0) {
             return false;
         } else if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().contains(wyborLokacji)) {

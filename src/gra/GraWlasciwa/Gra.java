@@ -176,7 +176,7 @@ public class Gra {
 
             }
 
-            if(lokalizacjaGracza == 11) {
+            if(lokalizacjaGracza == 20) {
                 break;
             }
 
@@ -278,7 +278,7 @@ public class Gra {
                         gracz,
                         null,
                         new Handlarz("Miejski handlarz"), 0, null),
-                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), List.of( 3 ))
+                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), List.of( 11, 12, 13 ))
                 );
                 // todo dodac lokajce z bossem
 
@@ -379,6 +379,57 @@ public class Gra {
                 "Przepustka 3", "Przepustka do boss'a 3", 0, 0, false, "Uzyj, aby wejsc do boss'a 3", 10
         ))
         ), null, List.of(7, 8, 9)));
+
+        // 11
+        lokacjeTMP.add(
+                new Lokacja(
+                        "Przedpola Asgardu",
+                        "Docierasz do przedpol Azgardu",
+                        new Wydarzenie(
+                                "Walka z bossem Mefisto",
+                                "Osiagnales swoj cel, walczysz ze straszliwym Mefisto.",
+                                gracz,
+                                null,
+                                null,
+                                null,
+                                new Boss("Mefisto", 500, 170, new PrzedmiotFabularny("Przepustka do czarnoksieznika 1", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
+                                null
+
+        ), null, List.of(12, 13, 2, 14)));
+
+        // 12
+        lokacjeTMP.add(
+                new Lokacja(
+                        "Wzniesienie Marmonda",
+                        "Docierasz do wzniesienia Marmonda",
+                        new Wydarzenie(
+                                "Walka z bossem Andariel",
+                                "Osiagnales swoj cel, walczysz ze straszliwym Andarielem.",
+                                gracz,
+                                null,
+                                null,
+                                null,
+                                new Boss("Andariel ", 700, 200, new PrzedmiotFabularny("Przepustka do czarnoksieznika 2", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
+                                null
+
+                        ), null, List.of(11, 13, 2, 14)));
+
+        // 13
+        lokacjeTMP.add(
+                new Lokacja(
+                        "Krzywa wieza",
+                        "Docierasz do krzywej Wiezy",
+                        new Wydarzenie(
+                                "Walka z bossem Belial",
+                                "Osiagnales swoj cel, walczysz ze straszliwym Belialem.",
+                                gracz,
+                                null,
+                                null,
+                                null,
+                                new Boss("Belial", 1000, 300, new PrzedmiotFabularny("Przepustka do czarnoksieznika 3", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
+                                null
+
+                        ), null, List.of(11, 12, 2, 14)));
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
