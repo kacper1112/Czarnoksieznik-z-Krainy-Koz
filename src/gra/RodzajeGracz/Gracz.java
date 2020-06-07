@@ -2,12 +2,14 @@ package gra.RodzajeGracz;
 
 import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.generatorEkwipunku;
-import gra.RodzajePrzedmiot.*;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.Przedmiot;
 
 public abstract class Gracz implements generatorEkwipunku {
+    private final double maksymalnePunktyZycia;
     // pola klasy Gracza
     Ekwipunek ekwipunek;
-    private final double maksymalnePunktyZycia;
     private double obecnePunktyZycia;
     private double sila;
     private double inteligencja;

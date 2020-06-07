@@ -1,9 +1,9 @@
 package gra.RodzajeGracz;
 
-import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.ElementyPomocnicze.Ekwipunek;
-import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.Random;
 
@@ -26,7 +26,7 @@ public class Wojownik extends Gracz {
         // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
         double sumaSily = getSila() + getSumaBonusowDoSily();
 
-        if(sumaSily >= 100) {
+        if (sumaSily >= 100) {
             sumaSily = 90;
         }
 
@@ -64,7 +64,7 @@ public class Wojownik extends Gracz {
                 10
         ));
 
-        if(rand.nextDouble() < 0.5){
+        if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
@@ -72,7 +72,7 @@ public class Wojownik extends Gracz {
                     10,
                     10
             ));
-        }else {
+        } else {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",

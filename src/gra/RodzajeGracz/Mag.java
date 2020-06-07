@@ -1,9 +1,9 @@
 package gra.RodzajeGracz;
 
-import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.ElementyPomocnicze.Ekwipunek;
-import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.Random;
 
@@ -21,7 +21,7 @@ public class Mag extends Gracz {
         double obrazenia = this.ekwipunek.getWyekwipowanaBron().zadajMocneObrazenia();
         double sumaInteligencji = getInteligencja() + getSumaBonusowDoInteligencji();
 
-        if(obrazenia == 0) {
+        if (obrazenia == 0) {
             return 0;
         } else {
             return this.getEkwipunek().getWyekwipowanaBron().zadajMocneObrazenia() + sumaInteligencji;
@@ -31,7 +31,7 @@ public class Mag extends Gracz {
     // obsluzyc jak gracza ginie
     public void otrzymajObrazenia(double wartosc) {
         // mozwliwosc uniku
-        if(Math.random() >= .1) {
+        if (Math.random() >= .1) {
             // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
             double obrazenia = (1 - this.getInteligencja() / 100) * wartosc;
             zmniejszPunktyZycia(obrazenia);
@@ -39,7 +39,7 @@ public class Mag extends Gracz {
     }
 
     public void zwiekszLevel() {
-        if(this.getPunktyDoswiadczenia() > 100) {
+        if (this.getPunktyDoswiadczenia() > 100) {
             this.setPoziom(this.getPoziom() + 1);
             this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
             this.setInteligencja(this.getInteligencja() + 10);
@@ -72,7 +72,7 @@ public class Mag extends Gracz {
                 10
         ));
 
-        if(rand.nextDouble() < 0.5){
+        if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
@@ -80,7 +80,7 @@ public class Mag extends Gracz {
                     10,
                     10
             ));
-        }else {
+        } else {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",
@@ -90,6 +90,6 @@ public class Mag extends Gracz {
             ));
         }
         ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0);
-        return  ekwipunekTMP;
+        return ekwipunekTMP;
     }
 }

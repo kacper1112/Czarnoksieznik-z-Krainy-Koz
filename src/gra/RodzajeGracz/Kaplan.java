@@ -22,7 +22,7 @@ public class Kaplan extends Gracz {
     }
 
     public void otrzymajObrazenia(double wartosc) {
-        if(Math.random() < 0.3) {
+        if (Math.random() < 0.3) {
             System.out.println("Atak wroga leczy Cie!");
             zwiekszPunktyZycia(wartosc);
         } else {
@@ -31,7 +31,7 @@ public class Kaplan extends Gracz {
     }
 
     public void zwiekszLevel() {
-        if(this.getPunktyDoswiadczenia() > 100) {
+        if (this.getPunktyDoswiadczenia() > 100) {
             this.setPoziom(this.getPoziom() + 1);
             this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
             this.setSila(this.getSila() + 5);
@@ -48,7 +48,7 @@ public class Kaplan extends Gracz {
     public Ekwipunek generujEkwipunek() {
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.KAPLAN);
         Random rand = new Random();
-        if(rand.nextDouble() < 0.5){
+        if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                     "poczatkowa bron fizyczna",
                     "opis",
@@ -57,7 +57,7 @@ public class Kaplan extends Gracz {
                     10,
                     10
             ));
-        }else{
+        } else {
             ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
                     "poczatkowa bron magiczna",
                     "opis",
@@ -67,7 +67,7 @@ public class Kaplan extends Gracz {
                     10
             ));
         }
-        if(rand.nextDouble() < 0.5){
+        if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
@@ -75,7 +75,7 @@ public class Kaplan extends Gracz {
                     10,
                     10
             ));
-        }else {
+        } else {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",
@@ -84,7 +84,7 @@ public class Kaplan extends Gracz {
                     10
             ));
         }
-        if(rand.nextDouble() < 0.5){
+        if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
@@ -92,7 +92,7 @@ public class Kaplan extends Gracz {
                     10,
                     10
             ));
-        }else {
+        } else {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",
@@ -102,9 +102,9 @@ public class Kaplan extends Gracz {
             ));
         }
 
-        if(ekwipunekTMP.getEkwipunekBronMagiczna().size()>0){
+        if (ekwipunekTMP.getEkwipunekBronMagiczna().size() > 0) {
             ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0);
-        }else{
+        } else {
             ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0);
         }
 
