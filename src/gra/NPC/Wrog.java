@@ -58,7 +58,6 @@ public class Wrog extends NPC {
         }
     }
 
-    // todo: przeciwnik posluguje sie bronia o ile ma jakas w ekwipunku, jak nie to walczy nwm szponami XD
     public double zadajObrazenia(){
         if(this.getEkwipunek().getWyekwipowanaBron() != null) {
             return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
