@@ -24,3 +24,4 @@ public class PrzedmiotPozywienie extends Przedmiot {
                 "," + przywracaneZycie + ")";
     }
 }
+
