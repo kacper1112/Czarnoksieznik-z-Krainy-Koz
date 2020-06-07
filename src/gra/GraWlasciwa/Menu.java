@@ -108,15 +108,13 @@ public class Menu {
 
         rozmiarEq -= gracz.getEkwipunek().getIloscBronMagiczna();
         if(wyborGracza > rozmiarEq) {
-            System.out.println("Wyekwipowano bron magiczna");
-            gracz.zmienBronNaMagiczna(wyborGracza - rozmiarEq - 1);
+            gracz.getEkwipunek().zmienWyekwipowanaBronNaMagiczna(wyborGracza - rozmiarEq - 1);
             return;
         }
 
         rozmiarEq -= gracz.getEkwipunek().getIloscBronFizyczna();
         if(wyborGracza > rozmiarEq) {
-            System.out.println("Wyekwipowano bron fizyczna");
-            gracz.zmienBronNaFizyczna(wyborGracza - rozmiarEq - 1);
+            gracz.getEkwipunek().zmienWyekwipowanaBronNaFizyczna(wyborGracza - rozmiarEq - 1);
             return;
         }
 

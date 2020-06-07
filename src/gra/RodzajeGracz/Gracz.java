@@ -172,26 +172,6 @@ public abstract class Gracz implements generatorEkwipunku {
         System.out.println(this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja));
     }
 
-    // zmien wyekwipowana bron na Fizyczna
-    public void zmienBronNaFizyczna(int index) {
-        if(index < this.ekwipunek.getEkwipunekBronFizyczna().size()) {
-            this.ekwipunek.zmienWyekwipowanaBronNaFiczyna(index);
-            System.out.println("Zmieniles bron na: " + ekwipunek.getEkwipunekBronFizyczna().get(index));
-        } else {
-            System.out.println("Bron o podanym indeksie nie istnieje");
-        }
-    }
-
-    // zmien wyekwipowana bron na Fizyczna
-    public void zmienBronNaMagiczna(int index) {
-        if(index < this.ekwipunek.getEkwipunekBronMagiczna().size()) {
-            this.ekwipunek.zmienWyekwipowanaBronNaMagiczna(index);
-            System.out.println("Zmieniles bron na: " + ekwipunek.getEkwipunekBronMagiczna().get(index));
-        } else {
-            System.out.println("Bron o podanym indeksie nie istnieje");
-        }
-    }
-
     public String toString() {
         return "Masz obecnie " +
                 obecnePunktyZycia +" punktow zycia, " +
