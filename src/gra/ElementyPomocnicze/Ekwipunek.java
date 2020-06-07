@@ -162,6 +162,9 @@ public class Ekwipunek {
     }
 
     public void dodajEkwipunek(Ekwipunek ekwipunekPrzeciwnika){
+        System.out.println("-------------------------------------------------------------");
+        ekwipunekPrzeciwnika.pokazEkwipunek();
+        System.out.println("-------------------------------------------------------------");
         if(!ekwipunekPrzeciwnika.getEkwipunekPozywienie().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(this::wlozPozywienie);
         }
@@ -171,7 +174,7 @@ public class Ekwipunek {
         if(!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(this::wlozBronMagiczna);
         }
-        if(!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+        if(!ekwipunekPrzeciwnika.getEkwipunekFabularne().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozFabularne);
         }
     }

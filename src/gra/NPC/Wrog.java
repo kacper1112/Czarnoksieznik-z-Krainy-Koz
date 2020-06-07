@@ -32,10 +32,10 @@ public class Wrog extends NPC {
 
     public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak , PrzedmiotFabularny przedmiotFabularny){
         super(imie);
-        this.getEkwipunek().wlozFabularne(przedmiotFabularny);
         this.maksymalnePunktyZycia = maksymalnePunktyZycia;
         this.obecnePunktyZycia = maksymalnePunktyZycia;
         this.bazowyAtak = bazowyAtak;
+        this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
     public double getObecnePunktyZycia() {

@@ -55,11 +55,19 @@ public class KolorTekstu {
         }
 
         public static void printZolty(String tekst){
-                System.out.println(BRIGHT_BG_YELLOW + tekst + RESET);
+                System.out.println(YELLOW + tekst + RESET);
+        }
+
+        public static void printBZolty(String tekst){
+                System.out.println(BG_YELLOW + tekst + RESET);
         }
 
         public static void printCyan(String tekst){
                 System.out.println(CYAN + tekst + RESET);
+        }
+
+        public static void printBCyan(String tekst){
+                System.out.println(BG_CYAN + tekst + RESET);
         }
 
         public static void printNiebieski(String tekst){

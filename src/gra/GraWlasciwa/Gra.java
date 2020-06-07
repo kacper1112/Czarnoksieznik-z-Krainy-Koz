@@ -111,7 +111,7 @@ public class Gra {
     private boolean rozpocznijGre() {
         while (true) {
             //System.out.println(this.lokacje.get(lokalizacjaGracza).getOpis());
-            KolorTekstu.tekstyZLokacji(this.lokacje.get(lokalizacjaGracza).getOpis());
+            KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getOpis());
             if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
                     if(!wydarzenie.getCzyWykonana()) {
@@ -153,8 +153,10 @@ public class Gra {
             }
             
             if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null && !this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
-                System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
-                System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
+                //System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
+                //System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
+                KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
+                KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne().forEach(postac -> {
                         postac.podarujLosowyPrzedmiotNieFabularny();
