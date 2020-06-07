@@ -1,5 +1,6 @@
 package gra.GraWlasciwa;
 
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Zagadka;
 import gra.NPC.Boss;
 import gra.NPC.Fabularny;
@@ -109,7 +110,8 @@ public class Gra {
 
     private boolean rozpocznijGre() {
         while (true) {
-            System.out.println(this.lokacje.get(lokalizacjaGracza).getOpis());
+            //System.out.println(this.lokacje.get(lokalizacjaGracza).getOpis());
+            KolorTekstu.tekstyZLokacji(this.lokacje.get(lokalizacjaGracza).getOpis());
             if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
                     if(!wydarzenie.getCzyWykonana()) {
