@@ -37,7 +37,7 @@ public class Walka {
 
         while(walkaTrwa) {
             if(kolejGracza) {
-                System.out.println("Co chcesz zrobic?\n1.Skorzystaj z ekwipunku\n2.Zaatakuj przeciwnika" +
+                System.out.println("Co chcesz zrobic?\n1.Skorzystaj z ekwipunku\n2.Zaatakuj przeciwnika " +
                         "korzystajac z " + gracz.getEkwipunek().getWyekwipowanaBron() + "\n" +
                         "3.Sprobuj wykonac atak specjalny");
 
