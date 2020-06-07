@@ -16,22 +16,6 @@ public abstract class NPC implements generatorEkwipunku {
         this.ekwipunek = generujEkwipunek();
     }
 
-    public void wlozBronFizycznaDoEkwipunku(BronFizyczna bronFizyczna) {
-        this.ekwipunek.wlozBronFizyczna(bronFizyczna);
-    }
-
-    public void wlozBronMagicznaDoEwkipunku(BronMagiczna bronMagiczna) {
-        this.ekwipunek.wlozBronMagiczna(bronMagiczna);
-    }
-
-    public void wlozPozywienieDoEkwipunku(PrzedmiotPozywienie pozywienie) {
-        this.ekwipunek.wlozPozywienie(pozywienie);
-    }
-
-    public void wlozPrzedmiotFabularnyDoEkwipunku(PrzedmiotFabularny przedmiotFabularny) {
-        this.ekwipunek.wlozPrzedmiotFabularny(przedmiotFabularny);
-    }
-
     //WYCIAGANIE Z EQ DODAC
 
     public String getImie() {

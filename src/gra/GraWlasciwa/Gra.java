@@ -21,9 +21,8 @@ import java.util.Scanner;
 public class Gra {
     // tylko jedna instancja gry - singleton
     private static Scanner in;
-    private int wyborGracza;
-
     private static Gra instance;
+    private int wyborGracza;
     private Gracz gracz;
     private List<Lokacja> lokacje;
 
@@ -31,15 +30,58 @@ public class Gra {
 
     private int lokalizacjaGracza;
 
-    public static void main(String[] args) {
-        Gra.getInstance().granko();
-    }
-
     private Gra() {
         System.out.println("Zainicjalowana GRA");
     }
 
-    public void granko(){
+    public static void main(String[] args) {
+        Gra.getInstance().granko();
+    }
+
+    public static Gra getInstance() {
+        if (instance == null) {
+            instance = new Gra();
+        }
+        return instance;
+    }
+
+    public static void wygrana() {
+        KolorTekstu.printCyan("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!");
+        KolorTekstu.printCyan("To juz koniec Twojej przygody!");
+        System.exit(0);
+    }
+
+    public static void przegrana() {
+        KolorTekstu.printCyan("Nie zyjesz! Koniec gry! Powodzenia nastepnym razem.");
+        System.exit(0);
+    }
+
+    public static int wczytajWyborGracza(int liczbaOpcji, boolean mozliwoscPowrotu) {
+        int wybor;
+        while (true) {
+            System.out.print("Twoj wybor: ");
+            wybor = in.nextInt();
+            if (wybor == 0 && mozliwoscPowrotu) {
+                return 0;
+            } else if (1 <= wybor && wybor <= liczbaOpcji) {
+                return wybor;
+            } else {
+                System.out.println("Nieprawidlowy numer instrukcji");
+            }
+        }
+    }
+
+    public static void wyczyscTerminal() {
+        try {
+            if (System.getProperty("os.name").contains("Windows"))
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            else
+                Runtime.getRuntime().exec("clear");
+        } catch (IOException | InterruptedException ignored) {
+        }
+    }
+
+    public void granko() {
         in = new Scanner(System.in);
         lokalizacjaGracza = 0;
 
@@ -69,13 +111,6 @@ public class Gra {
         } else {
             przegrana();
         }
-    }
-
-    public static Gra getInstance() {
-        if (instance == null) {
-            instance = new Gra();
-        }
-        return instance;
     }
 
     private void pokazInstrukcje() {
@@ -110,9 +145,9 @@ public class Gra {
     private boolean rozpocznijGre() {
         while (true) {
             KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getOpis());
-            if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
+            if (this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
-                    if(!wydarzenie.getCzyWykonana()) {
+                    if (!wydarzenie.getCzyWykonana()) {
 
                         KolorTekstu.printCyan(wydarzenie.getNazwa());
                         KolorTekstu.printCyan(wydarzenie.getOpis());
@@ -141,68 +176,42 @@ public class Gra {
                 });
             }
 
-            if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null && !this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
+            if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null && !this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
-                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
+                if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne().forEach(postac -> {
                         postac.podarujLosowyPrzedmiotNieFabularny();
-                        if(postac.isCzyPosiadaPrzedmiotFabularny()) {
+                        if (postac.isCzyPosiadaPrzedmiotFabularny()) {
                             gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
                         }
                     });
                 }
-                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka() != null) {
+                if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().zagadka();
                 }
-                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
+                if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
                         Walka.walka(gracz, wrog);
                     });
                 }
-                if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
+                if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
                     Walka.walka(gracz, this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss());
                 }
 
                 this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().setCzyWykonana(true);
             }
 
-            while(Menu.menuGlowne()) {
+            while (Menu.menuGlowne()) {
 
             }
 
-            if(lokalizacjaGracza == 20) {
+            if (lokalizacjaGracza == 20) {
                 break;
             }
 
         }
         return true;
-    }
-
-    public static void wygrana() {
-        KolorTekstu.printCyan("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!");
-        KolorTekstu.printCyan("To juz koniec Twojej przygody!");
-        System.exit(0);
-    }
-
-    public static void przegrana() {
-        KolorTekstu.printCyan("Nie zyjesz! Koniec gry! Powodzenia nastepnym razem.");
-        System.exit(0);
-    }
-
-    public static int wczytajWyborGracza(int liczbaOpcji, boolean mozliwoscPowrotu) {
-        int wybor;
-        while (true) {
-            System.out.print("Twoj wybor: ");
-            wybor = in.nextInt();
-            if(wybor == 0 && mozliwoscPowrotu) {
-                return 0;
-            } else if (1 <= wybor && wybor <= liczbaOpcji) {
-                return wybor;
-            } else {
-                System.out.println("Nieprawidlowy numer instrukcji");
-            }
-        }
     }
 
     private void inicjalizacjaWydarzenFabularnych() {
@@ -236,7 +245,7 @@ public class Gra {
                         + " tego co jeszcze przed chwilą było Twoim dawnym mieszkaniem. Nadszedł najwyższy"
                         + " czas by wyruszyć w drogę i uratować Twoją ukochaną małżonkę. Uzbrojony w kijek i parę"
                         + " złotych monet jesteś gotów by podjąć wyzwanie Czarnoksiężnikowi. Wybierz co chcesz zrobić.\n", gracz, null, 0, null),
-                null, List.of( 1 ), null));
+                null, List.of(1), null));
 
         // 1
         lokacjeTMP.add(new Lokacja("Bajkowa polana", "Bajkowa polana, księżyc w nowiu.",
@@ -249,7 +258,7 @@ public class Gra {
                 List.of(new Wydarzenie("Walka z zajacem",
                         "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null,
                         Arrays.asList(new Wrog("Zajac", 10, 10)), null)),
-                List.of( 2, 3, 7 ), null));
+                List.of(2, 3, 7), null));
 
         // 2
         lokacjeTMP.add(new Lokacja("Miasto",
@@ -259,31 +268,31 @@ public class Gra {
                         + "którzy energicznym wymachywaniem swoich rąk zachęcają Cię do skorzystania z ich ofert.",
                 new Wydarzenie("Spotkanie z zebrakiem",
                         "W jednej z uliczek napotykasz żebraka, który przygląda Ci się uważnie swoim tajemniczym wzrokiem \n", gracz,
-                        Arrays.asList(new Fabularny("Zebrak", true, new PrzedmiotFabularny("List", "List od czarnoksieznika", 100,50, false,
+                        Arrays.asList(new Fabularny("Zebrak", true, new PrzedmiotFabularny("List", "List od czarnoksieznika", 100, 50, false,
                                 "Moj najdrozszy Romanie z ogromna nostalgia wspominam nasze minione porachunki, "
                                         + "niestety musze Cie zawiadomic, ze niestety nie moglem pojawic sie na naszym ostatnim spotkaniu na Bajkowej Polanie. "
                                         + "Twoja ukochana jest wciaz cala i zdrowa, jednak jej spotkanie nie bedzie takie proste. Odnajdziesz mnie za pomoca trzech Tajemniczych Kluczy ktore "
                                         + "mozesz zdobyc rozprawiajac sie z trzema bossami. Do zobaczenia\n",
                                 0))),
-                         0, null),
-                List.of( new Wydarzenie(
-                        "Spotkanie z handlarzem w miescie",
-                        "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem",
-                        gracz,
-                        null,
-                         0, null),
+                        0, null),
+                List.of(new Wydarzenie(
+                                "Spotkanie z handlarzem w miescie",
+                                "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem",
+                                gracz,
+                                null,
+                                0, null),
                         new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja",
                                 gracz,
                                 null,
                                 List.of(new Wrog("Bandyta", 20, 20)), null)),
-                        List.of( 1, 11, 12, 13 ), new Handlarz("Miejski handlarz") )
-                );
+                List.of(1, 11, 12, 13), new Handlarz("Miejski handlarz"))
+        );
 
         // // 3
         lokacjeTMP.add(new Lokacja("Czarny szczyt", "Po długiej wędrówce docierasz na szczyt, przed Tobą rozpościera się niesamowity widok.", null,
                 List.of(new Wydarzenie("Walka z wilkiem",
                         "Na swojej drodze jednak napotykasz rozwścieczonego wilka, który nie jest zadowolony z " +
-                        "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę, rozpoczyna się walka.", gracz, null,
+                                "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę, rozpoczyna się walka.", gracz, null,
                         Arrays.asList(new Wrog("Wilk", 40, 30)), null)), List.of(1, 4, 5, 6), null));
         //
         // // 4
@@ -295,32 +304,32 @@ public class Gra {
         // " wyrytą inskrypcję, brzmiącą następująco\n",
         // ));
         lokacjeTMP.add(new Lokacja("Magiczna przystan", "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię. Czujesz dziwną radość i niepokój zarazem",
-                        new Wydarzenie("Zagadka na wieku skrzyni", "Pod ogromnym drzewem zauważasz zamknięta skrzynię, na wieku której widać wyrytą inskrypcję, brzmiącą następująco",
-                                gracz, null, null, null, new Zagadka("Co jest lepsze od wszystkich bogów i gorsze od unicestwienia duszy? Umarli jedzą to cały czas, a pożywiający się tym żywi powoli umierają", "Nic", new PrzedmiotFabularny(
-                                        "Przepustka 1", "Przepustka do boss'a 1", 0, 0, false, "Uzyj, aby wejsc do boss'a 1", 10
-                        ))), List.of(new Wydarzenie("Walka z zywiolakiem",
-                        "Rzuca sie na Ciebie wsciekly zywiolak, wyciagasz bron i stajesz do walki.", gracz, null,
-                        Arrays.asList(new Wrog("Zywiolak", 100, 50)), null)), List.of(3, 5, 6), null
-                        ));
+                new Wydarzenie("Zagadka na wieku skrzyni", "Pod ogromnym drzewem zauważasz zamknięta skrzynię, na wieku której widać wyrytą inskrypcję, brzmiącą następująco",
+                        gracz, null, null, null, new Zagadka("Co jest lepsze od wszystkich bogów i gorsze od unicestwienia duszy? Umarli jedzą to cały czas, a pożywiający się tym żywi powoli umierają", "Nic", new PrzedmiotFabularny(
+                        "Przepustka 1", "Przepustka do boss'a 1", 0, 0, false, "Uzyj, aby wejsc do boss'a 1", 10
+                ))), List.of(new Wydarzenie("Walka z zywiolakiem",
+                "Rzuca sie na Ciebie wsciekly zywiolak, wyciagasz bron i stajesz do walki.", gracz, null,
+                Arrays.asList(new Wrog("Zywiolak", 100, 50)), null)), List.of(3, 5, 6), null
+        ));
         //
         // // 5
         lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm", "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza", null,
                 List.of(
-                new Wydarzenie(
-                        "Spotkanie z handlarzem w miescie",
-                        "Po środku, przy ogromnej studni znajduje się tajemnicza postać, Podchodzisz do niej, a ona " +
-                                "okazuje się być tutejszym handlarzem.",
-                        gracz,
-                        null,
-                         0,
-                        null)),
+                        new Wydarzenie(
+                                "Spotkanie z handlarzem w miescie",
+                                "Po środku, przy ogromnej studni znajduje się tajemnicza postać, Podchodzisz do niej, a ona " +
+                                        "okazuje się być tutejszym handlarzem.",
+                                gracz,
+                                null,
+                                0,
+                                null)),
                 List.of(3, 4, 6),
                 new Handlarz("Miejski handlarz")));
         //
         // // 6
         lokacjeTMP.add(new Lokacja("Grota bebniarza", "Wchodzisz do olbrzymiej jaskini, płomienie dogasającego ogniska rzucają lekką poświatę na ściany pomieszczenia.",
                 new Wydarzenie("Walka z trollem", "Podchodzisz bliżej by ogrzać swoje zziębnięte ręce i zauważasz ogromnego trolla w głębi jaskini, który bez zastnowienia rzuca się na Ciebie.", gracz,
-                        null,  List.of(new Wrog("Troll", 120, 60)), null), null, List.of(3, 4, 5), null));
+                        null, List.of(new Wrog("Troll", 120, 60)), null), null, List.of(3, 4, 5), null));
         //
         // // 7
         // lokacjeTMP.add(new Lokacja("Żebrowe wzgórze",
@@ -340,7 +349,7 @@ public class Gra {
                                 "tego miejsca, który nie pozwala Ci przejść. " +
                                 "Musisz dostać się dalej, nie pozostaje Ci więc nic " +
                                 "innego jak walka ze zbrojnym", gracz, null, List.of(new Wrog("Straznik", 30, 10)), null), List.of(
-                                        new Wydarzenie("Walka z orlem", "Nie wiadomo skad pikuje na Ciebie olbrzymi orzel.", gracz, null,  List.of(new Wrog("Orzel", 20, 10)), null)
+                new Wydarzenie("Walka z orlem", "Nie wiadomo skad pikuje na Ciebie olbrzymi orzel.", gracz, null, List.of(new Wrog("Orzel", 20, 10)), null)
         ), List.of(1, 8, 9, 10), null));
         //
         // // 8
@@ -400,7 +409,7 @@ public class Gra {
                                 new Boss("Mefisto", 500, 170, new PrzedmiotFabularny("Przepustka do czarnoksieznika 1", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
                                 null
 
-        ), null, List.of(12, 13, 2, 14), null));
+                        ), null, List.of(12, 13, 2, 14), null));
 
         // 12
         lokacjeTMP.add(
@@ -438,7 +447,7 @@ public class Gra {
                 new Wydarzenie("Walka z Czarnoksieznikiem", "Stajesz na przeciw Czarnoskieznika", gracz, null, null, new Boss(
                         "Czarnoksieznik z Krainy Koz", 1000, 500, null
                 ))
-                , null, List.of(11, 12, 13),null));
+                , null, List.of(11, 12, 13), null));
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1
@@ -487,15 +496,6 @@ public class Gra {
 
     public Gracz getGracz() {
         return gracz;
-    }
-
-    public static void wyczyscTerminal() {
-        try {
-            if (System.getProperty("os.name").contains("Windows"))
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            else
-                Runtime.getRuntime().exec("clear");
-        } catch (IOException | InterruptedException ignored) {}
     }
 
 }

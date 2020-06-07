@@ -2,7 +2,7 @@ package gra.ElementyPomocnicze;
 
 import java.util.Objects;
 
-public class Para <A, B> {
+public class Para<A, B> {
     private A pierwszy;
     private B drugi;
 

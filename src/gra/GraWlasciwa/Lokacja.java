@@ -1,6 +1,5 @@
 package gra.GraWlasciwa;
 
-import gra.GraWlasciwa.Wydarzenie;
 import gra.NPC.Handlarz;
 
 import java.util.List;

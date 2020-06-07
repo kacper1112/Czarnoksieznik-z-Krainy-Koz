@@ -16,24 +16,24 @@ public class Walka {
         Gra.wyczyscTerminal();
 
         boolean kolejGracza = (Math.random() < 0.5);
-        if(kolejGracza) {
+        if (kolejGracza) {
             KolorTekstu.printCzerwony("Atakujesz pierwszy!");
         } else {
             KolorTekstu.printCzerwony("Pierwszy atakuje Twoj przeciwnik!");
         }
 
-        while(walkaTrwa) {
-            if(kolejGracza) {
+        while (walkaTrwa) {
+            if (kolejGracza) {
                 KolorTekstu.printZolty("Co chcesz zrobic?\n1.Skorzystaj z ekwipunku\n2.Zaatakuj przeciwnika " +
                         "korzystajac z " + gracz.getEkwipunek().getWyekwipowanaBron() + "\n" +
                         "3.Sprobuj wykonac mocny atak");
 
                 wyborGracza = Gra.wczytajWyborGracza(3, false);
-                if(wyborGracza == 1) {
+                if (wyborGracza == 1) {
                     Menu.menuEkwipunku();
                     // menu wyboru przedmiotu z ekwipunku
-                } else if(wyborGracza == 2) {
-                    if(Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
+                } else if (wyborGracza == 2) {
+                    if (Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
                         KolorTekstu.printCzerwony("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
                                 "uderzeniu!");
                         walkaTrwa = false;
@@ -45,8 +45,8 @@ public class Walka {
                         KolorTekstu.printCzerwony("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
                                 wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
                     }
-                } else if(wyborGracza == 3) {
-                    if(Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
+                } else if (wyborGracza == 3) {
+                    if (Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
                         KolorTekstu.printCzerwony("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
                                 "uderzeniu!");
                         walkaTrwa = false;
@@ -68,13 +68,13 @@ public class Walka {
                         gracz.getMaksymalnePunktyZycia() + " punktow zycia.");
             }
 
-            if(gracz.getObecnePunktyZycia() <= 0 || wrog.getObecnePunktyZycia() <= 0) {
+            if (gracz.getObecnePunktyZycia() <= 0 || wrog.getObecnePunktyZycia() <= 0) {
                 walkaTrwa = false;
             }
 
             kolejGracza = !kolejGracza;
         }
-        if(gracz.getObecnePunktyZycia() > 0) {
+        if (gracz.getObecnePunktyZycia() > 0) {
             gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
             KolorTekstu.printCzerwony("Udalo Ci sie zwyciezyc w walce!");
             KolorTekstu.printCzerwony("Podnosisz przedmioty przecinika");
