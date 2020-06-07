@@ -131,6 +131,18 @@ public class Handlarz extends NPC {
                 .collect(Collectors.toList());
     }
 
+    public void kupOdGracza(Gracz gracz, Przedmiot przedmiot){
+        if(przedmiot instanceof BronMagiczna){
+            int indeks = 0;
+            gracz.getEkwipunek().getEkwipunekBronMagiczna()
+            gracz.getEkwipunek().wyciagnijBronFizyczna();
+        }else if(przedmiot instanceof BronFizyczna){
+
+        } else if(przedmiot instanceof PrzedmiotPozywienie ){
+
+        }
+    }
+
     public int getPieniadze() {
         return pieniadze;
     }

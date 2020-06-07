@@ -170,7 +170,9 @@ public class Menu {
                 }
             }
         } else if(wyborCzynnosci==2) {
-            Przedmiot p;
+            Przedmiot p = getItemZEkwiupnuku();
+            System.out.println("Przedmiot ktory chcesz sprzedac->"+ p.getNazwa());
+
         } else{
             System.out.println("Niepoprawny wybor czynnosci");
         }
@@ -205,5 +207,47 @@ public class Menu {
                 System.out.println("Cos poszlo nie tak, sprobuj jeszcze raz");
                 return true;
         }
+    }
+
+    //METODY POMOCNICZE
+    public static Przedmiot getItemZEkwiupnuku(){
+        int rozmiarEq;
+
+        if(gracz.getEkwipunek().isEmpty()) {
+            System.out.println("Nie masz w ekwipunku wiecej przedmiotow!");
+        }else{
+            rozmiarEq = gracz.getEkwipunek().pokazEkwipunek();
+            System.out.println("Wybierz przedmiot który chcesz sprzedac");
+            int wyborGracza = Gra.wczytajWyborGracza(rozmiarEq, true);
+
+            // wybor spoza ekwipunku albo chec powrotu
+            if(wyborGracza <= 0 || wyborGracza > rozmiarEq) {
+                System.out.println("wybor spoza ekwipunku");
+                System.out.println("Cos poszlo nie tak podczas wyboru przedmiotu");
+            } else {
+
+                rozmiarEq -= gracz.getEkwipunek().getIloscFabularne();
+                if(wyborGracza > rozmiarEq) {
+                    return gracz.getEkwipunek().getEkwipunekFabularne().get(wyborGracza - rozmiarEq - 1);
+                }
+
+
+                rozmiarEq -= gracz.getEkwipunek().getIloscBronMagiczna();
+                if(wyborGracza > rozmiarEq) {
+                    return gracz.getEkwipunek().getEkwipunekBronMagiczna().get(wyborGracza - rozmiarEq - 1);
+                }
+
+                rozmiarEq -= gracz.getEkwipunek().getIloscBronFizyczna();
+                if(wyborGracza > rozmiarEq) {
+                    return gracz.getEkwipunek().getEkwipunekBronFizyczna().get(wyborGracza - rozmiarEq - 1);
+                }
+
+                rozmiarEq -= gracz.getEkwipunek().getIloscPozywienie();
+                if(wyborGracza > rozmiarEq) {
+                    return gracz.getEkwipunek().getEkwipunekPozywienie().get(wyborGracza - rozmiarEq - 1);
+                }
+            }
+        }
+        return null;
     }
 }

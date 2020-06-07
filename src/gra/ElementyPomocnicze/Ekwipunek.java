@@ -159,6 +159,22 @@ public class Ekwipunek {
         return indeks - 1;
     }
 
+    public void dodajEkwipunek(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika){
+        if(!ekwipunekPrzeciwnika.getEkwipunekPozywienie().isEmpty()) {
+            ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(ekwipunekGracza::wlozPozywienie);
+        }
+        if(!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+            ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().forEach(ekwipunekGracza::wlozBronFizyczna);
+        }
+        if(!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
+            ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(ekwipunekGracza::wlozBronMagiczna);
+        }
+        if(ekwipunekPrzeciwnika.getTYP()==TYP_POSIADACZA_EKWIPUNKU.BOSS
+                &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozFabularne);
+        }
+    }
+
 
     @Override
     public String toString() {

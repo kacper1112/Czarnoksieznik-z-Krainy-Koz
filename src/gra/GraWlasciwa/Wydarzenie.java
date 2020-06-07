@@ -200,7 +200,7 @@ public class Wydarzenie {
         polaczEkwipunki(gracz.getEkwipunek(),wrog.generujEkwipunek());
     }
 
-    private void polaczEkwipunki(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika){
+    public void polaczEkwipunki(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika){
         if(!ekwipunekPrzeciwnika.getEkwipunekPozywienie().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(ekwipunekGracza::wlozPozywienie);
         }
