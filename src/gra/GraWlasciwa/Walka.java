@@ -1,6 +1,5 @@
 package gra.GraWlasciwa;
 
-import gra.NPC.Boss;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
 
