@@ -132,6 +132,7 @@ public class Gra {
                     if(wydarzenie.getWrogowie() != null) {
                         wydarzenie.getWrogowie().forEach(wrog -> {
                             System.out.println("Walka z wrogiem");
+                            Walka.walkaZWrogiem(gracz, wrog);
                         });
                     }
                     if(wydarzenie.getBoss() != null) {
@@ -165,6 +166,7 @@ public class Gra {
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
                         System.out.println("Walka z wrogiem");
+                        Walka.walkaZWrogiem(gracz, wrog);
                     });
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
@@ -339,8 +341,8 @@ public class Gra {
                                 "okazuje się być Pradawnym Strażnikiem " +
                                 "tego miejsca, który nie pozwala Ci przejść. " +
                                 "Musisz dostać się dalej, nie pozostaje Ci więc nic " +
-                                "innego jak walka ze zbrojnym", gracz, null, null, List.of(new Wrog("Straznik", 150, 70)), null), List.of(
-                                        new Wydarzenie("Walka z orlem", "Nie wiadomo skad pikuje na Ciebie olbrzymi orzel.", gracz, null, null, List.of(new Wrog("Orzel", 70, 30)), null)
+                                "innego jak walka ze zbrojnym", gracz, null, null, List.of(new Wrog("Straznik", 30, 10)), null), List.of(
+                                        new Wydarzenie("Walka z orlem", "Nie wiadomo skad pikuje na Ciebie olbrzymi orzel.", gracz, null, null, List.of(new Wrog("Orzel", 20, 10)), null)
         ), List.of(1, 8, 9, 10)));
         //
         // // 8
@@ -355,7 +357,7 @@ public class Gra {
         // ));
         lokacjeTMP.add(new Lokacja("Zdradliwe urwisko", "Docierasz do urwiska, starasz sie nawet nie patrzec w dol, pamietajac jednoczesnie, że musisz dostac sie do Gniazda Harpii, aby zdobyc kolejna z przepustek",
                 new Wydarzenie("Walka z krolowa harpii", "Dotarlszy do gniazda, juz masz siegac po jedno z jaj, w ktorym z pewnoscia znajduje sie przepustka, gdy nagle z nieba naciera na Ciebie Krolowa Harpii",
-                        gracz, null, null, List.of(new Wrog("Krlowa Harpii", 200, 100, new PrzedmiotFabularny(
+                        gracz, null, null, List.of(new Wrog("Krlowa Harpii", 20, 10, new PrzedmiotFabularny(
                         "Przepustka 2", "Przepustka do boss'a 2", 0, 0, false, "Uzyj, aby wejsc do boss'a 2", 10
                 ))), null, null), null, List.of(1, 9, 10)));
         //

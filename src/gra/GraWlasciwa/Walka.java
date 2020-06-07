@@ -33,6 +33,12 @@ public class Walka {
             }
         }
 
+        if(gracz.getObecnePunktyZycia() > 0) {
+            gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
+        } else {
+            System.out.println("Zostales zabity");
+        }
+
         return gracz.getObecnePunktyZycia() > 0;
     }
 
@@ -47,6 +53,12 @@ public class Walka {
                 boss.otrzymajObrazenia(gracz.zadajObrazenia());
                 gracz.otrzymajObrazenia(boss.zadajObrazenia());
             }
+        }
+
+        if(gracz.getObecnePunktyZycia() > 0) {
+            gracz.getEkwipunek().dodajEkwipunek(boss.getEkwipunek());
+        } else {
+            System.out.println("Zostales zabity");
         }
 
         return gracz.getObecnePunktyZycia() > 0;
