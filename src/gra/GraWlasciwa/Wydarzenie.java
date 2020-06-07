@@ -24,22 +24,10 @@ public class Wydarzenie {
     private final String opis;
     private final Gracz gracz;
     private final List<Fabularny> postacieFabularne;
-    //private final List<Handlarz> handlarze;
     private final Handlarz handlarz;
     private final List<Wrog> wrogowie;
     private final Boss boss;
     private final Zagadka zagadka;
-
-    public Wydarzenie() {
-        this.nazwa = null;
-        this.opis = null;
-        this.gracz = null;
-        this.postacieFabularne = null;
-        this.handlarz = null;
-        this.wrogowie = null;
-        this.boss = null;
-        this.zagadka = null;
-    }
 
     public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, Handlarz handlarz, int iluWrogow, Boss boss) {
         this.nazwa = nazwa;
@@ -74,27 +62,6 @@ public class Wydarzenie {
         this.zagadka = zagadka;
     }
 
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, int iluWrogow) {
-        this.nazwa = nazwa;
-        this.opis = opis;
-        this.gracz = gracz;
-        this.postacieFabularne = null;
-        this.handlarz = null;
-        this.wrogowie = generujWrogow(iluWrogow);
-        this.boss = null;
-        this.zagadka = null;
-    }
-
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, int iluWrogow) {
-        this.nazwa = nazwa;
-        this.opis = opis;
-        this.gracz = gracz;
-        this.postacieFabularne = fabularne;
-        this.handlarz = null;
-        this.wrogowie = generujWrogow(iluWrogow);
-        this.boss = null;
-        this.zagadka = null;
-    }
 
     private List<Wrog> generujWrogow(int iluWrogow) {
         List<Wrog> tempWrogowie = new ArrayList<>();
@@ -265,7 +232,7 @@ public class Wydarzenie {
 
             } else {
                 obrazenia = wrog.zadajObrazenia();
-                System.out.println(wrog.getImie() + " zadaje Ci " + obrazenia + "punktow obrazen!");
+                System.out.println(wrog.getImie() + " zadaje Ci " + obrazenia + "punktow obrazen! ");
                 gracz.otrzymajObrazenia(obrazenia);
                 System.out.println("Masz teraz " + gracz.getObecnePunktyZycia() + "/" +
                         gracz.getMaksymalnePunktyZycia() + " punktow zycia.");
