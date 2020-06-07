@@ -1,11 +1,9 @@
 package gra.RodzajePrzedmiot;
 
-import gra.RodzajePrzedmiot.Przedmiot;
-
-public class  PrzedmiotFabularny extends Przedmiot {
-    private boolean czyZuzyty;
+public class PrzedmiotFabularny extends Przedmiot {
     private final String wskazowka;
     private final double inteligencjaWymaganaDoWskazowki;
+    private boolean czyZuzyty;
 
     public PrzedmiotFabularny(String nazwa, String opis, double wartosc, int szansaAtrybutu, boolean czyZuzyty,
                               String wskazowka,
@@ -17,7 +15,7 @@ public class  PrzedmiotFabularny extends Przedmiot {
     }
 
     public String getWskazowka(double inteligencja) {
-        if(inteligencja >= inteligencjaWymaganaDoWskazowki) {
+        if (inteligencja >= inteligencjaWymaganaDoWskazowki) {
             czyZuzyty = true;
             return wskazowka;
         } else {

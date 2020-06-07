@@ -4,10 +4,10 @@ import gra.ElementyPomocnicze.bron;
 
 public class BronFizyczna extends Przedmiot implements bron {
 
-    // ostrosc okresla jaki % obrazen bazowych zadajemy, zakres 0-100
-    private int ostrosc;
     private final double obrazeniaBazowe;
     private final double mocUderzeniaKrytycznego;
+    // ostrosc okresla jaki % obrazen bazowych zadajemy, zakres 0-100
+    private int ostrosc;
 
     public BronFizyczna(String nazwa,
                         String opis,
@@ -27,7 +27,7 @@ public class BronFizyczna extends Przedmiot implements bron {
         boolean czyKrytyczne = (Math.random() < this.getAtrybut().getSzansaNaKrytyczne());
         ostrosc -= 1;
 
-        if(czyKrytyczne) {
+        if (czyKrytyczne) {
             obrazenia *= mocUderzeniaKrytycznego;
             System.out.println("Uderzenie krytyczne!");
         }
@@ -37,7 +37,7 @@ public class BronFizyczna extends Przedmiot implements bron {
     @Override
     public double zadajMocneObrazenia() {
         // 40% szans na powodzenie uderzenia
-        if(Math.random() < 0.4) {
+        if (Math.random() < 0.4) {
             System.out.println("Nie trafiles wroga!");
             return 0;
         }
@@ -59,6 +59,7 @@ public class BronFizyczna extends Przedmiot implements bron {
 
     @Override
     public String toString() {
-        return getNazwa() + " [obrażenia: " + obrazeniaBazowe + ", ostrosc: " + ostrosc + ", moc ud. krytycznego: " + (mocUderzeniaKrytycznego + 100)  + "]";
+        return getNazwa() + " [obrażenia: " + obrazeniaBazowe + ", ostrosc: " + ostrosc + ", moc ud. krytycznego: " +
+                (mocUderzeniaKrytycznego + 100) + "]";
     }
 }

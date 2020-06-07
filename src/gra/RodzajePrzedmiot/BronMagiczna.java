@@ -4,10 +4,10 @@ import gra.ElementyPomocnicze.bron;
 
 public class BronMagiczna extends Przedmiot implements bron {
 
-    // moc zwoju okresla jaki % obrazen bazowych zadajemy, zakres 0-100
-    private int mocZwoju;
     private final double obrazeniaBazowe;
     private final double mocUderzeniaKrytycznego;
+    // moc zwoju okresla jaki % obrazen bazowych zadajemy, zakres 0-100
+    private int mocZwoju;
 
     public BronMagiczna(String nazwa,
                         String opis,
@@ -27,7 +27,7 @@ public class BronMagiczna extends Przedmiot implements bron {
         boolean czyKrytyczne = (Math.random() < this.getAtrybut().getSzansaNaKrytyczne());
         mocZwoju -= 1;
 
-        if(czyKrytyczne) {
+        if (czyKrytyczne) {
             obrazenia *= mocUderzeniaKrytycznego;
             System.out.println("Uderzenie krytyczne!");
         }
@@ -36,18 +36,19 @@ public class BronMagiczna extends Przedmiot implements bron {
 
     @Override
     public double zadajMocneObrazenia() {
-       if(Math.random() < 0.6) {
-           System.out.println("Twoje zaklecie nie trafilo wroga!");
-           return 0;
-       } else {
-           // czar uzyty dwukrotnie
-           return zadajObrazenia() + zadajObrazenia();
-       }
+        if (Math.random() < 0.6) {
+            System.out.println("Twoje zaklecie nie trafilo wroga!");
+            return 0;
+        } else {
+            // czar uzyty dwukrotnie
+            return zadajObrazenia() + zadajObrazenia();
+        }
     }
 
     @Override
     public String toString() {
-        return getNazwa()  + " [obrazenia:" + obrazeniaBazowe + ", moc zwoju:" + mocZwoju + ", mod ud. krytycznego:" + mocUderzeniaKrytycznego + "]";
+        return getNazwa() + " [obrazenia:" + obrazeniaBazowe + ", moc zwoju:" + mocZwoju +
+                ", mod ud. krytycznego:" + mocUderzeniaKrytycznego + "]";
         /*
                 return "BronMagiczna: " +
                 "mocZwoju: " + mocZwoju +
