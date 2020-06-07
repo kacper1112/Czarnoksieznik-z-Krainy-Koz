@@ -136,12 +136,12 @@ public class Gra {
                         }
                         if (wydarzenie.getWrogowie() != null) {
                             wydarzenie.getWrogowie().forEach(wrog -> {
-                                System.out.println("Walka z wrogiem");
+                                // System.out.println("Walka z wrogiem");
                                 Walka.walka(gracz, wrog);
                             });
                         }
                         if (wydarzenie.getBoss() != null) {
-                            System.out.println("Walka z bossem");
+                            // System.out.println("Walka z bossem");
                             Walka.walka(gracz, wydarzenie.getBoss());
                         }
 
@@ -176,12 +176,12 @@ public class Gra {
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
-                        System.out.println("Walka z wrogiem");
+                        // System.out.println("Walka z wrogiem");
                         Walka.walka(gracz, wrog);
                     });
                 }
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
-                    System.out.println("Walka z bossem");
+                    // System.out.println("Walka z bossem");
                     Walka.walka(gracz, this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss());
                 }
 
