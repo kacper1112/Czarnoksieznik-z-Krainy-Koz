@@ -353,7 +353,7 @@ public class Gra {
         // nagle z nieba naciera na" +
         // " Ciebie Królowa Harpii",
         // ));
-        lokacjeTMP.add(new Lokacja("Zdradliwe kurwisko", "Docierasz do kurwiska, starasz sie nawet nie patrzec w dol, pamietajac jednoczesnie, że musisz dostac sie do Gniazda Harpii, aby zdobyc kolejna z przepustek",
+        lokacjeTMP.add(new Lokacja("Zdradliwe urwisko", "Docierasz do urwiska, starasz sie nawet nie patrzec w dol, pamietajac jednoczesnie, że musisz dostac sie do Gniazda Harpii, aby zdobyc kolejna z przepustek",
                 new Wydarzenie("Walka z krolowa harpii", "Dotarlszy do gniazda, juz masz siegac po jedno z jaj, w ktorym z pewnoscia znajduje sie przepustka, gdy nagle z nieba naciera na Ciebie Krolowa Harpii",
                         gracz, null, null, List.of(new Wrog("Krlowa Harpii", 200, 100)), null, null), null, List.of(1, 9, 10)));
         //
