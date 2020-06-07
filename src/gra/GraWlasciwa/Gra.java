@@ -43,6 +43,7 @@ public class Gra {
         in = new Scanner(System.in);
         lokalizacjaGracza = 0;
 
+        wyczyscTerminal();
         System.out.println("Czarnoksieznik z Krainy Koz\n");
         System.out.println("1.Rozpocznij nowa gre \n2.Pokaz instrukcje");
         wyborGracza = wczytajWyborGracza(2, false);
@@ -53,6 +54,7 @@ public class Gra {
             wyborGracza = wczytajWyborGracza(1, false);
         }
 
+        wyczyscTerminal();
         System.out.println("Wybierz swoja klase postaci:\n1.Wojownik\n2.Mag\n3.Kaplan");
         wyborGracza = wczytajWyborGracza(3, false);
 
@@ -76,6 +78,7 @@ public class Gra {
     }
 
     private void pokazInstrukcje() {
+        wyczyscTerminal();
         System.out.println("To jest instrukcja");
     }
 
