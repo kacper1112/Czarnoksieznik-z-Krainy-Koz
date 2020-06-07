@@ -95,7 +95,7 @@ public class Gra {
         inicjalizacjaWydarzenFabularnych();
         wydarzeniaPoboczne = new ArrayList<>();
         wydarzeniaPoboczne.add(new Wydarzenie("Walka z zajacem",
-                "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, null,
+                "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null,
                 Arrays.asList(new Wrog("Zajac", 10, 10)), null));
         lokacje = inicjalizacjaLokacji();
         Menu.setLokacje(lokacje);
@@ -226,7 +226,7 @@ public class Gra {
                         + " z kryzysu! Mam tylko nadzieje, ze nie zamkna naszego zakladu, to dopiero bylaby"
                         + " katastrofa...\" myslal Roman wracajac do domu po kolejnym ciezkim dniu pracy jako"
                         + "ciesla. Wraca do domu a tam zony nimo.",
-                gracz, null, null, 0, null);
+                gracz, null, 0, null);
 
         Wydarzenie spotkanieNaBajkowejPolanie_2;
     }
@@ -257,9 +257,9 @@ public class Gra {
                                 + "zmotywowany. Uświadamiasz sobie, że sam musisz obrać cel swoich kolejnych poszukiwań.\n",
                         gracz, null, 0, null),
                 List.of(new Wydarzenie("Walka z zajacem",
-                        "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null, null,
+                        "Na polanie pojawia sie zajac, gracz moze z nim walczyc, wprowadzenie do walki", gracz, null,
                         Arrays.asList(new Wrog("Zajac", 10, 10)), null)),
-                List.of( 2, 3, 7 )));
+                List.of( 2, 3, 7 ), null));
 
         // 2
         lokacjeTMP.add(new Lokacja("Miasto",
@@ -281,8 +281,12 @@ public class Gra {
                         "Gracz spotyka miejskiego handlarza, ktory pokazuje mu co ma pod swoim szynkwasem",
                         gracz,
                         null,
-                        new Handlarz("Miejski handlarz"), 0, null),
-                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), List.of( 1, 11, 12, 13 ))
+                         0, null),
+                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja",
+                                gracz,
+                                null,
+                                List.of(new Wrog("Bandyta", 20, 20)), null)),
+                        List.of( 1, 11, 12, 13 ), new Handlarz("Miejski handlarz") )
                 );
                 // todo dodac lokajce z bossem
 
@@ -291,7 +295,7 @@ public class Gra {
                 List.of(new Wydarzenie("Walka z wilkiem",
                         "Na swojej drodze jednak napotykasz rozwścieczonego wilka, który nie jest zadowolony z " +
                         "Twojej obecności. Wyciągasz swoją broń i przygotowujesz się na najgorszę, rozpoczyna się walka.", gracz, null,
-                        Arrays.asList(new Wrog("Wilk", 40, 30)), null)), List.of(1, 4, 5, 6)));
+                        Arrays.asList(new Wrog("Wilk", 40, 30)), null)), List.of(1, 4, 5, 6), null));
         //
         // // 4
         // lokacjeTMP.add(new Lokacja("Magiczna przystań",
@@ -303,28 +307,31 @@ public class Gra {
         // ));
         lokacjeTMP.add(new Lokacja("Magiczna przystan", "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię. Czujesz dziwną radość i niepokój zarazem",
                         new Wydarzenie("Zagadka na wieku skrzyni", "Pod ogromnym drzewem zauważasz zamknięta skrzynię, na wieku której widać wyrytą inskrypcję, brzmiącą następująco",
-                                gracz, null, null, null, null, new Zagadka("Co jest lepsze od wszystkich bogów i gorsze od unicestwienia duszy? Umarli jedzą to cały czas, a pożywiający się tym żywi powoli umierają", "Nic", new PrzedmiotFabularny(
+                                gracz, null, null, null, new Zagadka("Co jest lepsze od wszystkich bogów i gorsze od unicestwienia duszy? Umarli jedzą to cały czas, a pożywiający się tym żywi powoli umierają", "Nic", new PrzedmiotFabularny(
                                         "Przepustka 1", "Przepustka do boss'a 1", 0, 0, false, "Uzyj, aby wejsc do boss'a 1", 10
                         ))), List.of(new Wydarzenie("Walka z zywiolakiem",
                         "Rzuca sie na Ciebie wsciekly zywiolak, wyciagasz bron i stajesz do walki.", gracz, null,
-                        Arrays.asList(new Wrog("Zywiolak", 100, 50)), null)), List.of(3, 5, 6)
+                        Arrays.asList(new Wrog("Zywiolak", 100, 50)), null)), List.of(3, 5, 6), null
                         ));
         //
         // // 5
-        lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm", "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza", null, List.of(
+        lokacjeTMP.add(new Lokacja("Miasteczko Ravelholm", "Przekraczasz mury miasteczka Ravelholm, we wsi panuje dziwna cisza", null,
+                List.of(
                 new Wydarzenie(
                         "Spotkanie z handlarzem w miescie",
                         "Po środku, przy ogromnej studni znajduje się tajemnicza postać, Podchodzisz do niej, a ona " +
                                 "okazuje się być tutejszym handlarzem.",
                         gracz,
                         null,
-                         0, null) //new Handlarz("Miejski handlarz"),
-        ), List.of(3, 4, 6)));
+                         0,
+                        null)),
+                List.of(3, 4, 6),
+                new Handlarz("Miejski handlarz")));
         //
         // // 6
         lokacjeTMP.add(new Lokacja("Grota bebniarza", "Wchodzisz do olbrzymiej jaskini, płomienie dogasającego ogniska rzucają lekką poświatę na ściany pomieszczenia.",
                 new Wydarzenie("Walka z trollem", "Podchodzisz bliżej by ogrzać swoje zziębnięte ręce i zauważasz ogromnego trolla w głębi jaskini, który bez zastnowienia rzuca się na Ciebie.", gracz,
-                        null,  List.of(new Wrog("Troll", 120, 60)), null), null, List.of(3, 4, 5)));
+                        null,  List.of(new Wrog("Troll", 120, 60)), null), null, List.of(3, 4, 5), null));
         //
         // // 7
         // lokacjeTMP.add(new Lokacja("Żebrowe wzgórze",
@@ -343,9 +350,9 @@ public class Gra {
                                 "okazuje się być Pradawnym Strażnikiem " +
                                 "tego miejsca, który nie pozwala Ci przejść. " +
                                 "Musisz dostać się dalej, nie pozostaje Ci więc nic " +
-                                "innego jak walka ze zbrojnym", gracz, null, null, List.of(new Wrog("Straznik", 30, 10)), null), List.of(
+                                "innego jak walka ze zbrojnym", gracz, null, List.of(new Wrog("Straznik", 30, 10)), null), List.of(
                                         new Wydarzenie("Walka z orlem", "Nie wiadomo skad pikuje na Ciebie olbrzymi orzel.", gracz, null,  List.of(new Wrog("Orzel", 20, 10)), null)
-        ), List.of(1, 8, 9, 10)));
+        ), List.of(1, 8, 9, 10), null));
         //
         // // 8
         // lokacjeTMP.add(new Lokacja("Zdradliwe urwisko",
@@ -361,7 +368,7 @@ public class Gra {
                 new Wydarzenie("Walka z krolowa harpii", "Dotarlszy do gniazda, juz masz siegac po jedno z jaj, w ktorym z pewnoscia znajduje sie przepustka, gdy nagle z nieba naciera na Ciebie Krolowa Harpii",
                         gracz, null, List.of(new Wrog("Krlowa Harpii", 20, 10, new PrzedmiotFabularny(
                         "Przepustka 2", "Przepustka do boss'a 2", 0, 0, false, "Uzyj, aby wejsc do boss'a 2", 10
-                ))), null, null), null, List.of(1, 9, 10)));
+                ))), null, null), null, List.of(1, 9, 10), null));
         //
         // // 9
         // lokacjeTMP.add(new Lokacja("Orla przepaść",
@@ -372,7 +379,11 @@ public class Gra {
         // "na Twój widok",
         // ));
         lokacjeTMP.add(new Lokacja("Orla przepasc", "Przemierzasz most laczacy kraine swiatla i cienia, ktory pozwala bezpiecznie przejsc nad niekonczaca sie przepascia",
-                new Wydarzenie("Walka z Gnomim Wojownikiem", "Na Twojej drodze staje Gnomi Wojownik, ktory wymachujac swoja palka, slini sie na Twoj widok", gracz, null, List.of(new Wrog("Gnomi Wojownik", 190, 90)), null, null), null, List.of(7, 8, 10)));
+                new Wydarzenie("Walka z Gnomim Wojownikiem", "Na Twojej drodze staje Gnomi Wojownik, ktory wymachujac swoja palka, slini sie na Twoj widok",
+                        gracz,
+                        null,
+                        List.of(new Wrog("Gnomi Wojownik", 190, 90)), null, null),
+                null, List.of(7, 8, 10), null));
         //
         // // 10
         // lokacjeTMP.add(new Lokacja("Wysoka Brama",
@@ -384,7 +395,7 @@ public class Gra {
                 "Zagadka na elfich wrotach", "Na wrotach widac zapisana elfickim jezykiem inskrypcje", gracz, null, null, null, new Zagadka("Syc mnie, a bede zyl. Napoj mnie, a umre. Czym jestem?", "Ogniem", new PrzedmiotFabularny(
                 "Przepustka 3", "Przepustka do boss'a 3", 0, 0, false, "Uzyj, aby wejsc do boss'a 3", 10
         ))
-        ), null, List.of(7, 8, 9)));
+        ), null, List.of(7, 8, 9), null));
 
         // 11
         lokacjeTMP.add(
@@ -400,7 +411,7 @@ public class Gra {
                                 new Boss("Mefisto", 500, 170, new PrzedmiotFabularny("Przepustka do czarnoksieznika 1", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
                                 null
 
-        ), null, List.of(12, 13, 2, 14)));
+        ), null, List.of(12, 13, 2, 14), null));
 
         // 12
         lokacjeTMP.add(
@@ -416,7 +427,7 @@ public class Gra {
                                 new Boss("Andariel ", 700, 200, new PrzedmiotFabularny("Przepustka do czarnoksieznika 2", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
                                 null
 
-                        ), null, List.of(11, 13, 2, 14)));
+                        ), null, List.of(11, 13, 2, 14), null));
 
         // 13
         lokacjeTMP.add(
@@ -432,7 +443,7 @@ public class Gra {
                                 new Boss("Belial", 1000, 300, new PrzedmiotFabularny("Przepustka do czarnoksieznika 3", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
                                 null
 
-                        ), null, List.of(11, 12, 2, 14)));
+                        ), null, List.of(11, 12, 2, 14), null));
 
         lokacjeTMP.add(new Lokacja(null, null, null, null, null,null));
 

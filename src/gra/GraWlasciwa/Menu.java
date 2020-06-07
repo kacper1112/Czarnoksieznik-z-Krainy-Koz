@@ -133,59 +133,30 @@ public class Menu {
         System.out.println("1. Kupic od Handlarza");
         System.out.println("2. Sprzedac dla Handlarza");
         int wyborCzynnosci = in.nextInt();
-        List<Handlarz> handlarzeTMP = new ArrayList<>();
-        lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().forEach(x->{
-            if(x.getHandlarz()!=null){
-                handlarzeTMP.add(x.getHandlarz());
-            }
-        });
-
-        List<Para<Integer,Handlarz> > handlarze = new ArrayList<>();
-        AtomicInteger nrHandlarza = new AtomicInteger(1);
-        handlarzeTMP.forEach(x->handlarze.add(new Para<>(nrHandlarza.getAndIncrement(),x)));
-        if(wyborCzynnosci==1){
-            handlarze.forEach(x->{
-                System.out.println(x.getPierwszy() +". Handlarz: " + "Witaj jestem "+ x.getDrugi().getImie() +": ");
-                x.getDrugi().przedstawOferte();
-            });
-            System.out.println("Jeśli chcesz kupic przedmiot wybierz numer Handlarza a następnie numer przedmiotu z oferty" +
-                    "(jesli chcesz wrocic do poprzedniego menu wybierz: 0,0):");
-            System.out.print("Wybieram Handlarza nr: ");
-            int wyborHandlarza = in.nextInt();
-            System.out.print("Wybieram Przedmiot nr: ");
+        Handlarz handlarzTMP = lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getHandlarz();
+        if(wyborCzynnosci==1) {
+            System.out.println("Twoje zlote monety: "+ gracz.getPieniadze());
+            handlarzTMP.przedstawOferte();
+            System.out.println("Jesli chcesz kupic przedmiot wybierz wybierz jego numer z oferty Handlarza(0 zeby wyjsc do poprzedniego menu):");
             int wyborPrzedmiotu = in.nextInt();
-            if(wyborHandlarza==0 && wyborPrzedmiotu==0) return;
-            while (true){
-                if (wyborHandlarza > 0 && wyborHandlarza <= handlarze.size()){
-                    if(wyborPrzedmiotu > 0 && wyborPrzedmiotu <=handlarze.get(wyborHandlarza-1).getDrugi().getOferta().size()){
-                        handlarze.get(wyborHandlarza-1)
-                                .getDrugi().sprzedajGraczowi(gracz,wyborPrzedmiotu-1);
-                        break;
-                    }else {
-                        System.out.println("Niepoprawny wybor przedmiotu podaj, dane handlu jeszcze raz" +
-                                "(jesli chcesz wrocic do poprzedniego menu wybierz: 0,0): ");
-                        System.out.print("Wybieram Handlarza nr: ");
-                        wyborHandlarza = in.nextInt();
-                        System.out.print("Wybieram Przedmiot nr: ");
-                        wyborPrzedmiotu = in.nextInt();
-                        if(wyborHandlarza==0 && wyborPrzedmiotu==0) return;
-                    }
-                }else{
-                    System.out.println("Niepoprawny wybor handlarza podaj, dane handlu jeszcze raz" +
-                            "(jesli chcesz wrocic do poprzedniego menu wybierz: 0,0): ");
+            if(wyborPrzedmiotu==0) return;
+            while (true) {
+                if(wyborPrzedmiotu > 0 && wyborPrzedmiotu <= handlarzTMP.getOferta().size()){
+                    handlarzTMP.sprzedajGraczowi(gracz,wyborPrzedmiotu-1);
+                    break;
+                }else {
+                    System.out.println("Niepoprawny wybor przedmiotu podaj, dane handlu jeszcze raz" +
+                            "(0 zeby wyjsc do poprzedniego menu): ");
                     System.out.print("Wybieram Handlarza nr: ");
-                    wyborHandlarza = in.nextInt();
-                    System.out.print("Wybieram Przedmiot nr: ");
                     wyborPrzedmiotu = in.nextInt();
-                    if(wyborHandlarza==0 && wyborPrzedmiotu==0) return;
+                    if(wyborPrzedmiotu==0) return;
                 }
             }
         } else if(wyborCzynnosci==2) {
             Przedmiot p = getItemZEkwiupnuku();
-            System.out.println("Przedmiot ktory chcesz sprzedac->"+ p.getNazwa());
-            System.out.println("Twoj aktualny kapital: "+ gracz.getPieniadze());
-            handlarze.forEach(x->x.getDrugi().kupOdGracza(gracz,p));
-            System.out.println("Twoj kapital po sprzedazy: "+ gracz.getPieniadze());
+            System.out.println("Twoje zlote monety: "+ gracz.getPieniadze());
+            handlarzTMP.kupOdGracza(gracz,p);
+            System.out.println("Twoje zlote monety po sprzedazy: "+ gracz.getPieniadze());
         } else{
             System.out.println("Niepoprawny wybor czynnosci");
         }
@@ -195,9 +166,12 @@ public class Menu {
         System.out.println("1. Pokaż Moje Statystyki\n" +
                 "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji");
 
+        /*
         if((lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne()!=null &&
                         lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getWydarzeniaPoboczne().stream()
-                        .anyMatch(x-> x.getHandlarz()!=null))){
+                        .anyMatch(x-> x.getHandlarz()!=null)))
+        */
+        if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getHandlarz()!=null){
             System.out.println("4. Handluj z handlarzem");
         }
 
