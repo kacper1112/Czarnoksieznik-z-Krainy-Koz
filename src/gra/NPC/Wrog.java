@@ -6,6 +6,7 @@ import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.PrzedmiotFabularny;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.List;
 import java.util.Random;
@@ -67,11 +68,11 @@ public class Wrog extends NPC {
     }
     /**
      * Wrog na poczatku dostaje:
+     * jedna pota albo mieso
      * podstawowa bron fizyczna lub magiczna - szansa 50%
      */
     @Override
     public Ekwipunek generujEkwipunek() {
-        //System.out.println("GENERATOR DLA WROGA");test czy korzysta z dobrego generatora - zaliczony
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WROG);
         List<Para<String, String>> bronFizycznaTMP = List.of(
                 new Para<>("Ostrze Zniszczonego Krola", "opis"),
@@ -83,6 +84,24 @@ public class Wrog extends NPC {
         );
 
         Random rand = new Random();
+        if(rand.nextDouble() < 0.5){
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowa pota",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }else {
+            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+                    "podstawowe mieso",
+                    "opis",
+                    10,
+                    10,
+                    10
+            ));
+        }
+
         if(rand.nextInt(bronFizycznaTMP.size()) < bronFizycznaTMP.size()/2){
             int indeks = rand.nextInt(bronFizycznaTMP.size());
             ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
