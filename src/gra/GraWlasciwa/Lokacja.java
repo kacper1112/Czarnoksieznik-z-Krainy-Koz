@@ -11,6 +11,7 @@ public class Lokacja {
     private final Wydarzenie wydarzenieFabularne;
     private final List<Wydarzenie> wydarzeniaPoboczne;
 
+
     public Lokacja(String nazwa,
                    String opis,
                    Wydarzenie fabularne,

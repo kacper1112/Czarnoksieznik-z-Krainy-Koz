@@ -22,7 +22,7 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // konstruktor domyslny
     public Gracz() {
-        maksymalnePunktyZycia = 100;
+        maksymalnePunktyZycia = 10000;
         obecnePunktyZycia = maksymalnePunktyZycia;
         sila = 10;
         inteligencja = 10;
@@ -35,8 +35,10 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // konstruktor klasy gracza
     public Gracz(double maksymalnePunktyZycia, double sila, double inteligencja) {
-        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
-        this.obecnePunktyZycia = maksymalnePunktyZycia;
+        //this.maksymalnePunktyZycia = maksymalnePunktyZycia;
+        this.maksymalnePunktyZycia = 10000;
+        //this.obecnePunktyZycia = maksymalnePunktyZycia;
+        this.obecnePunktyZycia = 10000;
         this.sila = sila;
         this.inteligencja = inteligencja;
         this.poziom = 1;
