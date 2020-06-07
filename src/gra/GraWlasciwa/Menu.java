@@ -206,6 +206,7 @@ public class Menu {
             System.out.println("4. Handluj z handlarzem");
         }
 
+
         int wybor = in.nextInt(); //Gra.wczytajWyborGracza(3);
         switch (wybor){
             case 1:
