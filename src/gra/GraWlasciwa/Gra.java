@@ -141,7 +141,7 @@ public class Gra {
                     }
                 });
             }
-            
+
             if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null && !this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
@@ -259,7 +259,7 @@ public class Gra {
                         + "zaczerpnąć trochę świeżego powietrza. Na ulicach swoje kramiki rozstawili tutejsi handlarze, "
                         + "którzy energicznym wymachywaniem swoich rąk zachęcają Cię do skorzystania z ich ofert.",
                 new Wydarzenie("Spotkanie z zebrakiem",
-                        "W jednej z uliczek napotykasz żebraka, który przygląda CI się uważnie swoim tajemniczym wzrokiem \n", gracz,
+                        "W jednej z uliczek napotykasz żebraka, który przygląda Ci się uważnie swoim tajemniczym wzrokiem \n", gracz,
                         Arrays.asList(new Fabularny("Zebrak", true, new PrzedmiotFabularny("List", "List od czarnoksieznika", 100,50, false,
                                 "Moj najdrozszy Romanie z ogromna nostalgia wspominam nasze minione porachunki, "
                                         + "niestety musze Cie zawiadomic, ze niestety nie moglem pojawic sie na naszym ostatnim spotkaniu na Bajkowej Polanie. "
@@ -425,17 +425,17 @@ public class Gra {
                         "Krzywa wieza",
                         "Docierasz do krzywej Wiezy",
                         new Wydarzenie(
-                                "Walka z bossem Belial",
-                                "Osiagnales swoj cel, walczysz ze straszliwym Belialem.",
+                                "Walka z bossem Beliar",
+                                "Osiagnales swoj cel, walczysz ze straszliwym Beliarem.",
                                 gracz,
                                 null,
                                 null,
-                                new Boss("Belial", 1000, 300, new PrzedmiotFabularny("Przepustka do czarnoksieznika 3", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
+                                new Boss("Beliar", 1000, 300, new PrzedmiotFabularny("Przepustka do czarnoksieznika 3", "Przepustka pozwala sie dostac do czarnoksieznika", 0, 0, false, "Uzyj, aby wejsc do czarnoksieznika", 10)),
                                 null
 
                         ), null, List.of(11, 12, 2, 14), null));
 
-        lokacjeTMP.add(new Lokacja("Wrota beliara", "Docierasz do kresu swojej wedrwoki, ogladasz sie wokol siebie, ale wszedzie panuje chaos...",
+        lokacjeTMP.add(new Lokacja("Wrota Beliara", "Docierasz do kresu swojej wedrwoki, ogladasz sie wokol siebie, ale wszedzie panuje chaos...",
                 new Wydarzenie("Walka z Czarnoksieznikiem", "Stajesz na przeciw Czarnoskieznika", gracz, null, null, new Boss(
                         "Czarnoksieznik z Krainy Koz", 1000, 500, null
                 ))

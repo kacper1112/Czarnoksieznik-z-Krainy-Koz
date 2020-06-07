@@ -33,7 +33,7 @@ public abstract class Gracz implements generatorEkwipunku {
     // konstruktor klasy gracza
     public Gracz(double maksymalnePunktyZycia, double sila, double inteligencja) {
         this.maksymalnePunktyZycia = 10000;
-        this.obecnePunktyZycia = 10000;
+        this.obecnePunktyZycia = this.maksymalnePunktyZycia;
         this.sila = sila;
         this.inteligencja = inteligencja;
         this.poziom = 1;
@@ -56,16 +56,9 @@ public abstract class Gracz implements generatorEkwipunku {
         this.ekwipunek = ekwipunek;
     }
 
-    public void setMaksymalnePunktyZycia(double maksymalnePunktyZycia) {
-        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
-    }
 
     public double getObecnePunktyZycia() {
         return obecnePunktyZycia;
-    }
-
-    public void setObecnePunktyZycia(double obecnePunktyZycia) {
-        this.obecnePunktyZycia = obecnePunktyZycia;
     }
 
     public double getSila() {
@@ -162,6 +155,7 @@ public abstract class Gracz implements generatorEkwipunku {
         this.obecnePunktyZycia +=
                 this.ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
         this.ekwipunek.wyciagnijPozywienie(index);
+        System.out.println("Masz teraz " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + " punktow zycia");
     }
 
     // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
@@ -170,14 +164,14 @@ public abstract class Gracz implements generatorEkwipunku {
     }
 
     public String toString() {
-        return "Masz obecnie " +
-                obecnePunktyZycia +" punktow zycia, " +
-                sila + " sily, "+
-                inteligencja +" inteligencji. Posiadasz " +
-                poziom + " poziom oraz " +
-                punktyDoswiadczenia + " punktow zycia. Masz " +
-                pieniadze + " zlotych monet" +
-                this.ekwipunek.getWyekwipowanaBron().toString() + " to Twoja bron";
+        return "Obecne statystyki gracza:\n" +
+                "punkty zycia: " + obecnePunktyZycia + "\\" + maksymalnePunktyZycia + "\n" +
+                "sila: " + sila + "\n" +
+                "inteligencja: " + inteligencja + "\n" +
+                "poziom: " + poziom + "\n" +
+                "punkty doswiadczenia: " + punktyDoswiadczenia + "\n" +
+                "pieniadze: " + pieniadze + "\n" +
+                "wyekwipowana bron: " + ekwipunek.getWyekwipowanaBron() + "\n";
     }
 
     public double getSumaBonusowDoInteligencji() {

@@ -33,7 +33,7 @@ public class Walka {
                     // menu wyboru przedmiotu z ekwipunku
                 } else if(wyborGracza == 2) {
                     if(Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
-                        System.out.println("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
+                        System.out.println("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym " +
                                 "uderzeniu!");
                         walkaTrwa = false;
                         wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
@@ -46,7 +46,7 @@ public class Walka {
                     }
                 } else if(wyborGracza == 3) {
                     if(Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
-                        System.out.println("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
+                        System.out.println("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym " +
                                 "uderzeniu!");
                         walkaTrwa = false;
                         wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
@@ -76,7 +76,7 @@ public class Walka {
         if(gracz.getObecnePunktyZycia() > 0) {
             gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
             System.out.println("Udalo Ci sie zwyciezyc w walce!");
-            System.out.println("Podnosisz przedmioty przecinika");
+            System.out.println("Podnosisz przedmioty przeciwnika");
         } else {
             System.out.println("Zostales zabity");
         }
