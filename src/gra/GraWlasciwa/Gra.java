@@ -278,7 +278,7 @@ public class Gra {
                         gracz,
                         null,
                         new Handlarz("Miejski handlarz"), 0, null),
-                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), List.of( 11, 12, 13 ))
+                        new Wydarzenie("Walka z bandyta", "Na swojej drodze napotykasz ulicznego zawadiake, ktory pragnie pokazac Ci gdzie raki zimuja", gracz, null, null, List.of(new Wrog("Bandyta", 20, 20)), null)), List.of( 1, 11, 12, 13 ))
                 );
                 // todo dodac lokajce z bossem
 
@@ -355,7 +355,9 @@ public class Gra {
         // ));
         lokacjeTMP.add(new Lokacja("Zdradliwe urwisko", "Docierasz do urwiska, starasz sie nawet nie patrzec w dol, pamietajac jednoczesnie, że musisz dostac sie do Gniazda Harpii, aby zdobyc kolejna z przepustek",
                 new Wydarzenie("Walka z krolowa harpii", "Dotarlszy do gniazda, juz masz siegac po jedno z jaj, w ktorym z pewnoscia znajduje sie przepustka, gdy nagle z nieba naciera na Ciebie Krolowa Harpii",
-                        gracz, null, null, List.of(new Wrog("Krlowa Harpii", 200, 100)), null, null), null, List.of(1, 9, 10)));
+                        gracz, null, null, List.of(new Wrog("Krlowa Harpii", 200, 100, new PrzedmiotFabularny(
+                        "Przepustka 2", "Przepustka do boss'a 2", 0, 0, false, "Uzyj, aby wejsc do boss'a 2", 10
+                ))), null, null), null, List.of(1, 9, 10)));
         //
         // // 9
         // lokacjeTMP.add(new Lokacja("Orla przepaść",
@@ -430,6 +432,8 @@ public class Gra {
                                 null
 
                         ), null, List.of(11, 12, 2, 14)));
+
+        lokacjeTMP.add(new Lokacja(null, null, null, null, null));
 
         // Lokacja startowa - tylko do wywolania wydarzenia fabularnego
         // wprowadzenie_1

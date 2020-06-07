@@ -42,11 +42,22 @@ public class Menu {
                 System.out.println("Masz przepustke");
             } else {
                 System.out.println("Nie masz przepustki");
+                return true;
             }
         } else if(wyborLokacji == 12) {
-
+            if(gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka 2")).collect(Collectors.toList()).size() != 0) {
+                System.out.println("Masz przepustke");
+            } else {
+                System.out.println("Nie masz przepustki");
+                return true;
+            }
         } else if(wyborLokacji == 13) {
-
+            if(gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka 3")).collect(Collectors.toList()).size() != 0) {
+                System.out.println("Masz przepustke");
+            } else {
+                System.out.println("Nie masz przepustki");
+                return true;
+            }
         }
         if(wyborLokacji == 0) {
             return false;
