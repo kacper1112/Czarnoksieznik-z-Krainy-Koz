@@ -26,11 +26,5 @@ public class PrzedmiotFabularny extends Przedmiot {
     @Override
     public String toString() {
         return "(" + getNazwa() + ", " + inteligencjaWymaganaDoWskazowki + ")";
-        /*
-                return "PrzedmiotFabularny: " +
-                "czyZuzyty: " + czyZuzyty +
-                ", wskazowka: " + wskazowka +
-                ", inteligencjaWymaganaDoWskazowki: " + inteligencjaWymaganaDoWskazowki;
-         */
     }
 }

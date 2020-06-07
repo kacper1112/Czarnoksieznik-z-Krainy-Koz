@@ -6,13 +6,6 @@ public abstract class Przedmiot {
     private final double wartosc;
     private final Atrybut atrybut;
 
-    public Przedmiot() {
-        nazwa = "";
-        opis = "";
-        wartosc = 0;
-        atrybut = new Atrybut();
-    }
-
     public Przedmiot(String nazwa, String opis, double wartosc, int szansaAtrybutu) {
         this.nazwa = nazwa;
         this.opis = opis;
