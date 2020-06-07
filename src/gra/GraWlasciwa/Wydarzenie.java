@@ -24,39 +24,35 @@ public class Wydarzenie {
     private final String opis;
     private final Gracz gracz;
     private final List<Fabularny> postacieFabularne;
-    private final Handlarz handlarz;
     private final List<Wrog> wrogowie;
     private final Boss boss;
     private final Zagadka zagadka;
 
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, Handlarz handlarz, int iluWrogow, Boss boss) {
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, int iluWrogow, Boss boss) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
-        this.handlarz = handlarz;
         this.wrogowie = generujWrogow(iluWrogow);
         this.boss = boss;
         this.zagadka = null;
     }
 
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, Handlarz handlarz, List<Wrog> wrogowie, Boss boss) {
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Wrog> wrogowie, Boss boss) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
-        this.handlarz = handlarz;
         this.wrogowie = wrogowie;
         this.boss = boss;
         this.zagadka = null;
     }
 
-    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, Handlarz handlarz, List<Wrog> wrogowie, Boss boss, Zagadka zagadka) {
+    public Wydarzenie(String nazwa, String opis, Gracz gracz, List<Fabularny> fabularne, List<Wrog> wrogowie, Boss boss, Zagadka zagadka) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.gracz = gracz;
         this.postacieFabularne = fabularne;
-        this.handlarz = handlarz;
         this.wrogowie = wrogowie;
         this.boss = boss;
         this.zagadka = zagadka;
@@ -213,9 +209,6 @@ public class Wydarzenie {
         return postacieFabularne;
     }
 
-    public Handlarz getHandlarz() {
-        return handlarz;
-    }
 
     public List<Wrog> getWrogowie() {
         return wrogowie;

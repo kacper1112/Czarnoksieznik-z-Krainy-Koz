@@ -169,8 +169,7 @@ public class Ekwipunek {
         if(!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(this::wlozBronMagiczna);
         }
-        if(ekwipunekPrzeciwnika.getTYP()==TYP_POSIADACZA_EKWIPUNKU.BOSS
-                &&!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+        if(!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozFabularne);
         }
     }
