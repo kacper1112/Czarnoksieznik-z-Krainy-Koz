@@ -518,7 +518,4 @@ public class Gra {
         } catch (IOException | InterruptedException ignored) {}
     }
 
-    // todo - walke obsluguje lokacja, przekazujemy jej gracza jako argument a wroga
-    // juz ma
-
 }
