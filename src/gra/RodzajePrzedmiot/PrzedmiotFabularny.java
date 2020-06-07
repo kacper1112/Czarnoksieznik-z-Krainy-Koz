@@ -5,7 +5,7 @@ public class PrzedmiotFabularny extends Przedmiot {
     private final double inteligencjaWymaganaDoWskazowki;
     private boolean czyZuzyty;
 
-    public PrzedmiotFabularny(String nazwa, String opis, double wartosc, int szansaAtrybutu, boolean czyZuzyty,
+    public PrzedmiotFabularny(String nazwa, String opis, int wartosc, int szansaAtrybutu, boolean czyZuzyty,
                               String wskazowka,
                               double inteligencjaWymaganaDoWskazowki) {
         super(nazwa, opis, wartosc, szansaAtrybutu);

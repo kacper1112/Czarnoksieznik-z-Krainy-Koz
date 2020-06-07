@@ -22,22 +22,22 @@ public class Boss extends Wrog {
     public Boss(String imie, PrzedmiotFabularny przedmiotFabularny) {
         super(imie);
         Random random = new Random();
-        szansaNaTrafienieKrytyczne = random.nextInt(50) + 10;
+        szansaNaTrafienieKrytyczne = random.nextInt(50)+10;
         this.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
     }
 
-    public Boss(String imie, int maksymalnePunktyZycia, int bazowyAtak, PrzedmiotFabularny przedmiotFabularny) {
-        super(imie, maksymalnePunktyZycia, bazowyAtak, przedmiotFabularny);
+    public Boss(String imie, int maksymalnePunktyZycia, int bazowyAtak , PrzedmiotFabularny przedmiotFabularny){
+        super(imie,maksymalnePunktyZycia,bazowyAtak,przedmiotFabularny);
         Random random = new Random();
-        szansaNaTrafienieKrytyczne = random.nextInt(50) + 10;
+        szansaNaTrafienieKrytyczne = random.nextInt(50)+10;
         //this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
-    public void dodajKolejnyPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny) {
+    public void dodajKolejnyPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){
         this.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
     }
 
-    PrzedmiotFabularny wygranaBohatera(int indeks) {
+    PrzedmiotFabularny wygranaBohatera(int indeks){
         PrzedmiotFabularny przedmiot = this.getEkwipunek().getEkwipunekFabularne().get(indeks);
         System.out.print("Pokonales mnie, na farcie..... i tak ostatniecznie przegrasz byczq!");
         return przedmiot;
@@ -83,26 +83,26 @@ public class Boss extends Wrog {
                 new Para<>("Echo Luden", "opis"),
                 new Para<>("Klinga Burzy", "opis")
         );
-        if (ekwipunekTMP.getEkwipunekBronMagiczna().size() < 1) {
+        if(ekwipunekTMP.getEkwipunekBronMagiczna().size()<1) {
             int pairIndex = rand.nextInt(bronFizycznaTMP.size());
             ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
                     bronFizycznaTMP.get(pairIndex).getPierwszy(),
                     bronFizycznaTMP.get(pairIndex).getDrugi(),
-                    rand.nextDouble() * 100,
                     rand.nextInt(100),
-                    rand.nextDouble() * 100,
-                    rand.nextDouble() * 100
+                    rand.nextInt(100),
+                    rand.nextDouble()*100,
+                    rand.nextDouble()*100
             ));
         }
-        if (ekwipunekTMP.getEkwipunekBronMagiczna().size() < 1) {
+        if(ekwipunekTMP.getEkwipunekBronMagiczna().size()<1){
             int pairIndex = rand.nextInt(bronFizycznaTMP.size());
             ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
                     bronMagicznaTMP.get(pairIndex).getPierwszy(),
                     bronMagicznaTMP.get(pairIndex).getDrugi(),
-                    rand.nextDouble() * 100,
                     rand.nextInt(100),
-                    rand.nextDouble() * 100,
-                    rand.nextDouble() * 100
+                    rand.nextInt(100),
+                    rand.nextDouble()*100,
+                    rand.nextDouble()*100
             ));
         }
 
@@ -111,9 +111,9 @@ public class Boss extends Wrog {
             ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
                     pozywienieTMP.get(pairIndex).getPierwszy(),
                     pozywienieTMP.get(pairIndex).getDrugi(),
-                    rand.nextDouble() * 100,
                     rand.nextInt(100),
-                    rand.nextDouble() * 100
+                    rand.nextInt(100),
+                    rand.nextDouble()*100
             ));
         }
         return ekwipunekTMP;

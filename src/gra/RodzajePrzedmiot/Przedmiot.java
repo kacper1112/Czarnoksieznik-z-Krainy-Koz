@@ -3,10 +3,17 @@ package gra.RodzajePrzedmiot;
 public abstract class Przedmiot {
     private final String nazwa;
     private final String opis;
-    private final double wartosc;
+    private final int wartosc;
     private final Atrybut atrybut;
 
-    public Przedmiot(String nazwa, String opis, double wartosc, int szansaAtrybutu) {
+    public Przedmiot() {
+        nazwa = "";
+        opis = "";
+        wartosc = 0;
+        atrybut = new Atrybut();
+    }
+
+    public Przedmiot(String nazwa, String opis, int wartosc, int szansaAtrybutu) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.wartosc = wartosc;
@@ -21,7 +28,7 @@ public abstract class Przedmiot {
         return opis;
     }
 
-    public double getWartosc() {
+    public int getWartosc() {
         return wartosc;
     }
 

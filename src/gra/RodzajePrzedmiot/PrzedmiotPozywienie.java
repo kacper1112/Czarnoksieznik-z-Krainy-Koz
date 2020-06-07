@@ -5,7 +5,7 @@ public class PrzedmiotPozywienie extends Przedmiot {
 
     public PrzedmiotPozywienie(String nazwa,
                                String opis,
-                               double wartosc,
+                               int wartosc,
                                int szansaAtrybutu,
                                double przywracaneZycie) {
         super(nazwa, opis, wartosc, szansaAtrybutu);

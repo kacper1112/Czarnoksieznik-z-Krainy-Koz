@@ -1,6 +1,7 @@
 package gra.RodzajeGracz;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.BronMagiczna;
@@ -23,7 +24,7 @@ public class Kaplan extends Gracz {
 
     public void otrzymajObrazenia(double wartosc) {
         if (Math.random() < 0.3) {
-            System.out.println("Atak wroga leczy Cie!");
+            KolorTekstu.printCzerwony( "Atak wroga leczy Cie!");
             zwiekszPunktyZycia(wartosc);
         } else {
             otrzymajObrazenia(wartosc);
