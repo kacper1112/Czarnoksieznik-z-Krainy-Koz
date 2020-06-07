@@ -171,7 +171,7 @@ public class Ekwipunek {
         if(!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(this::wlozBronMagiczna);
         }
-        if(!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
+        if(!ekwipunekPrzeciwnika.getEkwipunekFabularne().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozFabularne);
         }
     }

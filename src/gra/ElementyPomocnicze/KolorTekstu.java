@@ -46,8 +46,36 @@ public class KolorTekstu {
         public static final String BLINK_SLOW = "\u001B[5m";
         public static final String BLINK_RAPID = "\u001B[6m";
 
-        public static void tekstyZLokacji(String tekst){
+        public static void printZielony(String tekst){
             System.out.println(GREEN + tekst + RESET);
+        }
+
+        public static void printCzerwony(String tekst){
+                System.out.println(RED + tekst + RESET);
+        }
+
+        public static void printZolty(String tekst){
+                System.out.println(YELLOW + tekst + RESET);
+        }
+
+        public static void printBZolty(String tekst){
+                System.out.println(BG_YELLOW + tekst + RESET);
+        }
+
+        public static void printCyan(String tekst){
+                System.out.println(CYAN + tekst + RESET);
+        }
+
+        public static void printBCyan(String tekst){
+                System.out.println(BG_CYAN + tekst + RESET);
+        }
+
+        public static void printNiebieski(String tekst){
+                System.out.println(BRIGHT_BG_BLUE + tekst + RESET);
+        }
+
+        public static void printFioletowy(String tekst){
+                System.out.println(BG_PURPLE + tekst + RESET);
         }
 }
 
