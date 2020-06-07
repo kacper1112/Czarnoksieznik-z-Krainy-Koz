@@ -109,19 +109,21 @@ public class Gra {
 
     private boolean rozpocznijGre() {
         while (true) {
-            this.lokacje.get(lokalizacjaGracza).getOpis();
+            System.out.println(this.lokacje.get(lokalizacjaGracza).getOpis());
             if(this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 this.lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
-                    System.out.println(wydarzenie.getNazwa());
-                    System.out.println(wydarzenie.getOpis());
-                    if(wydarzenie.getPostacieFabularne() != null) {
-                        wydarzenie.getPostacieFabularne().forEach(postac -> {
-                            postac.podarujLosowyPrzedmiotNieFabularny();
-                            if(postac.isCzyPosiadaPrzedmiotFabularny()) {
-                                gracz.getEkwipunek().wlozFabularne(postac.podarujPrzedmiotFabularny());
-                            }
-                        });
-                    }
+                    if(!wydarzenie.getCzyWykonana()) {
+
+                        System.out.println(wydarzenie.getNazwa());
+                        System.out.println(wydarzenie.getOpis());
+                        if (wydarzenie.getPostacieFabularne() != null) {
+                            wydarzenie.getPostacieFabularne().forEach(postac -> {
+                                postac.podarujLosowyPrzedmiotNieFabularny();
+                                if (postac.isCzyPosiadaPrzedmiotFabularny()) {
+                                    gracz.getEkwipunek().wlozFabularne(postac.podarujPrzedmiotFabularny());
+                                }
+                            });
+                        }
                     /*
                     if(wydarzenie.getHandlarz() != null) {
                         System.out.println("Handlowanko");
@@ -129,23 +131,26 @@ public class Gra {
                     }
 
                      */
-                    if(wydarzenie.getZagadka() != null) {
-                        wydarzenie.zagadka();
-                    }
-                    if(wydarzenie.getWrogowie() != null) {
-                        wydarzenie.getWrogowie().forEach(wrog -> {
-                            System.out.println("Walka z wrogiem");
-                            Walka.walka(gracz, wrog);
-                        });
-                    }
-                    if(wydarzenie.getBoss() != null) {
-                        System.out.println("Walka z bossem");
-                        Walka.walka(gracz, wydarzenie.getBoss());
+                        if (wydarzenie.getZagadka() != null) {
+                            wydarzenie.zagadka();
+                        }
+                        if (wydarzenie.getWrogowie() != null) {
+                            wydarzenie.getWrogowie().forEach(wrog -> {
+                                System.out.println("Walka z wrogiem");
+                                Walka.walka(gracz, wrog);
+                            });
+                        }
+                        if (wydarzenie.getBoss() != null) {
+                            System.out.println("Walka z bossem");
+                            Walka.walka(gracz, wydarzenie.getBoss());
+                        }
+
+                        wydarzenie.setCzyWykonana(true);
                     }
                 });
             }
             
-            if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null) {
+            if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null && !this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
                 System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
                 System.out.println(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
                 if(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
@@ -179,6 +184,8 @@ public class Gra {
                     System.out.println("Walka z bossem");
                     Walka.walka(gracz, this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss());
                 }
+
+                this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().setCzyWykonana(true);
             }
 
             while(Menu.menuGlowne()) {
