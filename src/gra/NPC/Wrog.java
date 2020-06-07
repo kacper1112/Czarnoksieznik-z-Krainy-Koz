@@ -1,6 +1,7 @@
 package gra.NPC;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronFizyczna;
@@ -62,7 +63,7 @@ public class Wrog extends NPC {
         if(this.getEkwipunek().getWyekwipowanaBron() != null) {
             return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
         }
-        System.out.println("Wrog nie posiada broni, ale chyba walczy calkiem niezle i bez niej...");
+        KolorTekstu.printCzerwony("Wrog nie posiada broni, ale chyba walczy calkiem niezle i bez niej...");
         return getBazowyAtak();
     }
     /**

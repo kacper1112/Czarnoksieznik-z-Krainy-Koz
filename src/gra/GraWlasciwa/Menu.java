@@ -29,11 +29,9 @@ public class Menu {
 
     public static boolean menuLokacji() {
         // nie da sie jakos ladniej tego potwora linijke nizej?
-        System.out.println("Sasiednie lokacje:");
+        KolorTekstu.printZolty("Sasiednie lokacje:");
                 lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().forEach(index -> {
-                    System.out.println(index + ": " + lokacje.get(index).getNazwa());
-                    //System.out.println(this.lokacje.get(index).getNazwa());
-                    //System.out.println(this.lokacje.get(index).getOpis());
+                    KolorTekstu.printZolty(index + ": " + lokacje.get(index).getNazwa());
                 });
         System.out.println("Wybierz numer lokacji do ktorej chcialbys przejsc (0 zeby wyjsc do poprzedniego menu)");
         int wyborLokacji = in.nextInt();
@@ -76,7 +74,7 @@ public class Menu {
             return false;
         } else if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().contains(wyborLokacji)) {
             Gra.getInstance().setLokalizacjaGracza(wyborLokacji);
-            System.out.println("Przechodzisz do: " + lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getNazwa());
+            KolorTekstu.printCyan("Przechodzisz do: " + lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getNazwa());
             return false;
         } else  {
             System.out.println("Niepoprawna lokacja");
@@ -92,15 +90,6 @@ public class Menu {
         if(gracz.getEkwipunek().isEmpty()) {
             System.out.println("Nie masz w ekwipunku wiecej przedmiotow!");
             return;
-        }
-
-        if(gracz.getEkwipunek().getWyekwipowanaBron() instanceof BronMagiczna){
-            System.out.println("Wyekwipowana bron magiczna:\n"
-                    + gracz.getEkwipunek().getWyekwipowanaBron() + "\n");
-
-        }else if(gracz.getEkwipunek().getWyekwipowanaBron() instanceof BronFizyczna){
-            System.out.println("Wyekwipowana bron fizyczna:\n"
-                    + gracz.getEkwipunek().getWyekwipowanaBron() + "\n");
         }
 
         rozmiarEq = gracz.getEkwipunek().pokazEkwipunek();
