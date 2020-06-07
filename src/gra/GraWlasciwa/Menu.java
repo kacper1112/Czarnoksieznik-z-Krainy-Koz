@@ -27,7 +27,6 @@ public class Menu {
     }
 
     public static boolean menuLokacji() {
-        Gra.wyczyscTerminal();
         // nie da sie jakos ladniej tego potwora linijke nizej?
         System.out.println("Sasiednie lokacje:");
                 lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getSasiednieLokacje().forEach(index -> {
@@ -167,7 +166,6 @@ public class Menu {
     }
 
     public static boolean menuGlowne(){
-        Gra.wyczyscTerminal();
         System.out.println("1. Pokaż Moje Statystyki\n" +
                 "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji");
 

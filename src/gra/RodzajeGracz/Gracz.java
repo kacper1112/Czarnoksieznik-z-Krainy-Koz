@@ -127,7 +127,6 @@ public abstract class Gracz implements generatorEkwipunku {
         } else {
             obecnePunktyZycia -= wartosc;
         }
-        System.out.println("Obecnie masz " + obecnePunktyZycia + " punktow zycia");
     }
 
     // gracz zwieksza swoje punkty zycia
@@ -137,7 +136,6 @@ public abstract class Gracz implements generatorEkwipunku {
         } else {
             obecnePunktyZycia += wartosc;
         }
-        System.out.println("Obecnie masz " + obecnePunktyZycia + " punktow zycia");
     }
 
     public abstract double zadajObrazenia();
