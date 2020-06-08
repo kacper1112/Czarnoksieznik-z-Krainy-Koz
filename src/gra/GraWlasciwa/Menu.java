@@ -54,9 +54,9 @@ public class Menu {
             }
         } else if (wyborLokacji == 14) {
             if (
-                    gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 1")).collect(Collectors.toList()).size() != 0 &&
-                            gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 2")).collect(Collectors.toList()).size() != 0 &&
-                            gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 3")).collect(Collectors.toList()).size() != 0
+                    gracz.getEkwipunek().getEkwipunekFabularne().stream().anyMatch(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 1")) &&
+                        gracz.getEkwipunek().getEkwipunekFabularne().stream().anyMatch(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 2")) &&
+                        gracz.getEkwipunek().getEkwipunekFabularne().stream().anyMatch(e -> e.getNazwa().equals("Przepustka do czarnoksieznika 3"))
             ) {
                 System.out.println("Masz przepustke");
             } else {
