@@ -46,6 +46,14 @@ public class KolorTekstu {
     public static final String BLINK_SLOW = "\u001B[5m";
     public static final String BLINK_RAPID = "\u001B[6m";
 
+    public static void printZielonyBezNL(String tekst) {
+        System.out.print(GREEN + tekst + RESET);
+    }
+
+    public static void printZielonyItaliki(String tekst) {
+        System.out.println(ITALIC + GREEN + tekst + RESET);
+    }
+
     public static void printZielony(String tekst) {
         System.out.println(GREEN + tekst + RESET);
     }

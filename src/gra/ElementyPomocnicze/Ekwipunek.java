@@ -137,13 +137,19 @@ public class Ekwipunek {
         if (!this.getEkwipunekBronFizyczna().isEmpty()) {
             KolorTekstu.printZielony("Bron fizyczna:");
             for (BronFizyczna bron : this.getEkwipunekBronFizyczna()) {
-                KolorTekstu.printZielony("\t" + indeks++ + ". " + bron);
+                KolorTekstu.printZielonyBezNL("\t" + indeks++ + ". " + bron);
+                if(bron == wyekwipowanaBron) {
+                    KolorTekstu.printZielonyItaliki(" *aktualnie wyekwipowana");
+                }
             }
         }
         if (!this.getEkwipunekBronMagiczna().isEmpty()) {
             KolorTekstu.printZielony("Bron magiczna:");
             for (BronMagiczna bron : this.getEkwipunekBronMagiczna()) {
-                KolorTekstu.printZielony("\t" + indeks++ + ". " + bron);
+                KolorTekstu.printZielonyBezNL("\t" + indeks++ + ". " + bron);
+                if(bron == wyekwipowanaBron) {
+                    KolorTekstu.printZielonyItaliki(" *aktualnie wyekwipowana");
+                }
             }
         }
         if (!this.getEkwipunekFabularne().isEmpty()) {
