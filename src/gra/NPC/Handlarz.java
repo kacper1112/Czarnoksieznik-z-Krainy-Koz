@@ -1,6 +1,7 @@
 package gra.NPC;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajeGracz.Gracz;
@@ -96,9 +97,9 @@ public class Handlarz extends NPC {
             System.out.println("Brak przedmiotow do kupienia.");
             return;
         }
-        System.out.println("    Oto moja oferta dla ciebie przybyszu:");
+        KolorTekstu.printFioletowy( "    Oto moja oferta dla ciebie przybyszu:");
 
-        oferta.forEach(x-> System.out.println("    "+x.getDrugi().getPierwszy() + ". " + x.getPierwszy().getNazwa() + " - cena: " + x.getDrugi().getDrugi()));
+        oferta.forEach(x-> KolorTekstu.printFioletowy( "    "+x.getDrugi().getPierwszy() + ". " + x.getPierwszy().getNazwa() + " - cena: " + x.getDrugi().getDrugi()));
     }
 
     public void resetujOferte(){

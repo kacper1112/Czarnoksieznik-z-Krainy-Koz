@@ -1,8 +1,10 @@
 package gra.NPC;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
+import gra.GraWlasciwa.Gra;
 import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;
@@ -93,13 +95,13 @@ public class Fabularny extends NPC {
     public Przedmiot podarujLosowyPrzedmiotNieFabularny() {
         Random random = new Random();
         int indeks = random.nextInt(podarki.size());
-        System.out.println("To dla ciebie: " + podarki.get(indeks).toString());
-        System.out.println("Niby mały podarek ale zawsze cos.");
+        KolorTekstu.printCyan( "To dla ciebie: " + podarki.get(indeks).toString());
+        KolorTekstu.printCyan( "Niby mały podarek ale zawsze cos.");
         return (Przedmiot) podarki.get(indeks);
     }
 
     public PrzedmiotFabularny podarujPrzedmiotFabularny() {
-        System.out.println("Przekazuje Ci ten ważny przedmiot: " + this.przedmiotFabularny);
+        KolorTekstu.printCyan( "Przekazuje Ci ten ważny przedmiot: " + this.przedmiotFabularny);
         return this.przedmiotFabularny;
     }
 

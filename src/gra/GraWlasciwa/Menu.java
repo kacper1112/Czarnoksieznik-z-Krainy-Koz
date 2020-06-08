@@ -129,12 +129,12 @@ public class Menu {
     public static void menuHandlu() {
         Gra.wyczyscTerminal();
         System.out.println("Wybierz co chcesz zrobic: ");
-        System.out.println("1. Kupic przedmioty od handlarza");
-        System.out.println("2. Sprzedac cos handlarzowi");
+        KolorTekstu.printZolty("1. Kupic przedmioty od handlarza");
+        KolorTekstu.printZolty("2. Sprzedac cos handlarzowi");
         int wyborCzynnosci = in.nextInt();
         Handlarz handlarzTMP = lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getHandlarz();
         if (wyborCzynnosci == 1) {
-            System.out.println("Twoje zlote monety: " + gracz.getPieniadze());
+            KolorTekstu.printZielony("Twoje zlote monety: " + gracz.getPieniadze());
             handlarzTMP.przedstawOferte();
             System.out.println("Jesli chcesz kupic przedmiot wybierz wybierz jego numer z oferty Handlarza(0 zeby wyjsc do poprzedniego menu):");
             int wyborPrzedmiotu = in.nextInt();
@@ -153,9 +153,9 @@ public class Menu {
             }
         } else if (wyborCzynnosci == 2) {
             Przedmiot p = getItemZEkwiupnuku();
-            System.out.println("Twoje zlote monety: " + gracz.getPieniadze());
+            KolorTekstu.printZielony("Twoje zlote monety: " + gracz.getPieniadze());
             handlarzTMP.kupOdGracza(gracz, p);
-            System.out.println("Twoje zlote monety po sprzedazy: " + gracz.getPieniadze());
+            KolorTekstu.printZielony("Twoje zlote monety po sprzedazy: " + gracz.getPieniadze());
         } else {
             System.out.println("Niepoprawny wybor czynnosci");
         }
@@ -173,7 +173,7 @@ public class Menu {
         int wybor = in.nextInt(); //Gra.wczytajWyborGracza(3);
         switch (wybor) {
             case 1:
-                System.out.println(gracz);
+                KolorTekstu.printZielony(gracz.toString());
                 return true;
             case 2:
                 menuEkwipunku();

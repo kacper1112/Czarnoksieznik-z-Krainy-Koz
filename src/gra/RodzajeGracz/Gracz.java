@@ -141,13 +141,13 @@ public abstract class Gracz implements generatorEkwipunku {
 
     public String toString() {
         return "Obecne statystyki gracza:\n" +
-                "punkty zycia: " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + "\n" +
-                "sila: " + sila + "\n" +
-                "inteligencja: " + inteligencja + "\n" +
-                "poziom: " + poziom + "\n" +
-                "punkty doswiadczenia: " + punktyDoswiadczenia + "\n" +
-                "pieniadze: " + pieniadze + "\n" +
-                "wyekwipowana bron: " + ekwipunek.getWyekwipowanaBron() + "\n";
+                "\t punkty zycia: " + obecnePunktyZycia + "\\" + maksymalnePunktyZycia + "\n" +
+                "\t sila: " + sila + "\n" +
+                "\t inteligencja: " + inteligencja + "\n" +
+                "\t poziom: " + poziom + "\n" +
+                "\t punkty doswiadczenia: " + punktyDoswiadczenia + "\n" +
+                "\t pieniadze: " + pieniadze + "\n" +
+                "\t wyekwipowana bron: " + ekwipunek.getWyekwipowanaBron() + "\n";
     }
 
     public double getSumaBonusowDoInteligencji() {

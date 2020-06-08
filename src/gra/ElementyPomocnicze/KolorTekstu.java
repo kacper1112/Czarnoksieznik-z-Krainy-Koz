@@ -58,8 +58,8 @@ public class KolorTekstu {
         System.out.println(YELLOW + tekst + RESET);
     }
 
-    public static void printBZolty(String tekst) {
-        System.out.println(BG_YELLOW + tekst + RESET);
+    public static void printFioletowy(String tekst) {
+        System.out.println(PURPLE + tekst + RESET);
     }
 
     public static void printCyan(String tekst) {
@@ -74,8 +74,5 @@ public class KolorTekstu {
         System.out.println(BRIGHT_BG_BLUE + tekst + RESET);
     }
 
-    public static void printFioletowy(String tekst) {
-        System.out.println(BG_PURPLE + tekst + RESET);
-    }
 }
 
