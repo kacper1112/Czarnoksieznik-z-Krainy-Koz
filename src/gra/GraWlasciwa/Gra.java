@@ -13,10 +13,7 @@ import gra.RodzajeGracz.Wojownik;
 import gra.RodzajePrzedmiot.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Gra {
     private static Scanner in;
@@ -115,15 +112,9 @@ public class Gra {
 
     private boolean inicjalizacjaGry(int klasaPostaci) {
         switch (klasaPostaci) {
-            case 1:
-                gracz = new Wojownik();
-                break;
-            case 2:
-                gracz = new Mag();
-                break;
-            case 3:
-                gracz = new Kaplan();
-                break;
+            case 1 -> gracz = new Wojownik();
+            case 2 -> gracz = new Mag();
+            case 3 -> gracz = new Kaplan();
         }
         Menu.setGracz(gracz);
 
@@ -136,26 +127,20 @@ public class Gra {
     private boolean rozpocznijGre() {
         do {
             KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getOpis());
+
             if (lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
                     if (!wydarzenie.getCzyWykonana()) {
 
                         KolorTekstu.printCyan(wydarzenie.getNazwa());
                         KolorTekstu.printCyan(wydarzenie.getOpis());
+
                         if (wydarzenie.getPostacieFabularne() != null) {
                             wydarzenie.getPostacieFabularne().forEach(postac -> {
-                                Przedmiot p = postac.podarujLosowyPrzedmiotNieFabularny();
-                                System.out.println("halo");
-                                if(p instanceof PrzedmiotPozywienie) {
-                                    gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie)p);
-                                } else if (p instanceof BronMagiczna) {
-                                    gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna)p);
-                                } else if (p instanceof BronFizyczna) {
-                                    gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna)p);
-                                }
+                                gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujLosowyPrzedmiotNieFabularny());
 
                                 if (postac.isCzyPosiadaPrzedmiotFabularny()) {
-                                    gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
+                                    gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujPrzedmiotFabularny());
                                 }
                             });
                         }
@@ -163,9 +148,9 @@ public class Gra {
                             wydarzenie.zagadka();
                         }
                         if (wydarzenie.getWrogowie() != null) {
-                            wydarzenie.getWrogowie().forEach(wrog -> {
-                                Walka.walka(gracz, wrog);
-                            });
+                            wydarzenie.getWrogowie().forEach(wrog ->
+                                    Walka.walka(gracz, wrog)
+                            );
                         }
                         if (wydarzenie.getBoss() != null) {
                             Walka.walka(gracz, wydarzenie.getBoss());
@@ -176,22 +161,16 @@ public class Gra {
                 });
             }
 
-            if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null && !this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
+            if (lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null &&
+                    !lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
                 if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne().forEach(postac -> {
-                        Przedmiot p = postac.podarujLosowyPrzedmiotNieFabularny();
-                        if (p instanceof PrzedmiotPozywienie) {
-                            gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie) p);
-                        } else if (p instanceof BronMagiczna) {
-                            gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna) p);
-                        } else if (p instanceof BronFizyczna) {
-                            gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna) p);
-                        }
+                        gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujLosowyPrzedmiotNieFabularny());
 
                         if (postac.isCzyPosiadaPrzedmiotFabularny()) {
-                            gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
+                            gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujPrzedmiotFabularny());
                         }
                     });
                 }
@@ -199,9 +178,9 @@ public class Gra {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().zagadka();
                 }
                 if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
-                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(wrog -> {
-                        Walka.walka(gracz, wrog);
-                    });
+                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(
+                            wrog -> Walka.walka(gracz, wrog)
+                    );
                 }
                 if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
                     Walka.walka(gracz, this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss());
@@ -264,7 +243,7 @@ public class Gra {
                         "Na polanie pojawia sie zajac, to dobra okazja do pocwiczenia walki!",
                         gracz, null,
 
-                        Arrays.asList(
+                        Collections.singletonList(
                             new Wrog("Zajac", 10, 10)
                         ),
 
@@ -292,7 +271,7 @@ public class Gra {
                         " który przygląda Ci się uważnie swoim tajemniczym wzrokiem \n",
                         gracz,
 
-                        Arrays.asList(
+                        Collections.singletonList(
                                 new Fabularny(
                                         "Zebrak",
                                         true,
@@ -359,7 +338,7 @@ public class Gra {
                                 " się na najgorsze, rozpoczyna się walka.",
                         gracz, null,
 
-                        Arrays.asList(
+                        Collections.singletonList(
                             new Wrog(
                                 "Wilk",
                                 40, 30
@@ -409,10 +388,10 @@ public class Gra {
                         "Rzuca sie na Ciebie wsciekly zywiolak, wyciagasz bron i stajesz do walki.",
                         gracz, null,
 
-                        Arrays.asList(
+                        Collections.singletonList(
                             new Wrog(
-                                "Zywiolak",
-                                100, 50
+                                    "Zywiolak",
+                                    100, 50
                             )
                         ),
 

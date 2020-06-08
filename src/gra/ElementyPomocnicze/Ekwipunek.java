@@ -1,9 +1,7 @@
 package gra.ElementyPomocnicze;
 
-import gra.RodzajePrzedmiot.BronFizyczna;
-import gra.RodzajePrzedmiot.BronMagiczna;
-import gra.RodzajePrzedmiot.PrzedmiotFabularny;
-import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
+import gra.NPC.Fabularny;
+import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -185,6 +183,20 @@ public class Ekwipunek {
         }
         if (!ekwipunekPrzeciwnika.getEkwipunekFabularne().isEmpty()) {
             ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozPrzedmiotFabularny);
+        }
+    }
+
+    public void wlozDoEkwipunku(Przedmiot przedmiot) {
+        if(przedmiot instanceof PrzedmiotPozywienie) {
+            ekwipunekPozywienie.add((PrzedmiotPozywienie)przedmiot);
+        } else if(przedmiot instanceof PrzedmiotFabularny) {
+            ekwipunekFabularne.add((PrzedmiotFabularny)przedmiot);
+        } else if(przedmiot instanceof BronFizyczna) {
+            ekwipunekBronFizczna.add((BronFizyczna)przedmiot);
+        } else if(przedmiot instanceof BronMagiczna) {
+            ekwipunekBronMagiczna.add((BronMagiczna)przedmiot);
+        } else {
+            System.out.println("Nieprawidlowy typ przedmiotu.");
         }
     }
 
