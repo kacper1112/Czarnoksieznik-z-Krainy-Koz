@@ -9,6 +9,7 @@ import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.List;
+import java.util.Random;
 
 public class Boss extends Wrog {
     private double szansaNaTrafienieKrytyczne;
