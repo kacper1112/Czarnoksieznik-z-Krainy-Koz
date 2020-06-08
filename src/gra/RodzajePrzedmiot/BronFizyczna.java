@@ -46,17 +46,6 @@ public class BronFizyczna extends Przedmiot implements bron {
         return zadajObrazenia() * 1.3;
     }
 
-    public int getOstrosc() {
-        return ostrosc;
-    }
-
-    public double getObrazeniaBazowe() {
-        return obrazeniaBazowe;
-    }
-
-    public double getMocUderzeniaKrytycznego() {
-        return mocUderzeniaKrytycznego;
-    }
 
     @Override
     public String toString() {
