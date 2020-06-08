@@ -24,8 +24,5 @@ public class Zagadka {
             odpowiedzGracza = in.nextLine().trim();
         }
         gracz.getEkwipunek().wlozDoEkwipunku(przedmiotFabularny);
-
     }
-
-
 }

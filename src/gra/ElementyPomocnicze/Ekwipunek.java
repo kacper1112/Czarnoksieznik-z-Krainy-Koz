@@ -113,37 +113,31 @@ public class Ekwipunek {
             KolorTekstu.printZielony("Twoje przedmioty:");
         } else if (TYP == TYP_POSIADACZA_EKWIPUNKU.HANDLARZ) {
             System.out.println("Witaj przybyszu!\n" + "Oto moja oferta, spcjalnie dla ciebie:");
-        } else if (TYP == TYP_POSIADACZA_EKWIPUNKU.BOSS || TYP == TYP_POSIADACZA_EKWIPUNKU.WROG) {
-            System.out.println("Oto ekwipunek twego przeciwnika:");
         }
 
-        if (TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK || TYP == TYP_POSIADACZA_EKWIPUNKU.MAG || TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN) {
-            if (this.getWyekwipowanaBron() instanceof BronMagiczna) {
-                KolorTekstu.printZielony("Wyekwipowana bron magiczna:\n" + "\t" +
-                        this.getWyekwipowanaBron());
-
-            } else if (this.getWyekwipowanaBron() instanceof BronFizyczna) {
-                KolorTekstu.printZielony("Wyekwipowana bron fizyczna:\n" + "\t"
-                        + this.getWyekwipowanaBron());
-            }
-        }
 
         if (!this.getEkwipunekPozywienie().isEmpty()) {
             KolorTekstu.printZielony("Pozywienie:");
             for (PrzedmiotPozywienie p : this.getEkwipunekPozywienie()) {
-                KolorTekstu.printZielony("\t" + indeks++ + ". " + p.getNazwa());
+                KolorTekstu.printZielony("\t" + indeks++ + ". " + p);
             }
         }
         if (!this.getEkwipunekBronFizyczna().isEmpty()) {
             KolorTekstu.printZielony("Bron fizyczna:");
             for (BronFizyczna bron : this.getEkwipunekBronFizyczna()) {
-                KolorTekstu.printZielony("\t" + indeks++ + ". " + bron);
+                KolorTekstu.printZielonyBezNL("\t" + indeks++ + ". " + bron);
+                if(bron == wyekwipowanaBron) {
+                    KolorTekstu.printZielonyItaliki(" <- aktualnie wyekwipowana");
+                }
             }
         }
         if (!this.getEkwipunekBronMagiczna().isEmpty()) {
             KolorTekstu.printZielony("Bron magiczna:");
             for (BronMagiczna bron : this.getEkwipunekBronMagiczna()) {
-                KolorTekstu.printZielony("\t" + indeks++ + ". " + bron);
+                KolorTekstu.printZielonyBezNL("\t" + indeks++ + ". " + bron);
+                if(bron == wyekwipowanaBron) {
+                    KolorTekstu.printZielonyItaliki(" <- aktualnie wyekwipowana");
+                }
             }
         }
         if (!this.getEkwipunekFabularne().isEmpty()) {
