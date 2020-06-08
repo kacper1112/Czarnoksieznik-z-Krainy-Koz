@@ -113,9 +113,13 @@ public class Ekwipunek {
             KolorTekstu.printZielony("Twoje przedmioty:");
         } else if (TYP == TYP_POSIADACZA_EKWIPUNKU.HANDLARZ) {
             System.out.println("Witaj przybyszu!\n" + "Oto moja oferta, spcjalnie dla ciebie:");
-        } else if (TYP == TYP_POSIADACZA_EKWIPUNKU.BOSS || TYP == TYP_POSIADACZA_EKWIPUNKU.WROG) {
+        }
+        /*
+        else if (TYP == TYP_POSIADACZA_EKWIPUNKU.BOSS || TYP == TYP_POSIADACZA_EKWIPUNKU.WROG) {
             System.out.println("Oto ekwipunek twego przeciwnika:");
         }
+
+         */
 
         if (TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK || TYP == TYP_POSIADACZA_EKWIPUNKU.MAG || TYP == TYP_POSIADACZA_EKWIPUNKU.KAPLAN) {
             if (this.getWyekwipowanaBron() instanceof BronMagiczna) {

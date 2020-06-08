@@ -1,11 +1,17 @@
 package gra.GraWlasciwa;
 
 import gra.ElementyPomocnicze.KolorTekstu;
+import gra.NPC.Boss;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
+import gra.RodzajePrzedmiot.BronFizyczna;
+import gra.RodzajePrzedmiot.BronMagiczna;
+import gra.RodzajePrzedmiot.PrzedmiotFabularny;
+import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
+
+import java.util.Random;
 
 public class Walka {
-
 
     public static void walka(Gracz gracz, Wrog wrog) {
         int wyborGracza;
@@ -19,7 +25,7 @@ public class Walka {
         if (kolejGracza) {
             KolorTekstu.printCzerwony("Atakujesz pierwszy!");
         } else {
-            KolorTekstu.printCzerwony("Pierwszy atakuje Twoj przeciwnik!");
+            KolorTekstu.printCzerwony("Pierwszy atakuje " + wrog.getImie() +" !");
         }
 
         while (walkaTrwa) {
@@ -76,10 +82,63 @@ public class Walka {
         }
         if (gracz.getObecnePunktyZycia() > 0) {
             gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
-            KolorTekstu.printCzerwony("Udalo Ci sie zwyciezyc w walce!");
-            KolorTekstu.printCzerwony("Podnosisz przedmioty przecinika");
+            //KolorTekstu.printCzerwony("Udalo Ci sie zwyciezyc w walce!");
+            //KolorTekstu.printCzerwony("Podnosisz przedmioty przecinika");
+            wygranaGracza(wrog);
         } else {
             KolorTekstu.printCzerwony("Zostales zabity");
         }
+    }
+
+    private static void wygranaGracza(Wrog wrog) {
+        System.out.println("Udalo Ci sie pokonac przeciwnika!");
+        Random rand = new Random();
+        double pktDoswiadczenia;
+        if (wrog instanceof Boss) {
+            System.out.println("Specjalne napisy do bossa");
+            pktDoswiadczenia = Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 100.0 + 40 * rand.nextDouble();
+            Gra.getInstance().getGracz().setPunktyDoswiadczenia(pktDoswiadczenia);
+        } else {
+            Gra.getInstance().getGracz().setPunktyDoswiadczenia(Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 80 + rand.nextInt(40));
+            pktDoswiadczenia = Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 10.0 + 30 * rand.nextDouble();
+        }
+        System.out.println("Zdobyłes " + pktDoswiadczenia + "punktow doswiadczenia");
+
+        System.out.println("W truchle znajdujesz:");
+        if (wrog.getEkwipunek().isEmpty()) {
+            System.out.println("Tym razem nic :/");
+            return;
+        }
+
+
+        System.out.println("Przedmioty " + wrog.getImie() + "a" + " : ");
+        wrog.getEkwipunek().pokazEkwipunek();
+        /*
+        if (!wrog.getEkwipunek().getEkwipunekPozywienie().isEmpty()) {
+            System.out.println("Pozywienie:");
+            for (PrzedmiotPozywienie p : wrog.getEkwipunek().getEkwipunekPozywienie()) {
+                System.out.println(p.getNazwa());
+            }
+        }
+        if (!wrog.getEkwipunek().getEkwipunekBronFizyczna().isEmpty()) {
+            System.out.println("Bron fizyczna:");
+            for (BronFizyczna bron : wrog.getEkwipunek().getEkwipunekBronFizyczna()) {
+                System.out.println(bron.getNazwa());
+            }
+        }
+        if (!wrog.getEkwipunek().getEkwipunekBronMagiczna().isEmpty()) {
+            System.out.println("Bron magiczna:");
+            for (BronMagiczna bron : wrog.getEkwipunek().getEkwipunekBronMagiczna()) {
+                System.out.println(bron.getNazwa());
+            }
+        }
+        if (wrog instanceof Boss && !wrog.getEkwipunek().getEkwipunekFabularne().isEmpty()) {
+            System.out.println("Przedmioty fabularne:");
+            for (PrzedmiotFabularny p : wrog.getEkwipunek().getEkwipunekFabularne()) {
+                System.out.println(p.getNazwa());
+            }
+        }
+         */
+        Gra.getInstance().getGracz().getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
     }
 }
