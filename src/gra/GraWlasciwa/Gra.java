@@ -100,74 +100,65 @@ public class Gra {
         KolorTekstu.printZolty("To jest instrukcja");
     }
 
+    private void rozpocznijWydarzenie(Wydarzenie wydarzenie) {
+        if (wydarzenie.getCzyWykonana()) {
+            return;
+        }
+
+        KolorTekstu.printCyan(wydarzenie.getNazwa());
+        KolorTekstu.printCyan(wydarzenie.getOpis());
+
+        if (wydarzenie.getWrogowie() != null) {
+            wydarzenie.getWrogowie().forEach(wrog ->
+                    Walka.walka(gracz, wrog)
+            );
+        }
+
+        wydarzenie.setCzyWykonana(true);
+    }
+
+    private void rozpocznijWydarzenieFabularne(Wydarzenie wydarzenie) {
+
+        if(wydarzenie.getCzyWykonana()) {
+            return;
+        }
+        rozpocznijWydarzenie(wydarzenie);
+
+        if (wydarzenie.getPostacieFabularne() != null) {
+            wydarzenie.getPostacieFabularne().forEach(postac -> {
+                gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujLosowyPrzedmiotNieFabularny());
+
+                if (postac.isCzyPosiadaPrzedmiotFabularny()) {
+                    gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujPrzedmiotFabularny());
+                }
+            });
+        }
+
+        if (wydarzenie.getZagadka() != null) {
+            wydarzenie.zagadka();
+        }
+
+        if (wydarzenie.getBoss() != null) {
+            Walka.walka(gracz, wydarzenie.getBoss());
+        }
+
+        wydarzenie.setCzyWykonana(true);
+    }
+
     private boolean rozpocznijGre() {
         do {
             KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getOpis());
 
             if (lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
-                lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
-                    if (!wydarzenie.getCzyWykonana()) {
-
-                        KolorTekstu.printCyan(wydarzenie.getNazwa());
-                        KolorTekstu.printCyan(wydarzenie.getOpis());
-
-                        if (wydarzenie.getPostacieFabularne() != null) {
-                            wydarzenie.getPostacieFabularne().forEach(postac -> {
-                                gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujLosowyPrzedmiotNieFabularny());
-
-                                if (postac.isCzyPosiadaPrzedmiotFabularny()) {
-                                    gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujPrzedmiotFabularny());
-                                }
-                            });
-                        }
-                        if (wydarzenie.getZagadka() != null) {
-                            wydarzenie.zagadka();
-                        }
-                        if (wydarzenie.getWrogowie() != null) {
-                            wydarzenie.getWrogowie().forEach(wrog ->
-                                    Walka.walka(gracz, wrog)
-                            );
-                        }
-                        if (wydarzenie.getBoss() != null) {
-                            Walka.walka(gracz, wydarzenie.getBoss());
-                        }
-
-                        wydarzenie.setCzyWykonana(true);
-                    }
-                });
+                lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(this::rozpocznijWydarzenie);
             }
 
             if (lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null &&
                     !lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
-                KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getNazwa());
-                KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
-                if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
-                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne().forEach(postac -> {
-                        gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujLosowyPrzedmiotNieFabularny());
-
-                        if (postac.isCzyPosiadaPrzedmiotFabularny()) {
-                            gracz.getEkwipunek().wlozDoEkwipunku(postac.podarujPrzedmiotFabularny());
-                        }
-                    });
-                }
-                if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getZagadka() != null) {
-                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().zagadka();
-                }
-                if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie() != null) {
-                    this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getWrogowie().forEach(
-                            wrog -> Walka.walka(gracz, wrog)
-                    );
-                }
-                if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss() != null) {
-                    Walka.walka(gracz, this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getBoss());
-                }
-
-                this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().setCzyWykonana(true);
+                rozpocznijWydarzenieFabularne(lokacje.get(lokalizacjaGracza).getWydarzenieFabularne());
             }
 
-            while (Menu.menuGlowne()) {
-
-            }
+            while (Menu.menuGlowne());
 
         } while (lokalizacjaGracza != 20);
         return true;
