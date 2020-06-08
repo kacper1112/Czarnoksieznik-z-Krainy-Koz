@@ -31,9 +31,9 @@ public class Handlarz extends NPC {
         oferta = new ArrayList<>();
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.HANDLARZ);
         List<Para<String, String>> pozywienieTMP = List.of(
-                new Para<>("Mikstura Lowcy", "opis"),
-                new Para<>("Elikis Gniewu", "opis"),
-                new Para<>("Eliksir Zdrowia", "opis"),
+                new Para<>("Mikstura Lowcy", "Ta miksutra odnawia twoje punkty zycia"),
+                new Para<>("Elikis Gniewu", "Eliksir uzdrawiajacy twoje punkty zycia"),
+                new Para<>("Eliksir Zdrowia", ""),
                 new Para<>("Jablko", "opis"),
                 new Para<>("Chleb", "opis"),
                 new Para<>("Mieso", "opis")
