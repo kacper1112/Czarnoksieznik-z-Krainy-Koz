@@ -23,22 +23,6 @@ public class Ekwipunek {
         ekwipunekBronFizczna = new ArrayList<>();
     }
 
-    public void wlozPrzedmiotFabularny(PrzedmiotFabularny pf) {
-        ekwipunekFabularne.add(pf);
-    }
-
-    public void wlozPozywienie(PrzedmiotPozywienie pozywienie) {
-        ekwipunekPozywienie.add(pozywienie);
-    }
-
-    public void wlozBronMagiczna(BronMagiczna p) {
-        ekwipunekBronMagiczna.add(p);
-    }
-
-    public void wlozBronFizyczna(BronFizyczna p) {
-        ekwipunekBronFizczna.add(p);
-    }
-
     public int getIloscPozywienie() {
         return ekwipunekPozywienie.size();
     }

@@ -54,7 +54,7 @@ public class Handlarz extends NPC {
         Random rand = new Random();
 
         int pairIndex = rand.nextInt(bronFizycznaTMP.size());
-        ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
+        ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
                 bronFizycznaTMP.get(pairIndex).getPierwszy(),
                 bronFizycznaTMP.get(pairIndex).getDrugi(),
                 rand.nextInt(100),
@@ -64,7 +64,7 @@ public class Handlarz extends NPC {
         ));
 
         pairIndex = rand.nextInt(bronFizycznaTMP.size());
-        ekwipunekTMP.wlozBronMagiczna( new BronMagiczna(
+        ekwipunekTMP.wlozDoEkwipunku( new BronMagiczna(
                 bronMagicznaTMP.get(pairIndex).getPierwszy(),
                 bronMagicznaTMP.get(pairIndex).getDrugi(),
                 rand.nextInt(100),
@@ -74,7 +74,7 @@ public class Handlarz extends NPC {
         ));
 
         pairIndex = rand.nextInt(pozywienieTMP.size());
-        ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+        ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                 pozywienieTMP.get(pairIndex).getPierwszy(),
                 pozywienieTMP.get(pairIndex).getDrugi(),
                 rand.nextInt(100),
@@ -114,11 +114,11 @@ public class Handlarz extends NPC {
             System.out.println("Twoj stan konta wynosi: " + gracz.getPieniadze());
             return;
         } else if(oferta.get(indeksOferty).getPierwszy() instanceof PrzedmiotPozywienie){
-            gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie) oferta.get(indeksOferty).getPierwszy());
+            gracz.getEkwipunek().wlozDoEkwipunku((PrzedmiotPozywienie) oferta.get(indeksOferty).getPierwszy());
         } else if(oferta.get(indeksOferty).getPierwszy() instanceof  BronFizyczna ){
-            gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna) oferta.get(indeksOferty).getPierwszy());
+            gracz.getEkwipunek().wlozDoEkwipunku((BronFizyczna) oferta.get(indeksOferty).getPierwszy());
         }else if( oferta.get(indeksOferty).getPierwszy() instanceof  BronMagiczna){
-            gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna) oferta.get(indeksOferty).getPierwszy());
+            gracz.getEkwipunek().wlozDoEkwipunku((BronMagiczna) oferta.get(indeksOferty).getPierwszy());
         }
         System.out.println("Właśnie kupiłeś: " + oferta.get(indeksOferty).getPierwszy());
         gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi().getDrugi());
@@ -153,7 +153,7 @@ public class Handlarz extends NPC {
             if(zgodnaNaOferte()==1){
                 int indeks = (int) gracz.getEkwipunek().getEkwipunekBronMagiczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
                 gracz.getEkwipunek().wyciagnijBronMagiczna(indeks);
-                this.getEkwipunek().wlozBronMagiczna((BronMagiczna) przedmiot);
+                this.getEkwipunek().wlozDoEkwipunku((BronMagiczna) przedmiot);
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
         }else if(przedmiot instanceof BronFizyczna){
@@ -162,7 +162,7 @@ public class Handlarz extends NPC {
             if(zgodnaNaOferte()==1){
                 int indeks = (int) gracz.getEkwipunek().getEkwipunekBronFizyczna().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
                 gracz.getEkwipunek().wyciagnijBronFizyczna(indeks);
-                this.getEkwipunek().wlozBronFizyczna((BronFizyczna) przedmiot);
+                this.getEkwipunek().wlozDoEkwipunku((BronFizyczna) przedmiot);
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
         } else if(przedmiot instanceof PrzedmiotPozywienie ){
@@ -171,7 +171,7 @@ public class Handlarz extends NPC {
             if(zgodnaNaOferte()==1){
                 int indeks = (int) gracz.getEkwipunek().getEkwipunekPozywienie().stream().filter(x -> x.getNazwa().equals(przedmiot.getNazwa())).count()-1;
                 gracz.getEkwipunek().wyciagnijPozywienie(indeks);
-                this.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie) przedmiot);
+                this.getEkwipunek().wlozDoEkwipunku(przedmiot);
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
         } else if(przedmiot instanceof PrzedmiotFabularny){

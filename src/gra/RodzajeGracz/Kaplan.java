@@ -50,7 +50,7 @@ public class Kaplan extends Gracz {
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.KAPLAN);
         Random rand = new Random();
         if (rand.nextDouble() < 0.5) {
-            ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
+            ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
                     "poczatkowa bron fizyczna",
                     "opis",
                     10,
@@ -59,7 +59,7 @@ public class Kaplan extends Gracz {
                     10
             ));
         } else {
-            ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
+            ekwipunekTMP.wlozDoEkwipunku(new BronMagiczna(
                     "poczatkowa bron magiczna",
                     "opis",
                     10,
@@ -69,7 +69,7 @@ public class Kaplan extends Gracz {
             ));
         }
         if (rand.nextDouble() < 0.5) {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
                     10,
@@ -77,7 +77,7 @@ public class Kaplan extends Gracz {
                     10
             ));
         } else {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",
                     10,
@@ -86,7 +86,7 @@ public class Kaplan extends Gracz {
             ));
         }
         if (rand.nextDouble() < 0.5) {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
                     10,
@@ -94,7 +94,7 @@ public class Kaplan extends Gracz {
                     10
             ));
         } else {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",
                     10,

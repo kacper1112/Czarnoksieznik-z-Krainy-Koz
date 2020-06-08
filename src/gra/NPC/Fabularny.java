@@ -52,7 +52,7 @@ public class Fabularny extends NPC {
         if (10 < rand.nextInt(100)) {
             int indeks = rand.nextInt(bronFizycznaTMP.size() + bronMagicznaTMP.size());
             if (indeks < bronFizycznaTMP.size()) {
-                ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
+                ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
                         bronFizycznaTMP.get(indeks).getPierwszy(),
                         bronFizycznaTMP.get(indeks).getDrugi(),
                         rand.nextInt(100),
@@ -64,7 +64,7 @@ public class Fabularny extends NPC {
                     podarki.addAll(ekwipunekTMP.getEkwipunekBronFizyczna());
             } else {
                 indeks -= bronFizycznaTMP.size();
-                ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
+                ekwipunekTMP.wlozDoEkwipunku(new BronMagiczna(
                         bronMagicznaTMP.get(indeks).getPierwszy(),
                         bronMagicznaTMP.get(indeks).getDrugi(),
                         rand.nextInt(100),
@@ -78,7 +78,7 @@ public class Fabularny extends NPC {
             }
         } else {
             int indeks = rand.nextInt(pozywienieTMP.size());
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     pozywienieTMP.get(indeks).getPierwszy(),
                     pozywienieTMP.get(indeks).getDrugi(),
                     rand.nextInt(100),
