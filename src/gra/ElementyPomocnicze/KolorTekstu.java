@@ -74,13 +74,5 @@ public class KolorTekstu {
         System.out.println(CYAN + tekst + RESET);
     }
 
-    public static void printBCyan(String tekst) {
-        System.out.println(BG_CYAN + tekst + RESET);
-    }
-
-    public static void printNiebieski(String tekst) {
-        System.out.println(BRIGHT_BG_BLUE + tekst + RESET);
-    }
-
 }
 
