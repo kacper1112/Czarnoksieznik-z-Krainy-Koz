@@ -152,20 +152,21 @@ public class Gra {
                         KolorTekstu.printCyan(wydarzenie.getNazwa());
                         KolorTekstu.printCyan(wydarzenie.getOpis());
                         if (wydarzenie.getPostacieFabularne() != null) {
-                            wydarzenie.getPostacieFabularne().forEach(postac -> {
-                                Przedmiot p = postac.podarujLosowyPrzedmiotNieFabularny();
-                                if(p instanceof PrzedmiotPozywienie) {
-                                    gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie)p);
-                                } else if (p instanceof BronMagiczna) {
-                                    gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna)p);
-                                } else if (p instanceof BronFizyczna) {
-                                    gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna)p);
-                                }
-
-                                if (postac.isCzyPosiadaPrzedmiotFabularny()) {
-                                    gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
-                                }
-                            });
+//                            wydarzenie.getPostacieFabularne().forEach(postac -> {
+//                                Przedmiot p = postac.podarujLosowyPrzedmiotNieFabularny();
+//                                System.out.println("halo");
+//                                if(p instanceof PrzedmiotPozywienie) {
+//                                    gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie)p);
+//                                } else if (p instanceof BronMagiczna) {
+//                                    gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna)p);
+//                                } else if (p instanceof BronFizyczna) {
+//                                    gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna)p);
+//                                }
+//
+//                                if (postac.isCzyPosiadaPrzedmiotFabularny()) {
+//                                    gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
+//                                }
+//                            });
                         }
                         if (wydarzenie.getZagadka() != null) {
                             wydarzenie.zagadka();
@@ -189,7 +190,15 @@ public class Gra {
                 KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getOpis());
                 if (this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne() != null) {
                     this.lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getPostacieFabularne().forEach(postac -> {
-                        postac.podarujLosowyPrzedmiotNieFabularny();
+                        Przedmiot p = postac.podarujLosowyPrzedmiotNieFabularny();
+                        if(p instanceof PrzedmiotPozywienie) {
+                            gracz.getEkwipunek().wlozPozywienie((PrzedmiotPozywienie)p);
+                        } else if (p instanceof BronMagiczna) {
+                            gracz.getEkwipunek().wlozBronMagiczna((BronMagiczna)p);
+                        } else if (p instanceof BronFizyczna) {
+                            gracz.getEkwipunek().wlozBronFizyczna((BronFizyczna)p);
+                        }
+
                         if (postac.isCzyPosiadaPrzedmiotFabularny()) {
                             gracz.getEkwipunek().wlozPrzedmiotFabularny(postac.podarujPrzedmiotFabularny());
                         }
