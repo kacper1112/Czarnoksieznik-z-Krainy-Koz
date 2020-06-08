@@ -24,7 +24,7 @@ public class BronFizyczna extends Przedmiot implements bron {
 
     @Override
     public double zadajObrazenia() {
-        double obrazenia = obrazeniaBazowe * ostrosc / 100;
+        double obrazenia = obrazeniaBazowe * ostrosc / 90;
         boolean czyKrytyczne = (Math.random() < this.getAtrybut().getSzansaNaKrytyczne());
         ostrosc -= 1;
 
@@ -46,17 +46,6 @@ public class BronFizyczna extends Przedmiot implements bron {
         return zadajObrazenia() * 1.3;
     }
 
-    public int getOstrosc() {
-        return ostrosc;
-    }
-
-    public double getObrazeniaBazowe() {
-        return obrazeniaBazowe;
-    }
-
-    public double getMocUderzeniaKrytycznego() {
-        return mocUderzeniaKrytycznego;
-    }
 
     @Override
     public String toString() {
