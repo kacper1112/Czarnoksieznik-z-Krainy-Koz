@@ -9,27 +9,13 @@ import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.List;
-import java.util.Random;
 
 public class Boss extends Wrog {
     private double szansaNaTrafienieKrytyczne;
 
-    // do testowania
-    public Boss() {
-        super("");
-    }
-
-    public Boss(String imie, PrzedmiotFabularny przedmiotFabularny) {
-        super(imie);
-        Random random = new Random();
-        szansaNaTrafienieKrytyczne = random.nextInt(50)+10;
-        this.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
-    }
-
     public Boss(String imie, int maksymalnePunktyZycia, int bazowyAtak , PrzedmiotFabularny przedmiotFabularny){
         super(imie,maksymalnePunktyZycia,bazowyAtak,przedmiotFabularny);
-        Random random = new Random();
-        szansaNaTrafienieKrytyczne = random.nextInt(50)+10;
+        szansaNaTrafienieKrytyczne = Math.random() * 50;
         //this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
