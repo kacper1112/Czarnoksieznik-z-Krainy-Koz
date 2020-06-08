@@ -141,7 +141,7 @@ public abstract class Gracz implements generatorEkwipunku {
 
     public String toString() {
         return "Obecne statystyki gracza:\n" +
-                "punkty zycia: " + obecnePunktyZycia + "\\" + maksymalnePunktyZycia + "\n" +
+                "punkty zycia: " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + "\n" +
                 "sila: " + sila + "\n" +
                 "inteligencja: " + inteligencja + "\n" +
                 "poziom: " + poziom + "\n" +
