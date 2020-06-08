@@ -113,32 +113,6 @@ public class Walka {
 
         System.out.println("Przedmioty " + wrog.getImie() + "a" + " : ");
         wrog.getEkwipunek().pokazEkwipunek();
-        /*
-        if (!wrog.getEkwipunek().getEkwipunekPozywienie().isEmpty()) {
-            System.out.println("Pozywienie:");
-            for (PrzedmiotPozywienie p : wrog.getEkwipunek().getEkwipunekPozywienie()) {
-                System.out.println(p.getNazwa());
-            }
-        }
-        if (!wrog.getEkwipunek().getEkwipunekBronFizyczna().isEmpty()) {
-            System.out.println("Bron fizyczna:");
-            for (BronFizyczna bron : wrog.getEkwipunek().getEkwipunekBronFizyczna()) {
-                System.out.println(bron.getNazwa());
-            }
-        }
-        if (!wrog.getEkwipunek().getEkwipunekBronMagiczna().isEmpty()) {
-            System.out.println("Bron magiczna:");
-            for (BronMagiczna bron : wrog.getEkwipunek().getEkwipunekBronMagiczna()) {
-                System.out.println(bron.getNazwa());
-            }
-        }
-        if (wrog instanceof Boss && !wrog.getEkwipunek().getEkwipunekFabularne().isEmpty()) {
-            System.out.println("Przedmioty fabularne:");
-            for (PrzedmiotFabularny p : wrog.getEkwipunek().getEkwipunekFabularne()) {
-                System.out.println(p.getNazwa());
-            }
-        }
-         */
         Gra.getInstance().getGracz().getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
     }
 }
