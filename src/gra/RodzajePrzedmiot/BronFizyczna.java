@@ -24,7 +24,7 @@ public class BronFizyczna extends Przedmiot implements bron {
 
     @Override
     public double zadajObrazenia() {
-        double obrazenia = obrazeniaBazowe * ostrosc / 100;
+        double obrazenia = obrazeniaBazowe * ostrosc / 90;
         boolean czyKrytyczne = (Math.random() < this.getAtrybut().getSzansaNaKrytyczne());
         ostrosc -= 1;
 
