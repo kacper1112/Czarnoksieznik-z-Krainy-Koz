@@ -128,9 +128,14 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // dodac uzywanie pozywienia
     public void uzyjPozywienia(int index) {
-        this.obecnePunktyZycia +=
-                this.ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
-        this.ekwipunek.wyciagnijPozywienie(index);
+        double leczenie = ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
+        ekwipunek.wyciagnijPozywienie(index);
+
+        if(obecnePunktyZycia + leczenie >= maksymalnePunktyZycia) {
+            obecnePunktyZycia = maksymalnePunktyZycia;
+        } else {
+            obecnePunktyZycia += leczenie;
+        }
         System.out.println("Masz teraz " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + " punktow zycia");
     }
 
