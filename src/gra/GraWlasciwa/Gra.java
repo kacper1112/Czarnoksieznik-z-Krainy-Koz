@@ -197,7 +197,6 @@ public class Gra {
         return true;
     }
 
-
     private List<Lokacja> inicjalizacjaLokacji() {
 
         List<Lokacja> lokacjeTMP = new ArrayList<>();
