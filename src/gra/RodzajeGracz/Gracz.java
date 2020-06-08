@@ -8,7 +8,6 @@ import gra.RodzajePrzedmiot.Przedmiot;
 
 public abstract class Gracz implements generatorEkwipunku {
     private final double maksymalnePunktyZycia;
-    // pola klasy Gracza
     Ekwipunek ekwipunek;
     private double obecnePunktyZycia;
     private double sila;
@@ -41,7 +40,7 @@ public abstract class Gracz implements generatorEkwipunku {
         ekwipunek = generujEkwipunek();
     }
 
-    // gettery i settery Gracza
+    //GETTERY
     public double getMaksymalnePunktyZycia() {
         return maksymalnePunktyZycia;
     }
@@ -49,11 +48,6 @@ public abstract class Gracz implements generatorEkwipunku {
     public Ekwipunek getEkwipunek() {
         return ekwipunek;
     }
-
-    public void setEkwipunek(Ekwipunek ekwipunek) {
-        this.ekwipunek = ekwipunek;
-    }
-
 
     public double getObecnePunktyZycia() {
         return obecnePunktyZycia;
@@ -63,96 +57,20 @@ public abstract class Gracz implements generatorEkwipunku {
         return sila;
     }
 
-    public void setSila(double sila) {
-        this.sila = sila;
-    }
-
     public double getInteligencja() {
         return inteligencja;
-    }
-
-    public void setInteligencja(double inteligencja) {
-        this.inteligencja = inteligencja;
     }
 
     public int getPoziom() {
         return poziom;
     }
 
-    public void setPoziom(int poziom) {
-        this.poziom = poziom;
-    }
-
     public double getPunktyDoswiadczenia() {
         return punktyDoswiadczenia;
     }
 
-    public void setPunktyDoswiadczenia(double punktyDoswiadczenia) {
-        this.punktyDoswiadczenia = punktyDoswiadczenia;
-    }
-
     public double getPieniadze() {
         return pieniadze;
-    }
-
-    public void setPieniadze(double pieniadze) {
-        this.pieniadze = pieniadze;
-    }
-
-    // gracz otrzymuje obrazenia
-    // dodac co sie dzieje, gdy obecnePunktyZycia = 0
-    public void zmniejszPunktyZycia(double wartosc) {
-        if (obecnePunktyZycia <= wartosc) {
-            obecnePunktyZycia = 0;
-        } else {
-            obecnePunktyZycia -= wartosc;
-        }
-    }
-
-    // gracz zwieksza swoje punkty zycia
-    public void zwiekszPunktyZycia(double wartosc) {
-        if (obecnePunktyZycia + wartosc >= maksymalnePunktyZycia) {
-            obecnePunktyZycia = maksymalnePunktyZycia;
-        } else {
-            obecnePunktyZycia += wartosc;
-        }
-    }
-
-    public abstract double zadajObrazenia();
-
-    public abstract double zadajMocneObrazenia();
-
-    public abstract void otrzymajObrazenia(double wartosc);
-
-    public abstract void zwiekszLevel();
-
-    // dodac uzywanie pozywienia
-    public void uzyjPozywienia(int index) {
-        double leczenie = ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
-        ekwipunek.wyciagnijPozywienie(index);
-
-        if(obecnePunktyZycia + leczenie >= maksymalnePunktyZycia) {
-            obecnePunktyZycia = maksymalnePunktyZycia;
-        } else {
-            obecnePunktyZycia += leczenie;
-        }
-        System.out.println("Masz teraz " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + " punktow zycia");
-    }
-
-    // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
-    public void uzyjPrzedmiotuFabularnego(int index) {
-        System.out.println(this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja));
-    }
-
-    public String toString() {
-        return "Obecne statystyki gracza:\n" +
-                "\t punkty zycia: " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + "\n" +
-                "\t sila: " + sila + "\n" +
-                "\t inteligencja: " + inteligencja + "\n" +
-                "\t poziom: " + poziom + "\n" +
-                "\t punkty doswiadczenia: " + punktyDoswiadczenia + "\n" +
-                "\t pieniadze: " + pieniadze + "\n" +
-                "\t wyekwipowana bron: " + ekwipunek.getWyekwipowanaBron() + "\n";
     }
 
     public double getSumaBonusowDoInteligencji() {
@@ -196,4 +114,84 @@ public abstract class Gracz implements generatorEkwipunku {
 
         return sumaBonusow;
     }
+
+    //SETTERY
+    public void setSila(double sila) {
+        this.sila = sila;
+    }
+
+    public void setInteligencja(double inteligencja) {
+        this.inteligencja = inteligencja;
+    }
+
+    public void setPoziom(int poziom) {
+        this.poziom = poziom;
+    }
+
+    public void setPunktyDoswiadczenia(double punktyDoswiadczenia) {
+        this.punktyDoswiadczenia = punktyDoswiadczenia;
+    }
+
+    public void setPieniadze(double pieniadze) {
+        this.pieniadze = pieniadze;
+    }
+
+    public void setEkwipunek(Ekwipunek ekwipunek) {
+        this.ekwipunek = ekwipunek;
+    }
+
+    //METODY WLASCIWE
+    public void zmniejszPunktyZycia(double wartosc) {
+        if (obecnePunktyZycia <= wartosc) {
+            obecnePunktyZycia = 0;
+        } else {
+            obecnePunktyZycia -= wartosc;
+        }
+    }
+
+    public void zwiekszPunktyZycia(double wartosc) {
+        if (obecnePunktyZycia + wartosc >= maksymalnePunktyZycia) {
+            obecnePunktyZycia = maksymalnePunktyZycia;
+        } else {
+            obecnePunktyZycia += wartosc;
+        }
+    }
+
+    public abstract double zadajObrazenia();
+
+    public abstract double zadajMocneObrazenia();
+
+    public abstract void otrzymajObrazenia(double wartosc);
+
+    public abstract void zwiekszLevel();
+
+    public void uzyjPozywienia(int index) {
+        double leczenie = ekwipunek.getEkwipunekPozywienie().get(index).getPrzywracaneZycie();
+        ekwipunek.wyciagnijPozywienie(index);
+
+        if(obecnePunktyZycia + leczenie >= maksymalnePunktyZycia) {
+            obecnePunktyZycia = maksymalnePunktyZycia;
+        } else {
+            obecnePunktyZycia += leczenie;
+        }
+        System.out.println("Masz teraz " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + " punktow zycia");
+    }
+
+    // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
+    public void uzyjPrzedmiotuFabularnego(int index) {
+        System.out.println(this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja));
+    }
+
+    @Override
+    public String toString() {
+        return "Obecne statystyki gracza:\n" +
+                "\t punkty zycia: " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + "\n" +
+                "\t sila: " + sila + "\n" +
+                "\t inteligencja: " + inteligencja + "\n" +
+                "\t poziom: " + poziom + "\n" +
+                "\t punkty doswiadczenia: " + punktyDoswiadczenia + "\n" +
+                "\t pieniadze: " + pieniadze + "\n" +
+                "\t wyekwipowana bron: " + ekwipunek.getWyekwipowanaBron() + "\n";
+    }
+
 }

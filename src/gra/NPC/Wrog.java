@@ -66,6 +66,7 @@ public class Wrog extends NPC {
         KolorTekstu.printCzerwony("Wrog nie posiada broni, ale chyba walczy calkiem niezle i bez niej...");
         return getBazowyAtak();
     }
+
     /**
      * Wrog na poczatku dostaje:
      * jedna pota albo mieso

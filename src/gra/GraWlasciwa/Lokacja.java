@@ -26,6 +26,7 @@ public class Lokacja {
         this.handlarz = handlarz;
     }
 
+    //GETTERY
     public String getNazwa() {
         return nazwa;
     }

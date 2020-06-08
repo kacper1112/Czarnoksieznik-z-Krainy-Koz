@@ -1,6 +1,5 @@
 package gra.ElementyPomocnicze;
 
-import gra.NPC.Fabularny;
 import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ public class Ekwipunek {
     private final List<BronMagiczna> ekwipunekBronMagiczna;
     private final List<BronFizyczna> ekwipunekBronFizczna;
     private TYP_POSIADACZA_EKWIPUNKU TYP;
-
     private bron wyekwipowanaBron;
 
     public Ekwipunek(TYP_POSIADACZA_EKWIPUNKU typ) {
@@ -23,6 +21,7 @@ public class Ekwipunek {
         ekwipunekBronFizczna = new ArrayList<>();
     }
 
+    //GETTERY
     public int getIloscPozywienie() {
         return ekwipunekPozywienie.size();
     }
@@ -37,44 +36,6 @@ public class Ekwipunek {
 
     public int getIloscBronFizyczna() {
         return ekwipunekBronFizczna.size();
-    }
-
-    public void wyciagnijBronFizyczna(int indeks) {
-        ekwipunekBronFizczna.remove(indeks);
-    }
-
-    public void wyciagnijBronMagiczna(int indeks) {
-        ekwipunekBronMagiczna.remove(indeks);
-    }
-
-    public void wyciagnijPozywienie(int indeks) {
-        ekwipunekPozywienie.remove(indeks);
-    }
-
-    public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni) {
-        if (TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK) {
-            System.out.println("Nie mozesz korzystac z broni magicznej - jestes wojownikiem");
-        } else {
-            wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
-            System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
-        }
-    }
-
-    public void zmienWyekwipowanaBronNaFizyczna(int indeksBroni) {
-        if (TYP == TYP_POSIADACZA_EKWIPUNKU.MAG) {
-            System.out.println("Nie mozesz korzystac z broni fizycznej - jestes magiem");
-        } else {
-            wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
-            System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
-        }
-    }
-
-    public TYP_POSIADACZA_EKWIPUNKU getTYP() {
-        return TYP;
-    }
-
-    public void setTYP(TYP_POSIADACZA_EKWIPUNKU TYP) {
-        this.TYP = TYP;
     }
 
     public List<PrzedmiotFabularny> getEkwipunekFabularne() {
@@ -97,11 +58,48 @@ public class Ekwipunek {
         return wyekwipowanaBron;
     }
 
-    public boolean isEmpty() {
-        return (ekwipunekBronFizczna.isEmpty() && ekwipunekBronMagiczna.isEmpty() &&
-                ekwipunekFabularne.isEmpty() && getEkwipunekPozywienie().isEmpty());
+    public TYP_POSIADACZA_EKWIPUNKU getTYP() {
+        return TYP;
     }
 
+    //WYCIAGANIE
+    public void wyciagnijBronFizyczna(int indeks) {
+        ekwipunekBronFizczna.remove(indeks);
+    }
+
+    public void wyciagnijBronMagiczna(int indeks) {
+        ekwipunekBronMagiczna.remove(indeks);
+    }
+
+    public void wyciagnijPozywienie(int indeks) {
+        ekwipunekPozywienie.remove(indeks);
+    }
+
+    //WYEKWIPOWANIE
+    public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni) {
+        if (TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK) {
+            System.out.println("Nie mozesz korzystac z broni magicznej - jestes wojownikiem");
+        } else {
+            wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
+            System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
+        }
+    }
+
+    public void zmienWyekwipowanaBronNaFizyczna(int indeksBroni) {
+        if (TYP == TYP_POSIADACZA_EKWIPUNKU.MAG) {
+            System.out.println("Nie mozesz korzystac z broni fizycznej - jestes magiem");
+        } else {
+            wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
+            System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
+        }
+    }
+
+    //SETTERY
+    public void setTYP(TYP_POSIADACZA_EKWIPUNKU TYP) {
+        this.TYP = TYP;
+    }
+
+    //METODY UŻYTECZNE
     public int pokazEkwipunek() {
         int indeks = 1;
         if (this.isEmpty()) {
@@ -168,6 +166,11 @@ public class Ekwipunek {
         } else {
             System.out.println("Nieprawidlowy typ przedmiotu.");
         }
+    }
+
+    public boolean isEmpty() {
+        return (ekwipunekBronFizczna.isEmpty() && ekwipunekBronMagiczna.isEmpty() &&
+                ekwipunekFabularne.isEmpty() && getEkwipunekPozywienie().isEmpty());
     }
 
 

@@ -17,7 +17,6 @@ public class Walka {
         int wyborGracza;
         boolean walkaTrwa = true;
         double obrazenia;
-        // true - gracz, false - wrog
 
         Gra.wyczyscTerminal();
 
@@ -82,8 +81,6 @@ public class Walka {
         }
         if (gracz.getObecnePunktyZycia() > 0) {
             gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
-            //KolorTekstu.printCzerwony("Udalo Ci sie zwyciezyc w walce!");
-            //KolorTekstu.printCzerwony("Podnosisz przedmioty przecinika");
             wygranaGracza(wrog);
         } else {
             KolorTekstu.printCzerwony("Zostales zabity");
@@ -110,9 +107,9 @@ public class Walka {
             return;
         }
 
-
         System.out.println("Przedmioty " + wrog.getImie() + "a" + " : ");
         wrog.getEkwipunek().pokazEkwipunek();
         Gra.getInstance().getGracz().getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
     }
+
 }

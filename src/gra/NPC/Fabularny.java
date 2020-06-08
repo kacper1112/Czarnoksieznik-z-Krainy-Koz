@@ -4,7 +4,6 @@ import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
-import gra.GraWlasciwa.Gra;
 import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;

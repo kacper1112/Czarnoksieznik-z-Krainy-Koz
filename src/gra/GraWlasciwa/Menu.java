@@ -7,7 +7,6 @@ import gra.RodzajePrzedmiot.Przedmiot;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Menu {
     private static final Scanner in = new Scanner(System.in);
@@ -32,21 +31,21 @@ public class Menu {
         int wyborLokacji = in.nextInt();
 
         if (wyborLokacji == 11) {
-            if (gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka 1")).collect(Collectors.toList()).size() != 0) {
+            if (gracz.getEkwipunek().getEkwipunekFabularne().stream().anyMatch(e -> e.getNazwa().equals("Przepustka 1"))) {
                 System.out.println("Masz przepustke");
             } else {
                 System.out.println("Nie masz przepustki");
                 return true;
             }
         } else if (wyborLokacji == 12) {
-            if (gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka 2")).collect(Collectors.toList()).size() != 0) {
+            if (gracz.getEkwipunek().getEkwipunekFabularne().stream().anyMatch(e -> e.getNazwa().equals("Przepustka 2"))) {
                 System.out.println("Masz przepustke");
             } else {
                 System.out.println("Nie masz przepustki");
                 return true;
             }
         } else if (wyborLokacji == 13) {
-            if (gracz.getEkwipunek().getEkwipunekFabularne().stream().filter(e -> e.getNazwa().equals("Przepustka 3")).collect(Collectors.toList()).size() != 0) {
+            if (gracz.getEkwipunek().getEkwipunekFabularne().stream().anyMatch(e -> e.getNazwa().equals("Przepustka 3"))) {
                 System.out.println("Masz przepustke");
             } else {
                 System.out.println("Nie masz przepustki");
@@ -230,4 +229,5 @@ public class Menu {
         }
         return null;
     }
+
 }
