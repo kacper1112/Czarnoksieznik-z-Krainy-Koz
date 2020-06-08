@@ -86,16 +86,16 @@ public class Wrog extends NPC {
         Random rand = new Random();
         if(rand.nextDouble() < 0.5){
             ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                    "podstawowa pota",
-                    "opis",
+                    "Ryba",
+                    "Rybka wylowiona dzisaj rano za pomoca twojej wedki",
                     10,
                     10,
                     10
             ));
         }else {
             ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                    "podstawowe mieso",
-                    "opis",
+                    "Makaron z groszkiem",
+                    "Tradycyjne danie, ktore odkupiles od pewnej staruszki",
                     10,
                     10,
                     10
