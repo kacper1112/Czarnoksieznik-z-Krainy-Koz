@@ -6,13 +6,6 @@ public class Atrybut {
     private double szansaNaKrytyczne;
     private double szansaNaNatychmiastoweZabicie;
 
-    Atrybut() {
-        bonusDoSily = 0;
-        bonusDoInteligencji = 0;
-        szansaNaKrytyczne = 0;
-        szansaNaNatychmiastoweZabicie = 0;
-    }
-
     Atrybut(int szansa) {
         bonusDoSily = 0;
         bonusDoInteligencji = 0;

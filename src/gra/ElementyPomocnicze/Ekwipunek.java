@@ -23,22 +23,6 @@ public class Ekwipunek {
         ekwipunekBronFizczna = new ArrayList<>();
     }
 
-    public void wlozPrzedmiotFabularny(PrzedmiotFabularny pf) {
-        ekwipunekFabularne.add(pf);
-    }
-
-    public void wlozPozywienie(PrzedmiotPozywienie pozywienie) {
-        ekwipunekPozywienie.add(pozywienie);
-    }
-
-    public void wlozBronMagiczna(BronMagiczna p) {
-        ekwipunekBronMagiczna.add(p);
-    }
-
-    public void wlozBronFizyczna(BronFizyczna p) {
-        ekwipunekBronFizczna.add(p);
-    }
-
     public int getIloscPozywienie() {
         return ekwipunekPozywienie.size();
     }
@@ -172,18 +156,10 @@ public class Ekwipunek {
     }
 
     public void dodajEkwipunek(Ekwipunek ekwipunekPrzeciwnika) {
-        if (!ekwipunekPrzeciwnika.getEkwipunekPozywienie().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(this::wlozPozywienie);
-        }
-        if (!ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().forEach(this::wlozBronFizyczna);
-        }
-        if (!ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(this::wlozBronMagiczna);
-        }
-        if (!ekwipunekPrzeciwnika.getEkwipunekFabularne().isEmpty()) {
-            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozPrzedmiotFabularny);
-        }
+        ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(this::wlozDoEkwipunku);
+        ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().forEach(this::wlozDoEkwipunku);
+        ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(this::wlozDoEkwipunku);
+        ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(this::wlozDoEkwipunku);
     }
 
     public void wlozDoEkwipunku(Przedmiot przedmiot) {

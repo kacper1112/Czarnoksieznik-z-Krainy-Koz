@@ -48,7 +48,7 @@ public class Wojownik extends Gracz {
     public Ekwipunek generujEkwipunek() {
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK);
         Random rand = new Random();
-        ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
+        ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
                 "poczatkowa bron fizyczna",
                 "opis",
                 10,
@@ -56,7 +56,7 @@ public class Wojownik extends Gracz {
                 10,
                 10
         ));
-        ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+        ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                 "podstawowe mieso",
                 "opis",
                 10,
@@ -65,7 +65,7 @@ public class Wojownik extends Gracz {
         ));
 
         if (rand.nextDouble() < 0.5) {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
                     10,
@@ -73,7 +73,7 @@ public class Wojownik extends Gracz {
                     10
             ));
         } else {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",
                     10,

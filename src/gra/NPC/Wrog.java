@@ -36,7 +36,7 @@ public class Wrog extends NPC {
         this.maksymalnePunktyZycia = maksymalnePunktyZycia;
         this.obecnePunktyZycia = maksymalnePunktyZycia;
         this.bazowyAtak = bazowyAtak;
-        this.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
+        this.getEkwipunek().wlozDoEkwipunku(przedmiotFabularny);
     }
 
     public double getObecnePunktyZycia() {
@@ -85,7 +85,7 @@ public class Wrog extends NPC {
 
         Random rand = new Random();
         if(rand.nextDouble() < 0.5){
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
                     10,
@@ -93,7 +93,7 @@ public class Wrog extends NPC {
                     10
             ));
         }else {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",
                     10,
@@ -104,7 +104,7 @@ public class Wrog extends NPC {
 
         if(rand.nextInt(bronFizycznaTMP.size()) < bronFizycznaTMP.size()/2){
             int indeks = rand.nextInt(bronFizycznaTMP.size());
-            ekwipunekTMP.wlozBronFizyczna(new BronFizyczna(
+            ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
                     bronFizycznaTMP.get(indeks).getPierwszy(),
                     bronFizycznaTMP.get(indeks).getDrugi(),
                     rand.nextInt(100),
@@ -114,7 +114,7 @@ public class Wrog extends NPC {
             ));
         }else {
             int indeks = rand.nextInt(bronMagicznaTMP.size());
-            ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
+            ekwipunekTMP.wlozDoEkwipunku(new BronMagiczna(
                     bronMagicznaTMP.get(indeks).getPierwszy(),
                     bronMagicznaTMP.get(indeks).getDrugi(),
                     rand.nextInt(100),

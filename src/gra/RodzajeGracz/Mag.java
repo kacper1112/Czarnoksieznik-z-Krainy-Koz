@@ -55,7 +55,7 @@ public class Mag extends Gracz {
     public Ekwipunek generujEkwipunek() {
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.MAG);
         Random rand = new Random();
-        ekwipunekTMP.wlozBronMagiczna(new BronMagiczna(
+        ekwipunekTMP.wlozDoEkwipunku(new BronMagiczna(
                 "poczatkowa bron magiczna",
                 "opis",
                 10,
@@ -64,7 +64,7 @@ public class Mag extends Gracz {
                 10
         ));
 
-        ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+        ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                 "podstawowa pota",
                 "opis",
                 10,
@@ -73,7 +73,7 @@ public class Mag extends Gracz {
         ));
 
         if (rand.nextDouble() < 0.5) {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowa pota",
                     "opis",
                     10,
@@ -81,7 +81,7 @@ public class Mag extends Gracz {
                     10
             ));
         } else {
-            ekwipunekTMP.wlozPozywienie(new PrzedmiotPozywienie(
+            ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
                     "podstawowe mieso",
                     "opis",
                     10,

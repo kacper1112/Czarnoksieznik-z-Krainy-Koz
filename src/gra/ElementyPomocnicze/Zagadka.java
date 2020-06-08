@@ -23,7 +23,7 @@ public class Zagadka {
             System.out.println(this.zagadka);
             odpowiedzGracza = in.nextLine().trim();
         }
-        gracz.getEkwipunek().wlozPrzedmiotFabularny(przedmiotFabularny);
+        gracz.getEkwipunek().wlozDoEkwipunku(przedmiotFabularny);
 
     }
 
