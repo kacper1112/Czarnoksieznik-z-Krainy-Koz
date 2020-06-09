@@ -22,12 +22,13 @@ public class Kaplan extends Gracz {
         return this.ekwipunek.getWyekwipowanaBron().zadajMocneObrazenia();
     }
 
-    public void otrzymajObrazenia(double wartosc) {
+    public double otrzymajObrazenia(double wartosc) {
         if (Math.random() < 0.3) {
-            KolorTekstu.printCzerwony( "Atak wroga leczy Cie!");
             zwiekszPunktyZycia(wartosc);
+            return -1;
         } else {
-            otrzymajObrazenia(wartosc);
+            zmniejszPunktyZycia(wartosc);
+            return wartosc;
         }
     }
 

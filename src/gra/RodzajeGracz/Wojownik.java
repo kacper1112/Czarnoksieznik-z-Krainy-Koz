@@ -22,16 +22,18 @@ public class Wojownik extends Gracz {
     }
 
     // obsluzyc jak gracza ginie
-    public void otrzymajObrazenia(double wartosc) {
+    public double otrzymajObrazenia(double wartosc) {
         // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
         double sumaSily = getSila() + getSumaBonusowDoSily();
 
-        if (sumaSily >= 100) {
+        // redukujemy o maks 90%
+        if (sumaSily > 90) {
             sumaSily = 90;
         }
 
         double obrazenia = (1 - sumaSily / 100) * wartosc;
         zmniejszPunktyZycia(obrazenia);
+        return obrazenia;
     }
 
     @Override

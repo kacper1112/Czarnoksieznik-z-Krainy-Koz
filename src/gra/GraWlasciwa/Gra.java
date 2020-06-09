@@ -56,12 +56,12 @@ public class Gra {
 
     public static void wyczyscTerminal() {
         try {
-            if (System.getProperty("os.name").contains("Windows"))
+            if (System.getProperty("os.name").contains("Windows")) {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            else
+            } else {
                 Runtime.getRuntime().exec("clear");
-        } catch (IOException | InterruptedException ignored) {
-        }
+            }
+        } catch (IOException | InterruptedException ignored) {}
     }
 
     public void granko() {
@@ -77,7 +77,8 @@ public class Gra {
         if (wyborGracza == 2) {
             pokazInstrukcje();
             System.out.println("1.Kontynuuj");
-           wczytajWyborGracza(1, false);
+            wczytajWyborGracza(1, false);
+            wyczyscTerminal();
         }
 
         KolorTekstu.printZolty("Wybierz swoja klase postaci:\n1.Wojownik\n2.Mag\n3.Kaplan");
@@ -97,7 +98,24 @@ public class Gra {
 
     private void pokazInstrukcje() {
         wyczyscTerminal();
-        KolorTekstu.printZolty("To jest instrukcja");
+        KolorTekstu.printFioletowy("Malzonka ciesli Romana zostala porwana przez zlego Czarnoksieznika z Krainy" +
+                " Koz! Bohater musi ja uratowac z rak oprawcy. Zeby tego dokonac musi zdobyc najpierw odnalezc w swiecie" +
+                " gry 3 przepustki do 3 roznych bossow! Po otwarciu sobie drogi do bossow i pokonaniu ich, gracz moze" +
+                " rozpoczac walke finalowa - z samym Czarnoksieznikiem!");
+        System.out.println();
+        KolorTekstu.printFioletowy("Istnieja 3 klasy postaci - Wojownik, Mag i Kaplan. Kazda z nich ma swoje" +
+                " umiejetnosci specjalne i moze poslugiwac sie innym rodzajem broni - odpowiednio bronia fizyczna," +
+                " magiczna, lub oboma typami.");
+        System.out.println();
+        KolorTekstu.printFioletowy("Walka w grze przebiega turowo, podczas swojej kolejki gracz moze skorzystac" +
+                " z ekwipunku (aby zmienic bron lub uleczyc sie), zaatakowac standardowym atakiem lub sprobowac silnego" +
+                " ataku (nie jest gwarantowane jego powodzenie!). Bron zuzywa sie z kazdym ciosem, dlatego warto ciagle" +
+                " szukac nowego sprzetu.");
+        System.out.println();
+        KolorTekstu.printFioletowy("Niektore z przedmiotow posiadaja specjalne atrybuty, ktore daja bohaterowi bonusy" +
+                " do statystyk. Najmocniejsze z przedmiotow daja tez szanse na zabicie przeciwnika w jednym ciosie!");
+        System.out.println();
+        KolorTekstu.printZolty("Szczegolowa instrukcja dostepna w pliku README!");
     }
 
     private void rozpocznijWydarzenie(Wydarzenie wydarzenie) {
@@ -109,11 +127,8 @@ public class Gra {
         KolorTekstu.printCyan(wydarzenie.getOpis());
 
         if (wydarzenie.getWrogowie() != null) {
-            wydarzenie.getWrogowie().forEach(wrog ->
-                    Walka.walka(gracz, wrog)
-            );
+            wydarzenie.getWrogowie().forEach(wrog -> Walka.walka(gracz, wrog));
         }
-
         wydarzenie.setCzyWykonana(true);
     }
 
@@ -147,12 +162,27 @@ public class Gra {
 
     private boolean rozpocznijGre() {
         do {
-            KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getOpis());
+            Gra.wyczyscTerminal();
 
+            // najpierw wydarzenia poboczne z wrogami
+            if (lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
+                lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(wydarzenie -> {
+                    if(!wydarzenie.getWrogowie().isEmpty()) {
+                        rozpocznijWydarzenie(wydarzenie);
+                    }
+                });
+            }
+
+            // potem docieramy do lokacji
+            KolorTekstu.printCyan(this.lokacje.get(lokalizacjaGracza).getOpis());
+            System.out.println();
+
+            // potem pozostale poboczne
             if (lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne() != null) {
                 lokacje.get(lokalizacjaGracza).getWydarzeniaPoboczne().forEach(this::rozpocznijWydarzenie);
             }
 
+            // potem fabularne
             if (lokacje.get(lokalizacjaGracza).getWydarzenieFabularne() != null &&
                     !lokacje.get(lokalizacjaGracza).getWydarzenieFabularne().getCzyWykonana()) {
                 rozpocznijWydarzenieFabularne(lokacje.get(lokalizacjaGracza).getWydarzenieFabularne());

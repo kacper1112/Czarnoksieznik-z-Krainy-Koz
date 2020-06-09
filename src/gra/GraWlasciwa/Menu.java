@@ -176,7 +176,8 @@ public class Menu {
                 return true;
             case 2:
                 menuEkwipunku();
-                return true;
+                Gra.wyczyscTerminal();
+                return false;
             case 4:
                 menuHandlu();
                 return true;

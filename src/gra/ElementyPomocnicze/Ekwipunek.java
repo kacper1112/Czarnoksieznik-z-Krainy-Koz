@@ -126,6 +126,8 @@ public class Ekwipunek {
                 KolorTekstu.printZielonyBezNL("\t" + indeks++ + ". " + bron);
                 if(bron == wyekwipowanaBron) {
                     KolorTekstu.printZielonyItaliki(" <- aktualnie wyekwipowana");
+                } else {
+                    System.out.println();
                 }
             }
         }
@@ -135,6 +137,8 @@ public class Ekwipunek {
                 KolorTekstu.printZielonyBezNL("\t" + indeks++ + ". " + bron);
                 if(bron == wyekwipowanaBron) {
                     KolorTekstu.printZielonyItaliki(" <- aktualnie wyekwipowana");
+                } else {
+                    System.out.println();
                 }
             }
         }

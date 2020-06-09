@@ -28,14 +28,15 @@ public class Mag extends Gracz {
         }
     }
 
-    // obsluzyc jak gracza ginie
-    public void otrzymajObrazenia(double wartosc) {
-        // mozwliwosc uniku
-        if (Math.random() >= .1) {
-            // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
-            double obrazenia = (1 - this.getInteligencja() / 100) * wartosc;
-            zmniejszPunktyZycia(obrazenia);
+    public double otrzymajObrazenia(double wartosc) {
+        // maks 50% szans na wykonanie uniku przy duzej inteligencji
+        System.out.println(getSumaBonusowDoInteligencji() + getInteligencja());
+        if(Math.random() < ((getSumaBonusowDoInteligencji() + getInteligencja()) / 100) * 0.5) {
+            return 0;
         }
+
+        zmniejszPunktyZycia(wartosc);
+        return wartosc;
     }
 
     public void zwiekszLevel() {

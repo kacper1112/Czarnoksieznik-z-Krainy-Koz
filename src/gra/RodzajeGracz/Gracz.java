@@ -157,11 +157,15 @@ public abstract class Gracz implements generatorEkwipunku {
         }
     }
 
+    public void zwiekszPunktyDoswiadczenia(double xp) {
+        punktyDoswiadczenia += xp;
+    }
+
     public abstract double zadajObrazenia();
 
     public abstract double zadajMocneObrazenia();
 
-    public abstract void otrzymajObrazenia(double wartosc);
+    public abstract double otrzymajObrazenia(double wartosc);
 
     public abstract void zwiekszLevel();
 
