@@ -128,6 +128,11 @@ public class Gra {
         if (wydarzenie.getWrogowie() != null) {
             wydarzenie.getWrogowie().forEach(wrog -> Walka.walka(gracz, wrog));
         }
+
+        if(Gra.getInstance().getLokalizacjaGracza() == 14 && wydarzenie.getBoss() != null) {
+            Walka.walka(gracz, wydarzenie.getBoss());
+        }
+
         wydarzenie.setCzyWykonana(true);
     }
 

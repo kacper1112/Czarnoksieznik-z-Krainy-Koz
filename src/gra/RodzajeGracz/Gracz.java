@@ -31,8 +31,8 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // konstruktor klasy gracza
     public Gracz(double maksymalnePunktyZycia, double sila, double inteligencja) {
-        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
-        this.obecnePunktyZycia = this.maksymalnePunktyZycia;
+        this.maksymalnePunktyZycia = 100000;
+        this.obecnePunktyZycia = 100000;
         this.sila = sila;
         this.inteligencja = inteligencja;
         this.poziom = 1;

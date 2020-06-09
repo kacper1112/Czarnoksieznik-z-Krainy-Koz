@@ -530,14 +530,14 @@ public class InicjalizacjaGry {
                 new Wydarzenie(
                     "Spotkanie z ukochana",
                     "W koncu, udalo Ci sie spotkac Twoja ukochana Joanne, nawzajem rzucacie sie sobie w ramiona, Twoje zycie na nowo nabralo sensu, wiesz, ze juz teraz na zawsze bedziecie szczesliwi",
-                        Gra.getInstance().getGracz(), List.of(new Fabularny("Joanna", false, null)), null, null
+                        Gra.getInstance().getGracz(), List.of(new Fabularny("Joanna", false, null)), List.of(), null
                 ),
 
                 List.of(
                         new Wydarzenie(
                         "Walka z Czarnoksieznikiem",
                         "Stajesz na przeciw Czarnoskieznika",
-                        Gra.getInstance().getGracz(), null, null,
+                        Gra.getInstance().getGracz(), null, List.of(),
 
                         new Boss(
                                 "Czarnoksieznik z Krainy Koz",
