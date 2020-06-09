@@ -193,8 +193,6 @@ public class GraczTest {
     @Test
     public void uzyjPozywienia() {
         Gracz graczTMP = gracz1;
-        //double tmp = gracz1.getEkwipunek().getEkwipunekPozywienie().get(0).getPrzywracaneZycie();
-        //System.out.println(tmp);
         gracz1.zmniejszPunktyZycia(10);
         gracz1.uzyjPozywienia(0);
         assertEquals(graczTMP.getObecnePunktyZycia(),gracz1.getObecnePunktyZycia(),0.001);

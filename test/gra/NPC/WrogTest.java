@@ -8,6 +8,7 @@ public class WrogTest {
 
     @Test
     public void getObecnePunktyZycia() {
+
     }
 
     @Test
