@@ -29,7 +29,7 @@ public class BronMagiczna extends Przedmiot implements bron {
         mocZwoju -= 1;
 
         if (czyKrytyczne) {
-            obrazenia *= mocUderzeniaKrytycznego / 100;
+            obrazenia *= mocUderzeniaKrytycznego;
             System.out.println("Uderzenie krytyczne!");
         }
         return obrazenia;

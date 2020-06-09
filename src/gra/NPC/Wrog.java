@@ -111,7 +111,7 @@ public class Wrog extends NPC {
                     rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100,
-                    rand.nextDouble()*100
+                    Math.random()
             ));
         }else {
             int indeks = rand.nextInt(bronMagicznaTMP.size());
@@ -121,7 +121,7 @@ public class Wrog extends NPC {
                     rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100,
-                    rand.nextDouble()*100
+                    Math.random()
             ));
         }
         return ekwipunekTMP;
