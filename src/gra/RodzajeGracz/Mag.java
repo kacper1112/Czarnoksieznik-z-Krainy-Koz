@@ -40,7 +40,8 @@ public class Mag extends Gracz {
     }
 
     public void zwiekszLevel() {
-
+        this.setMaksymalnePunktyZycia(this.getMaksymalnePunktyZycia() + 50);
+        this.uleczWPelni();
         this.setPoziom(this.getPoziom() + 1);
         this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 300);
         this.setInteligencja(this.getInteligencja() + 10);
