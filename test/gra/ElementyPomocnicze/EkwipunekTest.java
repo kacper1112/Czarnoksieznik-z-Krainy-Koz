@@ -21,7 +21,7 @@ public class EkwipunekTest {
 
     @Test
     public void getIloscBronMagiczna() {
-        assertEquals(ekwipunekTEST.getEkwipunekBronMagiczna().size(),1);
+        assertEquals(ekwipunekTEST.getEkwipunekBronMagiczna().size(),0);
     }
 
     @Test
