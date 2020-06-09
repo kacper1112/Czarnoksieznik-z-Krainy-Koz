@@ -37,7 +37,6 @@ public class Boss extends Wrog {
      */
     @Override
     public Ekwipunek generujEkwipunek() {
-        //System.out.println("GENERATOR DLA BOSA"); test czy korzysta z dobrego generatora -> zaliczony
         Ekwipunek ekwipunekTMP = super.generujEkwipunek();
         ekwipunekTMP.setTYP(TYP_POSIADACZA_EKWIPUNKU.BOSS);
         Random rand = new Random();
