@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class Kaplan extends Gracz {
     public Kaplan() {
-        super(110, 15, 15);
+        super(230, 15, 15);
     }
 
     public double zadajObrazenia() {

@@ -131,7 +131,7 @@ public class InicjalizacjaGry {
                     new Wydarzenie(
                             "Spotkanie z handlarzem w miescie",
                             "Gracz spotyka miejskiego handlarza," +
-                            " ktory pokazuje mu co ma pod swoim szynkwasem",
+                            " ktory pokazuje mu co ma pod swoim szynkwasem\n",
                             Gra.getInstance().getGracz(), null, 0, null
                     ),
 
