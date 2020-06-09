@@ -43,6 +43,6 @@ public class Para<A, B> {
 
     @Override
     public String toString() {
-        return "[" + pierwszy + ", " + drugi + ']';
+        return "[" + pierwszy + ", " + drugi + "]";
     }
 }
