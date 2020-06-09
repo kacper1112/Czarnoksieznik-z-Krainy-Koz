@@ -16,9 +16,9 @@ public class GraczTest {
 
     @Test
     public void getMaksymalnePunktyZycia() {
-        assertEquals(gracz1.getMaksymalnePunktyZycia(),120,0.0001);
-        assertEquals(gracz2.getMaksymalnePunktyZycia(),100,0.0001);
-        assertEquals(gracz3.getMaksymalnePunktyZycia(),110,0.0001);
+        assertEquals(gracz1.getMaksymalnePunktyZycia(),300,0.0001);
+        assertEquals(gracz2.getMaksymalnePunktyZycia(),200,0.0001);
+        assertEquals(gracz3.getMaksymalnePunktyZycia(),230,0.0001);
     }
 
     @Test
@@ -30,9 +30,9 @@ public class GraczTest {
 
     @Test
     public void getObecnePunktyZycia() {
-        assertEquals(gracz1.getObecnePunktyZycia(),120,0.0001);
-        assertEquals(gracz2.getObecnePunktyZycia(),100,0.0001);
-        assertEquals(gracz3.getObecnePunktyZycia(),110,0.0001);
+        assertEquals(gracz1.getObecnePunktyZycia(),300,0.0001);
+        assertEquals(gracz2.getObecnePunktyZycia(),200,0.0001);
+        assertEquals(gracz3.getObecnePunktyZycia(),230,0.0001);
     }
 
     @Test
@@ -172,9 +172,9 @@ public class GraczTest {
         gracz1.zmniejszPunktyZycia(10);
         gracz2.zmniejszPunktyZycia(10);
         gracz3.zmniejszPunktyZycia(10);
-        assertEquals(gracz1.getObecnePunktyZycia(),110,0.0001);
-        assertEquals(gracz2.getObecnePunktyZycia(),90,0.0001);
-        assertEquals(gracz3.getObecnePunktyZycia(),100,0.0001);
+        assertEquals(gracz1.getObecnePunktyZycia(),290,0.0001);
+        assertEquals(gracz2.getObecnePunktyZycia(),190,0.0001);
+        assertEquals(gracz3.getObecnePunktyZycia(),220,0.0001);
     }
 
     @Test
@@ -185,9 +185,9 @@ public class GraczTest {
         gracz1.zwiekszPunktyZycia(10);
         gracz2.zwiekszPunktyZycia(10);
         gracz3.zwiekszPunktyZycia(10);
-        assertEquals(gracz1.getObecnePunktyZycia(),120,0.0001);
-        assertEquals(gracz2.getObecnePunktyZycia(),100,0.0001);
-        assertEquals(gracz3.getObecnePunktyZycia(),110,0.0001);
+        assertEquals(gracz1.getObecnePunktyZycia(),300,0.0001);
+        assertEquals(gracz2.getObecnePunktyZycia(),200,0.0001);
+        assertEquals(gracz3.getObecnePunktyZycia(),230,0.0001);
     }
 
     @Test
