@@ -119,11 +119,10 @@ public class Handlarz extends NPC {
         System.out.println("Właśnie kupiłeś: " + oferta.get(indeksOferty).getPierwszy());
         gracz.setPieniadze(gracz.getPieniadze() - oferta.get(indeksOferty).getDrugi().getDrugi());
         this.setPieniadze(this.getPieniadze() + oferta.get(indeksOferty).getDrugi().getDrugi());
-        System.out.println(oferta);
+
         oferta = oferta.stream()
                 .filter(x -> !(x.getPierwszy().getNazwa().equals(oferta.get(indeksOferty).getPierwszy().getNazwa())))
                 .collect(Collectors.toList());
-        System.out.println(oferta);
     }
 
     private int zgodnaNaOferte() {
