@@ -1,12 +1,11 @@
 package gra.ElementyPomocnicze;
 
-import gra.RodzajeGracz.Wojownik;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class EkwipunekTest {
-    private static Ekwipunek ekwipunekTEST = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK);
+    private static final Ekwipunek ekwipunekTEST = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK);
 
     @Test
     public void getIloscPozywienie() {

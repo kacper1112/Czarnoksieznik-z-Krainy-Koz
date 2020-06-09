@@ -60,7 +60,7 @@ public class Boss extends Wrog {
                 new Para<>("Echo Luden", "Rozowa rozdzka mocy"),
                 new Para<>("Klinga Burzy", "Klinga zrodzona podczas jednej z najstraszniejszych burz jakie widzialo niebo")
         );
-        if(ekwipunekTMP.getEkwipunekBronMagiczna().size()<1) {
+        if(ekwipunekTMP.getEkwipunekBronFizyczna().size()<1) {
             int pairIndex = rand.nextInt(bronFizycznaTMP.size());
             ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
                     bronFizycznaTMP.get(pairIndex).getPierwszy(),
