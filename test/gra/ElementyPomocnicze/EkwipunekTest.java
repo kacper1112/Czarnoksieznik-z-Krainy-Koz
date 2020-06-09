@@ -6,28 +6,32 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class EkwipunekTest {
-    Wojownik wojownik = new Wojownik();
-    private static final Ekwipunek ekwipunekTEST = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK);
+    private final Wojownik wojownik = new Wojownik();
+    private final Ekwipunek ekwipunekTEST = wojownik.getEkwipunek();
 
     @Test
     public void getIloscPozywienie() {
-
+        assertEquals(ekwipunekTEST.getEkwipunekPozywienie().size(),2);
     }
 
     @Test
     public void getIloscFabularne() {
+        assertEquals(ekwipunekTEST.getEkwipunekFabularne().size(),0);
     }
 
     @Test
     public void getIloscBronMagiczna() {
+        assertEquals(ekwipunekTEST.getEkwipunekBronMagiczna().size(),1);
     }
 
     @Test
     public void getIloscBronFizyczna() {
+        assertEquals(ekwipunekTEST.getEkwipunekBronFizyczna().size(),1);
     }
 
     @Test
     public void getEkwipunekFabularne() {
+        assertEquals(ekwipunekTEST.getEkwipunekFabularne().size(),0);
     }
 
     @Test
@@ -48,6 +52,7 @@ public class EkwipunekTest {
 
     @Test
     public void getTYP() {
+        assertEquals(TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK,ekwipunekTEST.getTYP());
     }
 
     @Test
