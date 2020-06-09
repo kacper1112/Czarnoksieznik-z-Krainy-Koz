@@ -58,7 +58,7 @@ public class Handlarz extends NPC {
                 rand.nextInt(100),
                 rand.nextInt(100),
                 rand.nextDouble() * 100,
-                rand.nextDouble() * 100
+                Math.random()
         ));
 
         pairIndex = rand.nextInt(bronFizycznaTMP.size());
@@ -68,7 +68,7 @@ public class Handlarz extends NPC {
                 rand.nextInt(100),
                 rand.nextInt(100),
                 rand.nextDouble() * 100,
-                rand.nextDouble() * 100
+                Math.random()
         ));
 
         pairIndex = rand.nextInt(pozywienieTMP.size());

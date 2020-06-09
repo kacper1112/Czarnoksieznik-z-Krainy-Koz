@@ -1,6 +1,7 @@
 package gra.NPC;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronFizyczna;
@@ -12,30 +13,20 @@ import java.util.List;
 import java.util.Random;
 
 public class Boss extends Wrog {
-    private double szansaNaTrafienieKrytyczne;
+    private final double szansaNaTrafienieKrytyczne;
 
     public Boss(String imie, int maksymalnePunktyZycia, int bazowyAtak , PrzedmiotFabularny przedmiotFabularny){
         super(imie,maksymalnePunktyZycia,bazowyAtak,przedmiotFabularny);
         szansaNaTrafienieKrytyczne = Math.random() * 50;
-        //this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
-    public void dodajKolejnyPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){
-        this.getEkwipunek().wlozDoEkwipunku(przedmiotFabularny);
-    }
-
-    PrzedmiotFabularny wygranaBohatera(int indeks){
-        PrzedmiotFabularny przedmiot = this.getEkwipunek().getEkwipunekFabularne().get(indeks);
-        System.out.print("Pokonales mnie, na farcie..... i tak ostatniecznie przegrasz byczq!");
-        return przedmiot;
-    }
-
-    public double getSzansaNaTrafienieKrytyczne() {
-        return szansaNaTrafienieKrytyczne;
-    }
-
-    public void setSzansaNaTrafienieKrytyczne(double szansaNaTrafienieKrytyczne) {
-        this.szansaNaTrafienieKrytyczne = szansaNaTrafienieKrytyczne;
+    @Override
+    public double zadajObrazenia() {
+        if(Math.random() < szansaNaTrafienieKrytyczne) {
+            KolorTekstu.printCzerwony("Uderzenie krytyczne!");
+            return super.zadajObrazenia() * 1.5;
+        }
+        return super.zadajObrazenia();
     }
 
     /**
@@ -60,7 +51,7 @@ public class Boss extends Wrog {
         );
         List<Para<String, String>> bronFizycznaTMP = List.of(
                 new Para<>("Rteciowy Bula", "opis"),
-                new Para<>("Wlucznia Shojin", "opis"),
+                new Para<>("Wlocznia Shojin", "opis"),
                 new Para<>("Plonoce Ostrze", "opis"),
                 new Para<>("Czarny Tasak", "opis")
         );

@@ -57,7 +57,7 @@ public class Fabularny extends NPC {
                         rand.nextInt(100),
                         rand.nextInt(100),
                         rand.nextDouble() * 100,
-                        rand.nextDouble() * 100
+                        Math.random()
                 ));
                 if (ekwipunekTMP.getEkwipunekBronFizyczna().size() > 0)
                     podarki.addAll(ekwipunekTMP.getEkwipunekBronFizyczna());
@@ -69,7 +69,7 @@ public class Fabularny extends NPC {
                         rand.nextInt(100),
                         rand.nextInt(100),
                         rand.nextDouble() * 100,
-                        rand.nextDouble() * 100
+                        Math.random()
                 ));
 
                 if (ekwipunekTMP.getEkwipunekBronMagiczna().size() > 0)

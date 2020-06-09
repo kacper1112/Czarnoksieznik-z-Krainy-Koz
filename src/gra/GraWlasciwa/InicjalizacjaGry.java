@@ -504,7 +504,7 @@ public class InicjalizacjaGry {
 
                     new Boss(
                         "Beliar",
-                        1000, 300,
+                        600, 70,
                         new PrzedmiotFabularny(
                             "Przepustka do czarnoksieznika 3",
                             "Przepustka pozwala sie dostac do czarnoksieznika",
