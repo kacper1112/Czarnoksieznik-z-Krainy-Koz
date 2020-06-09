@@ -38,19 +38,6 @@ public class GraTest {
         assertSame(Gra.getInstance(),Gra.getInstance());
     }
 
-    /*
-    public static void wygrana() {
-        KolorTekstu.printCyan("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!");
-        KolorTekstu.printCyan("To juz koniec Twojej przygody!");
-        System.exit(0);
-    }
-
-    public static void przegrana() {
-        KolorTekstu.printCyan("Nie zyjesz! Koniec gry! Powodzenia nastepnym razem.");
-        System.exit(0);
-    }
-     */
-
     @Test
     public void wygrana() {
         KolorTekstu.printCyan("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!\n" + "To juz koniec Twojej przygody!");
@@ -79,6 +66,7 @@ public class GraTest {
 
     @Test
     public void getLokalizacjaGracza() {
+        Gra.getInstance().setLokalizacjaGracza(0);
         int tmp = Gra.getInstance().getLokalizacjaGracza();
         assertEquals(tmp,0);
         Gra.getInstance().setLokalizacjaGracza(5);
