@@ -144,7 +144,9 @@ public class InicjalizacjaGry {
                         List.of(
                             new Wrog(
                                     "Bandyta",
-                                    20, 20)
+                                    20,
+                                    20,
+                                    true)
                         ),
                         null
                     )

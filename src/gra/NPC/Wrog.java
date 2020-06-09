@@ -31,6 +31,18 @@ public class Wrog extends NPC {
         this.bazowyAtak = bazowyAtak;
     }
 
+    public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak , boolean czyBron){
+        super(imie);
+        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
+        this.obecnePunktyZycia = this.maksymalnePunktyZycia;
+        this.bazowyAtak = bazowyAtak;
+        if(this.getEkwipunek().getEkwipunekBronFizyczna().size()>0){
+            this.getEkwipunek().zmienWyekwipowanaBronNaFizyczna(0, true);
+        } else if(this.getEkwipunek().getEkwipunekBronMagiczna().size()>0) {
+            this.getEkwipunek().zmienWyekwipowanaBronNaMagiczna(0, true);
+        }
+    }
+
     public Wrog(String imie, int maksymalnePunktyZycia, int bazowyAtak , PrzedmiotFabularny przedmiotFabularny){
         super(imie);
         this.maksymalnePunktyZycia = maksymalnePunktyZycia;
@@ -124,11 +136,13 @@ public class Wrog extends NPC {
                     Math.random()
             ));
         }
+        /*
         if(ekwipunekTMP.getEkwipunekBronFizyczna().size()>0){
             ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0, true);
         } else if(ekwipunekTMP.getEkwipunekBronMagiczna().size()>0) {
             ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0, true);
         }
+         */
 
         return ekwipunekTMP;
     }
