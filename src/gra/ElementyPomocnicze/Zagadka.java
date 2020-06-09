@@ -1,5 +1,6 @@
 package gra.ElementyPomocnicze;
 
+import gra.GraWlasciwa.Gra;
 import gra.RodzajeGracz.Gracz;
 import gra.RodzajePrzedmiot.PrzedmiotFabularny;
 
@@ -21,8 +22,11 @@ public class Zagadka {
         String odpowiedzGracza = "";
         while (!odpowiedzGracza.equals(this.odpowiedz)) {
             System.out.println(this.zagadka);
-            odpowiedzGracza = in.nextLine().trim();
+            odpowiedzGracza = in.nextLine().trim().toLowerCase();
         }
+        KolorTekstu.printZielony("Udalo Ci sie rozwiazac zagadke! W zamian otrzymujesz: " + przedmiotFabularny);
         gracz.getEkwipunek().wlozDoEkwipunku(przedmiotFabularny);
+        System.out.println("Wybierz 1 aby kontynuowac");
+        Gra.wczytajWyborGracza(1, false);
     }
 }

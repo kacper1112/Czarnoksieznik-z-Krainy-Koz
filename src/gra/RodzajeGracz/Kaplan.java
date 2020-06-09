@@ -22,22 +22,22 @@ public class Kaplan extends Gracz {
         return this.ekwipunek.getWyekwipowanaBron().zadajMocneObrazenia();
     }
 
-    public void otrzymajObrazenia(double wartosc) {
+    public double otrzymajObrazenia(double wartosc) {
         if (Math.random() < 0.3) {
-            KolorTekstu.printCzerwony( "Atak wroga leczy Cie!");
             zwiekszPunktyZycia(wartosc);
+            return -1;
         } else {
-            otrzymajObrazenia(wartosc);
+            zmniejszPunktyZycia(wartosc);
+            return wartosc;
         }
     }
 
     public void zwiekszLevel() {
-        if (this.getPunktyDoswiadczenia() > 100) {
-            this.setPoziom(this.getPoziom() + 1);
-            this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
-            this.setSila(this.getSila() + 5);
-            this.setInteligencja(this.getInteligencja() + 5);
-        }
+        this.setPoziom(this.getPoziom() + 1);
+        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 300);
+        this.setSila(this.getSila() + 5);
+        this.setInteligencja(this.getInteligencja() + 5);
+        KolorTekstu.printZielony("Zdobywasz kolejny poziom!");
     }
 
     /**
@@ -104,9 +104,9 @@ public class Kaplan extends Gracz {
         }
 
         if (ekwipunekTMP.getEkwipunekBronMagiczna().size() > 0) {
-            ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0);
+            ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0, true);
         } else {
-            ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0);
+            ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0, true);
         }
 
         return ekwipunekTMP;

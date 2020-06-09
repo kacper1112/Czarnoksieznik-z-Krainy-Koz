@@ -1,20 +1,13 @@
 package gra.GraWlasciwa;
 
-import gra.ElementyPomocnicze.Ekwipunek;
-import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.ElementyPomocnicze.Zagadka;
 import gra.NPC.Boss;
 import gra.NPC.Fabularny;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
-import gra.RodzajePrzedmiot.BronFizyczna;
-import gra.RodzajePrzedmiot.BronMagiczna;
-import gra.RodzajePrzedmiot.PrzedmiotFabularny;
-import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Wydarzenie {
     private final String nazwa;
@@ -59,36 +52,9 @@ public class Wydarzenie {
         this.czyWykonana = false;
     }
 
+    //GETTERY
     public Boolean getCzyWykonana() {
         return czyWykonana;
-    }
-
-    public void setCzyWykonana(Boolean czyWykonana) {
-        this.czyWykonana = czyWykonana;
-    }
-
-    private List<Wrog> generujWrogow(int iluWrogow) {
-        List<Wrog> tempWrogowie = new ArrayList<>();
-        for (int i = 0; i < iluWrogow; i++) {
-            Wrog wrog = new Wrog("generyczny wrog");
-            tempWrogowie.add(wrog);
-            // todo generowanie wrogow
-        }
-        return tempWrogowie;
-    }
-
-    public void polaczEkwipunki(Ekwipunek ekwipunekGracza, Ekwipunek ekwipunekPrzeciwnika) {
-        ekwipunekPrzeciwnika.getEkwipunekPozywienie().forEach(ekwipunekGracza::wlozDoEkwipunku);
-        ekwipunekPrzeciwnika.getEkwipunekBronFizyczna().forEach(ekwipunekGracza::wlozDoEkwipunku);
-        ekwipunekPrzeciwnika.getEkwipunekBronMagiczna().forEach(ekwipunekGracza::wlozDoEkwipunku);
-
-        if (ekwipunekPrzeciwnika.getTYP() == TYP_POSIADACZA_EKWIPUNKU.BOSS) {
-            ekwipunekPrzeciwnika.getEkwipunekFabularne().forEach(ekwipunekGracza::wlozDoEkwipunku);
-        }
-    }
-
-    public void zagadka() {
-        this.zagadka.wywolajZagadke(gracz);
     }
 
     public Zagadka getZagadka() {
@@ -111,7 +77,6 @@ public class Wydarzenie {
         return postacieFabularne;
     }
 
-
     public List<Wrog> getWrogowie() {
         return wrogowie;
     }
@@ -119,4 +84,24 @@ public class Wydarzenie {
     public Boss getBoss() {
         return boss;
     }
+
+    //SETTERY
+    public void setCzyWykonana(Boolean czyWykonana) {
+        this.czyWykonana = czyWykonana;
+    }
+
+    //METODY WLASCIWE
+    private List<Wrog> generujWrogow(int iluWrogow) {
+        List<Wrog> tempWrogowie = new ArrayList<>();
+        for (int i = 0; i < iluWrogow; i++) {
+            Wrog wrog = new Wrog("Podstawowy przeciwnik");
+            tempWrogowie.add(wrog);
+        }
+        return tempWrogowie;
+    }
+
+    public void zagadka() {
+        this.zagadka.wywolajZagadke(gracz);
+    }
+
 }

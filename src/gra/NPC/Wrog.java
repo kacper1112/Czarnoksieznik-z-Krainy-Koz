@@ -66,6 +66,7 @@ public class Wrog extends NPC {
         KolorTekstu.printCzerwony("Wrog nie posiada broni, ale chyba walczy calkiem niezle i bez niej...");
         return getBazowyAtak();
     }
+
     /**
      * Wrog na poczatku dostaje:
      * jedna pota albo mieso
@@ -110,7 +111,7 @@ public class Wrog extends NPC {
                     rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100,
-                    rand.nextDouble()*100
+                    Math.random()
             ));
         }else {
             int indeks = rand.nextInt(bronMagicznaTMP.size());
@@ -120,7 +121,7 @@ public class Wrog extends NPC {
                     rand.nextInt(100),
                     rand.nextInt(100),
                     rand.nextDouble()*100,
-                    rand.nextDouble()*100
+                    Math.random()
             ));
         }
         return ekwipunekTMP;

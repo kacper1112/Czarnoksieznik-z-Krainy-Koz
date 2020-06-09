@@ -4,7 +4,6 @@ import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
-import gra.GraWlasciwa.Gra;
 import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;
@@ -58,7 +57,7 @@ public class Fabularny extends NPC {
                         rand.nextInt(100),
                         rand.nextInt(100),
                         rand.nextDouble() * 100,
-                        rand.nextDouble() * 100
+                        Math.random()
                 ));
                 if (ekwipunekTMP.getEkwipunekBronFizyczna().size() > 0)
                     podarki.addAll(ekwipunekTMP.getEkwipunekBronFizyczna());
@@ -70,7 +69,7 @@ public class Fabularny extends NPC {
                         rand.nextInt(100),
                         rand.nextInt(100),
                         rand.nextDouble() * 100,
-                        rand.nextDouble() * 100
+                        Math.random()
                 ));
 
                 if (ekwipunekTMP.getEkwipunekBronMagiczna().size() > 0)

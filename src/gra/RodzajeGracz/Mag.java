@@ -1,6 +1,7 @@
 package gra.RodzajeGracz;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
@@ -28,22 +29,22 @@ public class Mag extends Gracz {
         }
     }
 
-    // obsluzyc jak gracza ginie
-    public void otrzymajObrazenia(double wartosc) {
-        // mozwliwosc uniku
-        if (Math.random() >= .1) {
-            // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
-            double obrazenia = (1 - this.getInteligencja() / 100) * wartosc;
-            zmniejszPunktyZycia(obrazenia);
+    public double otrzymajObrazenia(double wartosc) {
+        // maks 50% szans na wykonanie uniku przy duzej inteligencji
+        if(Math.random() < ((getSumaBonusowDoInteligencji() + getInteligencja()) / 100) * 0.5) {
+            return 0;
         }
+
+        zmniejszPunktyZycia(wartosc);
+        return wartosc;
     }
 
     public void zwiekszLevel() {
-        if (this.getPunktyDoswiadczenia() > 100) {
-            this.setPoziom(this.getPoziom() + 1);
-            this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
-            this.setInteligencja(this.getInteligencja() + 10);
-        }
+
+        this.setPoziom(this.getPoziom() + 1);
+        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 300);
+        this.setInteligencja(this.getInteligencja() + 10);
+        KolorTekstu.printZielony("Zdobywasz kolejny poziom!");
     }
 
     /**
@@ -89,7 +90,7 @@ public class Mag extends Gracz {
                     10
             ));
         }
-        ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0);
+        ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0, true);
         return ekwipunekTMP;
     }
 }

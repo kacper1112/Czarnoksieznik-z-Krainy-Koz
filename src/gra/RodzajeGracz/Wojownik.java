@@ -1,6 +1,7 @@
 package gra.RodzajeGracz;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
@@ -22,21 +23,27 @@ public class Wojownik extends Gracz {
     }
 
     // obsluzyc jak gracza ginie
-    public void otrzymajObrazenia(double wartosc) {
+    public double otrzymajObrazenia(double wartosc) {
         // obrazenia zostaja pomniejszone o tyle % ile sily ma wojownik
         double sumaSily = getSila() + getSumaBonusowDoSily();
 
-        if (sumaSily >= 100) {
+        // redukujemy o maks 90%
+        if (sumaSily > 90) {
             sumaSily = 90;
         }
 
         double obrazenia = (1 - sumaSily / 100) * wartosc;
         zmniejszPunktyZycia(obrazenia);
+        return obrazenia;
     }
 
     @Override
     public void zwiekszLevel() {
-
+        this.setPoziom(this.getPoziom() + 1);
+        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 300);
+        this.setSila(this.getSila() + 8);
+        this.setInteligencja(this.getInteligencja() + 3);
+        KolorTekstu.printZielony("Zdobywasz kolejny poziom!");
     }
 
     /**
@@ -81,7 +88,7 @@ public class Wojownik extends Gracz {
                     10
             ));
         }
-        ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0);
+        ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0, true);
         return ekwipunekTMP;
     }
 }

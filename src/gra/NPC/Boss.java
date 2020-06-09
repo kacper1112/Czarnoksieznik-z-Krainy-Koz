@@ -1,6 +1,7 @@
 package gra.NPC;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.Para;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronFizyczna;
@@ -12,30 +13,20 @@ import java.util.List;
 import java.util.Random;
 
 public class Boss extends Wrog {
-    private double szansaNaTrafienieKrytyczne;
+    private final double szansaNaTrafienieKrytyczne;
 
     public Boss(String imie, int maksymalnePunktyZycia, int bazowyAtak , PrzedmiotFabularny przedmiotFabularny){
         super(imie,maksymalnePunktyZycia,bazowyAtak,przedmiotFabularny);
         szansaNaTrafienieKrytyczne = Math.random() * 50;
-        //this.getEkwipunek().wlozFabularne(przedmiotFabularny);
     }
 
-    public void dodajKolejnyPrzedmiotFabularny(PrzedmiotFabularny przedmiotFabularny){
-        this.getEkwipunek().wlozDoEkwipunku(przedmiotFabularny);
-    }
-
-    PrzedmiotFabularny wygranaBohatera(int indeks){
-        PrzedmiotFabularny przedmiot = this.getEkwipunek().getEkwipunekFabularne().get(indeks);
-        System.out.print("Pokonales mnie, na farcie..... i tak ostatniecznie przegrasz byczq!");
-        return przedmiot;
-    }
-
-    public double getSzansaNaTrafienieKrytyczne() {
-        return szansaNaTrafienieKrytyczne;
-    }
-
-    public void setSzansaNaTrafienieKrytyczne(double szansaNaTrafienieKrytyczne) {
-        this.szansaNaTrafienieKrytyczne = szansaNaTrafienieKrytyczne;
+    @Override
+    public double zadajObrazenia() {
+        if(Math.random() < szansaNaTrafienieKrytyczne) {
+            KolorTekstu.printCzerwony("Uderzenie krytyczne!");
+            return super.zadajObrazenia() * 1.5;
+        }
+        return super.zadajObrazenia();
     }
 
     /**
@@ -51,24 +42,24 @@ public class Boss extends Wrog {
         ekwipunekTMP.setTYP(TYP_POSIADACZA_EKWIPUNKU.BOSS);
         Random rand = new Random();
         List<Para<String, String>> pozywienieTMP = List.of(
-                new Para<>("Mikstura Lowcy", "Ta miksutra odnawia twoje punkty zycia"),
-                new Para<>("Elikis Gniewu", "Eliksir uzdrawiajacy twoje punkty zycia"),
-                new Para<>("Eliksir Zdrowia", "Eliksir uzdrawiajacy twoje punkty zycia"),
-                new Para<>("Jablko", "Pyszne jabluszko, ktore zawiera zdrowe witaminki"),
-                new Para<>("Chleb", "Swiezo wypieczony chleb, z tutejszej piekarni"),
-                new Para<>("Mieso", "Mieso zdobyte na tutejszej farmie zwierzat")
+                new Para<>("Mikstura Lowcy", "opis"),
+                new Para<>("Elikis Gniewu", "opis"),
+                new Para<>("Eliksir Zdrowia", "opis"),
+                new Para<>("Jablko", "opis"),
+                new Para<>("Chleb", "opis"),
+                new Para<>("Mieso", "opis")
         );
         List<Para<String, String>> bronFizycznaTMP = List.of(
-                new Para<>("Rteciowy Bula", "Straszliwy bulat, lamiacy kosci przeciwnikow"),
-                new Para<>("Wlucznia Shojin", "Prastara wlocznia, pamietajaca jeszcze tutejszych mnichow"),
-                new Para<>("Plonoce Ostrze", "Ta bron plonie zywym ogniem, badz ostrozny"),
-                new Para<>("Czarny Tasak", "Tasak niegdys uzywany do skorowania smokow")
+                new Para<>("Rteciowy Bula", "opis"),
+                new Para<>("Wlocznia Shojin", "opis"),
+                new Para<>("Plonoce Ostrze", "opis"),
+                new Para<>("Czarny Tasak", "opis")
         );
         List<Para<String, String>> bronMagicznaTMP = List.of(
-                new Para<>("Rozdzka Wiekow", "Prastara rozdzka, ktora byla uzywana przez poteznego czarodzieja"),
-                new Para<>("Kostur Pustki", "Kostur uzywany do wywolywania niesamowitej magii"),
-                new Para<>("Echo Luden", "Rozowa rozdzka mocy"),
-                new Para<>("Klinga Burzy", "Klinga zrodzona podczas jednej z najstraszniejszych burz jakie widzialo niebo")
+                new Para<>("Rozdzka Wiekow", "opis"),
+                new Para<>("Kostur Pustki", "opis"),
+                new Para<>("Echo Luden", "opis"),
+                new Para<>("Klinga Burzy", "opis")
         );
         if(ekwipunekTMP.getEkwipunekBronMagiczna().size()<1) {
             int pairIndex = rand.nextInt(bronFizycznaTMP.size());

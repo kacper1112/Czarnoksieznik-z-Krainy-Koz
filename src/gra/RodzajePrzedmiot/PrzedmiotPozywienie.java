@@ -19,7 +19,7 @@ public class PrzedmiotPozywienie extends Przedmiot {
     @Override
     public String toString() {
         return getNazwa() +
-                " [przywracane zycie: " + przywracaneZycie + "]";
+                " [przywracane zycie: " + String.format("%1.2f", przywracaneZycie) + "]";
     }
 }
 

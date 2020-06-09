@@ -4,12 +4,6 @@ import gra.ElementyPomocnicze.KolorTekstu;
 import gra.NPC.Boss;
 import gra.NPC.Wrog;
 import gra.RodzajeGracz.Gracz;
-import gra.RodzajePrzedmiot.BronFizyczna;
-import gra.RodzajePrzedmiot.BronMagiczna;
-import gra.RodzajePrzedmiot.PrzedmiotFabularny;
-import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
-
-import java.util.Random;
 
 public class Walka {
 
@@ -17,9 +11,8 @@ public class Walka {
         int wyborGracza;
         boolean walkaTrwa = true;
         double obrazenia;
-        // true - gracz, false - wrog
 
-        Gra.wyczyscTerminal();
+        System.out.println();
 
         boolean kolejGracza = (Math.random() < 0.5);
         if (kolejGracza) {
@@ -35,45 +28,53 @@ public class Walka {
                         "3.Sprobuj wykonac mocny atak");
 
                 wyborGracza = Gra.wczytajWyborGracza(3, false);
+                System.out.println();
                 if (wyborGracza == 1) {
                     Menu.menuEkwipunku();
+                    Gra.wyczyscTerminal();
                     // menu wyboru przedmiotu z ekwipunku
                 } else if (wyborGracza == 2) {
                     if (Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
                         KolorTekstu.printCzerwony("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
-                                "uderzeniu!");
+                                " uderzeniu!");
                         walkaTrwa = false;
                         wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
                     } else {
                         obrazenia = gracz.zadajObrazenia();
-                        KolorTekstu.printCzerwony("Atakujesz wroga za " + obrazenia + " punktow!");
+                        KolorTekstu.printCzerwony("Atakujesz wroga za " + String.format("%1.2f", obrazenia) + " punktow!");
                         wrog.otrzymajObrazenia(obrazenia);
-                        KolorTekstu.printCzerwony("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
+                        KolorTekstu.printCzerwony("Wrog ma teraz " + String.format("%1.2f", wrog.getObecnePunktyZycia()) + "/" +
                                 wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
                     }
                 } else if (wyborGracza == 3) {
                     if (Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
-                        KolorTekstu.printCzerwony("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
+                        KolorTekstu.printCzerwony("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym " +
                                 "uderzeniu!");
                         walkaTrwa = false;
                         wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
                     } else {
                         obrazenia = gracz.zadajMocneObrazenia();
-                        KolorTekstu.printCzerwony("Atakujesz wroga za " + obrazenia + " punktow!");
+                        KolorTekstu.printCzerwony("Atakujesz wroga za " + String.format("%1.2f", obrazenia) + " punktow!");
                         wrog.otrzymajObrazenia(obrazenia);
-                        KolorTekstu.printCzerwony("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
+                        KolorTekstu.printCzerwony("Wrog ma teraz " + String.format("%1.2f", wrog.getObecnePunktyZycia()) + "/" +
                                 wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
                     }
                 }
 
             } else {
                 obrazenia = wrog.zadajObrazenia();
-                KolorTekstu.printCzerwony(wrog.getImie() + " zadaje Ci " + obrazenia + " punktow obrazen!");
-                gracz.otrzymajObrazenia(obrazenia);
-                KolorTekstu.printCzerwony("Masz teraz " + gracz.getObecnePunktyZycia() + "/" +
-                        gracz.getMaksymalnePunktyZycia() + " punktow zycia.");
-            }
+                KolorTekstu.printCzerwony(wrog.getImie() + " atakuje za " + String.format("%1.2f", obrazenia) + " punktow obrazen!");
+                double otrzymaneObrazenia = gracz.otrzymajObrazenia(obrazenia);
 
+                if (otrzymaneObrazenia < 0) {
+                    KolorTekstu.printZielony("Atak wroga leczy Cie!");
+                } else if(otrzymaneObrazenia == 0) {
+                    KolorTekstu.printZielony("Wykonales unik, nie otrzymujesz obrazen!");
+                } else {
+                    KolorTekstu.printCzerwony("Ostatecznie otrzymujesz " + String.format("%1.2f", otrzymaneObrazenia) + " punktow obrazen. Masz teraz " +
+                            gracz.getObecnePunktyZycia() + "/" + gracz.getMaksymalnePunktyZycia() + " punktow zycia");
+                }
+            }
             if (gracz.getObecnePunktyZycia() <= 0 || wrog.getObecnePunktyZycia() <= 0) {
                 walkaTrwa = false;
             }
@@ -81,64 +82,41 @@ public class Walka {
             kolejGracza = !kolejGracza;
         }
         if (gracz.getObecnePunktyZycia() > 0) {
-            gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
-            //KolorTekstu.printCzerwony("Udalo Ci sie zwyciezyc w walce!");
-            //KolorTekstu.printCzerwony("Podnosisz przedmioty przecinika");
             wygranaGracza(wrog);
         } else {
             KolorTekstu.printCzerwony("Zostales zabity");
+            Gra.przegrana();
         }
     }
 
     private static void wygranaGracza(Wrog wrog) {
         System.out.println("Udalo Ci sie pokonac przeciwnika!");
-        Random rand = new Random();
+
         double pktDoswiadczenia;
         if (wrog instanceof Boss) {
-            System.out.println("Specjalne napisy do bossa");
-            pktDoswiadczenia = Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 100.0 + 40 * rand.nextDouble();
-            Gra.getInstance().getGracz().setPunktyDoswiadczenia(pktDoswiadczenia);
+            System.out.println("Udalo Ci sie pokonac jednego z 3 bossow!");
+            pktDoswiadczenia = 100.0 + 80 * Math.random();
         } else {
-            Gra.getInstance().getGracz().setPunktyDoswiadczenia(Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 80 + rand.nextInt(40));
-            pktDoswiadczenia = Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 10.0 + 30 * rand.nextDouble();
+            pktDoswiadczenia = 100.0 + 30 * Math.random();
         }
-        System.out.println("Zdobyłes " + pktDoswiadczenia + "punktow doswiadczenia");
+        Gra.getInstance().getGracz().zwiekszPunktyDoswiadczenia(pktDoswiadczenia);
+        System.out.println("Zdobyłes " + String.format("%1.2f", pktDoswiadczenia) + " punktow doswiadczenia");
 
-        System.out.println("W truchle znajdujesz:");
+        if(Gra.getInstance().getGracz().getPunktyDoswiadczenia() >= 300) {
+            Gra.getInstance().getGracz().zwiekszLevel();
+        }
+
+        System.out.println("W truchle " + wrog.getImie() + " znajdujesz:");
         if (wrog.getEkwipunek().isEmpty()) {
             System.out.println("Tym razem nic :/");
             return;
         }
 
-
-        System.out.println("Przedmioty " + wrog.getImie() + "a" + " : ");
         wrog.getEkwipunek().pokazEkwipunek();
-        /*
-        if (!wrog.getEkwipunek().getEkwipunekPozywienie().isEmpty()) {
-            System.out.println("Pozywienie:");
-            for (PrzedmiotPozywienie p : wrog.getEkwipunek().getEkwipunekPozywienie()) {
-                System.out.println(p.getNazwa());
-            }
-        }
-        if (!wrog.getEkwipunek().getEkwipunekBronFizyczna().isEmpty()) {
-            System.out.println("Bron fizyczna:");
-            for (BronFizyczna bron : wrog.getEkwipunek().getEkwipunekBronFizyczna()) {
-                System.out.println(bron.getNazwa());
-            }
-        }
-        if (!wrog.getEkwipunek().getEkwipunekBronMagiczna().isEmpty()) {
-            System.out.println("Bron magiczna:");
-            for (BronMagiczna bron : wrog.getEkwipunek().getEkwipunekBronMagiczna()) {
-                System.out.println(bron.getNazwa());
-            }
-        }
-        if (wrog instanceof Boss && !wrog.getEkwipunek().getEkwipunekFabularne().isEmpty()) {
-            System.out.println("Przedmioty fabularne:");
-            for (PrzedmiotFabularny p : wrog.getEkwipunek().getEkwipunekFabularne()) {
-                System.out.println(p.getNazwa());
-            }
-        }
-         */
         Gra.getInstance().getGracz().getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
+        System.out.println("Wybierz 1 aby kontynuowac");
+        Gra.wczytajWyborGracza(1, false);
+        Gra.wyczyscTerminal();
     }
+
 }
