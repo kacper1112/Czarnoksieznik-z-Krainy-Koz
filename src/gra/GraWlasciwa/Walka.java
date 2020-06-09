@@ -72,7 +72,7 @@ public class Walka {
                     KolorTekstu.printZielony("Wykonales unik, nie otrzymujesz obrazen!");
                 } else {
                     KolorTekstu.printCzerwony("Ostatecznie otrzymujesz " + String.format("%1.2f", otrzymaneObrazenia) + " punktow obrazen. Masz teraz " +
-                            gracz.getObecnePunktyZycia() + "/" + gracz.getMaksymalnePunktyZycia() + " punktow zycia");
+                            String.format("%1.2f", gracz.getObecnePunktyZycia()) + "/" + gracz.getMaksymalnePunktyZycia() + " punktow zycia");
                 }
             }
             if (gracz.getObecnePunktyZycia() <= 0 || wrog.getObecnePunktyZycia() <= 0) {

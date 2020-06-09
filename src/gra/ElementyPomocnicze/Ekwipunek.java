@@ -88,9 +88,9 @@ public class Ekwipunek {
         } else {
             wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
             System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
-            System.out.println("Wybierz 1 aby kontynuowac");
-            Gra.wczytajWyborGracza(1, false);
         }
+        System.out.println("Wybierz 1 aby kontynuowac");
+        Gra.wczytajWyborGracza(1, false);
     }
 
     public void zmienWyekwipowanaBronNaFizyczna(int indeksBroni, boolean cicheWkladanie) {
@@ -105,9 +105,9 @@ public class Ekwipunek {
         } else {
             wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
             System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
-            System.out.println("Wybierz 1 aby kontynuowac");
-            Gra.wczytajWyborGracza(1, false);
         }
+        System.out.println("Wybierz 1 aby kontynuowac");
+        Gra.wczytajWyborGracza(1, false);
     }
 
     //SETTERY

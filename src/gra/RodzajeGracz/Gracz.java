@@ -8,7 +8,7 @@ import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.Przedmiot;
 
 public abstract class Gracz implements generatorEkwipunku {
-    private final double maksymalnePunktyZycia;
+    private double maksymalnePunktyZycia;
     Ekwipunek ekwipunek;
     private double obecnePunktyZycia;
     private double sila;
@@ -31,8 +31,8 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // konstruktor klasy gracza
     public Gracz(double maksymalnePunktyZycia, double sila, double inteligencja) {
-        this.maksymalnePunktyZycia = 100000;
-        this.obecnePunktyZycia = 100000;
+        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
+        this.obecnePunktyZycia = maksymalnePunktyZycia;
         this.sila = sila;
         this.inteligencja = inteligencja;
         this.poziom = 1;
@@ -72,6 +72,14 @@ public abstract class Gracz implements generatorEkwipunku {
 
     public double getPieniadze() {
         return pieniadze;
+    }
+
+    public void setMaksymalnePunktyZycia(double maksymalnePunktyZycia) {
+        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
+    }
+
+    public void uleczWPelni() {
+        obecnePunktyZycia = maksymalnePunktyZycia;
     }
 
     public double getSumaBonusowDoInteligencji() {
