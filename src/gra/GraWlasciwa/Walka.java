@@ -41,9 +41,9 @@ public class Walka {
                         wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
                     } else {
                         obrazenia = gracz.zadajObrazenia();
-                        KolorTekstu.printCzerwony("Atakujesz wroga za " + obrazenia + " punktow!");
+                        KolorTekstu.printCzerwony("Atakujesz wroga za " + String.format("%1.2f", obrazenia) + " punktow!");
                         wrog.otrzymajObrazenia(obrazenia);
-                        KolorTekstu.printCzerwony("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
+                        KolorTekstu.printCzerwony("Wrog ma teraz " + String.format("%1.2f", wrog.getObecnePunktyZycia()) + "/" +
                                 wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
                     }
                 } else if (wyborGracza == 3) {
@@ -54,16 +54,16 @@ public class Walka {
                         wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
                     } else {
                         obrazenia = gracz.zadajMocneObrazenia();
-                        KolorTekstu.printCzerwony("Atakujesz wroga za " + obrazenia + " punktow!");
+                        KolorTekstu.printCzerwony("Atakujesz wroga za " + String.format("%1.2f", obrazenia) + " punktow!");
                         wrog.otrzymajObrazenia(obrazenia);
-                        KolorTekstu.printCzerwony("Wrog ma teraz " + wrog.getObecnePunktyZycia() + "/" +
+                        KolorTekstu.printCzerwony("Wrog ma teraz " + String.format("%1.2f", wrog.getObecnePunktyZycia()) + "/" +
                                 wrog.getMaksymalnePunktyZycia() + " punktow zycia.");
                     }
                 }
 
             } else {
                 obrazenia = wrog.zadajObrazenia();
-                KolorTekstu.printCzerwony(wrog.getImie() + " atakuje za " + obrazenia + " punktow obrazen!");
+                KolorTekstu.printCzerwony(wrog.getImie() + " atakuje za " + String.format("%1.2f", obrazenia) + " punktow obrazen!");
                 double otrzymaneObrazenia = gracz.otrzymajObrazenia(obrazenia);
 
                 if (otrzymaneObrazenia < 0) {
@@ -71,7 +71,7 @@ public class Walka {
                 } else if(otrzymaneObrazenia == 0) {
                     KolorTekstu.printZielony("Wykonales unik, nie otrzymujesz obrazen!");
                 } else {
-                    KolorTekstu.printCzerwony("Ostatecznie otrzymujesz " + otrzymaneObrazenia + " punktow obrazen. Masz teraz " +
+                    KolorTekstu.printCzerwony("Ostatecznie otrzymujesz " + String.format("%1.2f", otrzymaneObrazenia) + " punktow obrazen. Masz teraz " +
                             gracz.getObecnePunktyZycia() + "/" + gracz.getMaksymalnePunktyZycia() + "punktow zycia");
                 }
             }
@@ -82,10 +82,10 @@ public class Walka {
             kolejGracza = !kolejGracza;
         }
         if (gracz.getObecnePunktyZycia() > 0) {
-            gracz.getEkwipunek().dodajEkwipunek(wrog.getEkwipunek());
             wygranaGracza(wrog);
         } else {
             KolorTekstu.printCzerwony("Zostales zabity");
+            Gra.przegrana();
         }
     }
 
@@ -100,7 +100,7 @@ public class Walka {
             pktDoswiadczenia = 100.0 + 30 * Math.random();
         }
         Gra.getInstance().getGracz().zwiekszPunktyDoswiadczenia(pktDoswiadczenia);
-        System.out.println("Zdobyłes " + pktDoswiadczenia + "punktow doswiadczenia");
+        System.out.println("Zdobyłes " + String.format("%1.2f", pktDoswiadczenia) + "punktow doswiadczenia");
 
         if(Gra.getInstance().getGracz().getPunktyDoswiadczenia() >= 300) {
             Gra.getInstance().getGracz().zwiekszLevel();

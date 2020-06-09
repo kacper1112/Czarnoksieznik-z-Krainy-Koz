@@ -141,7 +141,7 @@ public class Ekwipunek {
             for (BronFizyczna bron : this.getEkwipunekBronFizyczna()) {
                 KolorTekstu.printZielonyBezNL("\t" + indeks++ + ". " + bron);
                 if(bron == wyekwipowanaBron) {
-                    KolorTekstu.printZielonyItaliki(" <- aktualnie wyekwipowana");
+                    KolorTekstu.printZielonyItaliki(" <- wyekwipowana");
                 } else {
                     System.out.println();
                 }
@@ -152,7 +152,7 @@ public class Ekwipunek {
             for (BronMagiczna bron : this.getEkwipunekBronMagiczna()) {
                 KolorTekstu.printZielonyBezNL("\t" + indeks++ + ". " + bron);
                 if(bron == wyekwipowanaBron) {
-                    KolorTekstu.printZielonyItaliki(" <- aktualnie wyekwipowana");
+                    KolorTekstu.printZielonyItaliki(" <- wyekwipowana");
                 } else {
                     System.out.println();
                 }

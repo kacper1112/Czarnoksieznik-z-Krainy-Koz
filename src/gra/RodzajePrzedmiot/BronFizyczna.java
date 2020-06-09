@@ -49,7 +49,7 @@ public class BronFizyczna extends Przedmiot implements bron {
 
     @Override
     public String toString() {
-        return getNazwa() + " [obrażenia: " + obrazeniaBazowe + ", ostrosc: " + ostrosc + ", moc ud. krytycznego: " +
-                (mocUderzeniaKrytycznego + 100) + "]";
+        return getNazwa() + " [obrażenia: " + String.format("%1.2f", obrazeniaBazowe) + ", ostrosc: " + ostrosc + ", moc ud. krytycznego: " +
+                String.format("%1.2f", (mocUderzeniaKrytycznego + 100)) + "%]";
     }
 }
