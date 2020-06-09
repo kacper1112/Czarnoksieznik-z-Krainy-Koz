@@ -161,6 +161,11 @@ public class Menu {
     }
 
     public static boolean menuGlowne() {
+        if(Gra.getInstance().getLokalizacjaGracza() == 14) {
+            Gra.getInstance().setLokalizacjaGracza(15);
+            return false;
+        }
+
         KolorTekstu.printZolty("1. Pokaż Moje Statystyki\n" +
                 "2. Pokaż ekwipunek\n" + "3. Przejdź do innej lokalizacji");
 

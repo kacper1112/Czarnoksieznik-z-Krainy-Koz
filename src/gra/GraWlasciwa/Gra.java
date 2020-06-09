@@ -189,7 +189,7 @@ public class Gra {
 
             while (Menu.menuGlowne());
 
-        } while (lokalizacjaGracza != 20);
+        } while (lokalizacjaGracza != 15);
         return true;
     }
 
