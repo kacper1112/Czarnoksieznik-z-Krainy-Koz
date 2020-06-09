@@ -40,7 +40,7 @@ public class Wojownik extends Gracz {
     @Override
     public void zwiekszLevel() {
         this.setPoziom(this.getPoziom() + 1);
-        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
+        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 300);
         this.setSila(this.getSila() + 8);
         this.setInteligencja(this.getInteligencja() + 3);
         KolorTekstu.printZielony("Zdobywasz kolejny poziom!");

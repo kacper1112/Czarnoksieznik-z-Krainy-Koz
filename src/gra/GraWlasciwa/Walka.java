@@ -102,7 +102,7 @@ public class Walka {
         Gra.getInstance().getGracz().zwiekszPunktyDoswiadczenia(pktDoswiadczenia);
         System.out.println("Zdobyłes " + pktDoswiadczenia + "punktow doswiadczenia");
 
-        if(Gra.getInstance().getGracz().getPunktyDoswiadczenia() > 100) {
+        if(Gra.getInstance().getGracz().getPunktyDoswiadczenia() >= 300) {
             Gra.getInstance().getGracz().zwiekszLevel();
         }
 

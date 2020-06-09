@@ -42,7 +42,7 @@ public class Mag extends Gracz {
     public void zwiekszLevel() {
 
         this.setPoziom(this.getPoziom() + 1);
-        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
+        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 300);
         this.setInteligencja(this.getInteligencja() + 10);
         KolorTekstu.printZielony("Zdobywasz kolejny poziom!");
     }

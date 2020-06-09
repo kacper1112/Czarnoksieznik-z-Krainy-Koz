@@ -190,7 +190,7 @@ public class InicjalizacjaGry {
         lokacjeTMP.add(
             new Lokacja(
                 "Magiczna przystan",
-                "Docierasz do niesamowitego miejsca w powietrzu czuć unoszącą się tutaj magię." +
+                "Docierasz do niesamowitego miejsca, w powietrzu czuć unoszącą się tutaj magię." +
                         " Czujesz dziwną radość i niepokój zarazem",
 
                 new Wydarzenie(

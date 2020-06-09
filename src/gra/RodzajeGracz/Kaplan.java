@@ -34,7 +34,7 @@ public class Kaplan extends Gracz {
 
     public void zwiekszLevel() {
         this.setPoziom(this.getPoziom() + 1);
-        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
+        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 300);
         this.setSila(this.getSila() + 5);
         this.setInteligencja(this.getInteligencja() + 5);
         KolorTekstu.printZielony("Zdobywasz kolejny poziom!");
