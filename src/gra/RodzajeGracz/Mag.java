@@ -1,6 +1,7 @@
 package gra.RodzajeGracz;
 
 import gra.ElementyPomocnicze.Ekwipunek;
+import gra.ElementyPomocnicze.KolorTekstu;
 import gra.ElementyPomocnicze.TYP_POSIADACZA_EKWIPUNKU;
 import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.PrzedmiotPozywienie;
@@ -30,7 +31,6 @@ public class Mag extends Gracz {
 
     public double otrzymajObrazenia(double wartosc) {
         // maks 50% szans na wykonanie uniku przy duzej inteligencji
-        System.out.println(getSumaBonusowDoInteligencji() + getInteligencja());
         if(Math.random() < ((getSumaBonusowDoInteligencji() + getInteligencja()) / 100) * 0.5) {
             return 0;
         }
@@ -40,11 +40,11 @@ public class Mag extends Gracz {
     }
 
     public void zwiekszLevel() {
-        if (this.getPunktyDoswiadczenia() > 100) {
-            this.setPoziom(this.getPoziom() + 1);
-            this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
-            this.setInteligencja(this.getInteligencja() + 10);
-        }
+
+        this.setPoziom(this.getPoziom() + 1);
+        this.setPunktyDoswiadczenia(this.getPunktyDoswiadczenia() % 100);
+        this.setInteligencja(this.getInteligencja() + 10);
+        KolorTekstu.printZielony("Zdobywasz kolejny poziom!");
     }
 
     /**
@@ -90,7 +90,7 @@ public class Mag extends Gracz {
                     10
             ));
         }
-        ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0);
+        ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0, true);
         return ekwipunekTMP;
     }
 }

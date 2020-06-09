@@ -105,13 +105,13 @@ public class Menu {
 
         rozmiarEq -= gracz.getEkwipunek().getIloscBronMagiczna();
         if (wyborGracza > rozmiarEq) {
-            gracz.getEkwipunek().zmienWyekwipowanaBronNaMagiczna(wyborGracza - rozmiarEq - 1);
+            gracz.getEkwipunek().zmienWyekwipowanaBronNaMagiczna(wyborGracza - rozmiarEq - 1, false);
             return;
         }
 
         rozmiarEq -= gracz.getEkwipunek().getIloscBronFizyczna();
         if (wyborGracza > rozmiarEq) {
-            gracz.getEkwipunek().zmienWyekwipowanaBronNaFizyczna(wyborGracza - rozmiarEq - 1);
+            gracz.getEkwipunek().zmienWyekwipowanaBronNaFizyczna(wyborGracza - rozmiarEq - 1, false);
             return;
         }
 
@@ -176,7 +176,6 @@ public class Menu {
                 return true;
             case 2:
                 menuEkwipunku();
-                Gra.wyczyscTerminal();
                 return false;
             case 4:
                 menuHandlu();

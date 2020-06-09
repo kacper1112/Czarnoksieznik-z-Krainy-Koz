@@ -1,5 +1,6 @@
 package gra.ElementyPomocnicze;
 
+import gra.GraWlasciwa.Gra;
 import gra.RodzajePrzedmiot.*;
 
 import java.util.ArrayList;
@@ -76,21 +77,36 @@ public class Ekwipunek {
     }
 
     //WYEKWIPOWANIE
-    public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni) {
+    public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni, boolean cicheWkladanie) {
+        if(cicheWkladanie && TYP != TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK) {
+            wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
+            return;
+        }
+
         if (TYP == TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK) {
             System.out.println("Nie mozesz korzystac z broni magicznej - jestes wojownikiem");
         } else {
             wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
             System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
+            System.out.println("Wybierz 1 aby kontynuowac");
+            Gra.wczytajWyborGracza(1, false);
         }
     }
 
-    public void zmienWyekwipowanaBronNaFizyczna(int indeksBroni) {
+    public void zmienWyekwipowanaBronNaFizyczna(int indeksBroni, boolean cicheWkladanie) {
+        if(cicheWkladanie && TYP != TYP_POSIADACZA_EKWIPUNKU.MAG) {
+            wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
+            return;
+        }
+
+
         if (TYP == TYP_POSIADACZA_EKWIPUNKU.MAG) {
             System.out.println("Nie mozesz korzystac z broni fizycznej - jestes magiem");
         } else {
             wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
             System.out.println("Zmieniles bron na: " + wyekwipowanaBron);
+            System.out.println("Wybierz 1 aby kontynuowac");
+            Gra.wczytajWyborGracza(1, false);
         }
     }
 

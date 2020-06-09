@@ -48,7 +48,7 @@ public class Walka {
                     }
                 } else if (wyborGracza == 3) {
                     if (Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
-                        KolorTekstu.printCzerwony("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
+                        KolorTekstu.printCzerwony("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym " +
                                 "uderzeniu!");
                         walkaTrwa = false;
                         wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
@@ -95,14 +95,16 @@ public class Walka {
         double pktDoswiadczenia;
         if (wrog instanceof Boss) {
             System.out.println("Udalo Ci sie pokonac jednego z 3 bossow!");
-            Gra.getInstance().getGracz().zwiekszPunktyDoswiadczenia(100. + 40 * Math.random());
-            pktDoswiadczenia = Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 100.0 + 40 * Math.random();
-            Gra.getInstance().getGracz().setPunktyDoswiadczenia(pktDoswiadczenia);
+            pktDoswiadczenia = 100.0 + 80 * Math.random();
         } else {
-            Gra.getInstance().getGracz().setPunktyDoswiadczenia(Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 80 * Math.random());
-            pktDoswiadczenia = Gra.getInstance().getGracz().getPunktyDoswiadczenia() + 10.0 + 30 * Math.random();
+            pktDoswiadczenia = 100.0 + 30 * Math.random();
         }
+        Gra.getInstance().getGracz().zwiekszPunktyDoswiadczenia(pktDoswiadczenia);
         System.out.println("Zdobyłes " + pktDoswiadczenia + "punktow doswiadczenia");
+
+        if(Gra.getInstance().getGracz().getPunktyDoswiadczenia() > 100) {
+            Gra.getInstance().getGracz().zwiekszLevel();
+        }
 
         System.out.println("W truchle " + wrog.getImie() + " znajdujesz:");
         if (wrog.getEkwipunek().isEmpty()) {
