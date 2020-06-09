@@ -49,6 +49,6 @@ public class BronMagiczna extends Przedmiot implements bron {
     @Override
     public String toString() {
         return getNazwa() + " [obrazenia: " + String.format("%1.2f", obrazeniaBazowe) + ", pozostala moc magiczna: " + mocZwoju +
-                ", mod ud. krytycznego: " + String.format("%1.2f", (mocUderzeniaKrytycznego + 100)) + "%]";
+                ", moc ud. krytycznego: " + String.format("%1.2f", (mocUderzeniaKrytycznego + 100)) + "%]";
     }
 }
