@@ -124,6 +124,12 @@ public class Wrog extends NPC {
                     Math.random()
             ));
         }
+        if(ekwipunekTMP.getEkwipunekBronFizyczna().size()>0){
+            ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0, true);
+        } else if(ekwipunekTMP.getEkwipunekBronMagiczna().size()>0) {
+            ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0, true);
+        }
+
         return ekwipunekTMP;
     }
 }
