@@ -78,7 +78,7 @@ public class Ekwipunek {
 
     //WYEKWIPOWANIE
     public void zmienWyekwipowanaBronNaMagiczna(int indeksBroni, boolean cicheWkladanie) {
-        if(cicheWkladanie && TYP != TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK) {
+        if(cicheWkladanie && TYP != TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK && ekwipunekBronMagiczna.size()>indeksBroni) {
             wyekwipowanaBron = ekwipunekBronMagiczna.get(indeksBroni);
             return;
         }
@@ -94,7 +94,7 @@ public class Ekwipunek {
     }
 
     public void zmienWyekwipowanaBronNaFizyczna(int indeksBroni, boolean cicheWkladanie) {
-        if(cicheWkladanie && TYP != TYP_POSIADACZA_EKWIPUNKU.MAG) {
+        if(cicheWkladanie && TYP != TYP_POSIADACZA_EKWIPUNKU.MAG && ekwipunekBronFizczna.size()>indeksBroni) {
             wyekwipowanaBron = ekwipunekBronFizczna.get(indeksBroni);
             return;
         }
