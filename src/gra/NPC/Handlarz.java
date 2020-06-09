@@ -39,16 +39,16 @@ public class Handlarz extends NPC {
                 new Para<>("Mieso", "Mieso zdobyte na tutejszej farmie zwierzat")
         );
         List<Para<String, String>> bronFizycznaTMP = List.of(
-                new Para<>("Rteciowy Bula", "opis"),
-                new Para<>("Wlocznia Shojin", "opis"),
-                new Para<>("Plonoce Ostrze", "opis"),
-                new Para<>("Czarny Tasak", "opis")
+                new Para<>("Rteciowy Bula", "Straszliwy bulat, lamiacy kosci przeciwnikow"),
+                new Para<>("Wlocznia Shojin", "Prastara wlocznia, pamietajaca jeszcze tutejszych mnichow"),
+                new Para<>("Plonoce Ostrze", "Ta bron plonie zywym ogniem, badz ostrozny"),
+                new Para<>("Czarny Tasak", "Tasak niegdys uzywany do skorowania smokow")
         );
         List<Para<String, String>> bronMagicznaTMP = List.of(
-                new Para<>("Rozdzka Wiekow", "opis"),
-                new Para<>("Kostur Pustki", "opis"),
-                new Para<>("Echo Luden", "opis"),
-                new Para<>("Klinga Burzy", "opis")
+                new Para<>("Rozdzka Wiekow", "Prastara rozdzka, ktora byla uzywana przez poteznego czarodzieja"),
+                new Para<>("Kostur Pustki", "Kostur uzywany do wywolywania niesamowitej magii"),
+                new Para<>("Echo Luden", "Rozowa rozdzka mocy"),
+                new Para<>("Klinga Burzy", "Klinga zrodzona podczas jednej z najstraszniejszych burz jakie widzialo niebo")
         );
 
         Random rand = new Random();

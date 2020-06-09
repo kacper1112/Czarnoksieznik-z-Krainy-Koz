@@ -49,16 +49,16 @@ public class Wojownik extends Gracz {
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.WOJOWNIK);
         Random rand = new Random();
         ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
-                "poczatkowa bron fizyczna",
-                "opis",
+                "Drewniany miecz",
+                "Miecz wystrugany z drewna",
                 10,
                 10,
                 10,
                 10
         ));
         ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                "podstawowe mieso",
-                "opis",
+                "Miodek",
+                "Sloiczek miodu, prosto z pasieki od Seredy",
                 10,
                 10,
                 10
@@ -66,16 +66,16 @@ public class Wojownik extends Gracz {
 
         if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                    "podstawowa pota",
-                    "opis",
+                    "Mala mikstura",
+                    "Mniejsza mikstura uzdrawiajaca twoje punkty zycia",
                     10,
                     10,
                     10
             ));
         } else {
             ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                    "podstawowe mieso",
-                    "opis",
+                    "Krwiste mieso",
+                    "Mieso zdobyte z jakiegos duzego zwierzecia, nikt nie wie jendak z jakiego",
                     10,
                     10,
                     10

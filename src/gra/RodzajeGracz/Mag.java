@@ -56,8 +56,8 @@ public class Mag extends Gracz {
         Ekwipunek ekwipunekTMP = new Ekwipunek(TYP_POSIADACZA_EKWIPUNKU.MAG);
         Random rand = new Random();
         ekwipunekTMP.wlozDoEkwipunku(new BronMagiczna(
-                "poczatkowa bron magiczna",
-                "opis",
+                "Rozdzka z krainy ciemnosci",
+                "Ta rozdzka nalezala do wielkiego czarodzieja, brzemie w niej ogromna moc",
                 10,
                 10,
                 10,
@@ -65,8 +65,8 @@ public class Mag extends Gracz {
         ));
 
         ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                "podstawowa pota",
-                "opis",
+                "Jablko",
+                "Jabluszko z owocowego sadu",
                 10,
                 10,
                 10
@@ -74,16 +74,16 @@ public class Mag extends Gracz {
 
         if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                    "podstawowa pota",
-                    "opis",
+                    "Bakalie",
+                    "Garsc bakalii, zdobyta od nieznajmojego",
                     10,
                     10,
                     10
             ));
         } else {
             ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                    "podstawowe mieso",
-                    "opis",
+                    "Udko kurczaka",
+                    "Pyszne mieso zdobyte z lokalnego gospodarstwa",
                     10,
                     10,
                     10

@@ -51,8 +51,8 @@ public class Kaplan extends Gracz {
         Random rand = new Random();
         if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
-                    "poczatkowa bron fizyczna",
-                    "opis",
+                    "Elfi noz",
+                    "Prastary noz zdobyty od jednego z twoich eflich znajomych",
                     10,
                     10,
                     10,
@@ -60,8 +60,8 @@ public class Kaplan extends Gracz {
             ));
         } else {
             ekwipunekTMP.wlozDoEkwipunku(new BronMagiczna(
-                    "poczatkowa bron magiczna",
-                    "opis",
+                    "Kostur otchlani",
+                    "Kostur zdobyty podczas nielegalnych walk na arenie",
                     10,
                     10,
                     10,
@@ -70,16 +70,16 @@ public class Kaplan extends Gracz {
         }
         if (rand.nextDouble() < 0.5) {
             ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                    "podstawowa pota",
-                    "opis",
+                    "Cukrowa lalka",
+                    "Slodka i pyszna przekaska",
                     10,
                     10,
                     10
             ));
         } else {
             ekwipunekTMP.wlozDoEkwipunku(new PrzedmiotPozywienie(
-                    "podstawowe mieso",
-                    "opis",
+                    "Chleb z szynka",
+                    "Kanapka podarowana ci przez twojaj babunie",
                     10,
                     10,
                     10
