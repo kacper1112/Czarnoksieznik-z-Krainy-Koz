@@ -29,8 +29,7 @@ public class Gra {
     }
 
     public static void wygrana() {
-        KolorTekstu.printCyan("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!");
-        KolorTekstu.printCyan("To juz koniec Twojej przygody!");
+        KolorTekstu.printCyan("Udalo Ci sie pokonac zlego Czarnoksieznika! Gratulacje!\n" + "To juz koniec Twojej przygody!");
         System.exit(0);
     }
 
