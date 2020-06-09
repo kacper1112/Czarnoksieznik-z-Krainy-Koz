@@ -100,7 +100,7 @@ public class Walka {
             pktDoswiadczenia = 100.0 + 30 * Math.random();
         }
         Gra.getInstance().getGracz().zwiekszPunktyDoswiadczenia(pktDoswiadczenia);
-        System.out.println("Zdobyłes " + String.format("%1.2f", pktDoswiadczenia) + "punktow doswiadczenia");
+        System.out.println("Zdobyłes " + String.format("%1.2f", pktDoswiadczenia) + " punktow doswiadczenia");
 
         if(Gra.getInstance().getGracz().getPunktyDoswiadczenia() >= 300) {
             Gra.getInstance().getGracz().zwiekszLevel();

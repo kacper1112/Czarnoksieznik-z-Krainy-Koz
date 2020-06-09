@@ -31,7 +31,7 @@ public abstract class Gracz implements generatorEkwipunku {
 
     // konstruktor klasy gracza
     public Gracz(double maksymalnePunktyZycia, double sila, double inteligencja) {
-        this.maksymalnePunktyZycia = 10000;
+        this.maksymalnePunktyZycia = maksymalnePunktyZycia;
         this.obecnePunktyZycia = this.maksymalnePunktyZycia;
         this.sila = sila;
         this.inteligencja = inteligencja;
@@ -192,11 +192,11 @@ public abstract class Gracz implements generatorEkwipunku {
     @Override
     public String toString() {
         return "Obecne statystyki gracza:\n" +
-                "\t punkty zycia: " + obecnePunktyZycia + "/" + maksymalnePunktyZycia + "\n" +
+                "\t punkty zycia: " + String.format("%1.2f", obecnePunktyZycia) + "/" + maksymalnePunktyZycia + "\n" +
                 "\t sila: " + sila + "\n" +
                 "\t inteligencja: " + inteligencja + "\n" +
                 "\t poziom: " + poziom + "\n" +
-                "\t punkty doswiadczenia: " + punktyDoswiadczenia + "\n" +
+                "\t punkty doswiadczenia: " + String.format("%1.2f", punktyDoswiadczenia) + "\n" +
                 "\t pieniadze: " + pieniadze + "\n" +
                 "\t wyekwipowana bron: " + ekwipunek.getWyekwipowanaBron() + "\n";
     }
