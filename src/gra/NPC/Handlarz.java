@@ -83,11 +83,11 @@ public class Handlarz extends NPC {
         ));
         AtomicInteger licznik = new AtomicInteger(1);
         ekwipunekTMP.getEkwipunekBronFizyczna()
-                .forEach(x -> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(), (x.getWartosc() + rand.nextInt(x.getWartosc() / 2))))));
+                .forEach(x -> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(), (x.getWartosc() + rand.nextInt(x.getWartosc() / 2 + 1))))));
         ekwipunekTMP.getEkwipunekBronMagiczna()
-                .forEach(x -> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(), (x.getWartosc() + rand.nextInt(x.getWartosc() / 2))))));
+                .forEach(x -> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(), (x.getWartosc() + rand.nextInt(x.getWartosc() / 2 + 1))))));
         ekwipunekTMP.getEkwipunekPozywienie()
-                .forEach(x -> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(), (x.getWartosc() + rand.nextInt(x.getWartosc() / 4))))));
+                .forEach(x -> oferta.add(new Para<>((Przedmiot) x, new Para<>(licznik.getAndIncrement(), (x.getWartosc() + rand.nextInt(x.getWartosc() / 4 + 1))))));
 
         return ekwipunekTMP;
     }

@@ -72,7 +72,7 @@ public class Menu {
             return false;
         } else {
             System.out.println("Niepoprawna lokacja");
-            return false;
+            return true;
         }
     }
 
