@@ -18,6 +18,7 @@ public class Fabularny extends NPC {
     public Fabularny(String imie, boolean czyPosiadaPrzedmiotFabularny, PrzedmiotFabularny przedmiotFabularny) {
         super(imie);
         this.przedmiotFabularny = przedmiotFabularny;
+        this.getEkwipunek().getEkwipunekFabularne().add(przedmiotFabularny);
         this.czyPosiadaPrzedmiotFabularny = true;
     }
 
