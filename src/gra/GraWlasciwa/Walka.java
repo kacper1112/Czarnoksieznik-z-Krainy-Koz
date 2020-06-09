@@ -36,7 +36,7 @@ public class Walka {
                 } else if (wyborGracza == 2) {
                     if (Math.random() < gracz.getSzansaNaNatychmiastoweZabicie()) {
                         KolorTekstu.printCzerwony("O niebiosa! Twoj atak byl tak mocny, ze przeciwnik zginal w jednym" +
-                                "uderzeniu!");
+                                " uderzeniu!");
                         walkaTrwa = false;
                         wrog.otrzymajObrazenia(wrog.getMaksymalnePunktyZycia());
                     } else {
