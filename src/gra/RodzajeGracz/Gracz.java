@@ -2,6 +2,7 @@ package gra.RodzajeGracz;
 
 import gra.ElementyPomocnicze.Ekwipunek;
 import gra.ElementyPomocnicze.generatorEkwipunku;
+import gra.GraWlasciwa.Gra;
 import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.Przedmiot;
@@ -184,6 +185,8 @@ public abstract class Gracz implements generatorEkwipunku {
     // wywolaj wskazowke, jezeli masz wystarczajaca ilosc inteligencji
     public void uzyjPrzedmiotuFabularnego(int index) {
         System.out.println(this.ekwipunek.getEkwipunekFabularne().get(index).getWskazowka(this.inteligencja));
+        System.out.println("Wybierz 1 aby kontynuowac");
+        Gra.wczytajWyborGracza(1, false);
     }
 
     @Override

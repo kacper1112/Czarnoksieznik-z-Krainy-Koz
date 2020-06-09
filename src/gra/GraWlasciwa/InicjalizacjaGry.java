@@ -112,14 +112,14 @@ public class InicjalizacjaGry {
                                                 "List",
                                                 "List od czarnoksieznika",
                                                 100, 50, false,
-                                                "Moj najdrozszy Romanie z ogromna nostalgia wspominam" +
+                                                "Moj najdrozszy Romanie\n Z ogromna nostalgia wspominam" +
                                                         " nasze minione porachunki, niestety musze Cie zawiadomic, " +
                                                         "ze niestety nie moglem pojawic sie na naszym ostatnim " +
                                                         "spotkaniu na Bajkowej Polanie. Twoja ukochana jest wciaz" +
                                                         " cala i zdrowa, jednak jej spotkanie nie bedzie takie" +
                                                         " proste. Odnajdziesz mnie za pomoca trzech Tajemniczych " +
                                                         "Kluczy ktore mozesz zdobyc rozprawiajac sie z trzema" +
-                                                        " bossami. Do zobaczenia\n",
+                                                        " bossami.\n Do zobaczenia\n",
                                                 0
                                         )
                                 )
