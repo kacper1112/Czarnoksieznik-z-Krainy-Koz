@@ -6,12 +6,20 @@ import static org.junit.Assert.*;
 
 public class GraczTest {
 
+    Gracz gracz1 = new Wojownik();
+    Gracz gracz2 = new Mag();
+    Gracz gracz3 = new Kaplan();
+
     @Test
     public void getMaksymalnePunktyZycia() {
+        assertEquals(gracz1.getMaksymalnePunktyZycia(),120,0.0001);
+        assertEquals(gracz2.getMaksymalnePunktyZycia(),100,0.0001);
+        assertEquals(gracz3.getMaksymalnePunktyZycia(),110,0.0001);
     }
 
     @Test
     public void getEkwipunek() {
+
     }
 
     @Test
