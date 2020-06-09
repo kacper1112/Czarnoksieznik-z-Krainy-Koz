@@ -94,6 +94,12 @@ public class Boss extends Wrog {
                     rand.nextDouble()*100
             ));
         }
+
+        if(rand.nextInt(10)>=5){
+            ekwipunekTMP.zmienWyekwipowanaBronNaFizyczna(0, true);
+        } else {
+            ekwipunekTMP.zmienWyekwipowanaBronNaMagiczna(0, true);
+        }
         return ekwipunekTMP;
     }
 }
