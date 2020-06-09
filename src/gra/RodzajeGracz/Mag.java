@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Mag extends Gracz {
     public Mag() {
-        super(100, 10, 20);
+        super(200, 10, 20);
     }
 
     public double zadajObrazenia() {

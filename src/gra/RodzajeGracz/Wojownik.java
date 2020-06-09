@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Wojownik extends Gracz {
     public Wojownik() {
-        super(120, 20, 10);
+        super(300, 20, 10);
     }
 
     // dodac w zaleznosci od przedmiotu i atrybutow

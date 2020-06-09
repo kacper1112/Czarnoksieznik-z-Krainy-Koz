@@ -100,7 +100,8 @@ public class Fabularny extends NPC {
     }
 
     public PrzedmiotFabularny podarujPrzedmiotFabularny() {
-        KolorTekstu.printCyan( "Przekazuje Ci ten ważny przedmiot: " + this.przedmiotFabularny);
+        KolorTekstu.printCyanBezNL( "Przekazuje Ci ten ważny przedmiot: ");
+        KolorTekstu.printCzerwony(przedmiotFabularny.toString());
         return this.przedmiotFabularny;
     }
 

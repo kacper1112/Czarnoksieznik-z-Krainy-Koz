@@ -74,5 +74,9 @@ public class KolorTekstu {
         System.out.println(CYAN + tekst + RESET);
     }
 
+    public static void printCyanBezNL(String tekst) {
+        System.out.print(CYAN + tekst + RESET);
+    }
+
 }
 
