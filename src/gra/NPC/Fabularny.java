@@ -37,7 +37,7 @@ public class Fabularny extends NPC {
         );
         List<Para<String, String>> bronFizycznaTMP = List.of(
                 new Para<>("Rteciowy Bula", "Straszliwy bulat, lamiacy kosci przeciwnikow"),
-                new Para<>("Wlucznia Shojin", "Prastara wlocznia, pamietajaca jeszcze tutejszych mnichow"),
+                new Para<>("Wlocznia Shojin", "Prastara wlocznia, pamietajaca jeszcze tutejszych mnichow"),
                 new Para<>("Plonoce Ostrze", "Ta bron plonie zywym ogniem, badz ostrozny"),
                 new Para<>("Czarny Tasak", "Tasak niegdys uzywany do skorowania smokow")
         );

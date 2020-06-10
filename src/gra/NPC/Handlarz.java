@@ -117,7 +117,7 @@ public class Handlarz extends NPC {
             System.out.println("Brak przedmiotow do kupienia.");
         } else if (oferta.get(indeksOferty).getDrugi().getDrugi() > gracz.getPieniadze()) {
             System.out.println("Nie masz wystarczajacej ilosci pieniedzy aby kupic ten przedmiot");
-            System.out.println("Twoj stan konta wynosi: " + gracz.getPieniadze());
+            KolorTekstu.printZielony("Twoj zlote monety: " + gracz.getPieniadze());
             return;
         } else if (oferta.get(indeksOferty).getPierwszy() instanceof PrzedmiotPozywienie) {
             gracz.getEkwipunek().wlozDoEkwipunku(oferta.get(indeksOferty).getPierwszy());

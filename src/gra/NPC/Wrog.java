@@ -115,7 +115,7 @@ public class Wrog extends NPC {
             ));
         }
 
-        if(rand.nextInt(bronFizycznaTMP.size()) < bronFizycznaTMP.size()/2){
+        if(rand.nextInt(bronFizycznaTMP.size()) < 1){
             int indeks = rand.nextInt(bronFizycznaTMP.size());
             ekwipunekTMP.wlozDoEkwipunku(new BronFizyczna(
                     bronFizycznaTMP.get(indeks).getPierwszy(),
