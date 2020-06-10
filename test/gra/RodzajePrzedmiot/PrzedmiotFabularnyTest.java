@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class PrzedmiotFabularnyTest {
 
-    PrzedmiotFabularny przedmiotFabularny = new PrzedmiotFabularny("pf","pfOpis", 100,100,false,"aaa",100);
+    private final PrzedmiotFabularny przedmiotFabularny = new PrzedmiotFabularny("pf","pfOpis", 100,100,false,"aaa",100);
 
     @Test
     public void getWskazowka() {

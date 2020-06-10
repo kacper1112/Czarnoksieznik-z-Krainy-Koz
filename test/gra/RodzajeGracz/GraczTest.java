@@ -1,6 +1,5 @@
 package gra.RodzajeGracz;
 
-import gra.GraWlasciwa.Gra;
 import gra.RodzajePrzedmiot.BronFizyczna;
 import gra.RodzajePrzedmiot.BronMagiczna;
 import gra.RodzajePrzedmiot.Przedmiot;
@@ -10,9 +9,9 @@ import static org.junit.Assert.*;
 
 public class GraczTest {
 
-    Gracz gracz1 = new Wojownik();
-    Gracz gracz2 = new Mag();
-    Gracz gracz3 = new Kaplan();
+    private final Gracz gracz1 = new Wojownik();
+    private final Gracz gracz2 = new Mag();
+    private final Gracz gracz3 = new Kaplan();
 
     @Test
     public void getMaksymalnePunktyZycia() {

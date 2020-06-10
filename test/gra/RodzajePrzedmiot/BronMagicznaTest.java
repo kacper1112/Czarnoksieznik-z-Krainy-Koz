@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class BronMagicznaTest {
 
-    BronMagiczna bronMagiczna = new BronMagiczna("magiczna","ops",100,100,100,100);
+    private final BronMagiczna bronMagiczna = new BronMagiczna("magiczna","ops",100,100,100,100);
 
     @Test
     public void zadajObrazenia() {

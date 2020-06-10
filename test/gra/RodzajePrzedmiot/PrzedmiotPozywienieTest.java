@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class PrzedmiotPozywienieTest {
 
-    PrzedmiotPozywienie przedmiotPozywienie = new PrzedmiotPozywienie("pp","ppOpis",100,100,100);
+    private final PrzedmiotPozywienie przedmiotPozywienie = new PrzedmiotPozywienie("pp","ppOpis",100,100,100);
 
     @Test
     public void getPrzywracaneZycie() {

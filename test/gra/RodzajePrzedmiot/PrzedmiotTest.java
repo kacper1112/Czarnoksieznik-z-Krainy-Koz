@@ -6,7 +6,8 @@ import static org.junit.Assert.*;
 
 public class PrzedmiotTest {
 
-    Przedmiot przedmiot = new PrzedmiotPozywienie("pp","ppOpis",100,100,100);
+    private final Przedmiot przedmiot = new PrzedmiotPozywienie("pp","ppOpis",100,100,100);
+
     @Test
     public void getNazwa() {
         assertEquals(przedmiot.getNazwa(),"pp");

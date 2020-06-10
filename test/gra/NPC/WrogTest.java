@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class WrogTest {
 
-    Wrog wrog = new Wrog("wrogImie");
+    private final Wrog wrog = new Wrog("wrogImie");
 
     @Test
     public void getObecnePunktyZycia() {

@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class NPCTest {
 
-    NPC handlarz = new Handlarz("imieHandlarz");
+    private final NPC handlarz = new Handlarz("imieHandlarz");
 
     @Test
     public void getImie() {

@@ -53,18 +53,6 @@ public class GraTest {
     }
 
     @Test
-    public void wczytajWyborGracza() {
-    }
-
-    @Test
-    public void wyczyscTerminal() {
-    }
-
-    @Test
-    public void granko() {
-    }
-
-    @Test
     public void getLokalizacjaGracza() {
         Gra.getInstance().setLokalizacjaGracza(0);
         int tmp = Gra.getInstance().getLokalizacjaGracza();

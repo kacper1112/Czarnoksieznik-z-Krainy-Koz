@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class FabularnyTest {
 
-    Fabularny fabularny = new Fabularny("imieFab",true,
+    private final Fabularny fabularny = new Fabularny("imieFab",true,
             new PrzedmiotFabularny( "pf","opis",123,123,false,"wsk",123.123
     ));
 

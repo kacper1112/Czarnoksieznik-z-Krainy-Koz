@@ -65,14 +65,17 @@ public class Ekwipunek {
 
     //WYCIAGANIE
     public void wyciagnijBronFizyczna(int indeks) {
+        if (ekwipunekBronFizczna.size()>indeks)
         ekwipunekBronFizczna.remove(indeks);
     }
 
     public void wyciagnijBronMagiczna(int indeks) {
+        if (ekwipunekBronMagiczna.size()>indeks)
         ekwipunekBronMagiczna.remove(indeks);
     }
 
     public void wyciagnijPozywienie(int indeks) {
+        if (ekwipunekPozywienie.size()>indeks)
         ekwipunekPozywienie.remove(indeks);
     }
 
