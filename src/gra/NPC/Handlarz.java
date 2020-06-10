@@ -199,7 +199,7 @@ public class Handlarz extends NPC {
         } else if (przedmiot instanceof PrzedmiotFabularny) {
             System.out.println("Nie moge tego od Ciebie kupic przybyszu, to zrujnuje twoje dalsze losy!");
         }
-
+        KolorTekstu.printZielony("Twoje zlote monety po sprzedazy: " + gracz.getPieniadze());
     }
 
     public int getPieniadze() {
