@@ -28,7 +28,7 @@ public class Menu {
             KolorTekstu.printZolty(index + ": " + lokacje.get(index).getNazwa());
         });
         System.out.println("Wybierz numer lokacji do ktorej chcialbys przejsc (0 zeby wyjsc do poprzedniego menu)");
-        int wyborLokacji = Gra.wczytajWyborGraczaLokacje();
+        int wyborLokacji = Gra.wczytajWyborGracza(14,true);
         if (wyborLokacji == 11) {
             if (gracz.getEkwipunek().getEkwipunekFabularne().stream().anyMatch(e -> e.getNazwa().equals("Przepustka 1"))) {
                 System.out.println("Masz przepustke");

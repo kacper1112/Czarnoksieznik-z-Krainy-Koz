@@ -81,7 +81,7 @@ public class Gra {
 
             if (wybor == 0) {
                 return 0;
-            } else if (11 <= wybor && wybor <= 14) {
+            } else if (1 <= wybor && wybor <= 14) {
                 return wybor;
             } else {
                 System.out.println("Nieprawidlowy numer instrukcji");

@@ -186,9 +186,12 @@ public class Ekwipunek {
             ekwipunekBronFizczna.add((BronFizyczna)przedmiot);
         } else if(przedmiot instanceof BronMagiczna) {
             ekwipunekBronMagiczna.add((BronMagiczna)przedmiot);
-        } else {
+        }
+        /*
+        else {
             System.out.println("Nieprawidlowy typ przedmiotu.");
         }
+         */
     }
 
     public boolean isEmpty() {
