@@ -183,7 +183,11 @@ public class Menu {
                 menuEkwipunku();
                 return false;
             case 4:
-                menuHandlu();
+                if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getHandlarz()!=null){
+                    menuHandlu();
+                } else {
+                    System.out.println("Cos poszlo nie tak, sprobuj jeszcze raz");
+                }
                 return true;
             case 3:
                 return menuLokacji();
