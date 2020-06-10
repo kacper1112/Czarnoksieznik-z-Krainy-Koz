@@ -18,8 +18,9 @@ Tak zaczyna się pełna niebezpieczeństw podróż Romana, który za wszelką ce
 # Opis rozgrywki
 
 Na początku gry, gracz ma do wybrania dwie opcję z konsolowego menu
-Rozpocznij grę - rozpoczyna nową przygodę
-Pokaż instrukcje - wyświetla instrukcję dotyczącą gry
+* Rozpocznij grę - rozpoczyna nową przygodę
+* Pokaż instrukcje - wyświetla instrukcję dotyczącą gry
+
 Wybór dokonywany jest przez wybranie odpowiedniej opcji, wpisując ją w konsoli.
 
 Po rozpoczęciu nowej gry gracz staje przed wyborem swojej klasy postaci:
