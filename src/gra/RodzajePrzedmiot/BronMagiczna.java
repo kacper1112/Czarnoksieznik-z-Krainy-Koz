@@ -37,11 +37,11 @@ public class BronMagiczna extends Przedmiot implements bron {
 
     @Override
     public double zadajMocneObrazenia() {
-        if (Math.random() < 0.6) {
+        if (Math.random() < 0.3) {
             KolorTekstu.printCzerwony("Twoje zaklecie nie trafilo wroga!");
             return 0;
         } else {
-            // czar uzyty dwukrotnie
+            // czar uzyty podwojnie
             return zadajObrazenia() + zadajObrazenia();
         }
     }

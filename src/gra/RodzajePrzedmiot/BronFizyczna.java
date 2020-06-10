@@ -38,12 +38,12 @@ public class BronFizyczna extends Przedmiot implements bron {
     @Override
     public double zadajMocneObrazenia() {
         // 40% szans na powodzenie uderzenia
-        if (Math.random() < 0.4) {
+        if (Math.random() < 0.2) {
             KolorTekstu.printCzerwony("Nie trafiles wroga!");
             return 0;
         }
         // mocne uderzenie jest o 30% mocniejsze od zwyklego
-        return zadajObrazenia() * 1.3;
+        return zadajObrazenia() * 1.6;
     }
 
 

@@ -152,7 +152,7 @@ public class Menu {
         } else if (wyborCzynnosci == 2) {
             Przedmiot p = getItemZEkwiupnuku();
             handlarzTMP.kupOdGracza(gracz, p);
-        } else {
+        } else if(wyborCzynnosci != 0) {
             System.out.println("Niepoprawny wybor czynnosci");
         }
     }
