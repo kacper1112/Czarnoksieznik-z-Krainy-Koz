@@ -53,10 +53,35 @@ public class Gra {
                 continue;
             }
 
-
             if (wybor == 0 && mozliwoscPowrotu) {
                 return 0;
             } else if (1 <= wybor && wybor <= liczbaOpcji) {
+                return wybor;
+            } else {
+                System.out.println("Nieprawidlowy numer instrukcji");
+            }
+        }
+    }
+
+    public static int wczytajWyborGraczaLokacje() {
+        String inputGracza;
+        int wybor;
+        while (true) {
+            System.out.print("Twoj wybor: ");
+            inputGracza = in.nextLine();
+            inputGracza = inputGracza.trim();
+
+            try {
+                wybor = Integer.parseInt(inputGracza);
+            } catch (NumberFormatException ex) {
+                System.out.println("Nie wprowadzono liczby!");
+                continue;
+            }
+
+
+            if (wybor == 0) {
+                return 0;
+            } else if (11 <= wybor && wybor <= 14) {
                 return wybor;
             } else {
                 System.out.println("Nieprawidlowy numer instrukcji");

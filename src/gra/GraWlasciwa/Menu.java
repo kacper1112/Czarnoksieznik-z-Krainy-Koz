@@ -28,8 +28,7 @@ public class Menu {
             KolorTekstu.printZolty(index + ": " + lokacje.get(index).getNazwa());
         });
         System.out.println("Wybierz numer lokacji do ktorej chcialbys przejsc (0 zeby wyjsc do poprzedniego menu)");
-        int wyborLokacji = in.nextInt();
-
+        int wyborLokacji = Gra.wczytajWyborGraczaLokacje();
         if (wyborLokacji == 11) {
             if (gracz.getEkwipunek().getEkwipunekFabularne().stream().anyMatch(e -> e.getNazwa().equals("Przepustka 1"))) {
                 System.out.println("Masz przepustke");
@@ -130,13 +129,13 @@ public class Menu {
         System.out.println("Wybierz co chcesz zrobic: ");
         KolorTekstu.printZolty("1. Kupic przedmioty od handlarza");
         KolorTekstu.printZolty("2. Sprzedac cos handlarzowi");
-        int wyborCzynnosci = in.nextInt();
+        int wyborCzynnosci = Gra.wczytajWyborGracza(2,true);
         Handlarz handlarzTMP = lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getHandlarz();
         if (wyborCzynnosci == 1) {
             KolorTekstu.printZielony("Twoje zlote monety: " + gracz.getPieniadze());
             handlarzTMP.przedstawOferte();
             System.out.println("Jesli chcesz kupic przedmiot wybierz wybierz jego numer z oferty Handlarza(0 zeby wyjsc do poprzedniego menu):");
-            int wyborPrzedmiotu = in.nextInt();
+            int wyborPrzedmiotu = Gra.wczytajWyborGracza(handlarzTMP.getOferta().size(),true);
             if (wyborPrzedmiotu == 0) return;
             while (true) {
                 if (wyborPrzedmiotu > 0 && wyborPrzedmiotu <= handlarzTMP.getOferta().size()) {
@@ -146,7 +145,7 @@ public class Menu {
                     System.out.println("Niepoprawny wybor przedmiotu podaj, dane handlu jeszcze raz" +
                             "(0 zeby wyjsc do poprzedniego menu): ");
                     System.out.print("Wybieram Handlarza nr: ");
-                    wyborPrzedmiotu = in.nextInt();
+                    wyborPrzedmiotu = Gra.wczytajWyborGracza(handlarzTMP.getOferta().size(),true);
                     if (wyborPrzedmiotu == 0) return;
                 }
             }
@@ -172,7 +171,7 @@ public class Menu {
         }
 
 
-        int wybor = in.nextInt(); //Gra.wczytajWyborGracza(3);
+        int wybor = Gra.wczytajWyborGracza(4,true);
         switch (wybor) {
             case 1:
                 KolorTekstu.printZielony(gracz.toString());
@@ -180,6 +179,8 @@ public class Menu {
             case 2:
                 menuEkwipunku();
                 return false;
+            case 3:
+                return menuLokacji();
             case 4:
                 if(lokacje.get(Gra.getInstance().getLokalizacjaGracza()).getHandlarz()!=null){
                     menuHandlu();
@@ -187,8 +188,6 @@ public class Menu {
                     System.out.println("Cos poszlo nie tak, sprobuj jeszcze raz");
                 }
                 return true;
-            case 3:
-                return menuLokacji();
             default:
                 System.out.println("Cos poszlo nie tak, sprobuj jeszcze raz");
                 return true;
