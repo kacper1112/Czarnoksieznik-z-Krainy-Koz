@@ -91,6 +91,7 @@ public class Handlarz extends NPC {
     }
 
     private void resetujOferte(){
+        oferta = new ArrayList<>();
         Random rand = new Random();
         AtomicInteger licznik = new AtomicInteger(1);
         getEkwipunek().getEkwipunekBronFizyczna()
@@ -158,6 +159,7 @@ public class Handlarz extends NPC {
         int pieniadzeOferta;
         if (przedmiot instanceof BronMagiczna) {
             if(przedmiot.equals(Gra.getInstance().getGracz().getEkwipunek().getWyekwipowanaBron())) return;
+            KolorTekstu.printZielony("Twoje zlote monety: " + Gra.getInstance().getGracz().getPieniadze());
             pieniadzeOferta = (przedmiot.getWartosc() - rand.nextInt(przedmiot.getWartosc() / 2));
             System.out.println("Za tę bron magiczna moge Ci zaoferowac: " + pieniadzeOferta);
             if (zgodnaNaOferte() == 1) {
@@ -168,6 +170,7 @@ public class Handlarz extends NPC {
             }
         } else if (przedmiot instanceof BronFizyczna) {
             if(przedmiot.equals(Gra.getInstance().getGracz().getEkwipunek().getWyekwipowanaBron())) return;
+            KolorTekstu.printZielony("Twoje zlote monety: " + Gra.getInstance().getGracz().getPieniadze());
             pieniadzeOferta = (przedmiot.getWartosc() - rand.nextInt(przedmiot.getWartosc() / 2));
             System.out.println("Za tę bron fizyczna moge Ci zaoferowac: " + pieniadzeOferta);
             if (zgodnaNaOferte() == 1) {
@@ -177,6 +180,7 @@ public class Handlarz extends NPC {
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
         } else if (przedmiot instanceof PrzedmiotPozywienie) {
+            KolorTekstu.printZielony("Twoje zlote monety: " + Gra.getInstance().getGracz().getPieniadze());
             pieniadzeOferta = (przedmiot.getWartosc() - rand.nextInt(przedmiot.getWartosc() - 1));
             System.out.println("Za to pozywienie moge Ci zaoferowac: " + pieniadzeOferta);
             if (zgodnaNaOferte() == 1) {

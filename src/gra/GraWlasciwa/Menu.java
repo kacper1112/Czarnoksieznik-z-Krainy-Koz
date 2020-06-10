@@ -152,7 +152,6 @@ public class Menu {
             }
         } else if (wyborCzynnosci == 2) {
             Przedmiot p = getItemZEkwiupnuku();
-            KolorTekstu.printZielony("Twoje zlote monety: " + gracz.getPieniadze());
             handlarzTMP.kupOdGracza(gracz, p);
             KolorTekstu.printZielony("Twoje zlote monety po sprzedazy: " + gracz.getPieniadze());
         } else {
