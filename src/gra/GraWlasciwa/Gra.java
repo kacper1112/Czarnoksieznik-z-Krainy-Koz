@@ -39,10 +39,21 @@ public class Gra {
     }
 
     public static int wczytajWyborGracza(int liczbaOpcji, boolean mozliwoscPowrotu) {
+        String inputGracza;
         int wybor;
         while (true) {
             System.out.print("Twoj wybor: ");
-            wybor = in.nextInt();
+            inputGracza = in.nextLine();
+            inputGracza = inputGracza.trim();
+
+            try {
+                wybor = Integer.parseInt(inputGracza);
+            } catch (NumberFormatException ex) {
+                System.out.println("Nie wprowadzono liczby!");
+                continue;
+            }
+
+
             if (wybor == 0 && mozliwoscPowrotu) {
                 return 0;
             } else if (1 <= wybor && wybor <= liczbaOpcji) {
