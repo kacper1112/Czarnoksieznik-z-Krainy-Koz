@@ -157,8 +157,12 @@ public class Handlarz extends NPC {
     public void kupOdGracza(Gracz gracz, Przedmiot przedmiot) {
         Random rand = new Random();
         int pieniadzeOferta;
+
         if (przedmiot instanceof BronMagiczna) {
-            if(przedmiot.equals(Gra.getInstance().getGracz().getEkwipunek().getWyekwipowanaBron())) return;
+            if(przedmiot.getNazwa().equals(((BronMagiczna)Gra.getInstance().getGracz().getEkwipunek().getWyekwipowanaBron()).getNazwa())){
+                KolorTekstu.printZielony("Nie moge kupic twojej glownej bronii!");
+                return;
+            }
             KolorTekstu.printZielony("Twoje zlote monety: " + Gra.getInstance().getGracz().getPieniadze());
             pieniadzeOferta = (przedmiot.getWartosc() - rand.nextInt(przedmiot.getWartosc() / 2));
             System.out.println("Za tę bron magiczna moge Ci zaoferowac: " + pieniadzeOferta);
@@ -169,7 +173,10 @@ public class Handlarz extends NPC {
                 gracz.setPieniadze(gracz.getPieniadze() + pieniadzeOferta);
             }
         } else if (przedmiot instanceof BronFizyczna) {
-            if(przedmiot.equals(Gra.getInstance().getGracz().getEkwipunek().getWyekwipowanaBron())) return;
+            if(przedmiot.getNazwa().equals(((BronFizyczna)Gra.getInstance().getGracz().getEkwipunek().getWyekwipowanaBron()).getNazwa())){
+                KolorTekstu.printZielony("Nie moge kupic twojej glownej bronii!");
+                return;
+            }
             KolorTekstu.printZielony("Twoje zlote monety: " + Gra.getInstance().getGracz().getPieniadze());
             pieniadzeOferta = (przedmiot.getWartosc() - rand.nextInt(przedmiot.getWartosc() / 2));
             System.out.println("Za tę bron fizyczna moge Ci zaoferowac: " + pieniadzeOferta);
