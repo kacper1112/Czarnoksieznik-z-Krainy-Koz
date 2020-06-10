@@ -31,7 +31,6 @@ ma więcej początkowych punktów życia.
 - mag
 : umiejętność posługiwania się bronią magiczną, w zależności od atrybutu
  inteligencji zwiększają się obrażenia jego czarów, ma szansę wykonać unik,
-
 - kapłan
 : potrafi posługiwać się zarówno czarami jak i bronią białą,
 atrybuty nie wplywają na zadawane obrażenia!

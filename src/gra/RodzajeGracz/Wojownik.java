@@ -13,13 +13,16 @@ public class Wojownik extends Gracz {
         super(300, 20, 10);
     }
 
-    // dodac w zaleznosci od przedmiotu i atrybutow
     public double zadajObrazenia() {
-        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia();
+        return this.getEkwipunek().getWyekwipowanaBron().zadajObrazenia() + getSumaBonusowDoSily() + getSila();
     }
 
     public double zadajMocneObrazenia() {
-        return this.getEkwipunek().getWyekwipowanaBron().zadajMocneObrazenia();
+        double obrazenia = this.getEkwipunek().getWyekwipowanaBron().zadajMocneObrazenia();
+        if(obrazenia == 0) {
+            return 0;
+        }
+        return obrazenia + getSila() + getSumaBonusowDoSily();
     }
 
     // obsluzyc jak gracza ginie
